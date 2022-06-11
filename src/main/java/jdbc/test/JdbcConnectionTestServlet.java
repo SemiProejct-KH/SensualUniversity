@@ -96,5 +96,5 @@ public class JdbcConnectionTestServlet extends HttpServlet {
 			System.out.println("> 자원반납 성공 !");
 		}
 	}
-
+// 123 321 123 312 122 312 123
 }
