@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3193B45A-C41A-8276-844A-7F2E3BB8209F" containerWithKeyObject="7B32859A-D3F8-BC08-0C5E-71B202E5733B" localFKIndex="2D7DF3FB-ACBC-A37E-D390-740AAEBFD19B" name="FK_BOARD_ATTACHMENT_BOARD_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>FK_BOARD_ATTACHMENT_BOARD_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:28 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<referredTableLongName>ADMIN.SU_BOARD</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>51D16945-0161-305F-CB9A-D3FE9A152A7C</referredTableID>
+<keyObject>B3CD81B8-36C0-BD34-B9CC-D176B57358B8</keyObject>
+<referredKeyID>B3CD81B8-36C0-BD34-B9CC-D176B57358B8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>BOARD_NO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

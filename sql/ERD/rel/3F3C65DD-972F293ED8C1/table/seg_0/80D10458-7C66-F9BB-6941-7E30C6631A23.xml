@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="80D10458-7C66-F9BB-6941-7E30C6631A23" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_NOTICE_ATTACHMENT">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_NOTICE_ATTACHMENT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOTICE_ATTACHMENT_NO" id="3CDA95BB-1966-7D56-71D5-D0F090791530">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_NOTICE_ATTACHMENT</sourceObjSchema>
+<sourceObjName>NOTICE_ATTACHMENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTICE_NO" id="19897C2A-24DB-E1D9-EE5E-061EA694CFF6">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_NOTICE_ATTACHMENT</sourceObjSchema>
+<sourceObjName>NOTICE_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="65911CE2-76A8-360F-A15D-AC026DFD3716" referredColumn="75C50150-FFEF-AAD4-D261-5E793733BDC0"/>
+</associations>
+</Column>
+<Column name="NOTICE_ATTACHMENT_ORIGINAL_FILENAME" id="020E9E68-0A4C-B8CF-C9C1-18BA3343721B">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_NOTICE_ATTACHMENT</sourceObjSchema>
+<sourceObjName>NOTICE_ATTACHMENT_ORIGINAL_FILENAME</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTICE_ATTACHMENT_RENAME_FILENAME" id="DC705509-FE47-17E4-61A1-5A226B6A40BA">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_NOTICE_ATTACHMENT</sourceObjSchema>
+<sourceObjName>NOTICE_ATTACHMENT_RENAME_FILENAME</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_NO" id="AF598ED3-2479-E020-B84E-E9CEE016B5F0">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_NOTICE_ATTACHMENT</sourceObjSchema>
+<sourceObjName>MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CE33371F-11C9-EAAA-3690-03A954F39424" name="PK_NOTICE_ATTACHMENT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_NOTICE_ATTACHMENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:25 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CDA95BB-1966-7D56-71D5-D0F090791530"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="150BE9AB-758C-0D12-71F9-E2E9ABE06826" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="PK_NOTICE_ATTACHMENT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_NOTICE_ATTACHMENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:21 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CDA95BB-1966-7D56-71D5-D0F090791530"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BDB11D83-9C6F-C737-50FA-7FFEA9234BC1" name="FK_NOTICE_ATTACHMENT_NOTICE_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:28 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="19897C2A-24DB-E1D9-EE5E-061EA694CFF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

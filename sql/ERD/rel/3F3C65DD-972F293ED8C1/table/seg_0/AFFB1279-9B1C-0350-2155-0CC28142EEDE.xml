@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AFFB1279-9B1C-0350-2155-0CC28142EEDE" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_CHATCONTENT">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_CHATCONTENT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CHATCONTENT_NO" id="6565DED3-C023-D1E7-0D9D-29AC3D272F47">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_CHATCONTENT</sourceObjSchema>
+<sourceObjName>CHATCONTENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHATROOM_NO" id="047C81B2-4B4D-7776-1D6D-455C317594AB">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_CHATCONTENT</sourceObjSchema>
+<sourceObjName>CHATROOM_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="72DBAAEF-3CA8-8816-6F92-257566E21DBE" referredColumn="119B7880-DB96-4449-E2FC-465A7CD2300D"/>
+</associations>
+</Column>
+<Column name="MEMBER_NO" id="96293A85-0225-F42D-2C9F-28AA05F436BB">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_CHATCONTENT</sourceObjSchema>
+<sourceObjName>MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="72DBAAEF-3CA8-8816-6F92-257566E21DBE" referredColumn="F03F3D1A-9F59-9911-501F-CFC1FF9A0634"/>
+</associations>
+</Column>
+<Column name="CHATCONTENT_CONTENT" id="A4A702B3-A32A-F77C-8808-17969C981899">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_CHATCONTENT</sourceObjSchema>
+<sourceObjName>CHATCONTENT_CONTENT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 BYTE</dataTypeSize>
+<ownDataTypeParameters>1000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHATCONTENT_DATE" id="5A05266B-068C-E9A9-18E3-C52FC7382C30">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_CHATCONTENT</sourceObjSchema>
+<sourceObjName>CHATCONTENT_DATE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C63A27E7-B21B-71BA-73C7-C54B104F7788" name="PK_CHATCONTENT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_CHATCONTENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:25 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6565DED3-C023-D1E7-0D9D-29AC3D272F47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49280970-44D4-5583-CB42-95647A3F63AF" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="PK_CHATCONTENT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_CHATCONTENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:21 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6565DED3-C023-D1E7-0D9D-29AC3D272F47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="211DB5A4-1235-7C96-E345-159F389A590B" name="FK_CHATCONTENT_CHATROOM_GROUP">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:28 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="047C81B2-4B4D-7776-1D6D-455C317594AB"/>
+<colUsage columnID="96293A85-0225-F42D-2C9F-28AA05F436BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

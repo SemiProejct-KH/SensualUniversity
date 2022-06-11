@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B5BE9403-862D-797B-4CD8-92DA750B43A7" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_GRADE">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_GRADE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>2A454F7C-4DAE-8DF4-45C5-3D2A25759C13</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGISTER_NO" id="3CB2B953-BB4C-8716-CB22-016DB4379596">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_GRADE</sourceObjSchema>
+<sourceObjName>REGISTER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>EB0F531C-564E-DDAD-335E-DF72F27F7F1A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD3C0640-E0CA-08E9-34E1-837246B0769A" referredColumn="B5C7542A-3A08-0DD3-E25F-AB738119D04C"/>
+</associations>
+</Column>
+<Column name="GRADE_MIDDLE" id="7321DB14-B137-2F10-1125-65D989E69A70">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_GRADE</sourceObjSchema>
+<sourceObjName>GRADE_MIDDLE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>2B269EF4-57B2-16A3-E992-1414A3DA3991</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRADE_FINAL" id="9D164F88-D829-666E-278F-E4820CCBA504">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_GRADE</sourceObjSchema>
+<sourceObjName>GRADE_FINAL</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>B7D2F1CE-A70D-6428-0E7B-C8ED45D0652C</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRADE_ASSIGNMENT" id="777AB527-07F7-6572-5352-7B45008817A5">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_GRADE</sourceObjSchema>
+<sourceObjName>GRADE_ASSIGNMENT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>FF08ACD2-AD91-09C3-EA69-F89AF23CAEEB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRADE_ATTEND" id="33716361-BA66-6179-0570-178E93104CFD">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_GRADE</sourceObjSchema>
+<sourceObjName>GRADE_ATTEND</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>82D96A05-D619-728B-3407-3E268D1C53A4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="41743518-2D3E-8F8B-DD9F-B6D2A4BBB061" name="FK_GRADE_REGISTER_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CB2B953-BB4C-8716-CB22-016DB4379596"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

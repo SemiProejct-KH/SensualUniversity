@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="SU_GRADE" directorySegmentName="seg_0" id="B5BE9403-862D-797B-4CD8-92DA750B43A7">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>45F19321-FA2A-58C7-6863-BE195EA9BE21</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>AE1F8ED1-63B2-7C14-57AC-0E5A676587D0</segment>
+<tableSpace>0E1220E9-372E-9BE9-8757-EE82B14F2766</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="GRADE_ATTEND" id="33716361-BA66-6179-0570-178E93104CFD">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGISTER_NO" id="3CB2B953-BB4C-8716-CB22-016DB4379596">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADE_MIDDLE" id="7321DB14-B137-2F10-1125-65D989E69A70">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADE_ASSIGNMENT" id="777AB527-07F7-6572-5352-7B45008817A5">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADE_FINAL" id="9D164F88-D829-666E-278F-E4820CCBA504">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_GRADE_REGISTER_NO" id="41743518-2D3E-8F8B-DD9F-B6D2A4BBB061">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+</TableProxyOraclev12c>
