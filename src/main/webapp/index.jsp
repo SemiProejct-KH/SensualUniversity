@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <title>로그인</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/board.css" />
 <head>
 <body>
     <div id="backdiv">
@@ -33,6 +33,7 @@
             </form>
         </div>
          <li><a href="<%= request.getContextPath() %>/main/test1.jsp">헤더 풋터 테스트</a></li>
+         <li><a href="<%= request.getContextPath() %>/main/notice/noticeList.jsp">공지사항 테스트</a></li>
     </div>
    
 </body>
