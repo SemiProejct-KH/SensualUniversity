@@ -18,3 +18,12 @@
 #input_container {
   float:left;
 }
+/* 큰 화면 */
+@media screen and (min-width: 1024px){
+	
+}
+
+/*중간 화면*/
+@media screen and (min-width: 968px) {
+	
+}
