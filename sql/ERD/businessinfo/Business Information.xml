@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="8FEA248B-E130-46D4-BE11-5151C736567A">
-<createdBy>chlqk</createdBy>
-<createdTime>2022-06-10 06:17:58 UTC</createdTime>
-<ownerDesignName>ERD</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</BusinessInfoDesign>
