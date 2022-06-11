@@ -34,25 +34,5 @@
         </nav>
       </div>
    	<hr>
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
-   	<br />
   </header>
 <section>
