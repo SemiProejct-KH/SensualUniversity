@@ -22,8 +22,8 @@
 			<div>
 				<h6>학생용 학번과 비밀번호를 입력해주세요.</h6>
 				<div id="input_container">
-					<input type="text" name="input_id" id="input_id"> <input
-						type="password" name="input_pw" id="input_pw">
+					<input type="text" name="input_id" id="input_id"> 
+					<input type="password" name="input_pw" id="input_pw">
 				</div>
 				<button type="button" class="btn btn-light">로그인</button>
 			</div>
