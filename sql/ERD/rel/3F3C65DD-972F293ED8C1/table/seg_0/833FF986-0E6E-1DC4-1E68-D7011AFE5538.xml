@@ -1,0 +1,266 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="833FF986-0E6E-1DC4-1E68-D7011AFE5538" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_MEMBER">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_MEMBER</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MEMBER_NO" id="1D1A0C70-908D-020D-9711-4164FE958417">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPARTMENT_NO" id="9E47C320-BA97-D385-D032-BE6BFC835F21">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>DEPARTMENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B05AAE3B-2194-C50E-667A-CDE83128905F" referredColumn="E865C40F-A792-9C0F-B3C8-9CA96C7870FF"/>
+</associations>
+</Column>
+<Column name="MEMBER_ID" id="098762C3-AB13-F418-A01B-FE205D707672">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_ID</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_PW" id="C728D2DB-AE8A-A6B8-BB92-D140E02AAF41">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_PW</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_NAME" id="AD59F59C-34FF-4F74-03F2-AC80B7450FC3">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_NAME</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_BIRTH" id="9F0CA32F-EAA8-FA57-A191-6704476B668F">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_BIRTH</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_PHONE" id="DB26F352-EA44-3697-D650-9D2ABF92F7FC">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_PHONE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>11 BYTE</dataTypeSize>
+<ownDataTypeParameters>11 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_EMAIL" id="19D22C58-7145-3A30-9B09-98ECA7AA0D20">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_EMAIL</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_IMG" id="47C376C6-D7A8-A358-62E2-FBF76E42140D">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_IMG</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_ROLE" id="85FDA150-E0AF-4D75-66BC-2A91D1C6286E">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_ROLE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<constraintName>CK_MEMBER_ROLE</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;A&apos;" description=""/>
+<valueDef value="&apos;P&apos;" description=""/>
+<valueDef value="&apos;S&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_LEVEL" id="91E44723-71CD-219E-321D-3FED4C8DC327">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>MEMBER_LEVEL</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<constraintName>CK_MEMBER_LEVEL</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;1&apos;" description=""/>
+<valueDef value="&apos;2&apos;" description=""/>
+<valueDef value="&apos;3&apos;" description=""/>
+<valueDef value="&apos;4&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENROLL_DATE" id="82BC0A8A-FBBC-7BF0-E2B3-ED0DD6D53AD5">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_MEMBER</sourceObjSchema>
+<sourceObjName>ENROLL_DATE</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:19 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>sysdate</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9B80050F-28F8-5EBB-9342-80B9F6AFF906" name="PK_MEMBER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:25 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D1A0C70-908D-020D-9711-4164FE958417"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E0806D51-11A8-DB6D-1091-9BDA60CBC994" name="UQ_MEMBER_ID">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>UQ_MEMBER_ID</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:25 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="098762C3-AB13-F418-A01B-FE205D707672"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E6D29F2-620C-7BFF-5478-E9ED4A62B418" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="PK_MEMBER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:21 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D1A0C70-908D-020D-9711-4164FE958417"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7D5CF8E5-4957-E2A9-2876-FA7CFD1B1661" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="UQ_MEMBER_ID">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>UQ_MEMBER_ID</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:21 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="098762C3-AB13-F418-A01B-FE205D707672"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08758C93-6872-7319-2869-7752A4064AC4" name="FK_MEMBER_DEPARTMENT_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:28 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E47C320-BA97-D385-D032-BE6BFC835F21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

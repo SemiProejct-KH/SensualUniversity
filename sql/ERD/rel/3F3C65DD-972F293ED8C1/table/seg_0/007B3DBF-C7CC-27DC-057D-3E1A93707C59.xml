@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="007B3DBF-C7CC-27DC-057D-3E1A93707C59" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_REGISTER">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_REGISTER</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>64BFC008-294E-A529-009B-9FBDF721E3DA</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGISTER_NO" id="B5C7542A-3A08-0DD3-E25F-AB738119D04C">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_REGISTER</sourceObjSchema>
+<sourceObjName>REGISTER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>802D5807-FA81-0D8A-D097-FABD58E6DCC7</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_NO" id="34FEF958-BF9E-80B9-52FC-7E7BE64DBBBF">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_REGISTER</sourceObjSchema>
+<sourceObjName>SUBJECT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>7570309B-59E6-5EF4-A525-DA5DE6FDDBAF</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="42514D9C-F887-A7AD-9C4B-EBE006C8AC3D" referredColumn="A9B2BA69-217E-9A74-4B34-305A23EDA80B"/>
+</associations>
+</Column>
+<Column name="MEMBER_NO" id="0DFCFF5E-E961-35F7-235B-4AE40445CE9E">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_REGISTER</sourceObjSchema>
+<sourceObjName>MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>099EB813-E2DB-365B-08BA-7EF5C1E2E7A7</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C74B52F-E5F9-9B2C-30AF-55863FE9A6BC" referredColumn="1D1A0C70-908D-020D-9711-4164FE958417"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5394B7F0-FF80-7DA7-B568-4CCE9BB0F634" name="PK_REGISTER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_REGISTER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>60197BCB-8C8F-CF17-774F-7F15FE981739</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5C7542A-3A08-0DD3-E25F-AB738119D04C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="305BCFD6-9765-F5BF-E8FE-FCB2A068DC68" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="PK_REGISTER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_REGISTER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>9B5076D6-3480-E21A-D065-CFF0BA447144</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5C7542A-3A08-0DD3-E25F-AB738119D04C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08CCB907-6E93-CA0B-8B60-02A6491C497F" name="FK_REGISTER_MEMBER_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DFCFF5E-E961-35F7-235B-4AE40445CE9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3FF62197-D098-D97E-4772-1B066AC10727" name="FK_REGISTER_SUBJECT_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34FEF958-BF9E-80B9-52FC-7E7BE64DBBBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

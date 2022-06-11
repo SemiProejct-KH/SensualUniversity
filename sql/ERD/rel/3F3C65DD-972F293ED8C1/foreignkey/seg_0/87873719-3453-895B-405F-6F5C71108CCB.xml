@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="87873719-3453-895B-405F-6F5C71108CCB" containerWithKeyObject="37873D0B-44DD-6AFE-555D-4276956AB441" localFKIndex="6DDE4458-8256-B10A-D1C4-532BECCAED2C" name="FK_BOARD_COMMENT_MEMBER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>FK_BOARD_COMMENT_MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:21:28 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<referredTableLongName>ADMIN.SU_MEMBER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>833FF986-0E6E-1DC4-1E68-D7011AFE5538</referredTableID>
+<keyObject>9B80050F-28F8-5EBB-9342-80B9F6AFF906</keyObject>
+<referredKeyID>9B80050F-28F8-5EBB-9342-80B9F6AFF906</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>MEMBER_NO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

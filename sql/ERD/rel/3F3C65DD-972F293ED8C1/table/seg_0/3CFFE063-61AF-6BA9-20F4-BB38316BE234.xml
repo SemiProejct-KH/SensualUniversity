@@ -1,0 +1,212 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3CFFE063-61AF-6BA9-20F4-BB38316BE234" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="SU_SUBJECT">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>SU_SUBJECT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>B14407DA-6CCA-AC34-3006-23E8FE75451A</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SUBJECT_NO" id="A9B2BA69-217E-9A74-4B34-305A23EDA80B">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>71EE8523-68FB-1D54-F71B-66EE4552D123</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBER_NO" id="C3D54A84-C2CA-B2A8-7DDB-50FF79F15071">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>MEMBER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>60B38524-D6D7-2EF1-396F-32CBCB36FE66</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BBFCCDDF-401F-93FF-7BC0-BB4CFBD05ADD" referredColumn="1D1A0C70-908D-020D-9711-4164FE958417"/>
+</associations>
+</Column>
+<Column name="DEPARTMENT_NO" id="3E893514-DC29-D7AC-35AA-DEB899A2B4AB">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>DEPARTMENT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>A1311057-32A0-E569-65A4-99E39D07EC26</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3C210F26-3661-8679-8522-89C6620C50C5" referredColumn="E865C40F-A792-9C0F-B3C8-9CA96C7870FF"/>
+</associations>
+</Column>
+<Column name="SUBJECT_NAME" id="D598724B-7761-B6F3-8867-ECCB3B0B3D32">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_NAME</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>502B73B5-3080-B01D-1D8F-0A17B1950643</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_TIME" id="16193D17-1DF3-FD9C-4E5B-1A9B6501AE80">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_TIME</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>82E5BDFE-5D44-42C7-15AA-C04650B50373</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_CLASSROOM" id="08372306-B264-E01C-E830-366C88A55DD3">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_CLASSROOM</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>8EDE5778-6BBA-CD32-38BD-C667D94DBA40</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_CREDIT" id="B972E2DB-D2BE-14F2-527D-9BE5F21F3214">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_CREDIT</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>E3169B82-6990-C5E7-8E88-E59AA88E12E1</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_LEBEL" id="D3DC3C3A-C49E-6684-4A74-6BF72FEF62DE">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_LEBEL</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>5FCE41D7-860D-D0C3-A175-73C5A02F84E5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT_TERM" id="4C796336-9072-E763-E815-30D6EC84D1AD">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>SU_SUBJECT</sourceObjSchema>
+<sourceObjName>SUBJECT_TERM</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>233EAA40-CB96-772B-CCB9-6C2ED838E4A6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="46523D15-3588-5E0E-F55B-EA5B188747AA" name="PK_SUBJECT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_SUBJECT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>4A46843C-DBE6-0B81-BE04-7DF093BD76C0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9B2BA69-217E-9A74-4B34-305A23EDA80B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1B0268B0-CB09-F9C9-A020-54509C0567FB" schemaObject="45F19321-FA2A-58C7-6863-BE195EA9BE21" name="PK_SUBJECT_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>PK_SUBJECT_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>B48B420A-8F46-9DA3-DD1F-4238D3A3FAF6</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9B2BA69-217E-9A74-4B34-305A23EDA80B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56F3E140-37BB-5B81-FB1E-5998460A3E73" name="FK_SUBJECT_DEPARTMENT_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E893514-DC29-D7AC-35AA-DEB899A2B4AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E83F3323-9092-6B52-09B1-B5B6AE77CD88" name="FK_SUBJECT_MEMBER_NO">
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3D54A84-C2CA-B2A8-7DDB-50FF79F15071"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

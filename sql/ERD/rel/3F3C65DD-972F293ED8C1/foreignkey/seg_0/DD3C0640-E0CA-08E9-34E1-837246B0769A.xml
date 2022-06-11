@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DD3C0640-E0CA-08E9-34E1-837246B0769A" containerWithKeyObject="B5BE9403-862D-797B-4CD8-92DA750B43A7" localFKIndex="41743518-2D3E-8F8B-DD9F-B6D2A4BBB061" name="FK_GRADE_REGISTER_NO">
+<sourceConnName>semi</sourceConnName>
+<sourceObjSchema>ADMIN</sourceObjSchema>
+<sourceObjName>FK_GRADE_REGISTER_NO</sourceObjName>
+<createdBy>chlqk</createdBy>
+<createdTime>2022-06-10 06:49:44 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>E65C43DE-4100-6CAC-BD29-7A37479720A0</importedID>
+<referredTableLongName>ADMIN.SU_REGISTER</referredTableLongName>
+<deleteRule>SET NULL</deleteRule>
+<referredTableID>007B3DBF-C7CC-27DC-057D-3E1A93707C59</referredTableID>
+<keyObject>5394B7F0-FF80-7DA7-B568-4CCE9BB0F634</keyObject>
+<referredKeyID>5394B7F0-FF80-7DA7-B568-4CCE9BB0F634</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>REGISTER_NO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
