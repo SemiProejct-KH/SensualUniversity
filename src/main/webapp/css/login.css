@@ -1,0 +1,20 @@
+#login_main {
+  height: 100%;
+}
+#section_slide {
+  border: 1px solid red;
+  float: left;
+  width: 70%;
+  height: 1200px;
+}
+#section_login {
+  background-color: rgb(5, 42, 120);
+  color: white;
+  border: 1px solid blue;
+  float: right;
+  width: 30%;
+  height: 1200px;
+}
+#input_container {
+  float:left;
+}

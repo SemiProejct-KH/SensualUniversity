@@ -1,0 +1,41 @@
+/* color: rgb(5, 42, 120); */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  height:100%
+}
+#top_bar {
+  height: 40px;
+  /* border: 1px solid red; */
+  background-color: rgb(5, 42, 120);
+}
+#top_bar_btn {
+  /* border: 1px solid yellow; */
+  float: right;
+  margin-right: 20%;
+}
+#uni_name {
+  /* border: 1px solid yellow; */
+  text-align: center;
+  padding:20px;
+}
+#navbar {
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+.section {
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	height: 800px; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	border: 1px solid red; /* 완성 후 삭제 예정 */
+}
+#footer {
+  background-color: rgb(5, 42, 120);
+  height: 110px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-top:40px;
+}
