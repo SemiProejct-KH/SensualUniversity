@@ -1,0 +1,21 @@
+table {
+	margin-top: 40px;
+	
+}
+#record {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+.line1, .line2 {
+        white-space: nowrap;
+        border: 1px solid #000;
+        vertical-align: top;
+        text-align: center;
+    }
+.line1 {
+    background-color: lightgray;
+    width: 100px;
+    height: 30px;
+    padding-top:7px;
+}
