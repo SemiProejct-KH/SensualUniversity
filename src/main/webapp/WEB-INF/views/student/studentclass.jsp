@@ -4,27 +4,26 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
 
 <section class="section">
-			<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/studentrecord">
+			<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/studentclass">
 		<table>
 		<tr>
-			<th><button>현학기 성적조회</button></th>
-			<th><button>지난학기 성적조회</button></th>
+			<th><button>현학기 강의조회</button></th>
+			<th><button>지난학기 강의조회</button></th>
 		</tr>
 		</table>
 		<table id="record">
 			<thead>
 				<tr>
+	                <th class="line1">년도</th>
+	                <th class="line1">학기</th>
 	                <th class="line1">학년</th>
 	                <th class="line1">개설학과</th>
 	                <th class="line1">교과목코드</th>
+	                <th class="line1">교과목명</th>
 	                <th class="line1">담당교수</th>
-	                <th class="line1">출석</th>
-	                <th class="line1">중간</th>
-	                <th class="line1">기말</th>
-	                <th class="line1">과제</th>
-	                <th class="line1">백분위</th>
-	                <th class="line1">학점</th>
-	                <th class="line1">이의제기</th>
+	                <th class="line1">강의교시</th>
+	                <th class="line1">강의실</th>
+	                <th class="line1">취득학점</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,7 +37,6 @@
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
-		            <td class="line2"><input type="checkbox"></td>
 			</tbody>
 		</table>
 	</form>
