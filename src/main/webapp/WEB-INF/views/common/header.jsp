@@ -1,5 +1,10 @@
+<%@page import="member.model.dto.MemberRole"%>
+<%@page import="member.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Member loginMember = (Member) request.getAttribute("loginMember");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +32,18 @@
 		</div>
 		<div id="navbar">
 			<ul class="nav justify-content-center">
+		<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#">강의조회</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">성적조회</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">수강신청</a></li>
+		<% } else if(loginMember != null && loginMember.getMemberRole() == MemberRole.P){%>
+				<li class="nav-item"><a class="nav-link" href="#">강의관리</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">성적관리</a></li>
+		<% } else {%>
+				<li class="nav-item"><a class="nav-link" href="#">회원관리</a></li>
+		
+		<% } %>
 				<li class="nav-item"><a class="nav-link">게시판</a></li>
 				<li class="nav-item"><a class="nav-link">메세지</a></li>
 			</ul>
