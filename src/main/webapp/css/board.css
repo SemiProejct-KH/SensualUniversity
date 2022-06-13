@@ -37,3 +37,21 @@ div.px-4 {
 button#btn_enroll {
 	float: right;
 }
+section.section p {
+	font-size: 23px;
+	font-weight: bold;
+}
+
+/* 공지사항 상세보기 noticeView */
+div.view_btn {
+	text-align: right;
+	height: 2px;
+}
+section#notice_container_view {
+	margin: 8% 20%;
+}
+
+/* 공지사항 업데이트 noticeUpdate */
+div#update_btn { 
+	float: right;
+}
