@@ -23,8 +23,8 @@
 	<section>
 		<div id="top_bar">
 			<div id="top_bar_btn">
-				<button type="button" class="btn btn-primary">마이페이지</button>
-				<button type="button" class="btn btn-primary">로그아웃</button>
+				<button type="button" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/member/memberMyPage';">마이페이지</button>
+				<button type="button" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/member/logout';">로그아웃</button>
 			</div>
 		</div>
 		<div id="uni_name">

@@ -12,7 +12,7 @@
 	Cookie[] cookies = request.getCookies();
 	if(cookies != null){
 		for(Cookie cookie : cookies){
-			// System.out.println("Cookie{" + cookie.getName() + "=" + cookie.getValue() + "}");
+			System.out.println("Cookie{" + cookie.getName() + "=" + cookie.getValue() + "}");
 			if("saveId".equals(cookie.getName())){
 				saveId = cookie.getValue();
 			}
@@ -75,12 +75,12 @@ alert("<%= msg %>");
 				<div>
 					<h6>학생용 학번과 비밀번호를 입력해주세요.</h6>
 					<div id="input_container">
-						<input type="text" name="memberId" id="memberId" placeholder="아이디"> 
+						<input type="text" name="memberId" id="memberId" placeholder="아이디" value="<%= saveId != null ? saveId : "" %>"> 
 						<input type="password" name="password" id="password" placeholder="비밀번호">
 					</div>
 					<button type="submit" class="btn btn-light">로그인</button>
 				</div>
-				<input class="form-check-input" type="checkbox" id="saveId" name="saveId" value="<%= saveId != null ? saveId : "" %>" >
+				<input class="form-check-input" type="checkbox" id="saveId" name="saveId" <%= saveId != null ? "checked" : "" %>>
 				<label class="form-check-label" for="saveId">아이디저장</label>
 				<button type="button" class="btn btn-light">비밀번호 찾기</button>
 				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/memberEnroll';">회원가입</button>
