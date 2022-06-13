@@ -14,7 +14,7 @@
 %>
 
 <section class="section">
-  <h2 align="center" style="margin-top:200px;">헤더 풋터 테스트</h2>	
+  <h2 align="center" style="margin-top:100px;">마이페이지</h2>	
   <form name="memberUpdateFrm" method="POST" action="<%= request.getContextPath() %>/member/memberUpdate">
 	  <!-- 아이디, 이름, 생년월일, 이메일, 핸드폰, 학년드롭박스, 학과드롭박스 -->
 	  <div class="mb-3 row">
@@ -51,21 +51,23 @@
 	      <input type="tel" class="form-control" id="memberPhone" value="<%= memberPhone %>">
 	    </div>
 	  </div>
-	  
-	  <% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
-	  <div class="col-md-6">
-	    <select id="inputState" class="form-select">
-	      <option selected><%= memberLevel %></option>
-	      <option>...</option>
-	    </select>
-	  </div>
-	  <% } %>
-	  
-	  <div class="col-md-4">
-	    <select id="inputState" class="form-select">
-	      <option selected><%= departmentNo %></option>
-	      <option>...</option>
-	    </select>
+	  <div class="row g-3">
+		  <% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
+		  <div class="col-sm">
+		    <select id="inputState" class="form-select">
+		      <option selected><%= memberLevel %></option>
+		      <option>...</option>
+
+		    </select>
+		  </div>
+		  <% } %>
+		  
+		  <div class="col-sm">
+		    <select id="inputState" class="form-select">
+		      <option selected><%= departmentNo %></option>
+		      <option>...</option>
+		    </select>
+		  </div>
 	  </div>
 	  
 	  <button type="submit" class="btn btn-primary">정보수정</button>
