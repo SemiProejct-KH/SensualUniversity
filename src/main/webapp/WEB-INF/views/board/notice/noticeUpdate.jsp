@@ -30,8 +30,8 @@
 					<input type="file" name="upFile2">
 				</div>
 				<div id="update_btn">
-					<button id="" class="btn btn-outline-primary">수정하기</button>
-					<button id="" class="btn btn-outline-primary">취소</button>
+					<button class="btn btn-outline-primary">수정하기</button>
+					<button class="btn btn-outline-primary">취소</button>
 				</div>
 			</form>
 		</div>
