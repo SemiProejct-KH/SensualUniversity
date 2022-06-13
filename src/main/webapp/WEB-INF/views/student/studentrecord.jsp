@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
-
+<%
+	int StudentNo = loginMember.getMemberNo();
+%> 
 <section class="section">
 			<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/studentrecord">
 		<table>
