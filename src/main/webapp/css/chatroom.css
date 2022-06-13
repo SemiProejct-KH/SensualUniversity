@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#chatroom_btn_container{
+	border: 1px solid blue;
+}
+
+#chatroom_list_container {
+	border: 1px solid yellow;
+	float: left;
+	width: 30%;
+	height: 100%;
+	padding: 4px;
+}
+
+#chatroom_list {
+	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+}
+
+#chatroom_chat_container {
+	border: 1px solid green;
+	float: right;
+	width: 70%
+}
+
+#chatroom_chat {
+	border: 1px solid black;
+	height: 800px;
+}
