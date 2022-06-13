@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	Member loginMember = (Member) request.getAttribute("loginMember");
+	Member loginMember = (Member) session.getAttribute("loginMember");
 %>
 <!DOCTYPE html>
 <html>
@@ -44,8 +44,8 @@
 				<li class="nav-item"><a class="nav-link" href="#">회원관리</a></li>
 		
 		<% } %>
-				<li class="nav-item"><a class="nav-link">게시판</a></li>
-				<li class="nav-item"><a class="nav-link">메세지</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">메세지</a></li>
 			</ul>
 		</div>
 	</section>
