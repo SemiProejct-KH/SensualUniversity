@@ -1,7 +1,12 @@
+<%@page import="studentclass.model.dto.StudentClass"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
+<%
+	List<StudentClass> list = (List<StudentClass>) request.getAttribute("list");
+%>
 
 <section class="section">
 			<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/studentclass">
@@ -14,8 +19,7 @@
 		<table id="record">
 			<thead>
 				<tr>
-	                <th class="line1">년도</th>
-	                <th class="line1">학기</th>
+	                <th class="line1">년도, 학기</th>
 	                <th class="line1">학년</th>
 	                <th class="line1">개설학과</th>
 	                <th class="line1">교과목코드</th>
@@ -27,16 +31,34 @@
 				</tr>
 			</thead>
 			<tbody>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
-		            <td class="line2">테스트</td>
+<%
+			if(list != null && !list.isEmpty()) {
+				for(StudentClass studentclass : list)
+				{
+%>
+					<tr>
+						<td class="line2"><%= studentclass.getSubjectTerm() %></td>
+			            <td class="line2"><%= studentclass.getSubjectLebel() %></td>
+			            <td class="line2"><%= studentclass.getDepartmentName() %></td>
+			            <td class="line2"><%= studentclass.getSubjectNo() %></td>
+			            <td class="line2"><%= studentclass.getSubjectName() %></td>
+			            <td class="line2"><%= studentclass.getMemberName() %></td>
+			            <td class="line2"><%= studentclass.getSubjectTime() %></td>
+			            <td class="line2"><%= studentclass.getSubjectClassroom() %></td>
+			            <td class="line2"><%= studentclass.getSubjectCredit() %></td>
+					</tr>
+<%
+				}
+			}
+			else
+			{
+%>			
+				<tr>
+					<td colspan="9">이전 강의가 없습니다.</td>
+				</tr>
+<%				
+			}
+%>
 			</tbody>
 		</table>
 	</form>
