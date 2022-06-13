@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+#chatroom_member_modal {
+	/* display: block; */
+}
+
 #chatroom_btn_container{
 	border: 1px solid blue;
 }
@@ -21,10 +25,25 @@
 #chatroom_chat_container {
 	border: 1px solid green;
 	float: right;
-	width: 70%
+	width: 70%;
 }
 
 #chatroom_chat {
+	margin: 0 auto;
 	border: 1px solid black;
-	height: 800px;
+	height: 700px;
+}
+
+#input_chat {
+	width: 85%;
+	float:left;
+	height: 30px;
+}
+
+#send_chat {
+	width:15%;
+	float:right;
+	height: 30px;
+	font-size:12px;
+	text-align: center;
 }
