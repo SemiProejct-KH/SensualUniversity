@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class NoticeListServlet
  */
+// 확인 주석 //
 @WebServlet("/notice/noticeList")
 public class NoticeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
