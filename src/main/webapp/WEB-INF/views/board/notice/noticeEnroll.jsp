@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
-<section id="notice_container_view" class="section">
+<section id="notice_container_enroll" class="section">
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h3 class="mt-4" >공지사항 작성</h3>
+	<h3 class="mt-4" >공지사항 등록</h3>
 	<div class="card mb-4">
 		<div class="card-body">
 			<form action="" method="post">
