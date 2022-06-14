@@ -17,15 +17,28 @@
 						<h5 class="modal-title">DM</h5>
 					</div>
 					<div class="modal-body">
-						<form action="<%=request.getContextPath()%>/chatroom/memberFinder">
+						<form name="register_find_frm" method="get" action="<%=request.getContextPath()%>/chatroom">
+							
 							<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+								<%
+									if(list == null || list.isEmpty()) {
+								%>
+								<option selected>조회된 강의가 없습니다.</option>
+								<%
+									} else {
+								%>	
 								<option selected>강의 선택</option>
-								<option value="register_name"><%= "register_name" %></option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+								<%	
+										for(Register register : list){
+								%>
+								<option value="register_name"><%= register.getSubjectName() %></option>
+								<%	
+										}
+									}
+								%>
 							</select> 					
 						</form>
-						<form action="<%=request.getContextPath()%>/chatroom/memberFinder">
+						<form>
 							<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 								<option selected>회원 선택</option>
 								<option value="1">One</option>

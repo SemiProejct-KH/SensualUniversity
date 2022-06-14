@@ -45,7 +45,7 @@
 		
 		<% } %>
 				<li class="nav-item"><a class="nav-link" href="#">게시판</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">메세지</a></li>
+				<li class="nav-item"><a class="nav-link" href='<%= request.getContextPath() %>/chat/chatroom'>메세지</a></li>
 			</ul>
 		</div>
 	</section>
