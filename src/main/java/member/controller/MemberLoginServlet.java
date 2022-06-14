@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import common.PasswordEncrypt;
 import member.model.dto.Member;
 import member.model.service.MemberService;
 
@@ -27,7 +28,7 @@ public class MemberLoginServlet extends HttpServlet {
 		
 		// 2. 사용자입력값 처리
 		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
+		String password = PasswordEncrypt.encrypt(request.getParameter("password"), memberId);
 		String saveId = request.getParameter("saveId"); 
 //		System.out.println("memberId@MemberLoginServlet =" + memberId);
 //		System.out.println("password@MemberLoginServlet =" + password);
