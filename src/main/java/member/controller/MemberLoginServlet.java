@@ -1,4 +1,4 @@
-package member.cotroller;
+package member.controller;
 
 import java.io.IOException;
 
