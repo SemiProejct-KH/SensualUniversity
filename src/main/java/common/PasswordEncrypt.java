@@ -7,11 +7,10 @@ import java.util.Base64;
 import java.util.Base64.Encoder;
 
 public class PasswordEncrypt {
+//	public static void main(String[] args) {
+//		System.out.println(encrypt("1234", "yoogs1234"));
+//	}
 	
-	public static void main(String[] args) {
-		System.out.println(encrypt("1234","parksj1234"));
-	}
-
 	public static String encrypt(String password, String salt) {
 		// 1. 암호화 Hashing
 		MessageDigest md = null;
@@ -20,13 +19,14 @@ public class PasswordEncrypt {
 			md = MessageDigest.getInstance("SHA-512");
 			byte[] input = password.getBytes("utf-8");
 			byte[] saltBytes = salt.getBytes("utf-8");
-			md.update(saltBytes);
-			encrypted = md.digest(input);
+			md.update(saltBytes);  
+			encrypted = md.digest(input); 
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		
+		// 2. 인코딩
 		Encoder encoder = Base64.getEncoder();
 		return encoder.encodeToString(encrypted);
 	}
-
 }
