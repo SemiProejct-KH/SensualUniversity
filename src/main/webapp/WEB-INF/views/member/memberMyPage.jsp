@@ -58,7 +58,7 @@
 	  <div class="row g-3">
 		  <% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
 		  <div class="col-sm-4">
-		    <select id="memberLevle" name="memberLevle" class="form-select" >
+		    <select id="memberLevel" name="memberLevel" class="form-select" >
 		      <option value="1" <%= memberLevel == "1" ? "selected" : "" %>>1</option>
 		      <option value="2" <%= memberLevel == "2" ? "selected" : "" %>>2</option>
 		      <option value="3" <%= memberLevel == "3" ? "selected" : "" %>>3</option>
@@ -69,12 +69,12 @@
 		  <% } %>
 		  
 		  <div class="col-sm-4">
-		    <select id="departmentNo" name="departmentNo" class="form-select">
-		      <option value="D1" selected>D1</option>
-		      <option value="D2">D2</option>
-		      <option value="D3">D3</option>
-		      <option value="D4">D4</option>
-		      <option value="D5">D5</option>
+		    <select id="departmentName" name="departmentName" class="form-select">
+		      <option value="컴퓨터소프트웨어학과" selected>컴퓨터소프트웨어학과</option>
+		      <option value="정보통신공학과">정보통신공학과</option>
+		      <option value="전자공학과">전자공학과</option>
+		      <option value="생활체육과">생활체육과</option>
+		      <option value="경영학과">경영학과</option>
 		    </select>
 		  </div>
 	  </div>

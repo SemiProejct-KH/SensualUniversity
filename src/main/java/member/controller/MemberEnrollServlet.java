@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.PasswordEncrypt;
 import member.model.dto.Member;
+import member.model.dto.MemberExt;
 import member.model.dto.MemberRole;
 import member.model.service.MemberService;
 
@@ -41,16 +42,34 @@ public class MemberEnrollServlet extends HttpServlet {
 			if(_memberBirth != null && !"".equals(_memberBirth))
 				memberBirth = Date.valueOf(_memberBirth);
 			
-			String memberLevle = request.getParameter("memberLevle");
-			String departmentNo = request.getParameter("departmentNo");
+			String memberLevel = request.getParameter("memberLevel");
 			String memberPhone = request.getParameter("memberPhone");
 			String memberEmail = request.getParameter("memberEmail");
 			
-			Member member = new Member(
-										0, departmentNo, memberId, memberPw, memberName, 
-										memberBirth, memberPhone, memberEmail, null, 
-										MemberRole.S, memberLevle, null
-									  );
+			String departmentName = request.getParameter("departmentName");
+//			System.out.println(departmentName);
+			String departmentNo = null;
+			switch(departmentName) {
+				case "컴퓨터소프트웨어학과" : departmentNo = "D1"; break;
+				case "정보통신공학과" : departmentNo = "D2"; break;
+				case "전자공학과" : departmentNo = "D3"; break;
+				case "생활체육과" : departmentNo = "D4"; break;
+				case "경영학과" : departmentNo = "D5"; break;
+			}
+			MemberExt member = new MemberExt();
+			member.setMemberId(memberId);
+			member.setMemberPw(memberPw);
+			member.setMemberName(memberName);
+			member.setMemberBirth(memberBirth);
+			member.setMemberLevel(memberLevel);
+			member.setDepartmentNo(departmentNo);
+			member.setMemberPhone(memberPhone);
+			member.setMemberEmail(memberEmail);
+			member.setMemberRole(MemberRole.S);
+			member.setMemberImg(null);
+			System.out.println("member@memberEnrollServlet = " + member);
+										
+			
 			System.out.println("member@memberEnrollServlet = " + member);
 			// 3. 업무로직 (db insert)
 			int result = memberService.insertMember(member);

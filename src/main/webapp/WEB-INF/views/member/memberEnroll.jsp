@@ -59,8 +59,8 @@
    	  	<!-- 학과, 학년드롭다운 추후변경 -->
    	  	<div class="row g-2 ">
 		  	<div class="col-md-4">
-			  <label for="memberLevle" class="form-label">학년</label>
-			  <select id="memberLevle" name="memberLevle" class="form-select">
+			  <label for="memberLevel" class="form-label">학년</label>
+			  <select id="memberLevel" name="memberLevel" class="form-select">
 			    <option selected>1</option>
 			    <option>2</option>
 			    <option>3</option>
@@ -69,13 +69,13 @@
 			</div>
 			
 			<div class="col-md-4">
-			  <label for="departmentNo" class="form-label ">학과</label>
-			  <select id="departmentNo" name="departmentNo" class="form-select">
-			    <option selected>D1</option>
-			    <option>D2</option>
-			    <option>D3</option>
-			    <option>D4</option>
-			    <option>D5</option>
+			  <label for="departmentName" class="form-label ">학과</label>
+			  <select id="departmentName" name="departmentName" class="form-select">
+			    <option selected>컴퓨터소프트웨어학과</option>
+			    <option>정보통신공학과</option>
+			    <option>전자공학과</option>
+			    <option>생활체육과</option>
+			    <option>경영학과</option>
 			  </select>
 			</div>
 		</div>

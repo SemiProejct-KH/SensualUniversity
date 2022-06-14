@@ -8,9 +8,9 @@ import java.util.Base64.Encoder;
 
 public class PasswordEncrypt {
 	
-//	public static void main(String[] args) {
-//		System.out.println(encrypt("1234","qwerty"));
-//	}
+	public static void main(String[] args) {
+		System.out.println(encrypt("1234","parksj1234"));
+	}
 
 	public static String encrypt(String password, String salt) {
 		// 1. 암호화 Hashing
