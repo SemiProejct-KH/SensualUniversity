@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.PasswordEncrypt;
 import member.model.dto.Member;
 import member.model.dto.MemberRole;
 import member.model.service.MemberService;
@@ -31,7 +32,7 @@ public class MemberEnrollServlet extends HttpServlet {
 			// 1. 인코딩 필터처리
 			// 2. 사용자입력값 처리
 			String memberId = request.getParameter("memberId");
-			String memberPw = request.getParameter("password");
+			String memberPw = PasswordEncrypt.encrypt(request.getParameter("password"), memberId);
 			String memberName = request.getParameter("memberName");
 			
 			String _memberBirth = request.getParameter("memberBirth");
