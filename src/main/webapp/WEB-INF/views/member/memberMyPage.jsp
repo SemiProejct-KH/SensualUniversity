@@ -47,25 +47,32 @@
 	  
 	  <div class="mb-3 row">
 	    <label for="memberPhone" class="col-sm-2 col-form-label">핸드폰</label>
-	    <div class="col-sm-10">
+	    <div class="col-sm-8">
 	      <input type="tel" class="form-control" id="memberPhone" value="<%= memberPhone %>">
 	    </div>
 	  </div>
 	  <div class="row g-3">
 		  <% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
-		  <div class="col-sm">
+		  <div class="col-sm-4">
 		    <select id="inputState" class="form-select">
 		      <option selected><%= memberLevel %></option>
-		      <option>...</option>
+		      <option>1</option>
+		      <option>2</option>
+		      <option>3</option>
+		      <option>4</option>
 
 		    </select>
 		  </div>
 		  <% } %>
 		  
-		  <div class="col-sm">
+		  <div class="col-sm-4">
 		    <select id="inputState" class="form-select">
 		      <option selected><%= departmentNo %></option>
-		      <option>...</option>
+		      <option>D1</option>
+		      <option>D2</option>
+		      <option>D3</option>
+		      <option>D4</option>
+		      <option>D5</option>
 		    </select>
 		  </div>
 	  </div>
