@@ -99,4 +99,30 @@ public class MemberDao {
 		return result;
 	}
 
+	public int updateMember(Connection conn, Member member) {
+			PreparedStatement pstmt = null;
+			int result = 0;
+			String sql = prop.getProperty("updateMember");
+			try {
+				// 1. pstmt객체 생성 & 미완성쿼리 값대입
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, member.getMemberName());
+				pstmt.setDate(2, member.getMemberBirth());
+				pstmt.setString(3, member.getMemberEmail());
+				pstmt.setString(4, member.getMemberPhone());
+				pstmt.setString(5, member.getMemberLevel());
+				pstmt.setString(6, member.getDepartmentNo());
+				pstmt.setString(7, member.getMemberId());
+				// 2. 실행
+				result = pstmt.executeUpdate();
+			} catch (Exception e) {
+				throw new MemberException("회원정보수정 오류", e);
+			} finally {
+				// 3. 자원반납 - pstmt
+				close(pstmt);
+			}
+			return result;
+	}
+	
+
 }
