@@ -17,17 +17,12 @@ public class PasswordUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberService();
 	
-	/**
-	 * 패스워드 수정폼 요청
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/member/passwordUpdate.jsp")
 			.forward(request, response);
 	}
 
-	/**
-	 * 패스워드 수정 요청
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// 1. 사용자입력값 처리
