@@ -3,7 +3,7 @@ package professorlecture.model.dto;
 public class ProfessorLecture {
 	
 	private String subjectTerm; // 년도,학기
-	private String subjectLevel; // 학년
+	private String subjectLebel; // 학년
 	private String subjectName; // 이름
 	private String memberId; // 아이디
 	private String departmentName; // 학과
@@ -16,7 +16,7 @@ public class ProfessorLecture {
 			String departmentName) {
 		super();
 		this.subjectTerm = subjectTerm;
-		this.subjectLevel = subjectLevel;
+		this.subjectLebel = subjectLevel;
 		this.subjectName = subjectName;
 		this.memberId = memberId;
 		this.departmentName = departmentName;
@@ -31,11 +31,11 @@ public class ProfessorLecture {
 	}
 
 	public String getSubjectLevel() {
-		return subjectLevel;
+		return subjectLebel;
 	}
 
 	public void setSubjectLevel(String subjectLevel) {
-		this.subjectLevel = subjectLevel;
+		this.subjectLebel = subjectLevel;
 	}
 
 	public String getSubjectName() {
@@ -64,7 +64,7 @@ public class ProfessorLecture {
 
 	@Override
 	public String toString() {
-		return "ProfessorLecture [subjectTerm=" + subjectTerm + ", subjectLevel=" + subjectLevel + ", subjectName="
+		return "ProfessorLecture [subjectTerm=" + subjectTerm + ", subjectLevel=" + subjectLebel + ", subjectName="
 				+ subjectName + ", memberId=" + memberId + ", departmentName=" + departmentName + "]";
 	}
 
