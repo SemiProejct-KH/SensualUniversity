@@ -1,6 +1,6 @@
 package member.model.exception;
 
-public class MemberException extends Exception {
+public class MemberException extends RuntimeException {
 
 	public MemberException() {
 		super();
@@ -26,5 +26,6 @@ public class MemberException extends Exception {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 }
