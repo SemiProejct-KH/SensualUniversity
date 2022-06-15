@@ -1,6 +1,13 @@
+<%@page import="member.model.dto.MemberExt"%>
+<%@page import="notice.model.dto.NoticeExt"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%
+	List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
+
+%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <div class="board_menu">
 	<li><a href="#">공지사항&nbsp|&nbsp</a></li>
@@ -9,10 +16,10 @@
 	<li><a href="#">분실물</a></li>
 </div>
 <section id="notice_container" class="section">
-	<input 
-		type="button" value="글쓰기"
-		onclick="location.href='<%= request.getContextPath() %>/notice/noticeEnroll';"/>
-	<table id="tbl-notice" class="table table-stript">
+	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
+		<input type="button" value="글쓰기" onclick="location.href='<%= request.getContextPath() %>/notice/noticeEnroll';"/>
+	<% } %>
+	<table id="tbl_n_list" class="table table-striped">
 		<thead class="thead-light">
 			<tr>
 				<th>No.</th>
@@ -24,9 +31,38 @@
 			</tr>
 		</thead>
 		<tbody>
-		<tr>
-			<td colspan="6"> 조회된 정보가 없습니다.</td>
-		</tr>
+		<%
+			if(list != null && !list.isEmpty()) {
+			  for(NoticeExt noticeExt : list) {
+			
+		%>
+			<tr>
+				<td><%= noticeExt.getNoticeNo() %></td>
+				<td><%= noticeExt.getNoticeTitle() %></td>
+				<td><%= noticeExt.getMemberName() %></td>
+				<td><%= noticeExt.getNoticeDate() %></td>
+				<td>
+		<%
+				if(noticeExt.getNoticeAttachCount() > 0) {
+					
+		%>
+		<%
+				} 
+		%>
+				</td>
+				<td><%= noticeExt.getNoticeReadCount() %></td>
+			</tr>
+		<%
+			  }
+			} else {
+		
+		%>
+			   <tr>
+				  <td colspan="6"> 조회된 정보가 없습니다.</td>
+				</tr>
+		<%
+			}
+		%>
 		</tbody>
 	</table>
 

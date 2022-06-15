@@ -1,4 +1,4 @@
-package board.controller;
+package notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,20 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 public class NoticeEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public NoticeEnrollServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeEnroll.jsp")
-		.forward(request, response);
+			.forward(request, response);
 	}
 
 	/**

@@ -17,7 +17,7 @@ div.board_menu li a:hover {
 	font-weight: bold;
 }
 /* 조회된 정보가 없습니다. */
-table#tbl-notice tr td {
+table#tbl_notice tr td {
 	text-align: center;
 }
 
@@ -52,6 +52,14 @@ section#notice_container_view {
 }
 
 /* 공지사항 업데이트 noticeUpdate */
+table#tbl_n_view {
+	text-align: center;
+	border: 1px solid #dddddd;
+}
+td#td_view_content {
+	min-height: 200px; 
+	text-align: left;
+}
 div#update_btn { 
 	float: right;
 }

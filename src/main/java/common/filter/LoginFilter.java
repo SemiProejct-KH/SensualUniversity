@@ -26,7 +26,10 @@ import member.model.dto.Member;
 	"/board/boardEnroll",
 	"/board/boardUpdate",
 	"/board/boardDelete",
-	"/chat/chatroom"
+	"/chat/chatroom",
+	"/notice/noticeEnroll",
+	"/notce/noticeUpdate",
+	"/notice/noticeDelete"
 })
 public class LoginFilter implements Filter {
 
