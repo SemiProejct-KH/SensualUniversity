@@ -17,7 +17,7 @@ public class ProfessorGradeDao {
 	private Properties prop = new Properties();
 
 	public ProfessorGradeDao() {
-		String fileName = ProfessorGradeDao.class.getResource("/sql/professor-grade.properties").getPath();
+		String fileName = ProfessorGradeDao.class.getResource("/sql/professor-query.properties").getPath();
 		try {
 			prop.load(new FileReader(fileName));
 		} catch (IOException e) {

@@ -1,19 +1,19 @@
-<%@ page import="professorlecture.model.dto.ProfessorLecture"%>
+<%@page import="professorgrade.model.dto.ProfessorGrade"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <%
-	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
+	List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 %>
 
 <section class="section">
-		<form name="lectureFrm" method="post" action="<%= request.getContextPath() %>/professor/professorlecture">
+		<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/professor/professorgrade">
 		<table>
 		<tr>
-			<th><button>현학기 강의 및 학생조회</button></th>
-			<th><button>지난학기 강의 및 학생조회</button></th>
+			<th><button>현학기 성적관리</button></th>
+			<th><button>지난학기 성적관리</button></th>
 		</tr>
 		</table>
 		<table id="record">
@@ -24,12 +24,18 @@
 	                <th class="line1">이름</th>
 	                <th class="line1">아이디</th>
 	                <th class="line1">학과</th>
+	                <th class="line1">중간</th>
+	                <th class="line1">기말</th>
+	                <th class="line1">과제</th>
+	                <th class="line1">출석</th>
+	                <th class="line1">백분위</th>
+	                <th class="line1">학점</th>
 				</tr>
 			</thead>
 			<tbody>
 <%
 			if(list != null && !list.isEmpty()) {
-				for(ProfessorLecture professorgrade : list)
+				for(ProfessorGrade professorgrade : list)
 				{
 %>
 					<tr>
@@ -39,6 +45,12 @@
 			            <td class="line2"><%= professorgrade.getMemberId() %></td>
 			            <td class="line2"><%= professorgrade.getSubjectName() %></td>
 			            <td class="line2"><%= professorgrade.getDepartmentName() %></td>
+			            <td class="line2"><%= professorgrade.getGrademiddle() %></td>
+			            <td class="line2"><%= professorgrade.getGradefinal() %></td>
+			            <td class="line2"><%= professorgrade.getGradeassignment() %></td>
+			            <td class="line2"><%= professorgrade.getGradeattend() %></td>
+			            <td class="line2"><%= professorgrade.getGradeattend() %></td>
+			            <td class="line2"><%= professorgrade.getGradeattend() %></td>
 					</tr>
 <%
 				}

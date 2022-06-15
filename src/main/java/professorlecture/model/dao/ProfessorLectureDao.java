@@ -19,7 +19,7 @@ public class ProfessorLectureDao {
 	private Properties prop = new Properties();
 	
 	public ProfessorLectureDao() {
-		String fileName = ProfessorLectureDao.class.getResource("/sql/professor-lecture.properties").getPath();
+		String fileName = ProfessorLectureDao.class.getResource("/sql/professor-query.properties").getPath();
 		try {
 			prop.load(new FileReader(fileName));
 		} catch (IOException e) {
@@ -31,7 +31,7 @@ public class ProfessorLectureDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<ProfessorLecture> list = new ArrayList<>();
-		ProfessorLecture professorgrade = null;
+		ProfessorLecture professorlecture = null;
 		String sql = prop.getProperty("getLecture");
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -39,14 +39,14 @@ public class ProfessorLectureDao {
 			rset = pstmt.executeQuery();
 			
 			while (rset.next()) {
-				professorgrade = new ProfessorLecture();
-				professorgrade.setSubjectTerm(rset.getString("subject_term"));
-				professorgrade.setSubjectLebel(rset.getString("subject_lebel"));
-				professorgrade.setSubjectName(rset.getString("subject_name"));
-				professorgrade.setMemberId(rset.getString("subject_member_id"));
-				professorgrade.setDepartmentName(rset.getString("subject_department_name"));
+				professorlecture = new ProfessorLecture();
+				professorlecture.setSubjectTerm(rset.getString("subject_term"));
+				professorlecture.setSubjectLebel(rset.getString("subject_lebel"));
+				professorlecture.setSubjectName(rset.getString("subject_name"));
+				professorlecture.setMemberId(rset.getString("subject_member_id"));
+				professorlecture.setDepartmentName(rset.getString("subject_department_name"));
 				
-				list.add(professorgrade);
+				list.add(professorlecture);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
