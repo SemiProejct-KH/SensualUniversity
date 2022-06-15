@@ -16,11 +16,11 @@ public class ProfessorGrade {
 		super();
 	}
 
-	public ProfessorGrade(String subjectTerm, String subjectLevel, String subjectName, String memberId,
+	public ProfessorGrade(String subjectTerm, String subjectLebel, String subjectName, String memberId,
 			String departmentName, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
 		super();
 		this.subjectTerm = subjectTerm;
-		this.subjectLebel = subjectLevel;
+		this.subjectLebel = subjectLebel;
 		this.subjectName = subjectName;
 		this.memberId = memberId;
 		this.departmentName = departmentName;
@@ -38,12 +38,12 @@ public class ProfessorGrade {
 		this.subjectTerm = subjectTerm;
 	}
 
-	public String getSubjectLevel() {
+	public String getSubjectLebel() {
 		return subjectLebel;
 	}
 
-	public void setSubjectLevel(String subjectLevel) {
-		this.subjectLebel = subjectLevel;
+	public void setSubjectLebel(String subjectLebel) {
+		this.subjectLebel = subjectLebel;
 	}
 
 	public String getSubjectName() {
@@ -104,10 +104,10 @@ public class ProfessorGrade {
 
 	@Override
 	public String toString() {
-		return "ProfessorGrade [subjectTerm=" + subjectTerm + ", subjectLevel=" + subjectLebel + ", subjectName="
+		return "ProfessorGrade [subjectTerm=" + subjectTerm + ", subjectLebel=" + subjectLebel + ", subjectName="
 				+ subjectName + ", memberId=" + memberId + ", departmentName=" + departmentName + ", grademiddle="
 				+ grademiddle + ", gradefinal=" + gradefinal + ", gradeassignment=" + gradeassignment + ", gradeattend="
 				+ gradeattend + "]";
 	}
-	
+
 }
