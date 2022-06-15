@@ -34,13 +34,13 @@
 	height: 700px;
 }
 
-#input_chat {
+#dm-msg {
 	width: 85%;
 	float:left;
 	height: 30px;
 }
 
-#send_chat {
+#dm-send {
 	width:15%;
 	float:right;
 	height: 30px;
