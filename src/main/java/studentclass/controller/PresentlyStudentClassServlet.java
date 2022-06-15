@@ -1,8 +1,6 @@
-package enrolment.controller;
+package studentclass.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,17 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import enrolment.model.dto.Enrol;
-import enrolment.model.service.EnrolService;
 import member.model.dto.Member;
+import studentclass.model.dto.PresentlyStudentClass;
+import studentclass.model.service.PresentlyStudentClassService;
 
 /**
- * Servlet implementation class enrolmentViewServlet
+ * Servlet implementation class PresentlyStudentClass
  */
-@WebServlet("/enrol/enrolment")
-public class enrolmentViewServlet extends HttpServlet {
+@WebServlet("/class/presentlystudentclass")
+public class PresentlyStudentClassServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EnrolService enrolService = new EnrolService();
+	private PresentlyStudentClassService presentlyStudentClassService = new PresentlyStudentClassService();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,25 +29,20 @@ public class enrolmentViewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Member loginMember = (Member) session.getAttribute("loginMember");
-
-		List<Enrol> list = enrolService.EnrolAll();
-		System.out.println("EnrolList = " + list);	
 		
 		try 
 		{
 			int No = loginMember.getMemberNo();
-			String Str = request.getParameter("sno");
-			System.out.println(Str);
-			
-			int result = enrolService.insertEnrol(No, Str);
+			List<PresentlyStudentClass> list = presentlyStudentClassService.nowClassAll(No);
 			
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("/WEB-INF/views/enrolment/enrolment.jsp").forward(request, response);
-		}  
+			request.getRequestDispatcher("/WEB-INF/views/student/presentlystudentclass.jsp").forward(request, response); 
+		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
 			throw e;
 		}
 	}
+
 }

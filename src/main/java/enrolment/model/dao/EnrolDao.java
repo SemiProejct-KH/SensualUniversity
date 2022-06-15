@@ -6,11 +6,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import enrolment.model.dto.Enrol;
+import member.model.dto.Member;
+import member.model.exception.MemberException;
 import studentclass.model.dao.StudentClassDao;
 
 public class EnrolDao {
@@ -64,4 +67,48 @@ public class EnrolDao {
 		}
 		return list;
 	}
+
+	public int insertEnrol(Connection conn, int no, String str) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("insertEnol");
+		
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, str);
+			pstmt.setInt(2, no);
+			
+			result = pstmt.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			close(pstmt);
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
