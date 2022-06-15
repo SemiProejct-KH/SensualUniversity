@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import member.model.dto.Member;
@@ -161,7 +162,7 @@ public class MemberDao {
 		return result;
 	}
 
-	public List<MemberExt> studentFindAll(Connection conn) {
+	public List<MemberExt> studentFindAll(Connection conn, Map<String, Object> param) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<MemberExt> list = new ArrayList<>();
@@ -169,17 +170,11 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				MemberExt member = new MemberExt();
-				member.setMemberName(rset.getString("member_name"));
-				member.setMemberId(rset.getString("member_id"));
-				member.setDepartmentName(rset.getString("department_name"));
-				member.setMemberLevel(rset.getString("member_level"));
-				member.setMemberPhone(rset.getString("member_phone"));
-				member.setMemberEmail(rset.getString("member_email"));
-				member.setMemberBirth(rset.getDate("member_birth"));
-				member.setEnrollDate(rset.getDate("enroll_date"));
+				MemberExt member = handleMemberResultSet(rset);
 				list.add(member);
 			}
 		} catch (Exception e) {
@@ -189,6 +184,26 @@ public class MemberDao {
 			close(rset);
 		}
 		return list;
+	}
+
+	public int getTotalContents(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int totalContents = 0;
+		String sql = prop.getProperty("getTotalContents");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next())
+				totalContents = rset.getInt(1); 
+		} catch (Exception e) {
+			throw new MemberException("전체회원수 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return totalContents;
 	}
 	
 

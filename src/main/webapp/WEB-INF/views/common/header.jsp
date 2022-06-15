@@ -1,16 +1,17 @@
+<%@page import="member.model.dto.MemberExt"%>
 <%@page import="member.model.dto.MemberRole"%>
 <%@page import="member.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	Member loginMember = (Member) session.getAttribute("loginMember");
+	MemberExt loginMember = (MemberExt) session.getAttribute("loginMember");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>학사정보시스템</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css?after" />
 <!-- jQuery -->
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <!-- Bootstrap CSS -->
@@ -41,8 +42,7 @@
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/professor/professorlecture">강의관리</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/professor/professorgrade">성적관리</a></li>
 		<% } else {%>
-				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/admin/studentList">회원관리</a></li>
-		
+				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/admin/memberList">회원관리</a></li>
 		<% } %>
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/notice/noticeList">게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href='<%= request.getContextPath() %>/chat/chatroom'>메세지</a></li>

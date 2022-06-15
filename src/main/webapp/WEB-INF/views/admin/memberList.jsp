@@ -1,11 +1,13 @@
+<%@page import="member.model.dto.MemberExt"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
 	List<MemberExt> list = (List<MemberExt>) request.getAttribute("list");
+	String pagebar = (String) request.getAttribute("pagebar");
 %>
-<section class="section">
+<section class="section" style="width: 83%;">
 	<div class="content-body">
 	    <div class="container-fluid">
 	        <h2 align="center" style="margin-top:100px;">회원관리</h2>	
@@ -25,9 +27,11 @@
 					    <div class="form-floating">
 					      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
 					        <option>학과 목록</option>
-					        <option value="1">One</option>
-					        <option value="2">Two</option>
-					        <option value="3">Three</option>
+					        <option value="1">컴퓨터소프트웨어학과</option>
+					        <option value="2">정보통신공학과</option>
+					        <option value="3">전자공학과</option>
+					        <option value="4">생활체육과</option>
+					        <option value="5">경영학과</option>
 					      </select>
 					      <label for="floatingSelectGrid">학과</label>
 					    </div>
@@ -70,8 +74,22 @@
 	                                    <tr>
 	                                        <td><%= member.getMemberId() %></td>
 	                                        <td><%= member.getMemberName() %></td>
-	                                        <td><%= member.getDepartmentName() %></td>
-	                                        <td><%= member.getMemberLevel() != null ? member.getMemberLevel() +"학년" : "" %></td>
+	                                        <% if(member.getDepartmentNo().equals("D1")) { %>
+		                                        <td>컴퓨터소프트웨어학과</td>
+	                                        <% 	} %>
+	                                        <% if(member.getDepartmentNo().equals("D2")) { %>
+		                                        <td>정보통신공학과</td>
+	                                        <% 	} %>
+	                                        <% if(member.getDepartmentNo().equals("D3")) { %>
+		                                        <td>전자공학과</td>
+	                                        <% 	} %>
+	                                        <% if(member.getDepartmentNo().equals("D4")) { %>
+		                                        <td>생활체육과</td>
+	                                        <% 	} %>
+	                                        <% if(member.getDepartmentNo().equals("D5")) { %>
+		                                        <td>경영학과</td>
+	                                        <% 	} %>
+	                                        <td><%= member.getMemberLevel() %></td>
 	                                        <td><%= member.getMemberBirth() %></td>
 	                                        <td><%= member.getMemberPhone() %></td>
 	                                        <td><%= member.getMemberEmail() %></td>
@@ -96,6 +114,9 @@
 	            </div>
 	        </div>
 	    </div>
+	</div>
+	<div class="page_bar"id="pagebar">
+		<%= pagebar %>
 	</div>
 </section>
 

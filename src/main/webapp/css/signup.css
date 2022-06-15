@@ -1,7 +1,60 @@
-.section_signup {
+/* .section_signup {
 	width: 60%;
 	margin-right: auto;
 	margin-left: auto;
-	height: 800px; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	height: 800px; 코드 작업 완성 후 100%로 바꿀 예정
+	border: 1px solid blue; 완성 후 삭제 예정
+} */
+
+.section_signup {
+	width: 30%;
+	margin: 0 auto;
+	height: 10%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
 	border: 1px solid blue; /* 완성 후 삭제 예정 */
+}
+h2{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 7px;
+}
+.title {
+    text-align: center;
+    background-color: rgb(5, 42, 120);
+    height: 45px;
+    text-align: center;
+    margin: 30px 5px 1px 5px;
+    border-radius: 0.25rem;
+}
+
+.align_btn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.role_btn {
+  background-color: white;
+  height: 45px;
+  width: calc(100% / 2);
+  padding: 5px 5px 0px 5px;
+  box-sizing: border-box;
+  display: flex;
+  
+}
+
+.role_btn button {
+    background-color: rgb(5, 42, 120);
+    color: white;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    border-radius: 0.25rem;
+}
+
+.enrolle_content {
+    margin: 5px;
+}
+
+.form-control {
+    padding: 18px;
 }
