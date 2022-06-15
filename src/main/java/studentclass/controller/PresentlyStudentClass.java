@@ -1,4 +1,4 @@
-package chat.controller;
+package studentclass.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ChatroomMemberServlet
+ * Servlet implementation class PresentlyStudentClass
  */
-@WebServlet("/chat/chatroomfindmember")
-public class ChatroomFindMemberServlet extends HttpServlet {
+@WebServlet("/class/presentlystudentclass")
+public class PresentlyStudentClass extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.getRequestDispatcher("/WEB-INF/views/student/presentlystudentclass.jsp").forward(request, response);
 	}
 
 }
