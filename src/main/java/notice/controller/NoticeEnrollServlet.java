@@ -22,6 +22,7 @@ public class NoticeEnrollServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeEnroll.jsp")
 			.forward(request, response);
 	}
+	// 
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
