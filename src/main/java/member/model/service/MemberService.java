@@ -2,9 +2,11 @@ package member.model.service;
 
 import static common.JdbcTemplate.*;
 import java.sql.Connection;
+import java.util.List;
 
 import member.model.dao.MemberDao;
 import member.model.dto.Member;
+import member.model.dto.MemberExt;
 
 /**
  * 1. connection생성
@@ -17,9 +19,9 @@ public class MemberService {
 
 	private MemberDao memberDao = new MemberDao();
 	
-	public Member findByMemberId(String memberId) {
+	public MemberExt findByMemberId(String memberId) {
 		Connection conn = getConnection();
-		Member member = memberDao.findByMemberId(conn, memberId);
+		MemberExt member = memberDao.findByMemberId(conn, memberId);
 		close(conn);
 		return member;
 	}
@@ -86,6 +88,14 @@ public class MemberService {
 				close(conn);
 			}
 			return result;
+		}
+
+
+		public List<MemberExt> studentFindAll() {
+			Connection conn = getConnection();
+			List<MemberExt> list = memberDao.studentFindAll(conn);
+			close(conn);
+			return list;
 		}
 
 }

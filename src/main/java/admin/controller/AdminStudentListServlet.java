@@ -12,24 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.dto.MemberExt;
 import member.model.service.MemberService;
 
-/**
- * select * from su_member order by enroll_date desc
- */
-@WebServlet("/admin/memberList")
-public class AdminMemberListServlet extends HttpServlet {
+@WebServlet("/admin/studentList")
+public class AdminStudentListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberService();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * select m.*,d.department_name from su_member m left join su_department d on m.department_no = d.department_no where member_role = 'S' order by enroll_date desc;
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-//			List<MemberExt> list = memberService.findAll();
-//			System.out.println("list = " + list);
+			List<MemberExt> list = memberService.studentFindAll();
+			System.out.println("list = " + list);
 			
+			request.setAttribute("list", list);
 			request
-				.getRequestDispatcher("/WEB-INF/views/admin/memberList.jsp")
+				.getRequestDispatcher("/WEB-INF/views/admin/studentList.jsp")
 				.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

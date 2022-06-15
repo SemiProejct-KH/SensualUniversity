@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.PasswordEncrypt;
-import member.model.dto.Member;
+import member.model.dto.MemberExt;
 import member.model.service.MemberService;
 
 
@@ -34,7 +34,7 @@ public class MemberLoginServlet extends HttpServlet {
 //		System.out.println("password@MemberLoginServlet =" + password);
 		
 		// 3. 업무로직
-		Member member = memberService.findByMemberId(memberId);
+		MemberExt member = memberService.findByMemberId(memberId);
 		System.out.println("member@MemberLoginServlet = " + member);
 		
 		HttpSession session = request.getSession();

@@ -1,6 +1,6 @@
 package member.model.dao;
 
-import static common.JdbcTemplate.*;
+import static common.JdbcTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,9 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import member.model.dto.Member;
+import member.model.dto.MemberExt;
 import member.model.dto.MemberRole;
 import member.model.exception.MemberException;
 
@@ -28,11 +31,11 @@ public class MemberDao {
 		}
 	}
 	
-	public Member findByMemberId(Connection conn, String memberId) {
+	public MemberExt findByMemberId(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("findByMemberId");
-		Member member = null;
+		MemberExt member = null;
 		
 		try {
 			// 1. pstmt객체 & 미완성쿼리 값대입
@@ -54,8 +57,8 @@ public class MemberDao {
 		return member;
 	}
 
-	private Member handleMemberResultSet(ResultSet rset) throws SQLException{
-		Member member = new Member();
+	private MemberExt handleMemberResultSet(ResultSet rset) throws SQLException{
+		MemberExt member = new MemberExt();
 		member.setMemberNo(rset.getInt("member_no"));
 		member.setDepartmentNo(rset.getString("department_no"));
 		member.setMemberId(rset.getString("member_id"));
@@ -156,6 +159,36 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	public List<MemberExt> studentFindAll(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("studentFindAll");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = new MemberExt();
+				member.setMemberName(rset.getString("member_name"));
+				member.setMemberId(rset.getString("member_id"));
+				member.setDepartmentName(rset.getString("department_name"));
+				member.setMemberLevel(rset.getString("member_level"));
+				member.setMemberPhone(rset.getString("member_phone"));
+				member.setMemberEmail(rset.getString("member_email"));
+				member.setMemberBirth(rset.getDate("member_birth"));
+				member.setEnrollDate(rset.getDate("enroll_date"));
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("학생목록조회 오류!", e);
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
 	}
 	
 
