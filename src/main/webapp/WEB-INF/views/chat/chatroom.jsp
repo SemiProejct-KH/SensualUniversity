@@ -8,52 +8,33 @@
 
 <section class="section">
 	<div>
-		<div class="modal" id="chatroom_member_modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">접속자 목록</h5>
-					</div>
-					<div class="modal-body">
-						<div id="dm-container">
-							<select onchange="select_change(this.value);" class="custom-select form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="dm-client">
-								<option value="" id="option_member" disabled selected>접속자 목록</option>
-							</select>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="chatroom_member_modal_close" data-bs-dismiss="modal">DM</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div id="chatroom_btn_container">
-			<button type="button" class="btn btn-primary" id="modal_block">회원 선택</button>
-			<input type="text" id="input_member" disabled/>
-		</div>
-		<div id="chatroom_list_container">
-			<div id="chatroom_list">
-				채팅방 리스트
-			</div>
+			<select class="custom-select form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="dm-client">
+				<option value="" id="option_member" disabled selected>접속자 목록</option>
+			</select>
 		</div>
 		<div id="chatroom_chat_container">
+			<label for="">현재 채팅 가능 인원 : </label>
+			<span id="clientCnt"></span>
 			<div id="chatroom_chat">
-			
+				<div id="msg-container" style="border: 1px solid red;">
+					<ul></ul>
+				</div>
 			</div>
 			<div id="chatroom_chat_input">
-				<input type="text" id="dm-msg"/>
+				<input type="text" id="dm-msg" onkeyup="enterkey()"/>
 				<button type="submit" class="btn btn-secondary" id="dm-send">전송</button>		
 			</div>
 		</div>
 	</div>
 </section>
 <script>
-$('#modal_block').on('click', function() {
-	$('#chatroom_member_modal').css('display', 'block');
-})
-$('#chatroom_member_modal_close').on('click', function() {
-	$('#chatroom_member_modal').css('display', 'none');	
-})
+//$('#modal_block').on('click', function() {
+//	$('#chatroom_member_modal').css('display', 'block');
+//})
+//$('#chatroom_member_modal_close').on('click', function() {
+//	$('#chatroom_member_modal').css('display', 'none');	
+//})
 
 const host = location.host; // 접속하는 있는 서버 도메인
 const ws = new WebSocket(`ws://\${host}<%= request.getContextPath() %>/chat/ws`);
@@ -72,16 +53,28 @@ ws.onmessage = (e) => {
 	switch(type){
 	case "welcome":
 	case "goodbye": 
-	case "chat": messageHandler(payload); break;
-	case "dm":
-		alert(`\${sender}로부터 DM이 도착했습니다.
-----------------------------------------
-발신자 : \${sender}
-수신자 : \${receiver}
-내용 : \${msg}`);
-		break;
+	case "dm": messageHandler(payload); break;
+
 	}
+};
+
+const messageHandler = (payload) => {
+	const {type, sender, msg, time, clientCnt} = payload;
+	if(<%= loginMember.getMemberId() == loginMember.getMemberId() %>){
+		const html = `
+		<li class="\${type !== 'chat' ? 'center' : ''}" style="list-style:none;">
+			<span class="badge" style="color:black; background-color:yellow">\${sender}</span>
+			\${msg}
+		</li>`;
+		document.querySelector("#msg-container ul").insertAdjacentHTML('beforeend', html);
+	}
+
+	// 스크롤해서 하단부 노출!
+	const container = document.querySelector("#msg-container");
+	container.scrollTop = container.scrollHeight;
 	
+	// 채팅인원수 관리
+	clientCnt && (document.querySelector("#clientCnt").innerHTML = clientCnt);
 };
 
 ws.onerror = (e) => {
@@ -91,7 +84,6 @@ ws.onclose = (e) => {
 	console.log('close', e);
 };
 
-const dmclient = document.querySelector("#dm-client");
 // DM
 document.querySelector("#dm-client").addEventListener('focus', (e) => {
 	$.ajax({
@@ -108,11 +100,6 @@ document.querySelector("#dm-client").addEventListener('focus', (e) => {
 		error : console.log
 	});
 });
-
-var select_change = function(value) {
-	console.log(value);
-	$("#input_member").val(value);
-}
 
 document.querySelector("#dm-send").addEventListener('click', (e) => {
 	const receiver = document.querySelector("#dm-client");
@@ -141,11 +128,21 @@ document.querySelector("#dm-send").addEventListener('click', (e) => {
 		},
 		error : console.log,
 		complete(){
-			receiver.innerHTML = "<option value='' disabled selected>접속자목록</option>";
 			textarea.value = "";
 		}
 	});
 });
+
+function enterkey() {
+    if (window.event.keyCode == 13) {
+      var tt = $('#dm-msg').val().trim();
+      if (tt.trim() == '') {
+        alert('빈 값입니다!');
+      } else {
+        $('#dm-send').click();
+      }
+    }
+  }
 </script>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

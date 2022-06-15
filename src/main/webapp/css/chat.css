@@ -23,9 +23,9 @@
 }
 
 #chatroom_chat_container {
-	border: 1px solid green;
+	border: 1px solid blue;
 	float: right;
-	width: 70%;
+	width: 100%;
 }
 
 #chatroom_chat {
