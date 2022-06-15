@@ -4,12 +4,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
-<%
-	List<StudentClass> list = (List<StudentClass>) request.getAttribute("list");
-%>
 
 <section class="section">
-			<form name="memberUpdateFrm" action="<%= request.getContextPath() %>/class/studentclass">
+			<form name="memberUpdateFrm" action="<%= request.getContextPath() %>/class/presentlystudentclass">
 		<table>
 		<tr>
 			<th><a href="<%= request.getContextPath() %>/class/presentlystudentclass">현학기 강의조회</a></th>
@@ -31,34 +28,6 @@
 				</tr>
 			</thead>
 			<tbody>
-<%
-			if(list != null && !list.isEmpty()) {
-				for(StudentClass studentclass : list)
-				{
-%>
-					<tr>
-						<td class="line2"><%= studentclass.getSubjectTerm() %></td>
-			            <td class="line2"><%= studentclass.getSubjectLebel() %></td>
-			            <td class="line2"><%= studentclass.getDepartmentName() %></td>
-			            <td class="line2"><%= studentclass.getSubjectNo() %></td>
-			            <td class="line2"><%= studentclass.getSubjectName() %></td>
-			            <td class="line2"><%= studentclass.getMemberName() %></td>
-			            <td class="line2"><%= studentclass.getSubjectTime() %></td>
-			            <td class="line2"><%= studentclass.getSubjectClassroom() %></td>
-			            <td class="line2"><%= studentclass.getSubjectCredit() %></td>
-					</tr>
-<%
-				}
-			}
-			else
-			{
-%>			
-				<tr>
-					<td colspan="9">이전 강의가 없습니다.</td>
-				</tr>
-<%				
-			}
-%>
 			</tbody>
 		</table>
 	</form>
