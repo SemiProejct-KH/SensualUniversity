@@ -23,9 +23,9 @@
 }
 
 #chatroom_chat_container {
-	border: 1px solid green;
+	border: 1px solid blue;
 	float: right;
-	width: 70%;
+	width: 100%;
 }
 
 #chatroom_chat {
@@ -34,13 +34,13 @@
 	height: 700px;
 }
 
-#input_chat {
+#dm-msg {
 	width: 85%;
 	float:left;
 	height: 30px;
 }
 
-#send_chat {
+#dm-send {
 	width:15%;
 	float:right;
 	height: 30px;
