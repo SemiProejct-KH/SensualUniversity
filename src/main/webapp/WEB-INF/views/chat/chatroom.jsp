@@ -4,9 +4,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
-	List<Register> list = (List<Register>) request.getAttribute("list");
+List<Register> registerlist = (List<Register>) request.getAttribute("registerlist");
 %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/chat.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" />
 
 <section class="section">
 	<div>
@@ -17,39 +17,50 @@
 						<h5 class="modal-title">DM</h5>
 					</div>
 					<div class="modal-body">
-						<form name="register_find_frm" method="get" action="<%=request.getContextPath()%>/chatroom">
-							
+						<form name="register_find_frm" method="post" action="<%=request.getContextPath()%>/chatroom/chatroommaker">
 							<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 								<%
-									if(list == null || list.isEmpty()) {
+								if(registerlist == null || registerlist.isEmpty()) {
 								%>
 								<option selected>조회된 강의가 없습니다.</option>
 								<%
-									} else {
+								} else {
 								%>	
 								<option selected>강의 선택</option>
-								<%	
-										for(Register register : list){
+								<%
+								for(Register register : registerlist){
 								%>
-								<option value="register_name"><%= register.getSubjectName() %></option>
+								<option value="register_name"><%=register.getSubjectName()%></option>
+								<%
+									}
+								}
+								%>
+							</select> 					
+						</form>
+						<form name="member_find_frm" method="post" action="<%=request.getContextPath()%>/chatroom/chatroommaker">
+							<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+								<%
+								if(registerlist == null || registerlist.isEmpty()) {
+								%>
+								<option selected>조회된 회원이 없습니다.</option>
+								<%
+								} else {
+								%>
+								<option selected>회원 선택</option>
+								<%
+								for(Register register : registerlist){
+								%>
+								<option value="member_name"><%= register.getMemberName() %></option>
 								<%	
 										}
 									}
 								%>
-							</select> 					
-						</form>
-						<form>
-							<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-								<option selected>회원 선택</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
 							</select> 						
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" id="chatroom_member_modal_close" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">DM</button>
+						<button type="button" class="btn btn-primary" id="chatroom_create">DM</button>
 					</div>
 				</div>
 			</div>
@@ -80,6 +91,7 @@ $('#modal_block').on('click', function() {
 $('#chatroom_member_modal_close').on('click', function() {
 	$('#chatroom_member_modal').css('display', 'none');	
 })
+
 </script>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

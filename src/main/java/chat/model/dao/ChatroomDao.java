@@ -30,31 +30,30 @@ public class ChatroomDao {
 		}
 	}
 
-	public List<Register> findRegister(Connection conn, int no) {
+	public List<Register> findRegister(Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		List<Register> list = new ArrayList<>();
+		List<Register> registerlist = new ArrayList<>();
 		Register register = null;
 		String sql = prop.getProperty("findRegister");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, no);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				register = new Register();
 				register.setSubjectName(rset.getString("subject_name"));
-				list.add(register);			
+				register.setMemberName(rset.getString("member_name"));
+				
+				registerlist.add(register);			
 			}
-		}
-		catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		return list;
+		return registerlist;
 	}
-
 
 }
