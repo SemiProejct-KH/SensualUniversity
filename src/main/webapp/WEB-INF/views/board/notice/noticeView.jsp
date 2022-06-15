@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 			<p>공지사항</p>	
-			<table class="table table-bordered table-striped" style="text-align: center; border: 1px solid #dddddd">
+			<table id="tbl_n_view" class="table table-bordered table-striped">
 				<tbody>
 					<tr>
 						<td style="width: 20%;">글번호</td>
@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"></td>
+						<td id="td_view_content" colspan="2"></td>
 					</tr>
 				</tbody>
 			</table>

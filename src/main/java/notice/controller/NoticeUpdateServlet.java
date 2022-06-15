@@ -1,4 +1,4 @@
-package board.controller;
+package notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,19 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class NoticeViewServlet
+ * Servlet implementation class NoticeUpdateServlet
  */
-@WebServlet("/notice/noticeView")
-public class NoticeViewServlet extends HttpServlet {
+@WebServlet("/notice/noticeUpdate")
+public class NoticeUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public NoticeUpdateServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 
-		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeView.jsp")
-			.forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeUpdate.jsp")
+		.forward(request, response);
 	}
 
 	/**

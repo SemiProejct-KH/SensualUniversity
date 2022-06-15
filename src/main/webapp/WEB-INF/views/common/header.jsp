@@ -44,7 +44,7 @@
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/admin/memberList">회원관리</a></li>
 		
 		<% } %>
-				<li class="nav-item"><a class="nav-link" href="#">게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/notice/noticeList">게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href='<%= request.getContextPath() %>/chat/chatroom'>메세지</a></li>
 			</ul>
 		</div>
