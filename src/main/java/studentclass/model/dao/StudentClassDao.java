@@ -30,7 +30,7 @@ public class StudentClassDao {
 		ResultSet rset = null;
 		List<StudentClass> list = new ArrayList<>();
 		StudentClass studentClass = null;
-		String sql = prop.getProperty("findAll");
+		String sql = prop.getProperty("selectclass");
 		
 		try
 		{
