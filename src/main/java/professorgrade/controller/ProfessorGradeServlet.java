@@ -17,7 +17,7 @@ import professorgrade.model.service.ProfessorGradeService;
 /**
  * Servlet implementation class ProfessorGradeServlet
  */
-@WebServlet("/grade/professorgrade")
+@WebServlet("/professor/professorgrade")
 public class ProfessorGradeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorGradeService professorgradeservice = new ProfessorGradeService();

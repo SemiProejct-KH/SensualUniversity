@@ -17,7 +17,7 @@ import professorlecture.model.service.ProfessorLectureService;
 /**
  * Servlet implementation class ProfessorLectureServlet
  */
-@WebServlet("/lecture/professorlecture")
+@WebServlet("/professor/professorlecture")
 public class ProfessorLectureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorLectureService professorlectureservice = new ProfessorLectureService();
@@ -35,7 +35,9 @@ public class ProfessorLectureServlet extends HttpServlet {
 
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 			throw e;
 		}

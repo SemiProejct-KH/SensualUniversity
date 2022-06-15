@@ -9,7 +9,7 @@
 %>
 
 <section class="section">
-		<form name="lectureFrm" method="post" action="<%= request.getContextPath() %>/professorlecture">
+		<form name="lectureFrm" method="post" action="<%= request.getContextPath() %>/professor/professorlecture">
 		<table>
 		<tr>
 			<th><button>현학기 강의 및 학생조회</button></th>

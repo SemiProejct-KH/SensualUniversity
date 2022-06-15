@@ -9,7 +9,7 @@
 %>
 
 <section class="section">
-				<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/studentclass">
+		<form name="memberUpdateFrm" method="post" action="<%= request.getContextPath() %>/professor/professorgrade">
 		<table>
 		<tr>
 			<th><button>현학기 성적관리</button></th>
