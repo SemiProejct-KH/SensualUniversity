@@ -39,6 +39,11 @@ body {
   text-align: center;
   padding-top:40px;
 }
+.page_bar{
+	text-align: center;
+	display: block;
+	padding: 10px;
+}
 
 /* 큰 화면 */
 @media screen and (min-width: 1024px){

@@ -1,10 +1,17 @@
 package member.model.service;
 
-import static common.JdbcTemplate.*;
+import static common.JdbcTemplate.close;
+import static common.JdbcTemplate.commit;
+import static common.JdbcTemplate.getConnection;
+import static common.JdbcTemplate.rollback;
+
 import java.sql.Connection;
+import java.util.List;
+import java.util.Map;
 
 import member.model.dao.MemberDao;
 import member.model.dto.Member;
+import member.model.dto.MemberExt;
 
 /**
  * 1. connection생성
@@ -15,11 +22,12 @@ import member.model.dto.Member;
  */
 public class MemberService {
 
+	public static final int NUM_PER_PAGE = 9;
 	private MemberDao memberDao = new MemberDao();
 	
-	public Member findByMemberId(String memberId) {
+	public MemberExt findByMemberId(String memberId) {
 		Connection conn = getConnection();
-		Member member = memberDao.findByMemberId(conn, memberId);
+		MemberExt member = memberDao.findByMemberId(conn, memberId);
 		close(conn);
 		return member;
 	}
@@ -86,6 +94,21 @@ public class MemberService {
 				close(conn);
 			}
 			return result;
+		}
+
+
+		public List<MemberExt> studentFindAll(Map<String, Object> param) {
+			Connection conn = getConnection();
+			List<MemberExt> list = memberDao.studentFindAll(conn, param);
+			close(conn);
+			return list;
+		}
+
+		public int getTotalContents() {
+			Connection conn = getConnection();
+			int totalContents = memberDao.getTotalContents(conn);
+			close(conn);
+			return totalContents;
 		}
 
 }

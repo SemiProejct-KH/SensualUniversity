@@ -1,6 +1,6 @@
 package member.model.dao;
 
-import static common.JdbcTemplate.*;
+import static common.JdbcTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,9 +8,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import member.model.dto.Member;
+import member.model.dto.MemberExt;
 import member.model.dto.MemberRole;
 import member.model.exception.MemberException;
 
@@ -28,11 +32,11 @@ public class MemberDao {
 		}
 	}
 	
-	public Member findByMemberId(Connection conn, String memberId) {
+	public MemberExt findByMemberId(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("findByMemberId");
-		Member member = null;
+		MemberExt member = null;
 		
 		try {
 			// 1. pstmt객체 & 미완성쿼리 값대입
@@ -54,8 +58,8 @@ public class MemberDao {
 		return member;
 	}
 
-	private Member handleMemberResultSet(ResultSet rset) throws SQLException{
-		Member member = new Member();
+	private MemberExt handleMemberResultSet(ResultSet rset) throws SQLException{
+		MemberExt member = new MemberExt();
 		member.setMemberNo(rset.getInt("member_no"));
 		member.setDepartmentNo(rset.getString("department_no"));
 		member.setMemberId(rset.getString("member_id"));
@@ -156,6 +160,50 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	public List<MemberExt> studentFindAll(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("studentFindAll");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("학생목록조회 오류!", e);
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
+	}
+
+	public int getTotalContents(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int totalContents = 0;
+		String sql = prop.getProperty("getTotalContents");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next())
+				totalContents = rset.getInt(1); 
+		} catch (Exception e) {
+			throw new MemberException("전체회원수 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return totalContents;
 	}
 	
 
