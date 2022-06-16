@@ -38,14 +38,14 @@
 		%>
 			<tr>
 				<td><%= noticeExt.getNoticeNo() %></td>
-				<td><%= noticeExt.getNoticeTitle() %></td>
-				<td><%= noticeExt.getMemberName() %></td>
+				<td><a href="<%= request.getContextPath() %>/notice/noticeView?no=<%= noticeExt.getNoticeNo() %>"><%= noticeExt.getNoticeTitle() %></a></td>
+				<td><%= loginMember.getMemberName() %></td>
 				<td><%= noticeExt.getNoticeDate() %></td>
 				<td>
 		<%
 				if(noticeExt.getNoticeAttachCount() > 0) {
-					
 		%>
+					<img src="<%= request.getContextPath() %>/image/file.png" alt="" />
 		<%
 				} 
 		%>

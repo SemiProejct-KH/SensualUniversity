@@ -1,10 +1,12 @@
 package notice.model.dto;
 
-import java.sql.Date;
+import java.util.List;
 
 public class NoticeExt extends Notice {
     private String memberName;
 	private int noticeAttachCount;
+	private List<NoticeAttachment> NoticeAttachments;
+	
 	
 	public NoticeExt() {
 		super();
@@ -30,14 +32,19 @@ public class NoticeExt extends Notice {
 		this.noticeAttachCount = noticeAttachCount;
 	}
 
-	@Override
-	public String toString() {
-		return "NoticeExt [memberName=" + memberName + ", noticeAttachCount=" + noticeAttachCount + "]";
+	
+	public List<NoticeAttachment> getNoticeAttachments() {
+		return NoticeAttachments;
 	}
 
-	
-	
+	public void setNoticeAttachments(List<NoticeAttachment> noticeAttachments) {
+		NoticeAttachments = noticeAttachments;
+	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "NoticeExt [memberName=" + memberName + ", noticeAttachCount=" + noticeAttachCount
+				+ ", Noticeattachments=" + NoticeAttachments + "]";
+	}
+
 }
