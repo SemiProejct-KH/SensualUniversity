@@ -10,7 +10,6 @@
 %>
 
 <section class="section">
-			<form name="memberUpdateFrm" action="<%= request.getContextPath() %>/class/presentlystudentclass">
 		<table>
 		<tr>
 			<th><a href="<%= request.getContextPath() %>/class/presentlystudentclass">현학기 강의조회</a></th>
@@ -29,6 +28,7 @@
 	                <th class="line1">강의교시</th>
 	                <th class="line1">강의실</th>
 	                <th class="line1">취득학점</th>
+	                <th class="line1">취소 여부</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,6 +47,7 @@
 			            <td class="line2"><%= presentlyStudentClass.getSubjectTime() %></td>
 			            <td class="line2"><%= presentlyStudentClass.getSubjectClassroom() %></td>
 			            <td class="line2"><%= presentlyStudentClass.getSubjectCredit() %></td>
+			            <td class="line2"><input type="button" class="checkBtn" value="수강취소"></td>
 					</tr>
 <%
 				}
@@ -62,7 +63,53 @@
 %>
 			</tbody>
 		</table>
-	</form>
+	<script>
+	$(".checkBtn").click(function(){ 
+		let tdArr = new Array();	
+		let checkBtn = $(this);
+		var string = ["abc","def"];
+		
+		let tr = checkBtn.parent().parent();
+		let td = tr.children();
+		
+		
+		console.log("클릭한 Row의 모든 데이터 : "+tr.text());
+
+		tdArr.push(td.eq(0).text());
+		tdArr.push(td.eq(1).text());
+		tdArr.push(td.eq(2).text());
+		tdArr.push(td.eq(3).text());
+		tdArr.push(td.eq(4).text());
+		tdArr.push(td.eq(5).text());
+		tdArr.push(td.eq(6).text());
+		tdArr.push(td.eq(7).text());
+		tdArr.push(td.eq(8).text());
+		
+		console.log("배열에 담긴 값 : "+tdArr);
+		console.log(tdArr[3]);
+		
+		$.ajax({
+            url: "<%= request.getContextPath() %>/delete/deleteEnrol",
+            type: "POST",           
+            data: {
+	            	term : tdArr[0],
+	                lebel : tdArr[1],
+	                mname : tdArr[2],
+	                sno : tdArr[3]
+            	},
+            
+            async: false,
+            success: function(data) {
+            	alert("취소 성공");
+            },
+            error: function(msg, error) {
+                alert(error);
+            }
+		});
+		
+		window.location.reload();
+	});
+	</script>
 </section>
 	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
