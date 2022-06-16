@@ -1,7 +1,7 @@
 .section_agree {
 	width: 30%;
 	margin: 0 auto;
-	height: 10%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
 	border: 1px solid blue; /* 완성 후 삭제 예정 */
 }
 h2{
@@ -17,3 +17,31 @@ h2{
     text-align: center;
     margin: 30px 5px 1px 5px;
 }
+
+.align_btn {
+  display: flex;
+  flex-wrap: wrap;
+    margin-top: 80%;
+}
+
+.role_btn {
+  background-color: white;
+  height: 60px;
+  width: calc(100% / 0);
+  padding: 5px 5px 0px 5px;
+  box-sizing: border-box;
+  display: flex;
+  
+}
+.role_btn button {
+    background-color: rgb(5, 42, 120);
+    color: white;
+    flex: 1;
+    border: 0;
+    outline: 0;
+}
+
+.checkbox_group {
+    padding: 10px 5px 5px 5px;
+}
+
