@@ -81,7 +81,7 @@
 function selectlect(){
 	$('#lectureselect').empty();
 	for(var count = 0; count < list2.length(); count++){
-		var option = $("<option>"+ list2<> +"</option>");
+		var option = $("<option>"+ list2[count] +"</option>");
 		$('#lectureselect').append(option);
 	}
 	
