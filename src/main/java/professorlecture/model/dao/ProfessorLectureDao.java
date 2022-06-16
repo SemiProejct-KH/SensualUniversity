@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import professorlecture.model.dto.PresentLecture;
 import professorlecture.model.dto.ProfessorLecture;
 
 public class ProfessorLectureDao {
@@ -27,7 +28,7 @@ public class ProfessorLectureDao {
 		}
 	}
 	
-	public List<ProfessorLecture> classAll(Connection conn, int No) {
+	public List<ProfessorLecture> Lecture(Connection conn, int No) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<ProfessorLecture> list = new ArrayList<>();
@@ -40,11 +41,17 @@ public class ProfessorLectureDao {
 			
 			while (rset.next()) {
 				professorlecture = new ProfessorLecture();
+				
 				professorlecture.setSubjectTerm(rset.getString("subject_term"));
 				professorlecture.setSubjectLebel(rset.getString("subject_lebel"));
-				professorlecture.setSubjectName(rset.getString("subject_name"));
-				professorlecture.setMemberId(rset.getString("subject_member_id"));
-				professorlecture.setDepartmentName(rset.getString("subject_department_name"));
+				professorlecture.setSubjectTime(rset.getString("subject_time"));
+				professorlecture.setSubjectClassroom(rset.getString("subject_classroom"));
+				professorlecture.setMemberName(rset.getString("member_name"));
+				professorlecture.setMemberNo(rset.getString("member_no"));
+				professorlecture.setMemberLevel(rset.getString("member_level"));
+				professorlecture.setDepartmentNo(rset.getString("department_no"));
+				professorlecture.setMemberEmail(rset.getString("member_email"));
+				professorlecture.setMemberPhone(rset.getString("member_phone"));
 				
 				list.add(professorlecture);
 			}
@@ -56,4 +63,33 @@ public class ProfessorLectureDao {
 		}
 		return list;
 	}
+	
+	public List<PresentLecture> Present(Connection conn, int No){
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<PresentLecture> list = new ArrayList<>();
+		PresentLecture presentlecture = new PresentLecture();
+		String sql = prop.getProperty("present");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, No);
+			rset = pstmt.executeQuery();
+			
+			while (rset.next()) {
+				presentlecture = new PresentLecture();
+				
+				presentlecture.setPresentLecture(rset.getString("subject_name"));
+				
+				list.add(presentlecture);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return null;
+	}
+	
 }

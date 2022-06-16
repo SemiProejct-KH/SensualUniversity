@@ -283,6 +283,7 @@ public class MemberDao {
 		return list;
 	}
 
+
 	public Member findPassword(Connection conn, String memberId, String memberName, Date memberBirth) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -307,6 +308,6 @@ public class MemberDao {
 		}
 		return member;
 	}
-	
+
 
 }

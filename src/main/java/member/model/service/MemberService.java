@@ -140,12 +140,14 @@ public class MemberService {
 			return list;
 		}
 
+
 		public Member findPassword(String memberId, String memberName, Date memberBirth) {
 			Connection conn = getConnection();
 			Member member = memberDao.findPassword(conn, memberId, memberName, memberBirth);
 			close(conn);
 			return member;
 		}
+
 
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import member.model.dto.Member;
+import professorlecture.model.dto.PresentLecture;
 import professorlecture.model.dto.ProfessorLecture;
 import professorlecture.model.service.ProfessorLectureService;
 
@@ -29,11 +30,22 @@ public class ProfessorLectureServlet extends HttpServlet {
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		try {
 			int No = loginMember.getMemberNo();
-			List<ProfessorLecture> list = professorlectureservice.classAll(No);
+			
+			// 교수 강의 목록 띄워주기
+			List<ProfessorLecture> list = professorlectureservice.Lecture(No);
 			System.out.println(No);
 			System.out.println("list = " + list);
 
 			request.setAttribute("list", list);
+			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
+			
+			
+			// 현재 강의 중인 목록 드롭다운으로 보내주기
+			List<PresentLecture> list2 = professorlectureservice.Present(No);
+			System.out.println(No);
+			System.out.println("list = " + list2);
+
+			request.setAttribute("list", list2);
 			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
 		} 
 		catch (Exception e) 
