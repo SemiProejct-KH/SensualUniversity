@@ -125,4 +125,5 @@ public class MemberService {
 			return list;
 		}
 
+
 }

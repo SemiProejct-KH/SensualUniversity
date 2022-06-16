@@ -5,13 +5,14 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
 	List<MemberExt> list = (List<MemberExt>) request.getAttribute("list");
+	MemberExt memberExt = (MemberExt) request.getAttribute("memberExt");
 	String pagebar = (String) request.getAttribute("pagebar");
 %>
 <section class="section" style="width: 83%;">
 	<div class="content-body">
 	    <div class="container-fluid">
 	        <h2 align="center" style="margin-top:100px;">회원관리</h2>	
-	        <form name="memberListFrm" action="<%= request.getContextPath() %>/admin/memberList">
+	        
 	        <div class="row">
 	            <div class="col-12">
 	                <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
@@ -71,6 +72,7 @@
 	                                    <!-- 리스트 반복문 -->
 	                              <% if(list != null && !list.isEmpty()) { 
 	                            	   	for(MemberExt member : list) {
+	                            	   		String memberId = member.getMemberId();
 	                              %>
 	                                    <tr>
 	                                        <td><%= member.getMemberId() %></td>
@@ -96,9 +98,14 @@
 	                                        <td><%= member.getMemberEmail() %></td>
 	                                        <td><%= member.getEnrollDate() %></td>
 	                                        <td>
-		                                        <div class="form-check;">
-												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												</div>
+	                                        <form 
+												name="memberDelFrm" id="memberDelFrm"
+												action="<%= request.getContextPath() %>/admin/memberDelete" 
+												method="POST">
+												<input type="hidden" name="memberId" value="<%= member.getMemberId() %>" />
+											</form>
+	                                        <button type="submit" class="btn btn-primary" onclick="deleteMember();">회원탈퇴</button>
+			                            	
 	                                        </td>
 	                                    </tr>
 	                              <% 	} %>
@@ -114,12 +121,20 @@
 	                </div>
 	            </div>
 	        </div>
-	        </form>
+	   
 	    </div>
 	</div>
+	
 	<div class="page_bar"id="pagebar">
 		<%= pagebar %>
 	</div>
 </section>
 
+<script>
+const deleteMember = () => {
+	if(confirm("정말로 탈퇴하시겠습니까?")){
+		$("#memberDelFrm").submit();
+	}
+}
+</script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
