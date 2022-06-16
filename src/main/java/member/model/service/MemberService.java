@@ -111,4 +111,18 @@ public class MemberService {
 			return totalContents;
 		}
 
+		public List<MemberExt> professorFind(Map<String, Object> param) {
+			Connection conn = getConnection();
+			List<MemberExt> list = memberDao.professorFind(conn, param);
+			close(conn);
+			return list;
+		}
+
+		public List<MemberExt> studentFind(Map<String, Object> param) {
+			Connection conn = getConnection();
+			List<MemberExt> list = memberDao.studentFind(conn, param);
+			close(conn);
+			return list;
+		}
+
 }
