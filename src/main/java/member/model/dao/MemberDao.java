@@ -97,7 +97,35 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			throw new MemberException("회원가입오류", e);
+			throw new MemberException("학생 회원가입오류", e);
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+
+	public int insertProfessorMember(Connection conn, MemberExt member) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("insertMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getDepartmentNo());
+			pstmt.setString(2, member.getMemberId());
+			pstmt.setString(3, member.getMemberPw());
+			pstmt.setString(4, member.getMemberName());
+			pstmt.setDate(5, member.getMemberBirth());
+			pstmt.setString(6, member.getMemberPhone());
+			pstmt.setString(7, member.getMemberEmail());
+			pstmt.setString(8, member.getMemberImg());
+			pstmt.setString(9, member.getMemberRole().toString()); // "S" "A" "P"
+			pstmt.setString(10, member.getMemberLevel());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new MemberException("교수 회원가입오류", e);
 		} finally {
 			close(pstmt);
 		}

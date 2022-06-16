@@ -47,6 +47,20 @@ public class MemberService {
 		}
 		return result;
 	}
+	public int insertProfessorMember(MemberExt member) {
+		int result = 0;
+		Connection conn = getConnection();
+		try {
+			result = memberDao.insertProfessorMember(conn, member);
+			commit(conn);
+		} catch (Exception e) {
+			rollback(conn);
+			throw e; // controller에게 통보용!
+		} finally {
+			close(conn);			
+		}
+		return result;
+	}
 
 	public int updateMember(Member member) {
 		int result = 0;
@@ -132,5 +146,6 @@ public class MemberService {
 			close(conn);
 			return member;
 		}
+
 
 }
