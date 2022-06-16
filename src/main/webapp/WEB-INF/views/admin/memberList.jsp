@@ -90,7 +90,7 @@
 	                                        <% if(member.getDepartmentNo().equals("D5")) { %>
 		                                        <td>경영학과</td>
 	                                        <% 	} %>
-	                                        <td><%= member.getMemberLevel() %></td>
+	                                        <td><%= member.getMemberLevel() != null ? member.getMemberLevel() : "교수" %>  </td>
 	                                        <td><%= member.getMemberBirth() %></td>
 	                                        <td><%= member.getMemberPhone() %></td>
 	                                        <td><%= member.getMemberEmail() %></td>
