@@ -6,6 +6,7 @@ import static common.JdbcTemplate.getConnection;
 import static common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -123,6 +124,13 @@ public class MemberService {
 			List<MemberExt> list = memberDao.studentFind(conn, param);
 			close(conn);
 			return list;
+		}
+
+		public Member findPassword(String memberId, String memberName, Date memberBirth) {
+			Connection conn = getConnection();
+			Member member = memberDao.findPassword(conn, memberId, memberName, memberBirth);
+			close(conn);
+			return member;
 		}
 
 }

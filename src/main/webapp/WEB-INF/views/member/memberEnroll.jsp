@@ -71,7 +71,6 @@
 
 <!------------------------- 학과 드롭 다운 ------------------------>
             
-            
             <div class="row g-2">
               <div class="col-md">
                 <div class="form-floating mb-2">

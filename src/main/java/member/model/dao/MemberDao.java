@@ -5,6 +5,7 @@ import static common.JdbcTemplate.close;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -155,7 +156,7 @@ public class MemberDao {
 			pstmt.setString(2, member.getMemberId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
-			throw new MemberException("비밀번호 수정 오류!", e);
+			throw new MemberException("비밀번호 수정 오류", e);
 		} finally {
 			close(pstmt);
 		}
@@ -252,6 +253,31 @@ public class MemberDao {
 			close(rset);
 		}
 		return list;
+	}
+
+	public Member findPassword(Connection conn, String memberId, String memberName, Date memberBirth) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Member member = null;
+		String sql = prop.getProperty("findPassword");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberName);
+			pstmt.setDate(3, memberBirth);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				member = handleMemberResultSet(rset);
+			}
+			
+		} catch (Exception e) {
+			throw new MemberException("비밀번호찾기 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return member;
 	}
 	
 
