@@ -1,0 +1,19 @@
+.section_agree {
+	width: 30%;
+	margin: 0 auto;
+	height: 10%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	border: 1px solid blue; /* 완성 후 삭제 예정 */
+}
+h2{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+	padding: 12px;
+}
+.title {
+    text-align: center;
+    background-color: rgb(5, 42, 120);
+    height: 45px;
+    text-align: center;
+    margin: 30px 5px 1px 5px;
+}
