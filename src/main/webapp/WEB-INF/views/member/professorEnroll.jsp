@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <title>회원가입 - 학생</title>
+  <title>회원가입 - 교수</title>
   <!-- jQuery -->
   <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
   <!-- Bootstrap CSS -->
@@ -24,7 +24,7 @@
 <!------------------------- 학생 & 교수 가입분기처리 ------------------------>
         <div class="align_btn">
             <div class="role_btn">
-              <button>학생</button>
+              <button onclick="location.href='<%= request.getContextPath() %>/member/memberEnroll';">학생</button>
             </div>
             <div class="role_btn">
               <button onclick="location.href='<%= request.getContextPath() %>/member/professorEnroll';">교수</button>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating">
-                      <input type="button" class="form-control" style="padding: 18px;" value="중복검사" onclick="checkIdDuplicate();" style="padding: 18px"/>
+                      <input type="button" class="form-control" value="중복검사" onclick="checkIdDuplicate();" style="padding: 18px"/>
                       <input type="hidden" id="idValid" value="0" />
                     </div>
                 </div>
@@ -70,32 +70,19 @@
             </div>
 
 <!------------------------- 학과 드롭 다운 ------------------------>
-            
-            <div class="row g-2">
-              <div class="col-md">
+            <div class="col-md">
                 <div class="form-floating mb-2">
-                  <select class="form-select" id="memberLevel" name="memberLevel" aria-label="Floating label select example">
-                    <option selected>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                  <label for="memberLevel">학년</label>
+                    <select class="form-select" id="departmentName" name="departmentName" aria-label="Floating label select example">
+                        <option selected>컴퓨터소프트웨어학과</option>
+                        <option>정보통신공학과</option>
+                        <option>전자공학과</option>
+                        <option>생활체육과</option>
+                        <option>경영학과</option>
+                    </select>
+                    <label for="departmentName">학과</label>
                 </div>
-              </div>
-              <div class="col-md">
-                <div class="form-floating mb-2">
-                  <select class="form-select" id="departmentName" name="departmentName" aria-label="Floating label select example">
-                    <option selected>컴퓨터소프트웨어학과</option>
-                    <option>정보통신공학과</option>
-                    <option>전자공학과</option>
-                    <option>생활체육과</option>
-                    <option>경영학과</option>
-                  </select>
-                  <label for="departmentName">학과</label>
-                </div>
-              </div>
             </div>
+
             
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="memberPhone" id="memberPhone" placeholder="핸드폰" value="" required>

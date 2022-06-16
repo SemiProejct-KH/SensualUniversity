@@ -1,29 +1,23 @@
-/* .section_signup {
-	width: 60%;
-	margin-right: auto;
-	margin-left: auto;
-	height: 800px; 코드 작업 완성 후 100%로 바꿀 예정
-	border: 1px solid blue; 완성 후 삭제 예정
-} */
-
 .section_signup {
 	width: 30%;
 	margin: 0 auto;
-	height: 10%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
 	border: 1px solid blue; /* 완성 후 삭제 예정 */
 }
 h2{
     color: white;
     font-size: 20px;
     text-align: center;
-	padding: 12px;
+    padding: 12px;
+    
 }
 .title {
     text-align: center;
     background-color: rgb(5, 42, 120);
-    height: 45px;
+    height: 50px;
     text-align: center;
-    margin: 30px 5px 1px 5px;
+    line-height: 150px;
+    margin: 5px;
 }
 
 .align_btn {
@@ -34,11 +28,10 @@ h2{
 .role_btn {
   background-color: white;
   height: 60px;
-  width: calc(100% / 2);
-  padding: 5px 5px 0px 5px;
+  width: calc(100% / 0);
+  padding: 5px;
   box-sizing: border-box;
   display: flex;
-  
 }
 
 .role_btn button {
@@ -53,12 +46,22 @@ h2{
     margin: 5px;
 }
 
-.form-control {
-    padding: 18px;
+
+.form-floating {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+p {
+    font-size: 13px;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-bottom: 3px;
+    color: rgb(64, 64, 64);
 }
 label {
     color: rgb(64, 64, 64);
 }
+
 button{
     font-size: 20px;
 }

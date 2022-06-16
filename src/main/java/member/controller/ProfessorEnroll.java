@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.PasswordEncrypt;
-import member.model.dto.Member;
 import member.model.dto.MemberExt;
 import member.model.dto.MemberRole;
 import member.model.service.MemberService;
 
-
-@WebServlet("/member/memberEnroll")
-public class MemberEnrollServlet extends HttpServlet {
+/**
+ * Servlet implementation class ProfessorEnroll
+ */
+@WebServlet("/member/professorEnroll")
+public class ProfessorEnroll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request
-			.getRequestDispatcher("/WEB-INF/views/member/memberEnroll.jsp")
+			.getRequestDispatcher("/WEB-INF/views/member/professorEnroll.jsp")
 			.forward(request, response);	
 	}
 
@@ -42,7 +43,7 @@ public class MemberEnrollServlet extends HttpServlet {
 			if(_memberBirth != null && !"".equals(_memberBirth))
 				memberBirth = Date.valueOf(_memberBirth);
 			
-			String memberLevel = request.getParameter("memberLevel");
+//			String memberLevel = request.getParameter("memberLevel"); '0'
 			String memberPhone = request.getParameter("memberPhone");
 			String memberEmail = request.getParameter("memberEmail");
 			
@@ -61,16 +62,16 @@ public class MemberEnrollServlet extends HttpServlet {
 			member.setMemberPw(memberPw);
 			member.setMemberName(memberName);
 			member.setMemberBirth(memberBirth);
-			member.setMemberLevel(memberLevel);
+			member.setMemberLevel("0");
 			member.setDepartmentNo(departmentNo);
 			member.setMemberPhone(memberPhone);
 			member.setMemberEmail(memberEmail);
-			member.setMemberRole(MemberRole.S);
+			member.setMemberRole(MemberRole.P);
 			member.setMemberImg(null);
-			System.out.println("member@memberEnrollServlet = " + member);
+			System.out.println("member@professorEnrollServlet = " + member);
 										
 			// 3. 업무로직 (db insert)
-			int result = memberService.insertMember(member);
+			int result = memberService.insertProfessorMember(member);
 			String msg = "성공적으로 회원가입했습니다.";
 			// 4. 리다이렉트
 			request
@@ -82,6 +83,5 @@ public class MemberEnrollServlet extends HttpServlet {
 			throw e;
 		}
 	}
-	
 
 }

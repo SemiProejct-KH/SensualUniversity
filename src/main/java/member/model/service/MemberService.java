@@ -6,6 +6,7 @@ import static common.JdbcTemplate.getConnection;
 import static common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,20 @@ public class MemberService {
 		Connection conn = getConnection();
 		try {
 			result = memberDao.insertMember(conn, member);
+			commit(conn);
+		} catch (Exception e) {
+			rollback(conn);
+			throw e; // controller에게 통보용!
+		} finally {
+			close(conn);			
+		}
+		return result;
+	}
+	public int insertProfessorMember(MemberExt member) {
+		int result = 0;
+		Connection conn = getConnection();
+		try {
+			result = memberDao.insertProfessorMember(conn, member);
 			commit(conn);
 		} catch (Exception e) {
 			rollback(conn);
@@ -124,6 +139,15 @@ public class MemberService {
 			close(conn);
 			return list;
 		}
+
+
+		public Member findPassword(String memberId, String memberName, Date memberBirth) {
+			Connection conn = getConnection();
+			Member member = memberDao.findPassword(conn, memberId, memberName, memberBirth);
+			close(conn);
+			return member;
+		}
+
 
 
 }

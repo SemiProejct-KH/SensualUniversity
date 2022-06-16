@@ -4,9 +4,9 @@
 <section class="section">
 	<h2 align="center" style="margin-top:100px;">비밀번호수정</h2>	
 	<form 
-			name="passwordUpdateFrm" 
-			action="<%=request.getContextPath()%>/member/passwordUpdate" 
-			method="post" >
+		name="passwordUpdateFrm" 
+		action="<%=request.getContextPath()%>/member/passwordUpdate" 
+		method="post" >
 			
 		<div class="form-floating mb-3">
 		  <input type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="비밀번호" required>
