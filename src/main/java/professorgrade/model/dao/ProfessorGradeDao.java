@@ -42,12 +42,12 @@ public class ProfessorGradeDao {
 				professorgrade.setSubjectTerm(rset.getString("subject_term"));
 				professorgrade.setSubjectLebel(rset.getString("subject_lebel"));
 				professorgrade.setSubjectName(rset.getString("subject_name"));
-				professorgrade.setMemberId(rset.getString("subject_member_id"));
-				professorgrade.setDepartmentName(rset.getString("subject_department_name"));
-				professorgrade.setGrademiddle(rset.getInt("subject_grade_middle"));
-				professorgrade.setGradefinal(rset.getInt("subject_grade_final"));
-				professorgrade.setGradeassignment(rset.getInt("subject_grade_assignmnet"));
-				professorgrade.setGradeattend(rset.getInt("subject_grade_attend"));
+				professorgrade.setMemberNo(rset.getString("subject_member_id"));
+				professorgrade.setDepartmentName(rset.getString("department_name"));
+				professorgrade.setGrademiddle(rset.getInt("grade_middle"));
+				professorgrade.setGradefinal(rset.getInt("grade_final"));
+				professorgrade.setGradeassignment(rset.getInt("grade_assignmnet"));
+				professorgrade.setGradeattend(rset.getInt("grade_attend"));
 
 				list.add(professorgrade);
 			}

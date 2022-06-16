@@ -11,25 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import member.model.dto.Member;
-import professorlecture.model.dto.ProfessorLecture;
+import professorlecture.model.dto.PresentLecture;
 import professorlecture.model.service.ProfessorLectureService;
 
-/**
- * Servlet implementation class ProfessorLectureServlet
- */
 @WebServlet("/professor/professorlecture")
-public class ProfessorLectureServlet extends HttpServlet {
+public class PastLectureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorLectureService professorlectureservice = new ProfessorLectureService();
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		try {
 			int No = loginMember.getMemberNo();
-			List<ProfessorLecture> list = professorlectureservice.Lecture(No);
+			List<PresentLecture> list = professorlectureservice.Present(No);
 			System.out.println(No);
 			System.out.println("list = " + list);
 

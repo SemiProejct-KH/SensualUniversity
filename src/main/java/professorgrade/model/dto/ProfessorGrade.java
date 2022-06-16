@@ -5,7 +5,7 @@ public class ProfessorGrade {
 	private String subjectTerm; // 년도,학기
 	private String subjectLebel; // 학년
 	private String subjectName; // 이름
-	private String memberId; // 아이디
+	private String memberNo; // 아이디
 	private String departmentName; // 학과
 	private int grademiddle; // 중간
 	private int gradefinal; // 기말
@@ -16,13 +16,13 @@ public class ProfessorGrade {
 		super();
 	}
 
-	public ProfessorGrade(String subjectTerm, String subjectLebel, String subjectName, String memberId,
+	public ProfessorGrade(String subjectTerm, String subjectLebel, String subjectName, String memberNo,
 			String departmentName, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
 		super();
 		this.subjectTerm = subjectTerm;
 		this.subjectLebel = subjectLebel;
 		this.subjectName = subjectName;
-		this.memberId = memberId;
+		this.memberNo = memberNo;
 		this.departmentName = departmentName;
 		this.grademiddle = grademiddle;
 		this.gradefinal = gradefinal;
@@ -54,12 +54,12 @@ public class ProfessorGrade {
 		this.subjectName = subjectName;
 	}
 
-	public String getMemberId() {
-		return memberId;
+	public String getMemberNo() {
+		return memberNo;
 	}
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMemberNo(String memberNo) {
+		this.memberNo = memberNo;
 	}
 
 	public String getDepartmentName() {
@@ -105,7 +105,7 @@ public class ProfessorGrade {
 	@Override
 	public String toString() {
 		return "ProfessorGrade [subjectTerm=" + subjectTerm + ", subjectLebel=" + subjectLebel + ", subjectName="
-				+ subjectName + ", memberId=" + memberId + ", departmentName=" + departmentName + ", grademiddle="
+				+ subjectName + ", memberNo=" + memberNo + ", departmentName=" + departmentName + ", grademiddle="
 				+ grademiddle + ", gradefinal=" + gradefinal + ", gradeassignment=" + gradeassignment + ", gradeattend="
 				+ gradeattend + "]";
 	}
