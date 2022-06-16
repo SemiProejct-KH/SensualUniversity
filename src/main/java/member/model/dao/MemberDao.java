@@ -178,7 +178,7 @@ public class MemberDao {
 				list.add(member);
 			}
 		} catch (Exception e) {
-			throw new MemberException("학생목록조회 오류!", e);
+			throw new MemberException("회원목록조회 오류!", e);
 		} finally {
 			close(pstmt);
 			close(rset);
@@ -204,6 +204,54 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return totalContents;
+	}
+
+	public List<MemberExt> professorFind(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("professorFind");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("교수목록조회 오류!", e);
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
+	}
+
+	public List<MemberExt> studentFind(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("studentFind");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("학생목록조회 오류!", e);
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
 	}
 	
 
