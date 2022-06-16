@@ -43,7 +43,7 @@
 				            <td class="line2"><%= enrol.getSubjectTime() %></td>
 				            <td class="line2"><%= enrol.getSubjectClassroom() %></td>
 				            <td class="line2"><%= enrol.getSubjectCredit() %></td>
-				            <td class="line2"><input type="submit" class="checkBtn" value="수강신청"></td>
+				            <td class="line2"><input type="button" class="checkBtn" value="수강신청"></td>
 						</tr>
 <%
 					}
@@ -63,6 +63,7 @@
 	
 	<script>
 	$(".checkBtn").click(function(){ 
+		List<PresentlyStudentClass> list = (List<PresentlyStudentClass>) request.getAttribute("list");
 		let tdArr = new Array();	
 		let checkBtn = $(this);
 		var string = ["abc","def"];
@@ -91,7 +92,7 @@
 		
 		$.ajax({
             url: "<%= request.getContextPath() %>/enrol/enrolment",
-            type: "GET",           
+            type: "POST",           
             data: {
 	            	term : tdArr[0],
 	                lebel : tdArr[1],
@@ -106,8 +107,7 @@
             error: function(msg, error) {
                 alert(error);
             }
-		});
-		
+		});	
 	});
 	</script>
 </section>

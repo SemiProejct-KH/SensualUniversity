@@ -35,6 +35,15 @@ public class enrolmentViewServlet extends HttpServlet {
 		List<Enrol> list = enrolService.EnrolAll();
 		System.out.println("EnrolList = " + list);	
 		
+			
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/WEB-INF/views/enrolment/enrolment.jsp").forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
+		Member loginMember = (Member) session.getAttribute("loginMember");
 		try 
 		{
 			int No = loginMember.getMemberNo();
@@ -43,8 +52,8 @@ public class enrolmentViewServlet extends HttpServlet {
 			
 			int result = enrolService.insertEnrol(No, Str);
 			
-			request.setAttribute("list", list);
 			request.getRequestDispatcher("/WEB-INF/views/enrolment/enrolment.jsp").forward(request, response);
+//			response.sendRedirect(request.getContextPath() + "/enrolment/enrolment");
 		}  
 		catch (Exception e) 
 		{
