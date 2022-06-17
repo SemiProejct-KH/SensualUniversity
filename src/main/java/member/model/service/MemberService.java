@@ -148,6 +148,20 @@ public class MemberService {
 			return member;
 		}
 
+		public int getProfessorTotalContents() {
+			Connection conn = getConnection();
+			int professorTotalContents = memberDao.getProfessorTotalContents(conn);
+			close(conn);
+			return professorTotalContents;
+		}
+
+		public int getStudentTotalContents() {
+			Connection conn = getConnection();
+			int studentTotalContents = memberDao.getStudentTotalContents(conn);
+			close(conn);
+			return studentTotalContents;
+		}
+
 
 
 }
