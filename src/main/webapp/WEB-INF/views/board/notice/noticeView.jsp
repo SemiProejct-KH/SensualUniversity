@@ -48,6 +48,7 @@
 							for(NoticeAttachment attach : attachments){ 
 					%>
 						<td colspan="3">
+						
 							<%-- 첨부파일이 있을경우만, 이미지와 함께 original파일명 표시 --%>
 							<img alt="첨부파일" src="<%=request.getContextPath() %>/image/file.png" width=16px>
 							<a href="<%= request.getContextPath() %>/notice/fileDownload?no=<%= attach.getNoticeAttachmentNo() %>"><%= attach.getOriginalFilename() %></a>
