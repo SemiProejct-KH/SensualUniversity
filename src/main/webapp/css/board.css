@@ -4,7 +4,7 @@
 /* 공지사항 */
 /* 공지사항 리스트 noticeList */
 div.board_menu {
-	margin: 8% 20%;
+	margin: 11% 20%;
 }
 div.board_menu li {
 	list-style: none;
@@ -20,11 +20,6 @@ div.board_menu li a:hover {
 /* 조회된 정보가 없습니다. */
 table#tbl_notice tr td {
 	text-align: center;
-}
-
-/* 페이지 바 */
-.pagination ul li a {
-	color: black;
 }
 
 /* 글쓰기 버튼 */
