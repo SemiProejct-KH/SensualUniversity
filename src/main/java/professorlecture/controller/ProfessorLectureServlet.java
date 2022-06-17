@@ -43,10 +43,10 @@ public class ProfessorLectureServlet extends HttpServlet {
 			// 현재 강의 중인 목록 드롭다운으로 보내주기
 			List<PresentLecture> list2 = professorlectureservice.Present(No);
 			System.out.println(No);
-			System.out.println("list = " + list2);
+			System.out.println("list2 = " + list2);
 
-			request.setAttribute("list", list2);
-			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
+			request.setAttribute("list2", list2);
+			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").include(request, response);
 		} 
 		catch (Exception e) 
 		{

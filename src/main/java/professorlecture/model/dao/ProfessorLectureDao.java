@@ -89,7 +89,7 @@ public class ProfessorLectureDao {
 			close(rset);
 			close(pstmt);
 		}
-		return null;
+		return list;
 	}
 	
 }
