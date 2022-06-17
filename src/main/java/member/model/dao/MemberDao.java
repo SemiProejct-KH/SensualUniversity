@@ -48,6 +48,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -204,6 +205,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
 				list.add(member);
 			}
 		} catch (Exception e) {
@@ -248,6 +250,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
 				list.add(member);
 			}
 		} catch (Exception e) {
@@ -272,6 +275,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
 				list.add(member);
 			}
 		} catch (Exception e) {
