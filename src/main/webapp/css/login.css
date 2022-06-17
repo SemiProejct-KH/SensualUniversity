@@ -1,3 +1,19 @@
+*{
+box-sizing: border-box;
+}
+div {
+  display: block;
+}
+h3{
+    margin-botton:50px;
+}
+h6{
+	margin-top: 2px;
+    font-size: 10px;
+    font-weight: 400;
+    color: #759bda;
+    
+}
 #login_main {
   height: 100%;
 }
@@ -5,7 +21,7 @@
   border: 1px solid red;
   float: left;
   width: 70%;
-  height: 1200px;
+  height: 100%;
 }
 #section_login {
   background-color: rgb(5, 42, 120);
@@ -13,11 +29,81 @@
   border: 1px solid blue;
   float: right;
   width: 30%;
-  height: 1200px;
+  height: 100%;
 }
 #input_container {
   float:left;
+  width: 60%;
+  height: 60px;
+  margin-bottom: 10px;
 }
+
+.login_wrp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.login_content {
+  font-family: system-ui, serif;
+  padding: 20px 30px;
+}
+
+.login_btn {
+    display: flex; 
+    justify-content: center;
+    width: 40%;
+    height: 65px;
+    background-color: #ffc548;
+    border-radius: 4px;
+    border: 1px solid #333;
+    align-items:center;
+    color: #052a78;
+}
+
+#memberId {
+    margin-bottom: 5px;
+    width: 95%;
+}
+
+#password {
+    width: 95%;
+}
+
+.btns1 {
+    float: left;
+}
+
+.btns2 {
+    display: inline-block;
+    margin-left: 20px;
+    color: white;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: #dbdbdb; 
+}
+
+.login_title {
+    margin-bottom: 25px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #759bda;
+}
+.login_title>span {
+    display: inline-block;
+    width: 100px;
+    height: 37px;
+    margin-right: 5px;
+    background: url("../images/login.png") no-repeat;
+    vertical-align: bottom;
+}
+
 /* 큰 화면 */
 @media screen and (min-width: 1024px){
 	
