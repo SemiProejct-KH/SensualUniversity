@@ -99,7 +99,7 @@
                   <button type="submit">가입하기</button>
                 </div>
                 <div class="role_btn">
-                  <button type="reset">취소하기</button>
+                  <button type="button" onClick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
                 </div>
             </div>
 		</div>

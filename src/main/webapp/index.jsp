@@ -24,6 +24,7 @@
 %>
 <!DOCTYPE html>
 <html>
+<head>
 <title>로그인</title>
 <!-- jQuery -->
   <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
@@ -34,7 +35,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/login.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/login.css?after" />
 
 <!-- script -->
 <script>
@@ -65,15 +66,15 @@ alert("<%= msg %>");
 <% } %>
 }
 </script>
-<head>
+</head>
 <body>
 	<div id="login_main">
 		<!-- slide -->
 		<section id="section_slide">
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			  <div class="carousel-inner">
-			    <div class="carousel-item active">
-			      <img src="<%= request.getContextPath() %>/images/University.jpg" class="d-block w-100" alt="">
+			  <div class="carousel-inner" >
+			    <div class="carousel-item active" >
+			      <img src="<%= request.getContextPath() %>/images/University.jpg" class="d-block w-100" alt="" style="min-height: 100vh;">
 			    </div>
 			    <div class="carousel-item">
 			      <img src="..." class="d-block w-100" alt="">
@@ -94,24 +95,44 @@ alert("<%= msg %>");
 		</section>
 		<!-- 로그인 -->
 		<section id="section_login">
-			<h2>Sensual University</h2>
-			<form id="loginFrm" name="loginFrm" method="POST" action="<%= request.getContextPath() %>/member/login">
-				<div>
-					<h6>학생용 학번과 비밀번호를 입력해주세요.</h6>
-					<div id="input_container">
-						<input type="text" name="memberId" id="memberId" placeholder="아이디" value="<%= saveId != null ? saveId : "" %>"> 
-						<input type="password" name="password" id="password" placeholder="비밀번호">
-					</div>
-					<button type="submit" class="btn btn-light">로그인</button>
-				</div>
-				<input class="form-check-input" type="checkbox" id="saveId" name="saveId" <%= saveId != null ? "checked" : "" %>>
-				<label class="form-check-label" for="saveId">아이디저장</label>
-				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/findPw';">비밀번호 찾기</button>
-				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/signupAgree';">회원가입</button>
-			</form>
-			<hr>
-			<h6>서울시 강남구 테헤란로 감각대 TEL 02-1235-1235 FAX 02-321-321</h6>
-			<h6>sensual university</h6>
+			<div class="login_wrp">
+                <h3>Sensual University</h3>
+                <form id="loginFrm" name="loginFrm" method="POST" action="<%= request.getContextPath() %>/member/login">
+                    <div class="login_content">
+                        <h2 class="login_title">
+                            <span class="text_hide"></span>
+                            아이디와 비밀번호를 입력해 주세요.
+                        </h2>
+                        <div id="input_container">
+                            <input type="text" name="memberId" id="memberId" placeholder=" 아이디" value="<%= saveId != null ? saveId : "" %>"> 
+                            <input type="password" name="password" id="password" placeholder=" 비밀번호">
+                        </div>
+                        <div>
+                            <button type="submit" class="login_btn">로그인</button>
+                        </div>
+                       <br>
+                        <div class="btns1">
+                            <input class="form-check-input" type="checkbox" id="saveId" name="saveId" <%= saveId != null ? "checked" : "" %>>
+                            <label class="form-check-label" for="saveId">아이디저장</label>
+                        </div>
+                        <div class="btns2">
+                             <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                	<a href="#" onclick="location.href='<%= request.getContextPath() %>/member/findPw';" style="text-decoration: none;">비밀번호 찾기</a>
+                               	</li>
+                                <li class="breadcrumb-item">
+                                	<a href="#" onclick="location.href='<%= request.getContextPath() %>/member/signupAgree';" style="text-decoration: none;">회원가입</a>
+                               	</li>
+                              </ol>
+                            </nav>
+                        </div>
+                        <hr>
+                        <h6>서울시 강남구 테헤란로 감각대 TEL 02-1235-1235 FAX 02-321-321</h6>
+                        <h6 align="center">sensual university</h6>
+                    </div>
+                </form>
+            </div>
 		</section>
 	</div>
 </body>
