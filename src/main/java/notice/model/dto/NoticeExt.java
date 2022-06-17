@@ -5,7 +5,7 @@ import java.util.List;
 public class NoticeExt extends Notice {
     private String memberName;
 	private int noticeAttachCount;
-	private List<NoticeAttachment> NoticeAttachments;
+	private List<NoticeAttachment> noticeAttachments;
 	
 	
 	public NoticeExt() {
@@ -34,17 +34,17 @@ public class NoticeExt extends Notice {
 
 	
 	public List<NoticeAttachment> getNoticeAttachments() {
-		return NoticeAttachments;
+		return noticeAttachments;
 	}
 
 	public void setNoticeAttachments(List<NoticeAttachment> noticeAttachments) {
-		NoticeAttachments = noticeAttachments;
+		this.noticeAttachments = noticeAttachments;
 	}
 
 	@Override
 	public String toString() {
 		return "NoticeExt [memberName=" + memberName + ", noticeAttachCount=" + noticeAttachCount
-				+ ", Noticeattachments=" + NoticeAttachments + "]";
+				+ ", noticeattachments=" + noticeAttachments + "]";
 	}
 
 }

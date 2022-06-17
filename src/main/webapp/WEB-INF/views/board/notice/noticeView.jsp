@@ -1,3 +1,5 @@
+<%@page import="notice.model.dto.NoticeAttachment"%>
+<%@page import="java.util.List"%>
 <%@page import="notice.model.dto.NoticeExt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -5,46 +7,90 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <% 
 	NoticeExt notice = (NoticeExt)request.getAttribute("notice");	
+
+	boolean canEdit = loginMember != null 
+	&& (loginMember.getMemberNo() == (notice.getMemberNo())
+			|| loginMember.getMemberRole() == MemberRole.A);
 %>
 <section id="notice_container_view" class="section">
-	<div class="view_btn">
-		<a href="<%= request.getContextPath() %>/chat/chatroom" id="go_chat" class="btn btn-outline-primary">1:1채팅</a>	
-	</div>
+	<% if(loginMember != null && loginMember.getMemberRole() != MemberRole.A) { %>
+		<input type="button" value="1:1채팅" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom';"/>
+	<% } %>
 	<div class="container">
 		<div class="row">
-			<p>공지사항</p>	
-			<table id="tbl_n_view" class="table table-bordered table-striped">
+			<span>공지사항</span>	
+			<table id="tbl_n_view" class="table table-bordered">
 				<tbody>
 					<tr>
-						<td style="width: 20%;">글번호</td>
+						<th style="width: 20%;">No.</th>
 						<td colspan="2"><%= notice.getNoticeNo() %></td>
 					</tr>
 					<tr>
-						<td style="width: 20%;">제목</td>
+						<th style="width: 20%;">제목</th>
 						<td colspan="2"><%= notice.getNoticeTitle() %></td>
 					</tr>
 					<tr>
-						<td>작성자</td>
-						<td colspan="2"><%= notice.getMemberName() %></td>
+						<th>작성자</th>
+						<td colspan="2"><%= loginMember.getMemberName() %></td>
 					</tr>
 					<tr>
-						<td>조회수</td>
+						<th>조회수</th>
 						<td colspan="2"><%= notice.getNoticeReadCount() %></td>
 					</tr>
 					<tr>
-						<td>첨부파일</td>
-						<td colspan="2">
-							<%-- 첨부파일이 있을경우만, 이미지와 함께 original파일명 표시 --%>
-					
-						</td>
-					</tr>
-					<tr>
-						<td>내용</td>
+						<th>내용</th>
 						<td id="td_view_content" colspan="2"><%= notice.getNoticeContent() %></td>
 					</tr>
-				</tbody>
+					<tr id="th_file" style="text-align:right" >
+					<% 
+						List<NoticeAttachment> attachments = notice.getNoticeAttachments();
+							if(attachments != null && !attachments.isEmpty()){
+							for(NoticeAttachment attach : attachments){ 
+					%>
+						<td colspan="3">
+						
+							<%-- 첨부파일이 있을경우만, 이미지와 함께 original파일명 표시 --%>
+							<img alt="첨부파일" src="<%=request.getContextPath() %>/image/file.png" width=16px>
+							<a href="<%= request.getContextPath() %>/notice/fileDownload?no=<%= attach.getNoticeAttachmentNo() %>"><%= attach.getOriginalFilename() %></a>
+						</td>
+					</tr>
+					<%
+							}
+						}
+					%>
+					
+					</tbody>
+					<% if(canEdit){ %>
+					<tr>
+						<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
+						<th colspan="2">
+							<input type="button" id="delete_btn" class="view_btn btn btn-outline-primary" value="삭제하기" onclick="deleteNotice()">
+							<input type="button" class="view_btn btn btn-outline-primary" value="수정하기" onclick="updateNotice()">
+						</th>
+					</tr>
+					<% } %>
 			</table>
 		</div>
 	</div>
 </section>
+<% if(canEdit){ %>
+<form action="<%= request.getContextPath() %>/notice/noticeDelete" name="noticeDeleteFrm" method="POST">
+	<input type="hidden" name="no" value="<%= notice.getNoticeNo() %>" />
+</form>
+<script>
+/**
+ * POST /board/boardDelete
+ * - no전송
+ * - 저장된 파일 삭제 : java.io.File 
+ */
+const deleteNotice = () => {
+	if(confirm("정말 이 게시글을 삭제하시겠습니까?"))
+		document.noticeDeleteFrm.submit();
+};	
+
+const updateNotice = () => {
+	location.href = "<%= request.getContextPath() %>/notice/noticeUpdate?no=<%= notice.getNoticeNo() %>";
+}
+</script>
+<% } %>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

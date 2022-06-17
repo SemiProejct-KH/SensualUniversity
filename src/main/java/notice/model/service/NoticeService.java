@@ -1,9 +1,6 @@
 package notice.model.service;
 
 import static common.JdbcTemplate.*;
-import static common.JdbcTemplate.commit;
-import static common.JdbcTemplate.getConnection;
-import static common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
@@ -71,13 +68,74 @@ public class NoticeService {
 
 	public NoticeExt findByNo(int no) {
 		Connection conn = getConnection();
-		NoticeExt notice = noticeDao.findByNo(conn, no); // notice테이블 조회
+		NoticeExt notice = noticeDao.findByNo(conn, no); // board테이블 조회
 		List<NoticeAttachment> attachments = noticeDao.findAttachmentByNoticeNo(conn, no); // attachment 테이블 조회
-//		List<NoticeComment> comments = noticeDao.findBoardCommentByBoardNo(conn, no); // board_comment 테이블 조회
 		notice.setNoticeAttachments(attachments);
-//		board.setBoardComments(comments);
 		close(conn);
 		return notice;
+	}
+
+	public NoticeAttachment findAttachmentByNo(int no) {
+		Connection conn = getConnection();
+		NoticeAttachment attach = noticeDao.findAttachmentByNo(conn, no);
+		close(conn);
+		return attach;
+	}
+
+	public int deleteNotice(int no) {
+		Connection conn = getConnection();
+		int result = 0;
+		try {
+			result = noticeDao.deleteAttachment(conn, no);
+			commit(conn);
+		} catch(Exception e) {
+			rollback(conn);
+			throw e; 
+		} finally {
+			close(conn);
+		}
+		return result;
+	}
+
+	public int updateNotice(NoticeExt notice) {
+		int result = 0;
+		Connection conn = getConnection();
+		try {
+			
+			// 1. board 수정
+			result = noticeDao.updateNotice(conn, notice);
+			
+			// 2. attachment에 등록
+			List<NoticeAttachment> attachments = ((NoticeExt) notice).getNoticeAttachments();
+			if(attachments != null && !attachments.isEmpty()) {
+				for(NoticeAttachment attach : attachments) {
+					result = noticeDao.insertNoticeAttachment(conn, attach);
+				}
+			}
+			
+			commit(conn);
+		} catch(Exception e) {
+			rollback(conn);
+			throw e;
+		} finally {
+			close(conn);
+		}
+		return result;
+	}
+
+	public int deleteAttachment(int attachNo) {
+		Connection conn = getConnection();
+		int result = 0;
+		try {
+			result = noticeDao.deleteAttachment(conn, attachNo);
+			commit(conn);
+		} catch(Exception e) {
+			rollback(conn);
+			throw e; 
+		} finally {
+			close(conn);
+		}
+		return result;
 	}
 
 //	public int getTotalContents() {

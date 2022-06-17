@@ -67,7 +67,7 @@ public class NoticeViewServlet extends HttpServlet {
 			// board#content 개행처리
 			notice.setNoticeContent(notice.getNoticeContent().replaceAll("\n", "<br/>"));
 			
-			System.out.println("noticeReadCount = " + notice.getNoticeReadCount());
+			System.out.println("notice= = " + notice);
 			
 			// 3.view단 위임
 			request.setAttribute("notice", notice);
