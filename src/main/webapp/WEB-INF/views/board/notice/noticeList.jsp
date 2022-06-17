@@ -17,7 +17,7 @@
 </div>
 <section id="notice_container" class="section">
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
-		<input type="button" value="글쓰기" onclick="location.href='<%= request.getContextPath() %>/notice/noticeEnroll';"/>
+		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/notice/noticeEnroll';"/>
 	<% } %>
 	<table id="tbl_n_list" class="table table-striped">
 		<thead class="thead-light">
@@ -26,7 +26,6 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
-				<th>첨부파일</th><%--첨부파일이 있는 경우 /images/file.png 표시 width:16px --%>
 			 	<th>조회수</th>
 			</tr>
 		</thead>
@@ -42,13 +41,6 @@
 				<td><%= loginMember.getMemberName() %></td>
 				<td><%= noticeExt.getNoticeDate() %></td>
 				<td>
-		<%
-				if(noticeExt.getNoticeAttachCount() > 0) {
-		%>
-					<img src="<%= request.getContextPath() %>/image/file.png" alt="" />
-		<%
-				} 
-		%>
 				</td>
 				<td><%= noticeExt.getNoticeReadCount() %></td>
 			</tr>

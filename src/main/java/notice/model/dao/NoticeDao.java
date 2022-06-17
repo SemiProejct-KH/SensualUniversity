@@ -56,7 +56,6 @@ public class NoticeDao {
 				notice = new NoticeExt();
 				notice.setNoticeNo(rset.getInt("notice_no"));
 				notice.setNoticeTitle(rset.getString("notice_title"));
-				notice.setMemberName(rset.getString("member_name"));
 				notice.setNoticeDate(rset.getDate("notice_date"));
 				notice.setNoticeReadCount(rset.getInt("notice_read_count"));
 				
@@ -83,6 +82,7 @@ public class NoticeDao {
 			pstmt.setInt(1, notice.getMemberNo());
 			pstmt.setString(2, notice.getNoticeTitle());
 			pstmt.setString(3, notice.getNoticeContent());
+			pstmt.setInt(4, notice.getNoticeReadCount());
 			
 			result = pstmt.executeUpdate();
 			
@@ -124,8 +124,8 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, noticeAttach.getNoticeNo());
-			pstmt.setString(2, noticeAttach.getNoticeAttachmentOriginalFilename());
-			pstmt.setString(3, noticeAttach.getNoticeAttachmentRenameFilename());
+			pstmt.setString(2, noticeAttach.getOriginalFilename());
+			pstmt.setString(3, noticeAttach.getRenameFilename());
 		
 			result = pstmt.executeUpdate();
 			
@@ -153,6 +153,38 @@ public class NoticeDao {
 		return result;
 	}
 
+
+	public NoticeAttachment findAttachmentByNo(Connection conn, int attachNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		NoticeAttachment attach = null;
+		String sql = prop.getProperty("findAttachmentByNo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, attachNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) 
+				attach = handleAttachmentResultSet(rset);
+				
+		} catch (SQLException e) {
+			throw new NoticeException("첨부파일 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return attach;
+	}
+
+	private NoticeAttachment handleAttachmentResultSet(ResultSet rset) throws SQLException {
+		NoticeAttachment noticeAttach = new NoticeAttachment();
+		noticeAttach.setNoticeAttachmentNo(rset.getInt("notice_attachment_no"));
+		noticeAttach.setNoticeNo(rset.getInt("notice_no"));
+		noticeAttach.setOriginalFilename(rset.getString("notice_attachment_original_filename"));
+		noticeAttach.setRenameFilename(rset.getString("notice_attachment_rename_filename"));
+		return noticeAttach;
+	}
+
 	public NoticeExt findByNo(Connection conn, int no) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -167,13 +199,50 @@ public class NoticeDao {
 				notice = handleNoticeResultSet(rset);
 			}
 		} catch (SQLException e) {
-			throw new NoticeException("공지사항글 한건 조회 오류", e);
+			throw new NoticeException("게시글 한건 조회 오류", e);
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
 		
 		return notice;
+	}
+
+	public int deleteAttachment(Connection conn, int no) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = prop.getProperty("deleteAttachment"); 
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new NoticeException("공지사항 삭제 오류", e);
+		} finally {
+			close(pstmt);
+		}
+
+		
+		return result;
+	}
+
+	public int updateNotice(Connection conn, NoticeExt notice) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("updateNotice");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, notice.getNoticeTitle());
+			pstmt.setString(2, notice.getNoticeContent());
+			pstmt.setInt(3, notice.getNoticeNo());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			throw new NoticeException("공지사항글 수정 오류", e);
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 	public List<NoticeAttachment> findAttachmentByNoticeNo(Connection conn, int no) {
@@ -191,7 +260,7 @@ public class NoticeDao {
 				attachments.add(attach);
 			}
 		} catch (SQLException e) {
-			throw new NoticeException("공지사항글번호에 의한 첨부파일조회 오류", e);
+			throw new NoticeException("게시글번호에 의한 첨부파일조회 오류", e);
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -200,14 +269,7 @@ public class NoticeDao {
 		return attachments;
 	}
 
-	private NoticeAttachment handleAttachmentResultSet(ResultSet rset) throws SQLException {
-		NoticeAttachment attach = new NoticeAttachment();
-		attach.setNoticeAttachmentNo(rset.getInt("notice_attahment_no"));
-		attach.setNoticeNo(rset.getInt("notice_no"));
-		attach.setNoticeAttachmentOriginalFilename(rset.getString("notice_attachment_original_filename"));
-		attach.setNoticeAttachmentRenameFilename(rset.getString("notice_attachment_renamed_filename"));
-		return attach;
-	}
+
 
 //	public int getTotalContents(Connection conn) {
 //		PreparedStatement pstmt = null;

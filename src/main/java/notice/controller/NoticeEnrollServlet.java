@@ -61,9 +61,9 @@ public class NoticeEnrollServlet extends HttpServlet {
 			
 			// 사용자 입력값 처리
 			// dto 객체 생성
-			int memberNo = Integer.parseInt(request.getParameter("writerNo"));
-			String title = request.getParameter("title");
-			String content = request.getParameter("content");
+			int memberNo = Integer.parseInt(multiReq.getParameter("writerNo"));
+			String title = multiReq.getParameter("title");
+			String content = multiReq.getParameter("content");
 			
 			NoticeExt notice = new NoticeExt();
 			notice.setMemberNo(memberNo);
@@ -85,12 +85,12 @@ public class NoticeEnrollServlet extends HttpServlet {
 				notice.setNoticeAttachments(noticeAttachments);
 			}
 			
-			System.out.println("notice = " + notice);
+			System.out.println("notice = " + notice.getNoticeReadCount());
 			// 업무로직
 			int result = noticeService.insertNotice(notice);
 			
 			// 리다이렉트
-			response.sendRedirect(request.getContextPath() + "/notice/noticeView?no=" + notice.getNoticeNo());
+			response.sendRedirect(request.getContextPath() + "/notice/noticeList");
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -103,8 +103,8 @@ public class NoticeEnrollServlet extends HttpServlet {
 		NoticeAttachment noticeAttach = new NoticeAttachment();
 		String originalFilename = multiReq.getOriginalFileName(name); // 업로드한 파일
 		String renameFilename = multiReq.getFilesystemName(name); // 저장된 파일명
-		noticeAttach.setNoticeAttachmentOriginalFilename(originalFilename);
-		noticeAttach.setNoticeAttachmentRenameFilename(renameFilename);
+		noticeAttach.setOriginalFilename(originalFilename);
+		noticeAttach.setRenameFilename(renameFilename);
 		return noticeAttach;
 	}
 
