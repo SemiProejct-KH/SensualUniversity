@@ -56,7 +56,6 @@ public class FindPassword extends HttpServlet {
 			msg = "조회된 회원이 없습니다.";
 		}
 		request.getSession().setAttribute("msg", msg);
-		response.sendRedirect(location + "/member/findPw");
 	}
 
 }
