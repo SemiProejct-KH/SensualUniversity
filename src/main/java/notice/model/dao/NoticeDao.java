@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import notice.model.dto.NoticeAttachment;
@@ -41,7 +42,7 @@ public class NoticeDao {
 		return notice;
 	}
 
-	public List<NoticeExt> findAll(Connection conn) {
+	public List<NoticeExt> findAll(Connection conn, Map<String, Object> param) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<NoticeExt> list = new ArrayList<>();
@@ -50,6 +51,8 @@ public class NoticeDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -62,7 +65,7 @@ public class NoticeDao {
 				list.add(notice);	
 			}
 		} catch (Exception e) {
-			throw new NoticeException("공지사항 전체게시글 조회 오류,", e);
+			throw new NoticeException("공지사항 전체목록 조회 오류,", e);
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -208,25 +211,6 @@ public class NoticeDao {
 		return notice;
 	}
 
-	public int deleteAttachment(Connection conn, int no) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String query = prop.getProperty("deleteAttachment"); 
-		
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, no);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			throw new NoticeException("공지사항 삭제 오류", e);
-		} finally {
-			close(pstmt);
-		}
-
-		
-		return result;
-	}
-
 	public int updateNotice(Connection conn, NoticeExt notice) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -269,27 +253,60 @@ public class NoticeDao {
 		return attachments;
 	}
 
+	public int deleteNotice(Connection conn, int no) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = prop.getProperty("deleteNotice"); 
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new NoticeException("공지사항 삭제 오류", e);
+		} finally {
+			close(pstmt);
+		}
 
+		
+		return result;
+	}
 
-//	public int getTotalContents(Connection conn) {
-//		PreparedStatement pstmt = null;
-//		ResultSet rset = null;
-//		int totalContents = 0;
-//		String sql = prop.getProperty("getTotalContents");
-//		 
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			rset = pstmt.executeQuery();
-//			while(rset.next()) {
-//				totalContents = rset.getInt(1); // 컬럼 인덱스 사용 (db는 1-based)
-//			}
-//		} catch(Exception e) {
-//			throw new NoticeException("전체게시글 조회 오류!", e);
-//		} finally {
-//			close(rset);
-//			close(pstmt);
-//		}
-//		return totalContents;
-//	}
+	public int deleteAttachment(Connection conn, int attachNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = prop.getProperty("deleteAttachment"); 
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, attachNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new NoticeException("첨부파일 삭제 오류", e);
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int getTotalContents(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int totalContents = 0;
+		String sql = prop.getProperty("getTotalContents");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				totalContents = rset.getInt(1);
+			}
+		} catch (Exception e) {
+			throw new NoticeException("총게시물수 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return totalContents;
+	}
 
 }
