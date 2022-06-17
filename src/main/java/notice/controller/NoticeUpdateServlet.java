@@ -26,6 +26,7 @@ import notice.model.service.NoticeService;
 public class NoticeUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private NoticeService noticeService = new NoticeService();
+	// 주석추가
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.사용자입력값 처리
