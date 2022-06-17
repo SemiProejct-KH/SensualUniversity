@@ -107,7 +107,7 @@ alert("<%= msg %>");
 				<input class="form-check-input" type="checkbox" id="saveId" name="saveId" <%= saveId != null ? "checked" : "" %>>
 				<label class="form-check-label" for="saveId">아이디저장</label>
 				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/findPw';">비밀번호 찾기</button>
-				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/memberEnroll';">회원가입</button>
+				<button type="button" class="btn btn-light" onclick="location.href='<%= request.getContextPath() %>/member/signupAgree';">회원가입</button>
 			</form>
 			<hr>
 			<h6>서울시 강남구 테헤란로 감각대 TEL 02-1235-1235 FAX 02-321-321</h6>

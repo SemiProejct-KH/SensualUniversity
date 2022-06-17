@@ -10,15 +10,15 @@
 <section class="section" style="width: 83%;">
 	<div class="content-body">
 	    <div class="container-fluid">
-	        <h2 align="center" style="margin-top:100px;">회원관리</h2>	
+	        <h2 align="center" style="margin-top:10px;">회원관리</h2>	
 	        
 	        <div class="row">
 	            <div class="col-12">
 	                <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
 	                    <ol class="breadcrumb">
 	                        <li class="breadcrumb-item"><a href="<%= request.getContextPath() %>/admin/memberList" style="text-decoration-line: none;">홈</a></li>
-	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/studentList" style="text-decoration-line: none;">학생관리</a></li>
-	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/professorList" style="text-decoration-line: none;">교사관리</a></li>
+	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/studentList" style="text-decoration-line: none;">학생 관리</a></li>
+	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/professorList" style="text-decoration-line: none;">교수 관리</a></li>
 	                    </ol>
 	                </nav>
 	                
@@ -76,21 +76,7 @@
 	                                    <tr>
 	                                        <td><%= member.getMemberId() %></td>
 	                                        <td><%= member.getMemberName() %></td>
-	                                        <% if(member.getDepartmentNo().equals("D1")) { %>
-		                                        <td>컴퓨터소프트웨어학과</td>
-	                                        <% 	} %>
-	                                        <% if(member.getDepartmentNo().equals("D2")) { %>
-		                                        <td>정보통신공학과</td>
-	                                        <% 	} %>
-	                                        <% if(member.getDepartmentNo().equals("D3")) { %>
-		                                        <td>전자공학과</td>
-	                                        <% 	} %>
-	                                        <% if(member.getDepartmentNo().equals("D4")) { %>
-		                                        <td>생활체육과</td>
-	                                        <% 	} %>
-	                                        <% if(member.getDepartmentNo().equals("D5")) { %>
-		                                        <td>경영학과</td>
-	                                        <% 	} %>
+	                                        <td><%= member.getDepartmentName() %></td>
 	                                        <td><%= member.getMemberLevel() != null ? member.getMemberLevel() : "교수" %>  </td>
 	                                        <td><%= member.getMemberBirth() %></td>
 	                                        <td><%= member.getMemberPhone() %></td>
