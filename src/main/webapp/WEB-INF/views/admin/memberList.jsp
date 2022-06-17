@@ -5,13 +5,14 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
 	List<MemberExt> list = (List<MemberExt>) request.getAttribute("list");
-	MemberExt memberExt = (MemberExt) request.getAttribute("memberExt");
 	String pagebar = (String) request.getAttribute("pagebar");
+	String searchType = request.getParameter("searchType");
+	String searchKeyword = request.getParameter("searchKeyword");
 %>
-<section class="section" style="width: 83%;">
+<section class="section" style="width: 83%; height:100%;">
 	<div class="content-body">
 	    <div class="container-fluid">
-	        <h2 align="center" style="margin-top:10px;">회원관리</h2>	
+	        <h2 align="center" style="margin-top:100px;">회원관리</h2>	
 	        
 	        <div class="row">
 	            <div class="col-12">
@@ -26,27 +27,32 @@
 	                <!-- 검색 -->
 	                <div class="row g-2">
 					  <div class="col-md-3">
-					    <div class="form-floating">
-					      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-					        <option>학과 목록</option>
-					        <option value="1">컴퓨터소프트웨어학과</option>
-					        <option value="2">정보통신공학과</option>
-					        <option value="3">전자공학과</option>
-					        <option value="4">생활체육과</option>
-					        <option value="5">경영학과</option>
+					  <form action="<%=request.getContextPath()%>/admin/memberFinder">
+					    <div>
+					      <select class="form-select" id="searchType" >
+					         	<option value="member_id" <%="member_id".equals(searchType)?"selected":""%>>아이디</option>		
+						        <option value="1">컴퓨터소프트웨어학과</option>
+						        <option value="2">정보통신공학과</option>
+						        <option value="3">전자공학과</option>
+						        <option value="4">생활체육과</option>
+						        <option value="5">경영학과</option>
 					      </select>
-					      <label for="floatingSelectGrid">학과</label>
+
 					    </div>
+					    </form>
 					  </div>
 					  <div class="col-md-5">
-					    <div class="form-floating">
-					      <input type="text" class="form-control" id="floatingInputGrid" placeholder="홍길동">
-					      <label for="floatingInputGrid">이름검색</label>
+					    <div class="form-floating" id="search-memberId">
+					      	<form action="<%=request.getContextPath()%>/admin/memberFinder">
+				                <input type="hidden" name="searchType" value="member_id"/>
+				                <input type="text" name="searchKeyword"  size="25" class="form-control" placeholder="검색할 아이디를 입력하세요." style="width: 80%; float:left;" id="floatingInputGrid" value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
+				                <button type="submit" class="btn btn-primary" style="float:right; width: 20%">검색</button>	
+			            	</form>	
 					    </div>
 					  </div>
 					</div>
 	                <!-- 리스트 -->
-	                <div class="card">
+	                <div class="card" style="margin-top:20px;">
 	                    <div class="card-header" style="background-color:white">
 	                        <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb" style="margin-top: 20px">
 	                            <h4 class="card-title" style="font-weight:bold;">회원 목록</h4>
@@ -112,7 +118,9 @@
 	</div>
 	
 	<div class="page_bar"id="pagebar">
+	<% if(pagebar != null) { %>
 		<%= pagebar %>
+	<% } %>
 	</div>
 </section>
 
