@@ -1,9 +1,13 @@
 package notice.model.service;
 
-import static common.JdbcTemplate.*;
+import static common.JdbcTemplate.close;
+import static common.JdbcTemplate.commit;
+import static common.JdbcTemplate.getConnection;
+import static common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import notice.model.dao.NoticeDao;
 import notice.model.dto.NoticeAttachment;
@@ -14,9 +18,9 @@ public class NoticeService {
 	public static final int NUM_PER_PAGE = 0;
 	private NoticeDao noticeDao = new NoticeDao();
 
-	public List<NoticeExt> findAll(int memberNo) {
+	public List<NoticeExt> findAll(Map<String, Object> param) {
 		Connection conn = getConnection();
-		List<NoticeExt> list = noticeDao.findAll(conn);
+		List<NoticeExt> list = noticeDao.findAll(conn, param);
 		close(conn);
 		return list;
 	}
@@ -86,7 +90,7 @@ public class NoticeService {
 		Connection conn = getConnection();
 		int result = 0;
 		try {
-			result = noticeDao.deleteAttachment(conn, no);
+			result = noticeDao.deleteNotice(conn, no);
 			commit(conn);
 		} catch(Exception e) {
 			rollback(conn);
@@ -138,11 +142,12 @@ public class NoticeService {
 		return result;
 	}
 
-//	public int getTotalContents() {
-//		Connection conn = getConnection();
-//		int totalContents = noticeDao.getTotalContents(conn);
-//		close(conn);
-//		return totalContents;
-//	}
+	public int getTotalContents() {
+		Connection conn = getConnection();
+		int totalContents = noticeDao.getTotalContents(conn);
+		close(conn);
+		return totalContents;
+
+	}
 
 }
