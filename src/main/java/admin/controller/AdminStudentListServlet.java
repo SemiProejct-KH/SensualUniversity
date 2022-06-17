@@ -45,18 +45,15 @@ try {
 			param.put("start", start);
 			param.put("end", end);
 			
-			int totalContents = memberService.getTotalContents(); // select count(*) from member
+			int totalContents = memberService.getStudentTotalContents(); // select count(*) from member
 			String url = request.getRequestURI();
 			String pagebar = PageBar.getPagebar(cPage, numPerPage, totalContents, url);
 			System.out.println("pagebar = " + pagebar);
 			
-			// 학생조회
 			List<MemberExt> list = memberService.studentFind(param);
 			System.out.println("list = " + list);
 			
-			// 학생조회 view단처리
 			request.setAttribute("list", list);
-			// 페이지바 view단 처리
 			request.setAttribute("pagebar", pagebar);
 			request
 				.getRequestDispatcher("/WEB-INF/views/admin/studentList.jsp")
