@@ -36,7 +36,7 @@
 		<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="<%= request.getContextPath() %>/class/presentlystudentclass">강의조회</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">성적조회</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/student/presentlystudentrecord">성적조회</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/enrol/enrolment">수강신청</a></li>
 		<% } else if(loginMember != null && loginMember.getMemberRole() == MemberRole.P){%>
 				<li class="nav-item"><a class="nav-link" href="<%= request.getContextPath() %>/professor/professorlecture">강의관리</a></li>

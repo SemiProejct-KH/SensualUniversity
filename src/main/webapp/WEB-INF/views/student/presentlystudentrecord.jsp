@@ -25,6 +25,7 @@
 	                <th class="line1">과제</th>
 	                <th class="line1">백분위</th>
 	                <th class="line1">학점</th>
+	                <th class="line1">이의제기</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,8 +37,9 @@
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
-		            <td class="line2" id="result">테스트</td>
-		            <td class="line2" id="result2">테스트</td>
+		            <td class="line2">테스트</td>
+		            <td class="line2">테스트</td>
+		            <td class="line2"><input type="checkbox"></td>
 			</tbody>
 		</table>
 </section>

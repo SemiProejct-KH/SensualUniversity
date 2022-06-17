@@ -63,7 +63,6 @@
 	
 	<script>
 	$(".checkBtn").click(function(){ 
-		List<PresentlyStudentClass> list = (List<PresentlyStudentClass>) request.getAttribute("list");
 		let tdArr = new Array();	
 		let checkBtn = $(this);
 		var string = ["abc","def"];
@@ -107,7 +106,7 @@
             error: function(msg, error) {
                 alert(error);
             }
-		});	
+		});
 	});
 	</script>
 </section>
