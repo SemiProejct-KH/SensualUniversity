@@ -309,5 +309,45 @@ public class MemberDao {
 		return member;
 	}
 
+	public int getProfessorTotalContents(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int professorTotalContents = 0;
+		String sql = prop.getProperty("getProfessorTotalContents");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next())
+				professorTotalContents = rset.getInt(1); 
+		} catch (Exception e) {
+			throw new MemberException("교수 회원 수 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return professorTotalContents;
+	}
+
+	public int getStudentTotalContents(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int studentTotalContents = 0;
+		String sql = prop.getProperty("getStudentTotalContents");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next())
+				studentTotalContents = rset.getInt(1); 
+		} catch (Exception e) {
+			throw new MemberException("학생 회원 수 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return studentTotalContents;
+	}
+
 
 }
