@@ -1,47 +1,55 @@
+* {
+	box-sizing: border-box
+}
 .section_agree {
-	width: 30%;
+	width: 60%;
 	margin: 0 auto;
 	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
 	border: 1px solid blue; /* 완성 후 삭제 예정 */
 }
-h2{
-    color: white;
-    font-size: 20px;
-    text-align: center;
-	padding: 12px;
+.sub_title {
+    color:"white"; 
+    size:4;
+    background-color: #052a78;
 }
-.title {
-    text-align: center;
-    background-color: rgb(5, 42, 120);
-    height: 45px;
-    text-align: center;
-    margin: 30px 5px 1px 5px;
+table{
+   width:100%;
+}
+a {
+	color: #000;
+	text-decoration: none;
+
+}
+a:hover {
+	text-decoration: none;
+	color: #f67001;
+}
+a:focus {
+	outline: none;
+}
+.btn_link {
+    background-color: #052a78;
+}
+.btn_cancel{
+  border:dotted 0px white; 
+  background:#052a78;
+  color:#fff;    
+  width:115px; 
+  height:34px;  
+  font-size: 15px;
+  margin:10px;
 }
 
-.align_btn {
-  display: flex;
-  flex-wrap: wrap;
-    margin-top: 80%;
+.btn_order{ 
+  border:dotted 0px white; 
+  background:#052a78;
+  color:#fff;    
+  width:115px; 
+  height:34px;   
+  font-size: 15px;
+  margin:10px;
 }
-
-.role_btn {
-  background-color: white;
-  height: 60px;
-  width: calc(100% / 0);
-  padding: 5px 5px 0px 5px;
-  box-sizing: border-box;
-  display: flex;
-  
+.btn_cancel:hover,
+.btn_cancel1:hover{
+  background:#f67001;
 }
-.role_btn button {
-    background-color: rgb(5, 42, 120);
-    color: white;
-    flex: 1;
-    border: 0;
-    outline: 0;
-}
-
-.checkbox_group {
-    padding: 10px 5px 5px 5px;
-}
-
