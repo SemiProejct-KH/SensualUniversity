@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@charset "UTF-8";
 
 /* 공지사항 */
 /* 공지사항 리스트 noticeList */
@@ -42,13 +43,27 @@ section.section p {
 	font-weight: bold;
 }
 
+table#tbl_n_view th {
+	padding: 10px 0; 
+	text-align:center; 
+}
+table#tbl_n_view td {
+	text-align: left;
+}
 /* 공지사항 상세보기 noticeView */
 div.view_btn {
 	text-align: right;
 	height: 2px;
 }
+input#delete_btn {
+	margin-left: 0px;
+}
 section#notice_container_view {
 	margin: 8% 20%;
+}
+section#notice_container_view > input {
+	float: right;
+	margin: -19px 0px;
 }
 
 /* 공지사항 업데이트 noticeUpdate */
@@ -62,4 +77,8 @@ td#td_view_content {
 }
 div#update_btn { 
 	float: right;
+}
+section#notice_container_enroll .container-fluid {
+	margin-top: -45px;
+	padding: 0px;
 }
