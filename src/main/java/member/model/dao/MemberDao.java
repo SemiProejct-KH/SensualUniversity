@@ -353,5 +353,86 @@ public class MemberDao {
 		return studentTotalContents;
 	}
 
+	public List<MemberExt> findByMember(Connection conn, Map<String, String> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("findByMember");
+		sql = sql.replace("#", param.get("searchType"));
+		System.out.println("sql = " + sql);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + param.get("searchKeyword") + "%");
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("관리자 회원목록 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+	public List<MemberExt> findByProfessor(Connection conn, Map<String, String> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("findByProfessor");
+		sql = sql.replace("#", param.get("searchType"));
+		System.out.println("sql = " + sql);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + param.get("searchKeyword") + "%");
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("관리자 회원목록 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+	public List<MemberExt> findByStudent(Connection conn, Map<String, String> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<MemberExt> list = new ArrayList<>();
+		String sql = prop.getProperty("findByStudent");
+		sql = sql.replace("#", param.get("searchType"));
+		System.out.println("sql = " + sql);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + param.get("searchKeyword") + "%");
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberExt member = handleMemberResultSet(rset);
+				member.setDepartmentName(rset.getString("department_name"));
+				list.add(member);
+			}
+		} catch (Exception e) {
+			throw new MemberException("관리자 회원목록 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
 
 }
