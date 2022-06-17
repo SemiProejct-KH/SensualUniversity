@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/record.css" />
 <%
 	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
 	List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");	
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기 강의 및 학생조회</button></th>
-				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/last';">지난학기 강의 및 학생조회</button></th>
+				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/past';">지난학기 강의 및 학생조회</button></th>
 			</tr>
 		</table>
 		
@@ -38,7 +38,6 @@
 	                <th class="line1">학생 학과</th>
 	                <th class="line1">학생 이메일</th>
 	                <th class="line1">학생 전화번호</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -66,7 +65,7 @@
 			{
 %>			
 				<tr>
-					<td colspan="9">이전 목록이 없습니다.</td>
+					<td colspan="10" style="text-align:center">강의수강중인 학생이 없습니다.</td>
 				</tr>
 <%				
 			}
@@ -78,11 +77,14 @@
 
 <script>
 
-function selectlect(){
-	$('#lectureselect').empty();
+window.onload = function selectlect(list2){
+	
+	$("#lectureselect").empty();
+	$("#lectureselect").append("<option value='0'>강의 목록</option>");
+	
 	for(var count = 0; count < list2.length(); count++){
 		var option = $("<option>"+ list2[count] +"</option>");
-		$('#lectureselect').append(option);
+		$("#lectureselect").append(option);
 	}
 	
 }
