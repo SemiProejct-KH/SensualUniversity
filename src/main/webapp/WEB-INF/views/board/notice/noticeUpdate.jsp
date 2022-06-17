@@ -35,8 +35,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="content" class="form-label">내용</label> 
-					<textarea class="form-control" id="content" name="content" cols="30" rows="10" style="resize:none">
-					<%= notice.getNoticeContent() %></textarea>
+					<textarea class="form-control" id="content" name="content" cols="30" rows="10" style="resize:none"><%= notice.getNoticeContent() %></textarea>
 				</div>
 				<div class="mb-3">
 				<%
@@ -45,7 +44,7 @@
 							for(int i = 0; i < attachments.size(); i++){
 								NoticeAttachment noticeAttach = attachments.get(i);
 				%>
-							<img src="<%= request.getContextPath() %>/image/file.png" width="16px">
+							<img src="<%= request.getContextPath() %>/images/file.png" width="16px">
 							<%= noticeAttach.getOriginalFilename()%>
 							<input type="checkbox" name="delFile" id="delFile<%= i + 1 %>" value="<%= noticeAttach.getNoticeAttachmentNo() %>"/>
 							<label for="delFile<%= i + 1 %>">삭제</label>
