@@ -16,7 +16,7 @@
 			<th><a href="<%= request.getContextPath() %>/class/studentclass">지난학기 강의조회</a></th>
 		</tr>
 		</table>
-		<table id="record">
+		<table>
 			<thead>
 				<tr>
 	                <th class="line1">년도, 학기</th>
@@ -63,6 +63,9 @@
 %>
 			</tbody>
 		</table>
+		<br />
+		<br />
+			<a href="<%= request.getContextPath() %>/chat/chatroom"><button>실시간 이의제기</button></a>
 	<script>
 	$(".checkBtn").click(function(){ 
 		let tdArr = new Array();	
