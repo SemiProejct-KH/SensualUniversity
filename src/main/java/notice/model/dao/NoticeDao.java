@@ -21,7 +21,7 @@ public class NoticeDao {
 	private Properties prop = new Properties();
 	
 	public NoticeDao() {
-		// 빌드패스 sql/noticec-query.properties 파일내용 불러오기
+		// 빌드패스 sql/notice-query.properties 파일내용 불러오기
 		// 참조할 파일명 변수에 담기 = url을 String으로 반환하기위한 .getPath()
 		String fileName = NoticeDao.class.getResource("/sql/notice-query.properties").getPath();
 		try {
