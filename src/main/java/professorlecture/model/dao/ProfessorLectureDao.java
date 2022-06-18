@@ -42,6 +42,7 @@ public class ProfessorLectureDao {
 			while (rset.next()) {
 				professorlecture = new ProfessorLecture();
 				
+				professorlecture.setSubjectNo(rset.getString("subject_no"));
 				professorlecture.setSubjectTerm(rset.getString("subject_term"));
 				professorlecture.setSubjectLebel(rset.getString("subject_lebel"));
 				professorlecture.setSubjectTime(rset.getString("subject_time"));
