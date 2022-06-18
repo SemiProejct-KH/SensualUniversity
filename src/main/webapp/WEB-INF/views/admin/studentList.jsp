@@ -8,6 +8,7 @@
 	String pagebar = (String) request.getAttribute("pagebar");
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
+	
 %>
 <section class="section" style="width: 83%; height:100%;">
 	<div class="content-body">
@@ -26,25 +27,17 @@
 	                
 	                <!-- 검색 -->
 	                <div class="row g-2">
-					  <div class="col-md-3">
 					  <form action="<%=request.getContextPath()%>/admin/studentFinder">
-					    <div>
-					      <select class="form-select" id="searchType" >
-					         	<option value="member_id" <%="member_id".equals(searchType)?"selected":""%>>아이디</option>		
-						        <option value="1">컴퓨터소프트웨어학과</option>
-						        <option value="2">정보통신공학과</option>
-						        <option value="3">전자공학과</option>
-						        <option value="4">생활체육과</option>
-						        <option value="5">경영학과</option>
-					      </select>
-					    </div>
+					    <input type="hidden" id="searchType" value="member_id" <%="member_id".equals(searchType)?"selected":""%>/>
 					    </form>
 					  </div>
-					   <div class="col-md-5">
+					  <div class="col-md-5">
 					    <div class="form-floating" id="search-memberId">
 					      	<form action="<%=request.getContextPath()%>/admin/studentFinder">
 				                <input type="hidden" name="searchType" value="member_id"/>
-				                <input type="text" name="searchKeyword"  size="25" class="form-control" placeholder="검색할 아이디를 입력하세요." style="width: 80%; float:left;" id="floatingInputGrid" value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
+				                <input type="text" name="searchKeyword"  size="25" class="form-control" placeholder="검색할 아이디를 입력하세요." 
+					                style="width: 80%; float:left;" id="floatingInputGrid" 
+					                value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
 				                <button type="submit" class="btn btn-primary" style="float:right; width: 20%">검색</button>	
 			            	</form>	
 					    </div>

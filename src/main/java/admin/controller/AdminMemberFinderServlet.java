@@ -30,8 +30,10 @@ public class AdminMemberFinderServlet extends HttpServlet {
 		// 1. 사용자 입력값 처리
 		String searchType = request.getParameter("searchType");
 		String searchKeyword = request.getParameter("searchKeyword");
+		String searchDepartment = request.getParameter("searchDepartment");
 		
 		Map<String, String> param = new HashMap<>();
+		param.put("searchDepartment", searchDepartment);
 		param.put("searchType", searchType);
 		param.put("searchKeyword", searchKeyword);
 		System.out.println("param = " + param);

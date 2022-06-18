@@ -371,7 +371,7 @@ public class MemberDao {
 				list.add(member);
 			}
 		} catch (Exception e) {
-			throw new MemberException("관리자 회원목록 조회 오류", e);
+			throw new MemberException("관리자 회원목록 검색 오류", e);
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -398,7 +398,7 @@ public class MemberDao {
 				list.add(member);
 			}
 		} catch (Exception e) {
-			throw new MemberException("관리자 회원목록 조회 오류", e);
+			throw new MemberException("관리자 교수목록 검색 오류", e);
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -425,7 +425,7 @@ public class MemberDao {
 				list.add(member);
 			}
 		} catch (Exception e) {
-			throw new MemberException("관리자 회원목록 조회 오류", e);
+			throw new MemberException("관리자 회원목록 검색 오류", e);
 		} finally {
 			close(rset);
 			close(pstmt);
