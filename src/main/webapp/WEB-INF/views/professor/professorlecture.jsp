@@ -11,31 +11,29 @@
 %>
 
 <section class="section">
-		<form name="lectureFrm" method="post" action="<%= request.getContextPath() %>/professor/professorlecture">
+		
 		<table>
 			<tr>
 				<th>
-				<select name="lectureselect" id="lectureselect">
-				<option value="none" selected>강의 목록</option>
-<% 
-				System.out.printf("if문 구동전");
-				if(list2 != null && !list2.isEmpty()) {
-					for(PresentLecture presentlecture : list2)
-					{
-						System.out.printf("if문 구동");
-%>
-				<option><%= presentlecture.getPresentLecture() %></option>
-<%	
-							System.out.printf("if문 구동후");
-					}
-				} else {
-%>
-				<option>강의목록없음</option>					
-<%
-				}
-%>
-				</select>
-
+				<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+								<%
+								if(list2 == null || list2.isEmpty()) {
+								%>
+								<option selected>조회된 강의가 없습니다.</option>
+								<%
+								} else {
+								%>	
+								<option selected>강의 선택</option>
+								<%
+								 for(PresentLecture presentlecture : list2) {
+								%>
+								<option value="register_name"><%=presentlecture.getPresentLecture()%></option>
+								<%
+									}
+								}
+								%>
+				</select> 
+				
 				</th>
 				
 			</tr>
@@ -92,7 +90,6 @@
 %>
 			</tbody>
 		</table>
-	</form>
 </section>
 
 <script>
