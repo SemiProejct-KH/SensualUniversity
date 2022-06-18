@@ -2,6 +2,7 @@ package professorlecture.model.dto;
 
 public class ProfessorLecture {
 	
+	private String subjectNo; // 강의이름
 	private String subjectTerm; // 강의년도,학기
 	private String subjectLebel; // 강의학년
 	private String subjectTime; // 강의시간
@@ -17,10 +18,11 @@ public class ProfessorLecture {
 		super();
 	}
 
-	public ProfessorLecture(String subjectTerm, String subjectLebel, String subjectTime, String subjectClassroom,
-			String memberName, String memberNo, String memberLevel, String departmentNo, String memberEmail,
-			String memberPhone) {
+	public ProfessorLecture(String subjectNo, String subjectTerm, String subjectLebel, String subjectTime,
+			String subjectClassroom, String memberName, String memberNo, String memberLevel, String departmentNo,
+			String memberEmail, String memberPhone) {
 		super();
+		this.subjectNo = subjectNo;
 		this.subjectTerm = subjectTerm;
 		this.subjectLebel = subjectLebel;
 		this.subjectTime = subjectTime;
@@ -31,6 +33,14 @@ public class ProfessorLecture {
 		this.departmentNo = departmentNo;
 		this.memberEmail = memberEmail;
 		this.memberPhone = memberPhone;
+	}
+
+	public String getSubjectNo() {
+		return subjectNo;
+	}
+
+	public void setSubjectNo(String subjectNo) {
+		this.subjectNo = subjectNo;
 	}
 
 	public String getSubjectTerm() {
@@ -115,10 +125,11 @@ public class ProfessorLecture {
 
 	@Override
 	public String toString() {
-		return "ProfessorLecture [subjectTerm=" + subjectTerm + ", subjectLebel=" + subjectLebel + ", subjectTime="
-				+ subjectTime + ", subjectClassroom=" + subjectClassroom + ", memberName=" + memberName + ", memberNo="
-				+ memberNo + ", memberLevel=" + memberLevel + ", departmentNo=" + departmentNo + ", memberEmail="
-				+ memberEmail + ", memberPhone=" + memberPhone + "]";
+		return "ProfessorLecture [subjectNo=" + subjectNo + ", subjectTerm=" + subjectTerm + ", subjectLebel="
+				+ subjectLebel + ", subjectTime=" + subjectTime + ", subjectClassroom=" + subjectClassroom
+				+ ", memberName=" + memberName + ", memberNo=" + memberNo + ", memberLevel=" + memberLevel
+				+ ", departmentNo=" + departmentNo + ", memberEmail=" + memberEmail + ", memberPhone=" + memberPhone
+				+ "]";
 	}
-	
+
 }

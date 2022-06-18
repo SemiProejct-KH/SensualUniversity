@@ -4,39 +4,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/records.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/record.css" />
 <%
 	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
-	List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");	
 %>
 
 <section class="section">
-		
 		<table>
-			<tr>
-				<th>
-				<select class="form" id="selectlecture" name="selectlecture" onchange="function(this)">
-<%
-				if(list2 == null || list2.isEmpty()) {
-%>
-				<option selected>조회된 강의가 없습니다.</option>
-<%
-				} else {
-%>	
-				<option selected>강의 선택</option>
-<%
-				for(PresentLecture presentlecture : list2) {
-%>
-				<option value="register_name"><%=presentlecture.getPresentLecture()%></option>
-<%
-					}
-				}
-%>
-				</select> 
-				
-				</th>
-				
-			</tr>
 			<tr>
 				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기 강의 및 학생조회</button></th>
 				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/past';">지난학기 강의 및 학생조회</button></th>
@@ -44,7 +18,7 @@
 		</table>
 </section>
 
-		<table id="record">
+<table id="record">
 			<thead>
 				<tr>
 	                <th class="line1">강의이름</th>
@@ -60,6 +34,7 @@
 	                <th class="line1">학생 전화번호</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 <%
 			if(list != null && !list.isEmpty()) {
@@ -95,29 +70,6 @@
 		</table>
 		
 <script>
-$("#selectlecture").change(function(e){
-	
-	var selected = $("#selectlecture option:selected");
-	
-	$.ajax({
-		url:"<%= request.getContextPath() %>/professor/lectureselect",
-		type:'get',
-		dataType:'JSON',
-		processType:false,
-		processData: false,
-		data:{selected},
-		success: function(result){           
-			if (result) {
-				alert("완료");
-			} else {
-				alert("전송된 값 없음");           
-			}       
-		},       
-		error: function() {           
-			alert("에러 발생");
-		  }
-	})
-})
 </script>
 
 	
