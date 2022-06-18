@@ -21,6 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- css -->
   <link rel="stylesheet" href="findPw.css" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
 </head>
 <body>
 <section class="section">

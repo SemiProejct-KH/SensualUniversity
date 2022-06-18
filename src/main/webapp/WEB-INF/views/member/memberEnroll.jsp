@@ -15,108 +15,104 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- css -->
   <link rel="stylesheet" href="<%=request.getContextPath() %>/css/signup.css?after" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
 </head>
 <body>
 	<section class="section_signup">
-	<div class="title">
-	    <h2>회원가입</h2>
-	</div>
+	<div class="content">
+       <div class="title">
+           <h3>회 원 가 입</h3>
+       </div>
+
 <!------------------------- 학생 & 교수 가입분기처리 ------------------------>
-        <div class="align_btn">
-            <div class="role_btn">
-              <button>학생</button>
-            </div>
-            <div class="role_btn">
-              <button onclick="location.href='<%= request.getContextPath() %>/member/professorEnroll';">교수</button>
-            </div>
+        <div class="btn_bar">
+              <button class="btn_bar1" onclick="location.href='<%= request.getContextPath() %>/member/memberEnroll';">학생</button>
+              <button class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/professorEnroll';">교수</button>
         </div>
 <!------------------------- 회원가입 폼 시작 ------------------------>
-	<form name="memberEnrollFrm" method="POST">
-		<!-- 아이디, 비번, 비번확인, 성명, 생일, 학과(드롭다운), 학년, 휴대폰, 이메일 -->
-		<div class="enrolle_content">
-            <div class="row g-2">
-                <div class="col-md-8">
-                    <div class="form-floating mb-2">
-                      <input type="text" class="form-control" name="memberId" id="_memberId" placeholder="아이디" required>
-                      <label for="memberId">아이디</label>
+        <form name="memberEnrollFrm" method="POST">
+            <!-- 아이디, 비번, 비번확인, 성명, 생일, 학과(드롭다운), 학년, 휴대폰, 이메일 -->
+            <div class="enrolle_content">
+                <div class="row g-2">
+                    <div class="col-md-8">
+                        <div class="form-floating mb-2">
+                          <input type="text" class="form-control input-sm" name="memberId" id="_memberId" placeholder="아이디" required>
+                          <label for="memberId">아이디</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="button" class="form-control" value="중복검사" onclick="checkIdDuplicate();" style="padding: 18px"/>
+                          <input type="hidden" id="idValid" value="0" />
+                        </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="form-floating">
-                      <input type="button" class="form-control" style="padding: 18px;" value="중복검사" onclick="checkIdDuplicate();" style="padding: 18px"/>
-                      <input type="hidden" id="idValid" value="0" />
-                    </div>
+
+                <div class="form-floating mb-2">
+                  <input type="password" class="form-control" name="password" id="_password" placeholder="비밀번호" required>
+                  <label for="password">비밀번호</label>
                 </div>
-            </div>
 
-            <div class="form-floating mb-2">
-              <input type="password" class="form-control" name="password" id="_password" placeholder="비밀번호" required>
-              <label for="password">비밀번호</label>
-            </div>
+                <div class="form-floating mb-2">
+                  <input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="비밀번호확인" required>
+                  <label for="passwordCheck">비밀번호확인</label>
+                </div>
 
-            <div class="form-floating mb-2">
-              <input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="비밀번호확인" required>
-              <label for="passwordCheck">비밀번호확인</label>
-            </div>
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" name="memberName" id="memberName" placeholder="성명" required>
+                  <label for="memberName">성명</label>
+                </div>
 
-            <div class="form-floating mb-2">
-              <input type="text" class="form-control" name="memberName" id="memberName" placeholder="성명" required>
-              <label for="memberName">성명</label>
-            </div>
-
-            <div class="form-floating mb-2">
-              <input type="date" class="form-control" name="memberBirth" id="memberBirth" value="1994-07-07">
-              <label for="memberBirth">생년월일</label>
-            </div>
+                <div class="form-floating mb-2">
+                  <input type="date" class="form-control" name="memberBirth" id="memberBirth" value="1994-07-07">
+                  <label for="memberBirth">생년월일</label>
+                </div>
 
 <!------------------------- 학과 드롭 다운 ------------------------>
-            
-            <div class="row g-2">
-              <div class="col-md">
-                <div class="form-floating mb-2">
-                  <select class="form-select" id="memberLevel" name="memberLevel" aria-label="Floating label select example">
-                    <option selected>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                  <label for="memberLevel">학년</label>
-                </div>
-              </div>
-              <div class="col-md">
-                <div class="form-floating mb-2">
-                  <select class="form-select" id="departmentName" name="departmentName" aria-label="Floating label select example">
-                    <option selected>컴퓨터소프트웨어학과</option>
-                    <option>정보통신공학과</option>
-                    <option>전자공학과</option>
-                    <option>생활체육과</option>
-                    <option>경영학과</option>
-                  </select>
-                  <label for="departmentName">학과</label>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-floating mb-2">
-              <input type="text" class="form-control" name="memberPhone" id="memberPhone" placeholder="핸드폰" value="" required>
-              <label for="memberPhone">핸드폰</label>
-            </div>
-
-            <div class="form-floating mb-2">
-              <input type="text" class="form-control" name="memberEmail" id="memberEmail" placeholder="이메일" value="" required>
-              <label for="memberEmail">이메일</label>
-            </div>
+	            <div class="row g-2">
+	              <div class="col-md">
+	                <div class="form-floating mb-2">
+	                  <select class="form-select" id="memberLevel" name="memberLevel" aria-label="Floating label select example">
+	                    <option selected>1</option>
+	                    <option>2</option>
+	                    <option>3</option>
+	                    <option>4</option>
+	                  </select>
+	                  <label for="memberLevel">학년</label>
+	                </div>
+	              </div>
+	              <div class="col-md">
+	                <div class="form-floating mb-2">
+	                  <select class="form-select" id="departmentName" name="departmentName" aria-label="Floating label select example">
+	                    <option selected>컴퓨터소프트웨어학과</option>
+	                    <option>정보통신공학과</option>
+	                    <option>전자공학과</option>
+	                    <option>생활체육과</option>
+	                    <option>경영학과</option>
+	                  </select>
+	                  <label for="departmentName">학과</label>
+	                </div>
+	              </div>
+	            </div>
+	            
+	            <div class="form-floating mb-2">
+	              <input type="text" class="form-control" name="memberPhone" id="memberPhone" placeholder="핸드폰" value="" required>
+	              <label for="memberPhone">핸드폰</label>
+	            </div>
+	
+	            <div class="form-floating mb-2">
+	              <input type="text" class="form-control" name="memberEmail" id="memberEmail" placeholder="이메일" value="" required>
+	              <label for="memberEmail">이메일</label>
+	            </div>
 <!------------------------- 가입&취소 버튼------------------------>
-            <div class="align_btn">
-                <div class="role_btn">
-                  <button type="submit">가입하기</button>
-                </div>
-                <div class="role_btn">
-                  <button type="button" onClick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
+                <div class="btn_bar">
+                  <button type="submit" class="btn_bar1">가입하기</button>
+                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
                 </div>
             </div>
-		</div>
-	</form>
+		</form>
+	</div>
 </section>
 <form name="checkIdDuplicateFrm" action="<%= request.getContextPath() %>/member/checkIdDuplicate">
 	<input type="hidden" name="memberId" />
