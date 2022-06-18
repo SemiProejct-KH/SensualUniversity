@@ -1,4 +1,4 @@
-package notice.controller;
+package board.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,29 +14,31 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+import board.model.dto.BoardAttachment;
+import board.model.dto.BoardExt;
+import board.model.service.QuestionService;
 import common.BoardFileRenamePolicy;
 import notice.model.dto.NoticeAttachment;
-import notice.model.dto.NoticeExt;
-import notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class NoticeUpdateServlet
+ * Servlet implementation class QuestionUpdateServlet
  */
-@WebServlet("/notice/noticeUpdate")
-public class NoticeUpdateServlet extends HttpServlet {
+@WebServlet("/board/questionUpdate")
+public class QuestionUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private NoticeService noticeService = new NoticeService();
+	private QuestionService questionService = new QuestionService(); 
+	// 주석추가3
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.사용자입력값 처리
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		// 2.업무로직
-		NoticeExt notice = noticeService.findByNo(no);
+		BoardExt board = questionService.findByNo(no);
 		
 		// 3.view단처리
-		request.setAttribute("notice", notice);
-		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeUpdate.jsp")
+		request.setAttribute("board", board);
+		request.getRequestDispatcher("/WEB-INF/views/board/question/questionUpdate.jsp")
 			.forward(request, response);
 	}
 
@@ -73,53 +75,54 @@ public class NoticeUpdateServlet extends HttpServlet {
 		String content = multiReq.getParameter("content");
 		String[] delFiles = multiReq.getParameterValues("delFile"); // 삭제하려는 첨부파일 pk
 		
-		NoticeExt notice = new NoticeExt();
-		notice.setNoticeNo(no);
-		notice.setNoticeTitle(title);
-		notice.setMemberId(writerId);
-		notice.setNoticeContent(content);
+		BoardExt board = new BoardExt();
+		board.setBoardNo(no);
+		board.setBoardTitle(title);
+		board.setMemberId(writerId);
+		board.setBoardContent(content);
 		
 		File upFile1 = multiReq.getFile("upFile1");
 		File upFile2 = multiReq.getFile("upFile2");
 		if(upFile1 != null || upFile2 != null) {
-			List<NoticeAttachment> noticeAttachments = new ArrayList<>();
+			List<BoardAttachment> boardAttachments = new ArrayList<>();
 			if(upFile1 != null)
-				noticeAttachments.add(getNoticeAttachment(multiReq, no, "upFile1"));
+				boardAttachments.add(getBoardAttachment(multiReq, no, "upFile1"));
 			if(upFile2 != null)
-				noticeAttachments.add(getNoticeAttachment(multiReq, no, "upFile2"));
-			notice.setNoticeAttachments(noticeAttachments);
+				boardAttachments.add(getBoardAttachment(multiReq, no, "upFile2"));
+			board.setBoardAttachments(boardAttachments);
 		}
 		
 		// 4. 업무로직 - 
 		// db board(update), attachment(insert) 레코드 등록
-		int result = noticeService.updateNotice(notice);
+		int result = questionService.updateBoard(board);
 		// 첨부파일 삭제 처리
 		if(delFiles != null) {
 			for(String temp : delFiles) {
 				int attachNo = Integer.parseInt(temp); // attachment pk
 				System.out.println("attach=" + attachNo);
-				NoticeAttachment attach = noticeService.findAttachmentByNo(attachNo);
+				BoardAttachment attach = questionService.findAttachmentByNo(no);
 				System.out.println("attach=" + attachNo);
 				// a. 파일 삭제
 				File delFile = new File(saveDirectory, attach.getRenameFilename());
 				if(delFile.exists()) delFile.delete();
 
 				// b. db record 삭제
-				result = noticeService.deleteAttachment(attachNo);
+				result = questionService.deleteAttachment(attachNo);
 				System.out.println("> " + attachNo + "번 첨부파일 (" + attach.getRenameFilename() + ") 삭제!");
 			}
 		}
 		// 5. redirect
-		response.sendRedirect(request.getContextPath() + "/notice/noticeView?no=" + no);
+		response.sendRedirect(request.getContextPath() + "/board/questionView?no=" + no);
 		
 	}
 
-	private NoticeAttachment getNoticeAttachment(MultipartRequest multiReq, int noticeNo, String name) {
-		NoticeAttachment attach = new NoticeAttachment();
-		attach.setNoticeNo(noticeNo);
+	private BoardAttachment getBoardAttachment(MultipartRequest multiReq, int boardNo, String name) {
+		BoardAttachment attach = new BoardAttachment();
+		attach.setBoardNo(boardNo);
 		attach.setOriginalFilename(multiReq.getOriginalFileName(name));
 		attach.setRenameFilename(multiReq.getFilesystemName(name));
 		return attach;
 	}
+
 
 }

@@ -5,44 +5,44 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
-	List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 
+List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <div class="board_menu">
-	<li><a href="#">공지사항&nbsp|&nbsp</a></li>
-	<li><a href="#">학과묻고답하기&nbsp|&nbsp</a></li>
-	<li><a href="#">스터디&nbsp|&nbsp</a></li>
-	<li><a href="#">분실물</a></li>
+	<li><a href="#" style="font-weight: bold">공지사항&nbsp|&nbsp</a></li>
+	<li><a href="<%=request.getContextPath()%>/board/questionList">교내묻고답하기&nbsp|&nbsp</a></li>
+	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
+	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
 </div>
 <section id="notice_container" class="section">
-	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
-		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/notice/noticeEnroll';"/>
-	<% } %>
-	<table id="tbl_n_list" class="table table-striped">
+	<%
+			if(loginMember != null && loginMember.getMemberRole().equals('A'))
+	%>
+		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/notice/noticeEnroll';"/>
+	<%
+	%>
+	<table id="" class="tbl_list table table-striped">
 		<thead class="thead-light">
 			<tr>
-				<th>No.</th>
+				<th></th>			
 				<th>제목</th>
 				<th>작성자</th>
-				<th>작성일</th>
+				<th>&nbsp&nbsp&nbsp작성일</th>
 			 	<th>조회수</th>
 			</tr>
 		</thead>
 		<tbody>
 		<%
-			if(list != null && !list.isEmpty()) {
+				if(list != null && !list.isEmpty()) {
 			  for(NoticeExt noticeExt : list) {
-			
 		%>
 			<tr>
-				<td><%= noticeExt.getNoticeNo() %></td>
+				<td>▪</td>
 				<td><a href="<%= request.getContextPath() %>/notice/noticeView?no=<%= noticeExt.getNoticeNo() %>"><%= noticeExt.getNoticeTitle() %></a></td>
-				<td><%= loginMember.getMemberName() %></td>
+				<td><%= noticeExt.getMemberId() %></td>
 				<td><%= noticeExt.getNoticeDate() %></td>
-				<td>
-				</td>
-				<td><%= noticeExt.getNoticeReadCount() %></td>
+				<td>&nbsp&nbsp&nbsp<%= noticeExt.getNoticeReadCount() %></td>
 			</tr>
 		<%
 			  }

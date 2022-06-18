@@ -1,4 +1,4 @@
-package notice.controller;
+package board.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -12,24 +12,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.dto.NoticeAttachment;
-import notice.model.service.NoticeService;
+import board.model.dto.BoardAttachment;
+import board.model.service.QuestionService;
 
 /**
- * Servlet implementation class NoticeFileDownloadServlet
+ * Servlet implementation class BoardFileDownload
  */
-@WebServlet("/notice/fileDownload")
-public class NoticeFileDownloadServlet extends HttpServlet {
+@WebServlet("/board/fileDownload")
+public class BoardFileDownload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private NoticeService noticeService = new NoticeService(); 
+	private QuestionService questionService = new QuestionService(); 
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 사용자 입력값 처리
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		// 업무로직
-		NoticeAttachment noticeAttach = noticeService.findAttachmentByNo(no);
-		System.out.println(noticeAttach);
+		BoardAttachment boardAttach = questionService.findAttachmentByNo(no);
+		System.out.println(boardAttach);
 		
 		// 응답처리
 		// 헤더작성
@@ -37,11 +37,11 @@ public class NoticeFileDownloadServlet extends HttpServlet {
 		// 헤더작성
 		response.setContentType("application/octet-stream"); // 응답데이터 타입 - 이진데이터
 		// Content-Disposition 첨부파일인 경우, 브라우저 다운로드(Save as)처리 명시
-		response.setHeader("Content-Disposition", "attachment=" + noticeAttach.getOriginalFilename());
+		response.setHeader("Content-Disposition", "attachment=" + boardAttach.getOriginalFilename());
 		
 		// 파일을 읽어서(input) 응답메세지에 쓰기(output)
 		String saveDirectory = getServletContext().getRealPath("/upload/board");
-		File file = new File(saveDirectory, noticeAttach.getRenameFilename());
+		File file = new File(saveDirectory ,boardAttach.getRenameFilename());
 		
 		// 기본스트림 - 대상과 연결
 		// 보조스트림 - 기본스트림과 연결, 보조스트림 제어
@@ -54,5 +54,6 @@ public class NoticeFileDownloadServlet extends HttpServlet {
 			}
 		}
 	}
+
 
 }

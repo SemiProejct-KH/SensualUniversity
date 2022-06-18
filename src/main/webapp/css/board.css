@@ -1,8 +1,7 @@
 @charset "UTF-8";
 @charset "UTF-8";
 
-/* 공지사항 */
-/* 공지사항 리스트 noticeList */
+/* List */
 div.board_menu {
 	margin: 11% 20%;
 }
@@ -21,14 +20,16 @@ div.board_menu li a:hover {
 table#tbl_notice tr td {
 	text-align: center;
 }
-
+table.tbl_list tr th{
+	text-align: center;
+}
 /* 글쓰기 버튼 */
 section#notice_container input {
 	float: right;
 }
-/* 공지사항 등록 noticeEnroll */
+/* Enroll */
 div.px-4 {
-	margin: 48px auto;
+	margin: -50px auto;
 }
 button#btn_enroll {
 	float: right;
@@ -37,15 +38,17 @@ section.section p {
 	font-size: 23px;
 	font-weight: bold;
 }
-
-table#tbl_n_view th {
+table.tbl_view {
+	margin: 0 auto;
+}
+table.tbl_view th {
 	padding: 10px 0; 
 	text-align:center; 
 }
-table#tbl_n_view td {
+table.tbl_view td {
 	text-align: left;
 }
-/* 공지사항 상세보기 noticeView */
+/* View */
 div.view_btn {
 	text-align: right;
 	height: 2px;
@@ -61,7 +64,7 @@ section#notice_container_view > input {
 	margin: -19px 0px;
 }
 
-/* 공지사항 업데이트 noticeUpdate */
+/* Update */
 table#tbl_n_view {
 	text-align: center;
 	border: 1px solid #dddddd;
