@@ -36,7 +36,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <!-- favicon -->
 <link rel="shortcut icon" href="images/favicon.ico">
-
+<!-- css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/login.css?after" />
 
 <!-- script -->

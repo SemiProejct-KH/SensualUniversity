@@ -1,0 +1,120 @@
+/* color: rgb(5, 42, 120); */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  height:100%
+}
+#top_bar {
+  height: 40px;
+  /* border: 1px solid red; */
+  background-color: rgb(5, 42, 120);
+}
+#top_bar_btn {
+  /* border: 1px solid yellow; */
+  float: right;
+  margin-right: 20%;
+}
+#uni_name {
+  /* border: 1px solid yellow; */
+  text-align: center;
+  padding:20px;
+}
+#navbar {
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+.section {
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	height: 800px; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	border: 1px solid blue; /* 완성 후 삭제 예정 */
+    text-align: center;
+}
+#footer {
+  background-color: rgb(5, 42, 120);
+  height: 110px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-top:40px;
+}
+.page_bar{
+	text-align: center;
+	display: block;
+	padding: 10px;
+}
+/*-----------------------------------------------------*/
+
+.content {
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.content_input {
+    text-align: left;    
+}
+
+.title {
+    background-color: #052a78;
+    border: 1px solid #333;
+    height: 40px;
+    text-align: center;
+    line-height: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: white;
+    padding: 8px;
+}
+
+
+
+h3{
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.btn_bar {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.btn_bar1{
+    border: 1px solid #333;
+    float: left;
+    width:32%;
+    box-sizing: border-box;
+    background-color: #052a78;
+    color: white;
+    height: 40px;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.btn_bar2 {
+    border: 1px solid #333;
+    float: left;
+    margin-left: 2%;
+    width:32%;
+    box-sizing: border-box;
+    background-color: #052a78;
+    color: white;
+    height: 40px;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.btn_bar3 {
+    border: 1px solid #333;
+    float: right;
+    width:32%;
+    box-sizing: border-box;
+    background-color: #052a78;
+    color: white;
+    height: 40px;
+    font-weight: 300;
+    font-size: 16px;
+}
