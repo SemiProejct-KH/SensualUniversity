@@ -22,9 +22,9 @@ public class ProfessorLectureService {
 	
 	public List<PresentLecture> Present(int No) {
 		Connection conn = getConnection();
-		List<PresentLecture> list = professorlecturedao.Present(conn, No);
+		List<PresentLecture> list2 = professorlecturedao.Present(conn, No);
 		close(conn);
-		return list;
+		return list2;
 	}
 	
 }

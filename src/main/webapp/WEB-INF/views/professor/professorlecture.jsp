@@ -16,8 +16,34 @@
 			<tr>
 				<th>
 				<select name="lectureselect" id="lectureselect">
+				<option value="none" selected>강의 목록</option>
+<% 
+				System.out.printf("if문 구동전");
+				if(list2 != null && !list2.isEmpty()) {
+					for(PresentLecture presentlecture : list2)
+					{
+						System.out.printf("if문 구동");
+%>
+				<option><%= presentlecture.getPresentLecture() %></option>
+<%	
+							System.out.printf("if문 구동후");
+					}
+				} else {
+%>
+				<option>강의목록없음</option>					
+<%
+				}
+%>
 				</select>
+				
+				<div>
+				<%
+				
+				%>
+				</div>
+				
 				</th>
+				
 			</tr>
 			<tr>
 				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기 강의 및 학생조회</button></th>
@@ -76,19 +102,9 @@
 </section>
 
 <script>
-
-window.onload = function selectlect(list2){
+$(function(){
 	
-	$("#lectureselect").empty();
-	$("#lectureselect").append("<option value='0'>강의 목록</option>");
-	
-	for(var count = 0; count < list2.length(); count++){
-		var option = $("<option>"+ list2[count] +"</option>");
-		$("#lectureselect").append(option);
-	}
-	
-}
-
+});
 </script>
 
 	
