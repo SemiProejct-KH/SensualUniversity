@@ -34,7 +34,7 @@ public class NoticeDao {
 	private NoticeExt handleNoticeResultSet(ResultSet rset) throws SQLException {
 		NoticeExt notice = new NoticeExt();
 		notice.setNoticeNo(rset.getInt("notice_no"));
-		notice.setMemberNo(rset.getInt("member_no"));
+		notice.setMemberId(rset.getString("member_id"));
 		notice.setNoticeTitle(rset.getString("notice_title"));
 		notice.setNoticeContent(rset.getString("notice_content"));
 		notice.setNoticeDate(rset.getDate("notice_date"));				
@@ -58,6 +58,7 @@ public class NoticeDao {
 			while(rset.next()) {
 				notice = new NoticeExt();
 				notice.setNoticeNo(rset.getInt("notice_no"));
+				notice.setMemberId(rset.getString("member_id"));
 				notice.setNoticeTitle(rset.getString("notice_title"));
 				notice.setNoticeDate(rset.getDate("notice_date"));
 				notice.setNoticeReadCount(rset.getInt("notice_read_count"));
@@ -82,7 +83,7 @@ public class NoticeDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, notice.getMemberNo());
+			pstmt.setString(1, notice.getMemberId());
 			pstmt.setString(2, notice.getNoticeTitle());
 			pstmt.setString(3, notice.getNoticeContent());
 			pstmt.setInt(4, notice.getNoticeReadCount());

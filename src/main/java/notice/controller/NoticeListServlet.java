@@ -22,8 +22,7 @@ import notice.model.service.NoticeService;
 @WebServlet("/notice/noticeList")
 public class NoticeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private NoticeService noticeService = new NoticeService();
-
+	private NoticeService noticeService = new NoticeService(); 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -1,4 +1,4 @@
-package notice.controller;
+package board.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,25 +14,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+import board.model.dto.BoardAttachment;
+import board.model.dto.BoardExt;
+import board.model.service.QuestionService;
 import common.BoardFileRenamePolicy;
 import notice.model.dto.NoticeAttachment;
 import notice.model.dto.NoticeExt;
 import notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class NoticeEnrollServlet
+ * Servlet implementation class QuestionEnrollServlet
  */
-@WebServlet("/notice/noticeEnroll")
-public class NoticeEnrollServlet extends HttpServlet {
+@WebServlet("/board/questionEnroll")
+public class QuestionEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private NoticeService noticeService = new NoticeService(); 
+    private QuestionService questionService = new QuestionService(); 
  
 	/**
 	 * 게시판 등록 요청
 	 * - 게시판 등록시 /board/boardList
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/board/notice/noticeEnroll.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/board/question/questionEnroll.jsp")
 			.forward(request, response);
 	}
 
@@ -65,47 +68,44 @@ public class NoticeEnrollServlet extends HttpServlet {
 			String title = multiReq.getParameter("title");
 			String content = multiReq.getParameter("content");
 			
-			NoticeExt notice = new NoticeExt();
-			notice.setMemberId(writer);
-			notice.setNoticeTitle(title);
-			notice.setNoticeContent(content);
-			System.out.println("notice = " + notice);
+			BoardExt board = new BoardExt();
+			board.setMemberId(writer);
+			board.setBoardTitle(title);
+			board.setBoardContent(content);
+			System.out.println("board = " + board);
 			
 			File upFile1 = multiReq.getFile("upFile1");
 			File upFile2 = multiReq.getFile("upFile2");
 			
 			// 첨부한 파일이 하나라도 있는 경우
 			if(upFile1 != null || upFile2 != null) {
-				List<NoticeAttachment> noticeAttachments = new ArrayList<>();
+				List<BoardAttachment> boardAttachments = new ArrayList<>();
 				if(upFile1 != null) 
-					noticeAttachments.add(getNoticeAttachment(multiReq, "upFile1"));
+					boardAttachments.add(getBoardAttachment(multiReq, "upFile1"));
 				if(upFile2 != null) 
-					noticeAttachments.add(getNoticeAttachment(multiReq, "upFile2"));
+					boardAttachments.add(getBoardAttachment(multiReq, "upFile2"));
 				
-				notice.setNoticeAttachments(noticeAttachments);
+				board.setBoardAttachments(boardAttachments);
 			}
 			
-			System.out.println("notice = " + notice.getNoticeReadCount());
 			// 업무로직
-			int result = noticeService.insertNotice(notice);
+			int result = questionService.insertBoard(board);
 			
 			// 리다이렉트
-			response.sendRedirect(request.getContextPath() + "/notice/noticeList");
+			response.sendRedirect(request.getContextPath() + "/board/questionList");
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
-
-		
 	}
 
-	private NoticeAttachment getNoticeAttachment(MultipartRequest multiReq, String name) {
-		NoticeAttachment noticeAttach = new NoticeAttachment();
-		String originalFilename = multiReq.getOriginalFileName(name); // 업로드한 파일
-		String renameFilename = multiReq.getFilesystemName(name); // 저장된 파일명
-		noticeAttach.setOriginalFilename(originalFilename);
-		noticeAttach.setRenameFilename(renameFilename);
-		return noticeAttach;
-	}
+		private BoardAttachment getBoardAttachment(MultipartRequest multiReq, String name) {
+			BoardAttachment noticeAttach = new BoardAttachment();
+			String originalFilename = multiReq.getOriginalFileName(name); // 업로드한 파일
+			String renameFilename = multiReq.getFilesystemName(name); // 저장된 파일명
+			noticeAttach.setOriginalFilename(originalFilename);
+			noticeAttach.setRenameFilename(renameFilename);
+			return noticeAttach;
+		}
 
 }
