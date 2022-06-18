@@ -67,7 +67,7 @@ public class ProfessorLectureDao {
 	public List<PresentLecture> Present(Connection conn, int No){
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		List<PresentLecture> list = new ArrayList<>();
+		List<PresentLecture> list2 = new ArrayList<>();
 		PresentLecture presentlecture = new PresentLecture();
 		String sql = prop.getProperty("present");
 		try {
@@ -80,7 +80,7 @@ public class ProfessorLectureDao {
 				
 				presentlecture.setPresentLecture(rset.getString("subject_name"));
 				
-				list.add(presentlecture);
+				list2.add(presentlecture);
 				
 			}
 		} catch (SQLException e) {
@@ -89,7 +89,7 @@ public class ProfessorLectureDao {
 			close(rset);
 			close(pstmt);
 		}
-		return list;
+		return list2;
 	}
 	
 }

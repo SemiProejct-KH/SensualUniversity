@@ -11,13 +11,31 @@
 %>
 
 <section class="section">
-		<form name="lectureFrm" method="post" action="<%= request.getContextPath() %>/professor/professorlecture">
+		
 		<table>
 			<tr>
 				<th>
-				<select name="lectureselect" id="lectureselect">
-				</select>
+				<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+								<%
+								if(list2 == null || list2.isEmpty()) {
+								%>
+								<option selected>조회된 강의가 없습니다.</option>
+								<%
+								} else {
+								%>	
+								<option selected>강의 선택</option>
+								<%
+								 for(PresentLecture presentlecture : list2) {
+								%>
+								<option value="register_name"><%=presentlecture.getPresentLecture()%></option>
+								<%
+									}
+								}
+								%>
+				</select> 
+				
 				</th>
+				
 			</tr>
 			<tr>
 				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기 강의 및 학생조회</button></th>
@@ -72,23 +90,12 @@
 %>
 			</tbody>
 		</table>
-	</form>
 </section>
 
 <script>
-
-window.onload = function selectlect(list2){
+$(function(){
 	
-	$("#lectureselect").empty();
-	$("#lectureselect").append("<option value='0'>강의 목록</option>");
-	
-	for(var count = 0; count < list2.length(); count++){
-		var option = $("<option>"+ list2[count] +"</option>");
-		$("#lectureselect").append(option);
-	}
-	
-}
-
+});
 </script>
 
 	
