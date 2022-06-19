@@ -1,8 +1,8 @@
-
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css?after" />
 
@@ -60,14 +60,14 @@ ws.onmessage = (e) => {
 
 const messageHandler = (payload) => {
 	const {type, sender, msg, time, clientCnt} = payload;
-	if(<%= loginMember.getMemberId() == loginMember.getMemberId() %>){
-		const html = `
-		<li class="\${type !== 'chat' ? 'center' : ''}" style="list-style:none;">
-			<span class="badge" style="color:black; background-color:yellow">\${sender}</span>
-			\${msg}
-		</li>`;
-		document.querySelector("#msg-container ul").insertAdjacentHTML('beforeend', html);
-	}
+	const html = `
+	<li class="\${type !== 'chat' ? 'center' : ''}" style="list-style:none;">
+		<span class="badge" style="color:black; background-color:yellow">\${sender}</span>
+		\${msg}
+	</li>`;
+	document.querySelector("#msg-container ul").insertAdjacentHTML('beforeend', html);
+	
+	
 
 	// 스크롤해서 하단부 노출!
 	const container = document.querySelector("#msg-container");
@@ -76,6 +76,7 @@ const messageHandler = (payload) => {
 	// 채팅인원수 관리
 	clientCnt && (document.querySelector("#clientCnt").innerHTML = clientCnt);
 };
+
 
 ws.onerror = (e) => {
 	console.log('error', e);
@@ -131,6 +132,7 @@ document.querySelector("#dm-send").addEventListener('click', (e) => {
 			textarea.value = "";
 		}
 	});
+	
 });
 
 function enterkey() {
