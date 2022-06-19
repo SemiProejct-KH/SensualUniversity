@@ -1,4 +1,4 @@
-<%@ page import="professorlecture.model.dto.ProfessorLecture"%>
+<%@ page import="professorgrade.model.dto.ProfessorGrade"%>
 <%@ page import="professorlecture.model.dto.PresentLecture"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +6,7 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/records.css" />
 <%
-	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
+	List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 	List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");	
 %>
 
@@ -49,35 +49,36 @@
 				<tr>
 	                <th class="line1">강의이름</th>
 	                <th class="line1">강의년도, 학기</th>
-	                <th class="line1">강의학년</th>
-	                <th class="line1">강의시간</th>
-	                <th class="line1">강의실</th>
-	                <th class="line1">학생 이름</th>
-	                <th class="line1">학생 아이디</th>
-	                <th class="line1">학생 학년</th>
-	                <th class="line1">학생 학과</th>
-	                <th class="line1">학생 이메일</th>
-	                <th class="line1">학생 전화번호</th>
+	                <th class="line1">학생학년</th>
+	                <th class="line1">학생이름</th>
+	                <th class="line1">학생아이디</th>
+	                <th class="line1">학생학과</th>
+	                <th class="line1">중간고사</th>
+	                <th class="line1">기말고사</th>
+	                <th class="line1">과제점수</th>
+	                <th class="line1">출석점수</th>
+	                <th class="line1">제출</th>
 				</tr>
 			</thead>
 			<tbody>
 <%
 			if(list != null && !list.isEmpty()) {
-				for(ProfessorLecture professorlecture : list)
+				for(ProfessorGrade professorgrade : list)
 				{
 %>
 					<tr>
-						<td class="line2"><%= professorlecture.getSubjectNo() %></td>
-						<td class="line2"><%= professorlecture.getSubjectTerm() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectLebel() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectTime() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectClassroom() %></td>
-			            <td class="line2"><%= professorlecture.getMemberName() %></td>
-			            <td class="line2"><%= professorlecture.getMemberNo() %></td>
-			            <td class="line2"><%= professorlecture.getMemberLevel() %></td>
-			            <td class="line2"><%= professorlecture.getDepartmentNo() %></td>
-			            <td class="line2"><%= professorlecture.getMemberEmail() %></td>
-			            <td class="line2"><%= professorlecture.getMemberPhone() %></td>
+						<td class="line2"><%= professorgrade.getSubjectNo() %></td>
+						<td class="line2"><%= professorgrade.getSubjectTerm() %></td>
+			            <td class="line2"><%= professorgrade.getMemberLevel() %></td>
+			            <td class="line2"><%= professorgrade.getMemberName() %></td>
+			            <td class="line2"><%= professorgrade.getMemberNo() %></td>
+			            <td class="line2"><%= professorgrade.getDepartmentNo() %></td>
+			            <td class="line2"><input type="text" id="middle" name="middle" /></td>
+			            <td class="line2"><input type="text" id="final" name="final"/></td>
+			            <td class="line2"><input type="text" id="assignment" name="assignment"/></td>
+			            <td class="line2"><input type="text" id="attend" name="attend"/></td>
+			            <td class="line2"><button type="button" >제출버튼</button></td>
+			            
 					</tr>
 <%
 				}
