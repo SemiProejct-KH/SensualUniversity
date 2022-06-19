@@ -99,15 +99,16 @@ public class QuestionUpdateServlet extends HttpServlet {
 		if(delFiles != null) {
 			for(String temp : delFiles) {
 				int attachNo = Integer.parseInt(temp); // attachment pk
-				System.out.println("attach=" + attachNo);
-				BoardAttachment attach = questionService.findAttachmentByNo(no);
-				System.out.println("attach=" + attachNo);
+				BoardAttachment attach = questionService.findAttachmentByNo(attachNo);
 				// a. 파일 삭제
 				File delFile = new File(saveDirectory, attach.getRenameFilename());
 				if(delFile.exists()) delFile.delete();
 
 				// b. db record 삭제
 				result = questionService.deleteAttachment(attachNo);
+
+				System.out.println("attach=" + attachNo);
+				System.out.println(result);
 				System.out.println("> " + attachNo + "번 첨부파일 (" + attach.getRenameFilename() + ") 삭제!");
 			}
 		}
