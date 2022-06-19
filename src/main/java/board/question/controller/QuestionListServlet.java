@@ -1,4 +1,4 @@
-package board.controller;
+package board.question.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
