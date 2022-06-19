@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+div#info {
+	background-color: #dcdcdc;
+	width: 60%;
+    height: 310px;
+    margin-left: -159px;
+    margin-top: 60px;
+}
+div#calendar {
+    background-color: #dcdcdc;
+    width: 60%;
+    height: 360px;
+    margin-left: -158px;
+    margin-top: 14px;
+}
+div#main_notice_list {
+	background-color: #dcdcdc;
+    width: 80%;
+    height: 686px;
+    float: right;
+    margin-right: -162px;
+    margin-top: -684px;
+}
