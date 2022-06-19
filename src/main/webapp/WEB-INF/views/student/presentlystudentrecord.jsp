@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/records.css" />
 <%
 	int StudentNo = loginMember.getMemberNo();
 %> 
@@ -25,7 +25,6 @@
 	                <th class="line1">과제</th>
 	                <th class="line1">백분위</th>
 	                <th class="line1">학점</th>
-	                <th class="line1">이의제기</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,9 +38,11 @@
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
 		            <td class="line2">테스트</td>
-		            <td class="line2"><input type="checkbox"></td>
 			</tbody>
 		</table>
+		<br />
+		<br />
+			<a href="<%= request.getContextPath() %>/chat/chatroom"><button>채팅으로 이의제기하기</button></a>
 </section>
 	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
