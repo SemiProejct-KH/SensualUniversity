@@ -78,13 +78,12 @@ section#notice_container_enroll .container-fluid {
 	padding: 0px;
 }
 /* comment */
-div.comment_container textarea {width: 600px; height: 50px}
-table.tbl_comment {width:650px; margin:3% 3%; border-collapse:collapse;}
-table.tbl_comment tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;}
-table.tbl_comment tr td:first-of-type{padding: 0px 5px 5px 50px;}
+div.comment_container textarea {width: 564px; height: 50px; margin: 30px 5px;}
+table.tbl_comment {width:645px; margin:3% 2.8%; border-collapse:collapse;}
+table.tbl_comment tr td{border-bottom:0.5px solid; border-top:0.5px solid; padding:5px; text-align:left; line-height:120%;}
+table.tbl_comment tr td:first-of-type{padding: 0px -1px 5px 50px;}
 table.tbl_comment tr td:last-of-type {text-align:right; width: 100px;}
-table.tbl_comment button.reply_go_char{display:none;}
+table.tbl_comment button.reply_go_chat{width: 48px; height:25px; border: 1px solid gray; border-radius: 4px; font-size:12px}
 table.tbl_comment tr:hover {background:lightgray;}
 table.tbl_comment tr:hover button.btn-reply{display:inline;}
-table.tbl_comment sub.comment-writer {color:navy; font-size:14px}
-table.tbl_comment sub.comment-date {color:tomato; font-size:10px}
+sub.comment_writer {margin-right:10px; font-size:12px; font-weight:600;}

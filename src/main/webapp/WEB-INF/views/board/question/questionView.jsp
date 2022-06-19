@@ -69,8 +69,8 @@
 					<tr>
 						<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
 						<th colspan="2">
-							<input type="button" id="delete_btn" class="view_btn btn btn-outline-primary" value="삭제하기" onclick="deleteNotice()">
-							<input type="button" class="view_btn btn btn-outline-primary" value="수정하기" onclick="updateNotice()">
+							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteNotice()">
+							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateNotice()">
 						</th>
 					</tr>
 					<% } %>
@@ -92,7 +92,7 @@
 				name="content" cols="60" rows="3"></textarea>
                 <button type="submit" 
                 	class="btn_comment_enroll btn btn-outline-primary"
-                	style="line-height:18px; margin-top:-22px">등록</button>
+                	style="line-height:18px; margin-top:-80px; width: 58px; height:31px;">등록</button>
             </form>
         </div>
        </div>
@@ -108,10 +108,10 @@
 						<sub class="comment_writer"><%= bc.getMemberId() %></sub>
 						<sub class="comment_date"><%= bc.getRegDate() %></sub>
 						<br />
-						<%= bc.getContent() %>
+						<sub class="comment_content"><%= bc.getContent() %></sub>
 					</td>
 					<td>
-						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">1:1채팅</button>
+						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">채팅</button>
 					</td>
 				</tr>
 			<% } 
