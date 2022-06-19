@@ -20,32 +20,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- css -->
-  <link rel="stylesheet" href="findPw.css" />
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/css/findPwResult.css?after" />
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
 </head>
 <body>
-<section class="section">
-	<h2 align="center" style="margin-top:100px;">비밀번호 수정</h2>	
-	<form 
-		name="findPwResult" 
-		action="<%=request.getContextPath()%>/member/findPwResult"
-		method="post" >
+<section class="section_pw_result">
+    <div class="wrapper">
+        <div class="content">
+            <div class="title">
+                <h3>비밀번호 수정</h3>
+            </div>
+            <form 
+                name="findPwResult" 
+                action="<%=request.getContextPath()%>/member/findPwResult"
+                method="post" >
+            
+                <div class="form-floating mb-2">
+                  <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="비밀번호" required>
+                  <label for="newPassword">새로운 비밀번호</label>
+                </div>
 
-		<div class="form-floating mb-3">
-		  <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="비밀번호" required>
-		  <label for="newPassword">변경할 비밀번호</label>
-		</div>
-		
-		<div class="form-floating mb-3">
-		  <input type="password" class="form-control" id="newPasswordCheck" placeholder="비밀번호" required>
-		  <label for="newPasswordCheck">비밀번호 확인</label>
-		</div>
-		
-		<button type="submit" class="btn btn-primary">변경</button>
-			
-		<input type="hidden" name="memberId" value="<%= member.getMemberId() %>" />
-	</form>
+                <div class="form-floating mb-2">
+                  <input type="password" class="form-control" id="newPasswordCheck" placeholder="비밀번호" required>
+                  <label for="newPasswordCheck">비밀번호 확인</label>
+                </div>
+                
+                <div class="btn_bar">
+                  <button type="submit" class="btn_bar1">변경</button>
+                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
+                </div>
+                <input type="hidden" name="memberId" value="<%= member.getMemberId() %>" />
+            </form>
+        </div>
+    </div>
 </section>
 </body>
 </html>

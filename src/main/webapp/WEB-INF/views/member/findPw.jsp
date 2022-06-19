@@ -26,31 +26,34 @@
 </head>
 <body>
 	<section class="section_signup">
-	<div class="title">
-	    <h2>비밀번호 찾기</h2>
-    </div>
-<!------------------------- 비밀번호 찾기 폼 시작 ------------------------>
-	<form name="findPasswordFrm" method="POST">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="memberId" name="memberId"placeholder="아이디">
-          <label for="memberId">아이디</label>
-        </div>
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="memberName" name="memberName"placeholder="성명">
-          <label for="memberName">성명</label>
-        </div>
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="memberBirth" name="memberBirth" placeholder="생년월일">
-          <label for="memberBirth">생년월일 (예:2000-10-15, 1997-01-01)</label>
-        </div>
-        <p>*아이디, 이름, 생년월일은 필수 입력 항목입니다.</p>
-<!------------------------- 찾기 버튼------------------------>
-        <div class="align_btn">
-            <div class="role_btn">
-              <button type="submit" onClick="pw_search()">찾기</button>
+	<div class="wrapper">
+       <div class="content">
+            <div class="title">
+                <h3>비밀번호 찾기</h3>
             </div>
+<!------------------------- 비밀번호 찾기 폼 시작 ------------------------>
+            <form name="findPassword" method="POST">
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" name="memberId" id="memberId" placeholder="아이디">
+                  <label for="memberId">아이디</label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" name="memberName" id="memberName" placeholder="성명">
+                  <label for="memberName">성명</label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" name="memberBirth" id="memberBirth" placeholder="생년월일">
+                  <label for="memberBirth">생년월일 (예:201015, 970101)</label>
+                </div>
+                <p>*아이디, 이름, 생년월일은 필수 입력 항목입니다.</p>
+<!------------------------- 찾기 버튼------------------------>
+                <div class="btn_bar">
+                  <button type="submit" class="btn_bar1" onclick="pw_search()">찾기</button>
+                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
+                </div>
+            </form>
         </div>
-	</form>
+	</div>
 </section>	
 </body>
 </html>

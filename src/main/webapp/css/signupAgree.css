@@ -3,53 +3,63 @@
 }
 .section_agree {
 	width: 60%;
-	margin: 0 auto;
+	margin-right: auto;
+	margin-left: auto;
 	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
 	border: 1px solid blue; /* 완성 후 삭제 예정 */
 }
-.sub_title {
-    color:"white"; 
-    size:4;
+.title {
     background-color: #052a78;
+    border: 1px solid #333;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    padding: 8px;
 }
 table{
-   width:100%;
+    margin-left:auto; 
+    margin-right:auto;
 }
-a {
-	color: #000;
-	text-decoration: none;
+table, td, th {
+    border-collapse : collapse;
+}
 
-}
-a:hover {
-	text-decoration: none;
-	color: #f67001;
-}
-a:focus {
-	outline: none;
-}
-.btn_link {
+.btn_bar1{
+    border: 1px solid #333;
+    float: left;
+    width:49%;
+    box-sizing: border-box;
     background-color: #052a78;
+    color: white;
+    height: 40px;
+    font-weight: 300;
+    font-size: 16px;
 }
-.btn_cancel{
-  border:dotted 0px white; 
-  background:#052a78;
-  color:#fff;    
-  width:115px; 
-  height:34px;  
-  font-size: 15px;
-  margin:10px;
+.btn_bar2 {
+    border: 1px solid #333;
+    float: right;
+    margin-left: 2%;
+    width:49%;
+    box-sizing: border-box;
+    background-color: #052a78;
+    color: white;
+    height: 40px;
+    font-weight: 300;
 }
 
-.btn_order{ 
-  border:dotted 0px white; 
-  background:#052a78;
-  color:#fff;    
-  width:115px; 
-  height:34px;   
-  font-size: 15px;
-  margin:10px;
+.btn_bar {
+    width: 100%;
+    margin: 20px auto;
 }
-.btn_cancel:hover,
-.btn_cancel1:hover{
-  background:#f67001;
+
+.sub_title{
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.checkbox {
+    zoom: 1.5;
+    vertical-align:-3px;
 }
