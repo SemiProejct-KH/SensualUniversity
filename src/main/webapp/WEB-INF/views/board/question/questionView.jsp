@@ -1,3 +1,4 @@
+<%@page import="board.model.dto.BoardComment"%>
 <%@page import="board.model.dto.BoardAttachment"%>
 <%@page import="board.model.dto.BoardExt"%>
 <%@page import="java.util.List"%>
@@ -8,6 +9,8 @@
 <%
  
 	BoardExt board = (BoardExt)request.getAttribute("board");	
+	List<BoardComment> comments = board.getBoardComments();
+
 	boolean canEdit = loginMember != null 
 	&& (loginMember.getMemberId().equals(board.getMemberId())
 	|| loginMember.getMemberRole() == MemberRole.A);
@@ -17,7 +20,7 @@
 	System.out.println(loginMember.getMemberRole());
 	System.out.println(canEdit);
 %>
-<section id="notice_container_view" class="section">
+<section class="notice_container_view section">
 	<% if(loginMember != null) { %>
 		<input type="button" value="1:1채팅" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom';"/>
 	<% } %>
@@ -74,12 +77,62 @@
 			</table>
 		</div>
 	</div>
+	 
+	<div class="comment_container">
+        <div class="comment_editor">
+            <form
+				action="<%=request.getContextPath()%>/board/boardComment" 
+				method="post" 
+				class= "boardCommentFrm" 
+				name="boardCommentFrm"
+				style="text-align: center;">
+                <input type="hidden" name="boardNo" value="<%= board.getBoardNo() %>" />
+                <input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>" /> 
+				<textarea 
+				name="content" cols="60" rows="3"></textarea>
+                <button type="submit" 
+                	class="btn_comment_enroll btn btn-outline-primary"
+                	style="line-height:18px; margin-top:-22px">등록</button>
+            </form>
+        </div>
+       </div>
+		<!--table#tbl-comment-->
+		<% if (comments != null && !comments.isEmpty()) { %>
+		<table class="tbl_comment">
+			<tbody>
+			<%
+				for(BoardComment bc : comments) {
+			%>
+				<tr>
+					<td>
+						<sub class="comment_writer"><%= bc.getMemberId() %></sub>
+						<sub class="comment_date"><%= bc.getRegDate() %></sub>
+						<br />
+						<%= bc.getContent() %>
+					</td>
+					<td>
+						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">1:1채팅</button>
+					</td>
+				</tr>
+			<% } 
+			}
+			%>
+			</tbody>
+		</table>
 </section>
 <% if(canEdit){ %>
 <form action="<%= request.getContextPath() %>/board/questionDelete" name="boardDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= board.getBoardNo() %>" />
 </form>
 <script>
+document.querySelector("textarea[name=content]").onfocus = (e) => {
+	if(<%= loginMember == null %>)
+		loginAlert();
+};
+const loginAlert = () => {
+	alert("로그인 후 이용할 수 있습니다.");
+	document.querySelector("memberId").focus();
+};
 /**
  * POST /board/boardDelete
  * - no전송

@@ -20,9 +20,6 @@ div.board_menu li a:hover {
 table#tbl_notice tr td {
 	text-align: center;
 }
-table.tbl_list tr th{
-	text-align: center;
-}
 /* 글쓰기 버튼 */
 section#notice_container input {
 	float: right;
@@ -56,10 +53,10 @@ div.view_btn {
 input#delete_btn {
 	margin-left: 0px;
 }
-section#notice_container_view {
-	margin: 8% 20%;
+section.notice_container_view {
+	margin: 5% 20%;
 }
-section#notice_container_view > input {
+section.notice_container_view > input {
 	float: right;
 	margin: -19px 0px;
 }
@@ -77,6 +74,17 @@ div#update_btn {
 	float: right;
 }
 section#notice_container_enroll .container-fluid {
-	margin-top: -45px;
+	margin-top: -25px;
 	padding: 0px;
 }
+/* comment */
+div.comment_container textarea {width: 600px; height: 50px}
+table.tbl_comment {width:650px; margin:3% 3%; border-collapse:collapse;}
+table.tbl_comment tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;}
+table.tbl_comment tr td:first-of-type{padding: 0px 5px 5px 50px;}
+table.tbl_comment tr td:last-of-type {text-align:right; width: 100px;}
+table.tbl_comment button.reply_go_char{display:none;}
+table.tbl_comment tr:hover {background:lightgray;}
+table.tbl_comment tr:hover button.btn-reply{display:inline;}
+table.tbl_comment sub.comment-writer {color:navy; font-size:14px}
+table.tbl_comment sub.comment-date {color:tomato; font-size:10px}

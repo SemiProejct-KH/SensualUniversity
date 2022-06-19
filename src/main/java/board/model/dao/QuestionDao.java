@@ -12,6 +12,7 @@ import java.util.Map;
 
 import board.exception.BoardException;
 import board.model.dto.BoardAttachment;
+import board.model.dto.BoardComment;
 import board.model.dto.BoardExt;
 import notice.model.exception.NoticeException;
 
@@ -296,5 +297,54 @@ public class QuestionDao {
 
 		
 		return result;
+	}
+
+	public int insertBoardComment(Connection conn, BoardComment bc) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = "insert into board_comment values (seq_board_comment_no.nextval, ?, ?, ?, default)"; 
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bc.getMemberId());
+			pstmt.setString(2, bc.getContent());
+			pstmt.setInt(3, bc.getBoardNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new BoardException("댓글 등록 오류", e);
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public List<BoardComment> findBoardCommentByBoardNo(Connection conn, int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<BoardComment> comments = new ArrayList<>();
+		String sql = "select * from board_comment where board_no = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				BoardComment bc = new BoardComment();
+				bc.setCommentNo(rset.getInt("comment_no"));
+				bc.setMemberId(rset.getString("member_id"));
+				bc.setContent(rset.getString("content"));
+				bc.setBoardNo(rset.getInt("board_no"));
+				bc.setRegDate(rset.getDate("reg_date"));
+				comments.add(bc);
+			}
+			
+		} catch (SQLException e) {
+			throw new BoardException("댓글 목록 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return comments;
 	}
 }
