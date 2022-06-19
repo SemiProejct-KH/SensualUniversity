@@ -33,7 +33,7 @@
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300&display=swap" rel="stylesheet">
 <!-- favicon -->
 <link rel="shortcut icon" href="images/favicon.ico">
 <!-- css -->
@@ -103,7 +103,7 @@ alert("<%= msg %>");
 		<!-- 로그인 -->
 		<section id="section_login">
 			<div class="login_wrp">
-                <h3>Sensual University</h3>
+                <h3 style="margin-bottom: 40px; font-size: 2.0rem;" >Sensual University</h3>
                 <form id="loginFrm" name="loginFrm" method="POST" action="<%= request.getContextPath() %>/member/login">
                     <div class="login_content">
                         <h2 class="login_title">
