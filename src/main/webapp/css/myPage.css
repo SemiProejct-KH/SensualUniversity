@@ -1,9 +1,5 @@
 /* color: rgb(5, 42, 120); */
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  margin: 0;
-  height:100%
-}
+
 #top_bar {
   height: 40px;
   /* border: 1px solid red; */

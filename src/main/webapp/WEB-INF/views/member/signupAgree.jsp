@@ -18,26 +18,23 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
 </head>
-<body>
+  <body>
 	<section class="section_agree">
-		<table>
-        <br>
-        <br>
-        <br>
-         <tr>
-          <td align=center>
-              <!--이용약관 테이블 시작-->
-              <table>
-                  <tr>
-                      <td class="sub_title" align=center>
-                          <div>
-                              <font class="sub_title" color="white" size=4>01 이용약관(필수)</font>
-                          </div>
-                      </td>
-                  </tr>
-               <tr>
-                 <td align=center>
-                   <textarea name="tos" rows=15 cols=100>
+			<table>
+	         <tr>
+	          <td>
+	              <!--이용약관 테이블 시작-->
+	              <table>
+	                  <tr>
+	                      <td>
+	                          <div class="title">
+	                              <font class="sub_title" color="white">01 이용약관(필수)</font>
+	                          </div>
+	                      </td>
+	                  </tr>
+	               <tr>
+	                 <td>
+	                   <textarea name="tos" rows=13 cols=100>
 제1조(목적)
  본 약관은 감각대학교 사이트가 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차, 이용자와 충청대학교 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.
 
@@ -71,24 +68,24 @@
  ② “감각대학교 사이트”가 회원 자격을 제한ㆍ정지 시킨후, 동일한 행위가 2회이상 반복되거나 30일이내에 그 사유가 시정되지 아니하는 경우 “감각대학교 사이트”은 회원자격을 상실시킬 수 있습니다.
 
  ④ “감각대학교 사이트”이 회원자격을 상실시키는 경우에는 회원등록을 말소합니다. 이 경우 회원에게 이를 통지하고, 회원등록 말소전에 최소한 30일 이상의 기간을 정하여 소명할 기회를 부여합니다.
-                    </textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="checkbox1" id="checkbox1" value="checkbox1">이용약관에 동의합니다.<br><br><br><br>
-                  </td>
-                </tr>
-                <tr>
-                    <td class="sub_title" align=center>
-                        <div>
-                            <font class="sub_title" color="white" size=4>02 개인정보의 수집 및 이용에 대한 동의 (필수)</font>
-                        </div>
-                    </td>
-                </tr>
-               <tr>
-                 <td align=center>
-                   <textarea name="tos" rows=15 cols=100>
+	                    </textarea>
+	                  </td>
+	                </tr>
+	                <tr>
+	                  <td>
+	                    <input type="checkbox" class="checkbox" id="checkbox1" value="checkbox1">이용약관에 동의합니다.
+	                  </td>
+	                </tr>
+	                <tr>
+	                    <td>
+                            <div class="title" style="margin-top: 20px;">
+	                              <font class="sub_title">02 개인정보의 수집 및 이용에 대한 동의 (필수)</font>
+                            </div> 
+	                    </td>
+	                </tr>
+	               <tr>
+	                 <td>
+	                   <textarea name="tos" rows=13 cols=100>
 수집하는 개인정보의 항목
 회사는 회원가입, 상담, 서비스 신청 및 제공 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
 - 이름, 이메일, 주소, 연락처, 핸드폰 번호, 아이디, 비밀번호, 닉네임, 팩스번호, 홈페이지 주소 또한 서비스 이용과정이나 사업
@@ -186,40 +183,29 @@ NICE신용평가정보㈜(이하 “대행사”)가 “대행사”에서 제�
 단, 관련 법령 및 회사방침에 의해 보존하는 정보의 경우 아래 목적으로만 이용하며 보존기간은
 다음과 같습니다.
 '정보통신망 이용촉진 및 정보보호 등에 관한 법률'의 거래기록 보존 의무에 따른 보존: 1년
-
-                    </textarea>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input type="checkbox" name="checkbox2" id="checkbox2" value="checkbox2">개인정보 수집 및 이용에 대한 안내에 동의합니다.
-                      </td>
-                    </tr>
-                  </table>
-              </td>
-            </tr>
-        </table>
-        <br><br>
-
-        <table width=60% align=center>
-         <td align=center>
-              <tr>
-                  <td class="btn_link" align=center>
-                      <div>
-                         
-                          <button type="button" class="btn_order" id="btn_agree">회 원 가 입</button></a>
-                      </div>
-                  </td>
-                  <td align=center style="width: 30px"></td>
-                  <td class="btn_link" align=center>
-                      <div>
-                          <a href="<%= request.getContextPath() %>/"> <button type="button" class="btn_cancel">취 소 하 기</button></a>
-                      </div>
-                  </td>
-              </tr>
-        </table>
+	
+	                    </textarea>
+	                      </td>
+	                    </tr>
+	                    <tr>
+	                      <td>
+	                        <input type="checkbox" class="checkbox" name="checkbox2" id="checkbox2" value="checkbox2">개인정보 수집 및 이용에 대한 안내에 동의합니다.
+	                      </td>
+	                    </tr>
+	                    <tr>
+                            <td>
+                                <div class="btn_bar">
+                                      <button type="button" class="btn_bar1" id="btn_agree">회원가입</button>
+                                      <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/';">취소하기</button>
+                                </div>
+                            </td>
+	                    </tr>
+	                  </table>
+	              </td>
+	            </tr>
+	        </table>
 	</section>
-</body>
+  </body>
 </html>
 <script>
 $(document).ready(function(e) {	
