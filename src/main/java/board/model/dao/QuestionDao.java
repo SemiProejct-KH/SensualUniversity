@@ -347,20 +347,4 @@ public class QuestionDao {
 		}
 		return comments;
 	}
-
-	public int deleteBoardComment(Connection conn, int commentNo) {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		String sql = "delete from board_comment where comment_no = ?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, commentNo);
-			result = pstmt.executeUpdate();
-		} catch(Exception e) {
-			throw new BoardException("댓글 삭제 오류", e);
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
 }

@@ -14,6 +14,11 @@
 	boolean canEdit = loginMember != null 
 	&& (loginMember.getMemberId().equals(board.getMemberId())
 	|| loginMember.getMemberRole() == MemberRole.A);
+	
+	System.out.println(loginMember.getMemberId());
+	System.out.println(board.getMemberId());
+	System.out.println(loginMember.getMemberRole());
+	System.out.println(canEdit);
 %>
 <section class="notice_container_view section">
 	<% if(loginMember != null) { %>
@@ -64,8 +69,8 @@
 					<tr>
 						<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
 						<th colspan="2">
-							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteBoard()">
-							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateBoard()">
+							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteNotice()">
+							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateNotice()">
 						</th>
 					</tr>
 					<% } %>
@@ -100,18 +105,13 @@
 			%>
 				<tr>
 					<td>
-						<sub class="comment_writer"><%= bc.getMemberId() != null ? bc.getMemberId() : "(탈퇴회원)" %></sub>
+						<sub class="comment_writer"><%= bc.getMemberId() %></sub>
 						<sub class="comment_date"><%= bc.getRegDate() %></sub>
 						<br />
 						<sub class="comment_content"><%= bc.getContent() %></sub>
 					</td>
 					<td>
-						<% if(!canEdit) { %>
 						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">채팅</button>
-						<% } %>
-						<% if(canEdit) { %>
-							<button class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
-						<% } %>
 					</td>
 				</tr>
 			<% } 
@@ -120,64 +120,29 @@
 			</tbody>
 		</table>
 </section>
-<form action="<%= request.getContextPath() %>/board/boardCommentDelete"
-	 name="boardCommentDelFrm"
-	 method="post">
-	 <input type="hidden" name="commentNo" />
-	 <input type="hidden" name="boardNo" value="<%= board.getBoardNo() %>"/>
-</form>
-<script>
-/**
- * .btn-reply click eventhandler binding 
- */
-document.querySelectorAll(".btn_delete").forEach((button) => {
-	button.onclick = (e) => {
-		if(!confirm("정말 삭제하시겠습니까?")) return;
-		document.boardCommentDelFrm.commentNo.value = e.target.value;
-		document.boardCommentDelFrm.submit();
-	}
-});
-
-document.querySelector("textarea[name=content]").onfocus = (e) => {
-	if(<%= loginMember == null %>)
-		loginAlert();
-};
-
-const commentSubmitHandler = (e) => {
-	if(<%= loginMember == null %>){
-		loginAlert();
-		return false; 		
-	}
-	
-	const contentVal = e.target.content.value.trim();
-	if(!/^(.|\n)+$/.test(contentVal)){
-		alert("댓글 내용을 작성해주세요.");
-		e.target.content.focus();
-		return false;
-	}
-	
-};
-
-document.boardCommentFrm.onsubmit = commentSubmitHandler;
-
-const loginAlert = () => {
-	alert("로그인후 이용할 수 있습니다.");
-	document.querySelector("#memberId").focus();
-};
-
-</script>
-
 <% if(canEdit){ %>
 <form action="<%= request.getContextPath() %>/board/questionDelete" name="boardDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= board.getBoardNo() %>" />
 </form>
 <script>
-const deleteBoard = () => {
+document.querySelector("textarea[name=content]").onfocus = (e) => {
+	if(<%= loginMember == null %>)
+		loginAlert();
+};
+const loginAlert = () => {
+	alert("로그인 후 이용할 수 있습니다.");
+	document.querySelector("memberId").focus();
+};
+/**
+ * POST /board/boardDelete
+ * - no전송
+ * - 저장된 파일 삭제 : java.io.File 
+ */
+const deleteNotice = () => {
 	if(confirm("정말 이 게시글을 삭제하시겠습니까?"))
 		document.boardDeleteFrm.submit();
 };	
-
-const updateBoard = () => {
+const updateNotice = () => {
 	location.href = "<%= request.getContextPath() %>/board/questionUpdate?no=<%= board.getBoardNo() %>";
 }
 </script>

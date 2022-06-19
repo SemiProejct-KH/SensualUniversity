@@ -2,112 +2,70 @@ package professorgrade.model.dto;
 
 public class ProfessorGrade {
 	
-	private String subjectTerm; // 년도,학기
-	private String subjectLebel; // 학년
-	private String subjectName; // 이름
-	private String memberNo; // 아이디
-	private String departmentName; // 학과
-	private int grademiddle; // 중간
-	private int gradefinal; // 기말
-	private int gradeassignment; // 과제
-	private int gradeattend; // 출석
+	private String subjectNo; // 강의 이름
+	private String subjectTerm; // 강의년도,학기
+	private String memberLevel; // 학생학년
+	private String memberName; // 학생이름
+	private String memberNo; // 학생아이디
+	private String departmentNo; // 학생학과
+//	private int grademiddle; // 중간
+//	private int gradefinal; // 기말
+//	private int gradeassignment; // 과제
+//	private int gradeattend; // 출석
 	
 	public ProfessorGrade() {
 		super();
 	}
-
-	public ProfessorGrade(String subjectTerm, String subjectLebel, String subjectName, String memberNo,
-			String departmentName, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
-		super();
-		this.subjectTerm = subjectTerm;
-		this.subjectLebel = subjectLebel;
-		this.subjectName = subjectName;
-		this.memberNo = memberNo;
-		this.departmentName = departmentName;
-		this.grademiddle = grademiddle;
-		this.gradefinal = gradefinal;
-		this.gradeassignment = gradeassignment;
-		this.gradeattend = gradeattend;
-	}
-
-	public String getSubjectTerm() {
-		return subjectTerm;
-	}
-
-	public void setSubjectTerm(String subjectTerm) {
-		this.subjectTerm = subjectTerm;
-	}
-
-	public String getSubjectLebel() {
-		return subjectLebel;
-	}
-
-	public void setSubjectLebel(String subjectLebel) {
-		this.subjectLebel = subjectLebel;
-	}
-
-	public String getSubjectName() {
-		return subjectName;
-	}
-
-	public void setSubjectName(String subjectName) {
-		this.subjectName = subjectName;
-	}
-
-	public String getMemberNo() {
-		return memberNo;
-	}
-
-	public void setMemberNo(String memberNo) {
-		this.memberNo = memberNo;
-	}
-
-	public String getDepartmentName() {
-		return departmentName;
-	}
-
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-	public int getGrademiddle() {
-		return grademiddle;
-	}
-
-	public void setGrademiddle(int grademiddle) {
-		this.grademiddle = grademiddle;
-	}
-
-	public int getGradefinal() {
-		return gradefinal;
-	}
-
-	public void setGradefinal(int gradefinal) {
-		this.gradefinal = gradefinal;
-	}
-
-	public int getGradeassignment() {
-		return gradeassignment;
-	}
-
-	public void setGradeassignment(int gradeassignment) {
-		this.gradeassignment = gradeassignment;
-	}
-
-	public int getGradeattend() {
-		return gradeattend;
-	}
-
-	public void setGradeattend(int gradeattend) {
-		this.gradeattend = gradeattend;
-	}
-
-	@Override
-	public String toString() {
-		return "ProfessorGrade [subjectTerm=" + subjectTerm + ", subjectLebel=" + subjectLebel + ", subjectName="
-				+ subjectName + ", memberNo=" + memberNo + ", departmentName=" + departmentName + ", grademiddle="
-				+ grademiddle + ", gradefinal=" + gradefinal + ", gradeassignment=" + gradeassignment + ", gradeattend="
-				+ gradeattend + "]";
-	}
+public ProfessorGrade(String subjectNo, String subjectTerm, String memberLevel, String memberName, String memberNo,
+		String departmentNo) {
+	super();
+	this.subjectNo = subjectNo;
+	this.subjectTerm = subjectTerm;
+	this.memberLevel = memberLevel;
+	this.memberName = memberName;
+	this.memberNo = memberNo;
+	this.departmentNo = departmentNo;
+}
+public String getSubjectNo() {
+	return subjectNo;
+}
+public void setSubjectNo(String subjectNo) {
+	this.subjectNo = subjectNo;
+}
+public String getSubjectTerm() {
+	return subjectTerm;
+}
+public void setSubjectTerm(String subjectTerm) {
+	this.subjectTerm = subjectTerm;
+}
+public String getMemberLevel() {
+	return memberLevel;
+}
+public void setMemberLevel(String memberLevel) {
+	this.memberLevel = memberLevel;
+}
+public String getMemberName() {
+	return memberName;
+}
+public void setMemberName(String memberName) {
+	this.memberName = memberName;
+}
+public String getMemberNo() {
+	return memberNo;
+}
+public void setMemberNo(String memberNo) {
+	this.memberNo = memberNo;
+}
+public String getDepartmentNo() {
+	return departmentNo;
+}
+public void setDepartmentNo(String departmentNo) {
+	this.departmentNo = departmentNo;
+}
+@Override
+public String toString() {
+	return "ProfessorGrade [subjectNo=" + subjectNo + ", subjectTerm=" + subjectTerm + ", memberLevel=" + memberLevel
+			+ ", memberName=" + memberName + ", memberNo=" + memberNo + ", departmentNo=" + departmentNo + "]";
+}
 
 }
