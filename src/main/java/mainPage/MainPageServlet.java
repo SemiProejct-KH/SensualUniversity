@@ -1,4 +1,4 @@
-package mainpage;
+package mainPage;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,6 +16,8 @@ public class MainPageServlet extends HttpServlet {
        
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 주석추가
 		request.getRequestDispatcher("/WEB-INF/views/main/mainPage.jsp").forward(request, response);
 	}
 }
