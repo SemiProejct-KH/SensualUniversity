@@ -28,21 +28,37 @@
 			</div>
 		<div class="main_notice_list">
 			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
-			메인페이지
+			
+			<table id="" class="tbl_list table table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th></th>			
+					<th>제목</th>
+					<th>&nbsp&nbsp&nbsp작성일</th>
+				 	<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
 			<%
-				if(list != null && !list.isEmpty()) {
-			  for(NoticeExt notice : list) {
+			if(list != null && !list.isEmpty()) {
+				for(NoticeExt notice : list) {
 			%>
-				<p><%= notice.getNoticeNo() %></p>
+			<tr onclick="location.href='<%= request.getContextPath() %>/notice/noticeView?no=<%= notice.getNoticeNo() %>';">
+				<td>▪</td>
+				<td><%= notice.getNoticeTitle() %></td>
+				<td><%= notice.getNoticeDate() %></td>
+				<td>&nbsp&nbsp&nbsp<%= notice.getNoticeReadCount() %></td>
+			</tr>
 			<%
-			  }
+				}
 			} else {
-		
 			%>
 				<p> 조회된 정보가 없습니다.</p>
-		<%
-			}
-		%>
+			<%
+				}
+			%>
+			</tbody>
+		</table>
 		</div>
 </section>
 		</form>
