@@ -62,7 +62,7 @@ section.notice_container_view > input {
 }
 
 /* Update */
-table#tbl_n_view {
+table#tbl_view {
 	text-align: center;
 	border: 1px solid #dddddd;
 }
