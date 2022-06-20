@@ -326,6 +326,9 @@ public class NoticeDao {
 				//notice = handleNoticeResultSet(rset);
 				notice = new NoticeExt();
 				notice.setNoticeNo(rset.getInt("notice_no"));
+				notice.setNoticeTitle(rset.getString("notice_title"));
+				notice.setNoticeDate(rset.getDate("notice_date"));
+				notice.setNoticeReadCount(rset.getInt("notice_read_count"));
 				
 				noticeList.add(notice);	
 				System.out.println("noticeDao = " + notice);
