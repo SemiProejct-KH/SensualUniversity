@@ -121,14 +121,20 @@
 </html>
 <script>
 const checkIdDuplicate = () => {
-	const title = "checkIdDuplicatePopup";
-	const spec = "width=400px, height=300px left=(window.screen.width / 2) - (200 / 2), top=(window.screen.height / 2) - (300 / 2)";
-	const popup = open("", title, spec);
-	
-	const frm = document.checkIdDuplicateFrm;
-	frm.target = title; // 해당팝업에서 폼을 제출!
-	frm.memberId.value = _memberId.value;
-	frm.submit();
+	// /^[a-z]+[a-z0-9]{5,11}$/g; // 영문자로 시작하는 영문자 또는 숫자 6 ~ 12자
+	if(!/^[a-z]+[a-z0-9]{5,11}$/g.test(_memberId.value)){
+		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
+	}
+	else{	
+		const title = "checkIdDuplicatePopup";
+		const spec = "width=400px, height=300px";
+		const popup = open("", title, spec);
+		
+		const frm = document.checkIdDuplicateFrm;
+		frm.target = title; // 해당팝업에서 폼을 제출!
+		frm.memberId.value = _memberId.value;
+		frm.submit();
+	}
 };
 passwordCheck.onblur = () => {
 	if(_password.value !== passwordCheck.value){
@@ -137,7 +143,8 @@ passwordCheck.onblur = () => {
 	}	
 	return true;
 };
-	
+
+ 
 /*회원가입폼 유효성 검사*/
 document.memberEnrollFrm.onsubmit = () => {
 	// memberId

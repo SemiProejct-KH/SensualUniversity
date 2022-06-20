@@ -3,7 +3,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	height: 800px; /* 코드 작업 완성 후 100%로 바꿀 예정 */
-	border: 1px solid blue; /* 완성 후 삭제 예정 */
+/* 	border: 1px solid blue; 완성 후 삭제 예정 */
     text-align: center;
 }
 
@@ -55,4 +55,16 @@ h3 {
 }
 .form-control{
     height: calc(2.5rem + 1px);
+}
+
+@media screen and (min-width: 1500px){
+.content {
+    display: inline-block;
+    width: 50%;
+    height: 100hv;
+    margin: 150px;
+}
+
+
+
 }

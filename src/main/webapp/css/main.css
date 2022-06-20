@@ -18,6 +18,9 @@ body {
   /* border: 1px solid yellow; */
   text-align: center;
   padding:20px;
+  font-size:30px;
+  font-weight:300;
+  color: black;
 }
 #navbar {
   font-size: 20px;
@@ -44,7 +47,16 @@ body {
 	display: block;
 	padding: 10px;
 }
-
+.btns2 {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: white;
+}
+.title{
+	color: rgb(51, 51, 51);
+	font-weight: 600;
+}
 /* 큰 화면 */
 @media screen and (min-width: 1920px){
 	
