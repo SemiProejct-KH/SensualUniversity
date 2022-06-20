@@ -52,7 +52,7 @@ public class MemberLoginServlet extends HttpServlet {
 			}
 			response.addCookie(cookie); // 응답객체 쿠키추가. Set-Cookie 헤더에 작성	
 			// 4. 성공시 응답처리 
-			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/sample/sample.jsp");
+			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/main/mainPage.jsp");
 			reqDispatcher.forward(request, response);
 		}
 		else {
