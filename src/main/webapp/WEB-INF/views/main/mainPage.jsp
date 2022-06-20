@@ -19,7 +19,7 @@
 			<img src="/semi/images/students.gif" alt="" />	
 		</div>
 		<div id="info_list">
-			<p>▫성명 : <%= loginMember.getMemberName() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspmargin: 24px 214px;▫학번 : <%= loginMember.getMemberNo() %></p>
+			<p>▫성명 : <%= loginMember.getMemberName() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp▫학번 : <%= loginMember.getMemberNo() %></p>
 			<p>▫학년 : <%= loginMember.getMemberLevel() %>학년&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp▫아이디 : <%= loginMember.getMemberId() %></p>
 		</div>
 		</div>

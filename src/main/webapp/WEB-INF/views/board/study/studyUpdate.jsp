@@ -13,12 +13,12 @@
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h3 class="mt-4" >교내묻고답하기 수정</h3>
+	<h3 class="mt-4" >스터디 수정</h3>
 	<div class="card mb-4">
 		<div class="card-body">
 			<form 
 				name="boardUpdateFrm"
-				action="<%=request.getContextPath()%>/board/questionUpdate" 
+				action="<%=request.getContextPath()%>/board/studyUpdate" 
 				method="post"
 				enctype="multipart/form-data">
 				<input type="hidden" name="no" value="<%=board.getBoardNo()%>" />
