@@ -55,7 +55,7 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 				<th class="line1">학생학과</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="record_tbody">
 		</tbody>
 	</table>
 
@@ -101,12 +101,12 @@ const receivelist = (selected) => {
 			 console.log("두번째 ajax" + result);
 	            console.log("test");    
 	            
-	            const tbody = document.querySelector('#record');
+	            const tbody = document.querySelector('#record_tbody');
 	            tbody.innerHTML = "";
 	            
-	            result.forEach((celeb, index) => {
-	                console.log(index, celeb);
-	                const {subjectTerm, memberLevel, memberName, memberId, departmentName} = celeb;
+	            result.forEach((studentdata, index) => {
+	                console.log(index, studentdata);
+	                const {subjectTerm, memberLevel, memberName, memberId, departmentName} = studentdata;
 	                const tr = document.createElement("tr");
 	                
 	                const tdSubjectTerm = document.createElement("td");

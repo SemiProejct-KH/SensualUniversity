@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import professorlecture.model.dto.PastLecture;
 import professorlecture.model.dto.PresentLecture;
 import professorlecture.model.dto.ProfessorLecture;
 
@@ -27,13 +28,42 @@ public class ProfessorLectureDao {
 			e.printStackTrace();
 		}
 	}	
+	
+	public List<PastLecture> Past(Connection conn, int No){
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<PastLecture> past = new ArrayList<>();
+		PastLecture pastlecture = new PastLecture();
+		String sql = prop.getProperty("past");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, No);
+			rset = pstmt.executeQuery();
+			
+			while (rset.next()) {
+				pastlecture = new PastLecture();
+				
+				pastlecture.setSubjectNo(rset.getString("subject_no"));
+				pastlecture.setPastLecture(rset.getString("subject_name"));
+				
+				past.add(pastlecture);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return past;
+	}
+	
 	public List<PresentLecture> Present(Connection conn, int No){
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<PresentLecture> list2 = new ArrayList<>();
 		PresentLecture presentlecture = new PresentLecture();
 		String sql = prop.getProperty("present");
-		// select s.subject_name from su_subject s where s.member_no = ? and s.subject_term = '2022년도 1학기'
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, No);
