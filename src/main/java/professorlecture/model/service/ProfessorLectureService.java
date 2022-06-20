@@ -13,18 +13,25 @@ public class ProfessorLectureService {
 
 	private ProfessorLectureDao professorlecturedao = new ProfessorLectureDao();
 
-	public List<ProfessorLecture> Lecture(int No) {
-		Connection conn = getConnection();
-		List<ProfessorLecture> list = professorlecturedao.Lecture(conn, No);
-		close(conn);
-		return list;
-	}	
+//	public List<ProfessorLecture> Lecture(int No) {
+//		Connection conn = getConnection();
+//		List<ProfessorLecture> list = professorlecturedao.Lecture(conn, No);
+//		close(conn);
+//		return list;
+//	}	
 	
 	public List<PresentLecture> Present(int No) {
 		Connection conn = getConnection();
 		List<PresentLecture> list2 = professorlecturedao.Present(conn, No);
 		close(conn);
 		return list2;
+	}
+
+	public List<ProfessorLecture> findStudentByProfessorAndSubject(String subjectNo) {
+		Connection conn = getConnection();
+		List<ProfessorLecture> list = professorlecturedao.findStudentByProfessorAndSubject(conn, subjectNo);
+		close(conn);
+		return list;
 	}
 	
 }
