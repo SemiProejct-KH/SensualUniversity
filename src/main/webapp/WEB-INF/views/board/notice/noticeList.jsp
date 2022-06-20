@@ -17,10 +17,11 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 </div>
 <section id="notice_container" class="section">
 	<%
-			if(loginMember != null && loginMember.getMemberRole().equals('A'))
+		if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
 	%>
 		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/notice/noticeEnroll';"/>
 	<%
+		}
 	%>
 	<table id="" class="tbl_list table table-striped">
 		<thead class="thead-light">

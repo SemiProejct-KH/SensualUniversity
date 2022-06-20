@@ -6,6 +6,15 @@ div.info {
     height: 300px;
     margin-left: -231px;
     margin-top: 40px;
+    text-align: center;
+}
+div#s_info {
+	position: relative;
+    top: 73px;
+    left: -48px;
+}
+div#s_info p:not(:first-child) {
+	font-size: 17px;
 }
 div.calendar {
     background-color: #dcdcdc;
@@ -23,26 +32,8 @@ div.main_notice_list {
     margin-right: -241px;
     margin-top: -712px;
 }
-div#div_image {
-	background-color: #AADBFF;
-    font-family: 'Gowun Batang';
-    font-weight: 400;
-    font-size: 15px;
-    white-space: nowrap;
-    margin: -5px 0px;
-    line-height: 18px;
-    font-weight: 600;
-    width: 689.5px;
-    height: 200px;
-}
-div.info img {
-	width: 350px;
-    height: 190px;
-    border-radius: 50%;
-    margin: 4px 164px;
-}
 div#info_list {
-	font-family: 'Gowun Batang';
+	background-color: #46AAFF;
     font-weight: 400;
     font-size: 22px;
     white-space: nowrap;
@@ -86,5 +77,33 @@ div.main_notice_list h5 a {
     font-weight: bold;
     float: right;
     margin: 8px 10px;
+}
+img#student_image {
+	background-color: white;
+    border-radius: 50%;
+    width: 265px;
+    height: 230px;
+    float: left;
+    margin: 36px 65px;
+}
+p.a_p_welcome {
+	margin: 12px -17px;
+	font-weight: bold;
+}
+img.a_p_image {
+	background-color: white;
+    border-radius: 50%;
+    width: 265px;
+    height: 225px;
+    margin-top: 23px;
+
+}
+div.a_p_welcome p {
+	margin-top: -12px;
+	font-weight: bold;
+}
+p#p_welcome {
+	font-size: 20px;
+	font-weight: bold;
 }
     

@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -14,17 +13,30 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/mainPage.css" />
 <section class="section" >
 	<div class="info">
-		<div id="div_image">
-			<img src="/semi/images/students.gif" alt="" />	
+	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) { %>
+		<img id="student_image" src="/semi/images/students.gif" alt="">
+		<div id="s_info">
+			<p id="p_welcome"><%= loginMember.getMemberName() %>님, 안녕하세요!</p>
+			<p>▫ 아이디 : <%= loginMember.getMemberId() %></p>
+			<p>▫ 학번 : <%= loginMember.getMemberNo() %></p><p>▫ <%= loginMember.getMemberLevel() %>학년 재학중</p>
 		</div>
-		<div id="info_list">
-			<p>▫성명 : <%= loginMember.getMemberName() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:▫학번 : <%= loginMember.getMemberNo() %></p>
-			<p>▫학년 : <%= loginMember.getMemberLevel() %>학년&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp▫아이디 : <%= loginMember.getMemberId() %></p>
+	<% } %>
+	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
+		<img class="a_p_image" src="/semi/images/admin.png" alt="">
+		<div class="a_p_welcome">
+			<p>관리자님, 안녕하세요!</p>
 		</div>
+	<% } %>
+	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.P) { %>
+		<img class="a_p_image" src="/semi/images/professor.png" alt="">
+		<div class="a_p_welcome">
+			<p><%= loginMember.getMemberName() %>교수님, 안녕하세요!</p>
 		</div>
-			<div class="calendar">
-		  		<input type="text" id="datepicker">
-			</div>
+	<% } %>
+	</div>
+	<div class="calendar">
+		 <input type="text" id="datepicker">
+	</div>
 		<div class="main_notice_list">
 			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
 			
