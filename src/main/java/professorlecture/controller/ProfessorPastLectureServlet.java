@@ -31,9 +31,9 @@ public class ProfessorPastLectureServlet extends HttpServlet {
 			int No = loginMember.getMemberNo();
 			List<PastLecture> past = professorlectureservice.Past(No);
 			System.out.println(No);
-			System.out.println("Past = " + past);
+			System.out.println("past = " + past);
 
-			request.setAttribute("Past", past);
+			request.setAttribute("past", past);
 			request.getRequestDispatcher("/WEB-INF/views/professor/professorpastlecture.jsp").forward(request, response);
 		} 
 		catch (Exception e) 

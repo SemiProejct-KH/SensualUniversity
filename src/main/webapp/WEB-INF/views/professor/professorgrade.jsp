@@ -12,10 +12,7 @@
 %>
 
 <section class="section">
-
-	<table>
-		<tr>
-			<th><select class="form" id="selectlecture" name="selectlecture">
+			<select class="form" id="selectlecture" name="selectlecture">
 					<%
 				if(GradeDropbox == null || GradeDropbox.isEmpty()) {
 %>
@@ -32,11 +29,8 @@
 					}
 				}
 %>
-			</select></th>
-
-		</tr>
-	</table>
-
+			</select>
+			
 	<table id="record">
 		<thead id="recordthead">
 			<tr>
