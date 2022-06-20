@@ -6,8 +6,8 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/records.css" />
 <%
-	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
 	List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");	
+	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
 %>
 
 <section class="section">
@@ -15,7 +15,7 @@
 		<table>
 			<tr>
 				<th>
-				<select class="form" id="selectlecture" name="selectlecture" onchange="function(this)">
+				<select class="form" id="selectlecture" name="selectlecture">
 <%
 				if(list2 == null || list2.isEmpty()) {
 %>
@@ -27,7 +27,7 @@
 <%
 				for(PresentLecture presentlecture : list2) {
 %>
-				<option value="register_name"><%=presentlecture.getPresentLecture()%></option>
+				<option value="<%= presentlecture.getSubjectNo() %>"><%=presentlecture.getPresentLecture()%></option>
 <%
 					}
 				}
@@ -47,18 +47,12 @@
 		<table id="record">
 			<thead>
 				<tr>
-	                <th class="line1">강의이름</th>
 	                <th class="line1">강의년도, 학기</th>
-	                <th class="line1">강의학년</th>
-	                <th class="line1">강의시간</th>
-	                <th class="line1">강의실</th>
-	                <th class="line1">학생 이름</th>
-	                <th class="line1">학생 아이디</th>
-	                <th class="line1">학생 학년</th>
-	                <th class="line1">학생 학과</th>
-	                <th class="line1">학생 이메일</th>
-	                <th class="line1">학생 전화번호</th>
-				</tr>
+	                <th class="line1">학생학년</th>
+	                <th class="line1">학생이름</th>
+	                <th class="line1">학생아이디</th>
+	                <th class="line1">학생학과</th>
+	            </tr>
 			</thead>
 			<tbody>
 <%
@@ -67,17 +61,11 @@
 				{
 %>
 					<tr>
-						<td class="line2"><%= professorlecture.getSubjectNo() %></td>
 						<td class="line2"><%= professorlecture.getSubjectTerm() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectLebel() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectTime() %></td>
-			            <td class="line2"><%= professorlecture.getSubjectClassroom() %></td>
-			            <td class="line2"><%= professorlecture.getMemberName() %></td>
-			            <td class="line2"><%= professorlecture.getMemberNo() %></td>
-			            <td class="line2"><%= professorlecture.getMemberLevel() %></td>
-			            <td class="line2"><%= professorlecture.getDepartmentNo() %></td>
-			            <td class="line2"><%= professorlecture.getMemberEmail() %></td>
-			            <td class="line2"><%= professorlecture.getMemberPhone() %></td>
+						<td class="line2"><%= professorlecture.getMemberLevel() %></td>
+						<td class="line2"><%= professorlecture.getMemberName() %></td>
+						<td class="line2"><%= professorlecture.getMemberId() %></td>
+						<td class="line2"><%= professorlecture.getDepartmentName() %></td>
 					</tr>
 <%
 				}
@@ -95,18 +83,21 @@
 		</table>
 		
 <script>
+
 $("#selectlecture").change(function(e){
 	
-	var selected = $("#selectlecture option:selected").text();
+	var selected = $("#selectlecture").val();
+	console.log(selected); // 
 	
 	$.ajax({
 		url:"<%= request.getContextPath() %>/professor/lectureselect",
 		type:'get',
-		dataType:'text',
-		processType:false,
-		processData: false,
-		data:{selected},
-		success: function(result){           
+		dataType:'json',
+		data:{
+			subjectNo : selected
+		},
+		success: function(result){ 
+			console.log(result);          
 			if (result) {
 				alert("완료");
 			} else {

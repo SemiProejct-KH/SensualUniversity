@@ -31,16 +31,7 @@ public class ProfessorLectureServlet extends HttpServlet {
 		try {
 			int No = loginMember.getMemberNo();
 			
-			// 교수 강의 목록 띄워주기
-//			List<ProfessorLecture> list = professorlectureservice.Lecture(No);
-//			System.out.println(No);
-//			System.out.println("list = " + list);
-//
-//			request.setAttribute("list", list);
-//			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
-			
-			
-			// 현재 강의 중인 목록 드롭다운으로 보내주기
+			// 현재 강의목록 조회 
 			List<PresentLecture> list2 = professorlectureservice.Present(No);
 			System.out.println(No);
 			System.out.println("list2 = " + list2);
@@ -56,3 +47,13 @@ public class ProfessorLectureServlet extends HttpServlet {
 	}
 
 }
+
+
+
+// 교수 강의 목록 띄워주기
+//			List<ProfessorLecture> list = professorlectureservice.Lecture(No);
+//			System.out.println(No);
+//			System.out.println("list = " + list);
+//
+//			request.setAttribute("list", list);
+//			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);
