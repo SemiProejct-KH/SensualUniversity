@@ -44,9 +44,9 @@ div.info img {
 div#info_list {
 	font-family: 'Gowun Batang';
     font-weight: 400;
-    font-size: 15px;
+    font-size: 22px;
     white-space: nowrap;
-    margin: 18px 210px;
+    margin: 16px 160px;
     line-height: 27px;
     font-weight: 600;
 }

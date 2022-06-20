@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.model.dto.BoardExt;
-import board.model.service.QuestionService;
+import board.model.service.StudyService;
 
 /**
  * Servlet implementation class QuestionViewServlet
@@ -18,7 +18,7 @@ import board.model.service.QuestionService;
 @WebServlet("/board/studyView")
 public class StudyViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private QuestionService questionService = new QuestionService();
+	private StudyService studyService = new StudyService();
       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
@@ -26,14 +26,14 @@ public class StudyViewServlet extends HttpServlet {
 			int no = Integer.parseInt(request.getParameter("no"));
 			
 			boolean hasRead = false;
-			String boardCookieVal = "";
+			String studyCookieVal = "";
 			Cookie[] cookies = request.getCookies();
 			if(cookies != null) {				
 				for(Cookie cookie : cookies) {
 					String name = cookie.getName();
 					String value = cookie.getValue();
-					if("boardCookie".equals(name)) {
-						boardCookieVal = value; // 기존쿠키값
+					if("studyCookie".equals(name)) {
+						studyCookieVal = value; // 기존쿠키값
 						if(value.contains("|" + no + "|")) {
 							hasRead = true;
 						}
@@ -46,18 +46,18 @@ public class StudyViewServlet extends HttpServlet {
 			
 			// 조회수증가
 			if(!hasRead) {
-				int result = questionService.updateReadCount(no);
+				int result = studyService.updateReadCount(no);
 				System.out.println("RESULT" + result);
 				// 쿠키 새로 전송 (boardCookie 없는 경우 | 요청된 boardCookie에 현재 no가 없는 경우)
-				Cookie cookie = new Cookie("boardCookie", boardCookieVal + "|" + no + "|");
-				cookie.setPath(request.getContextPath() + "/board/questionView"); // 쿠키를 사용할 경로
+				Cookie cookie = new Cookie("studyCookie", studyCookieVal + "|" + no + "|");
+				cookie.setPath(request.getContextPath() + "/board/studyView"); // 쿠키를 사용할 경로
 				cookie.setMaxAge(365 * 24 * 60 * 60); // 1년
 				response.addCookie(cookie); // 응답헤더에 Set-Cookie로 전송
-				System.out.println("> boardCookie가 새로 생성되었음.");
+				System.out.println("> studyCookie가 새로 생성되었음.");
 			}
 			
 			// 게시글 조회
-			BoardExt board = questionService.findByNo(no);
+			BoardExt board = studyService.findByNo(no);
 			System.out.println(board);
 			
 			// XSS공격대비(Cross-site Scripting공격) 변환

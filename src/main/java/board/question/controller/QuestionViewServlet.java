@@ -26,14 +26,14 @@ public class QuestionViewServlet extends HttpServlet {
 			int no = Integer.parseInt(request.getParameter("no"));
 			
 			boolean hasRead = false;
-			String boardCookieVal = "";
+			String questionCookieVal = "";
 			Cookie[] cookies = request.getCookies();
 			if(cookies != null) {				
 				for(Cookie cookie : cookies) {
 					String name = cookie.getName();
 					String value = cookie.getValue();
-					if("boardCookie".equals(name)) {
-						boardCookieVal = value; // 기존쿠키값
+					if("questionCookie".equals(name)) {
+						questionCookieVal = value; // 기존쿠키값
 						if(value.contains("|" + no + "|")) {
 							hasRead = true;
 						}
@@ -49,11 +49,11 @@ public class QuestionViewServlet extends HttpServlet {
 				int result = questionService.updateReadCount(no);
 				System.out.println("RESULT" + result);
 				// 쿠키 새로 전송 (boardCookie 없는 경우 | 요청된 boardCookie에 현재 no가 없는 경우)
-				Cookie cookie = new Cookie("boardCookie", boardCookieVal + "|" + no + "|");
+				Cookie cookie = new Cookie("questionCookie", questionCookieVal + "|" + no + "|");
 				cookie.setPath(request.getContextPath() + "/board/questionView"); // 쿠키를 사용할 경로
 				cookie.setMaxAge(365 * 24 * 60 * 60); // 1년
 				response.addCookie(cookie); // 응답헤더에 Set-Cookie로 전송
-				System.out.println("> boardCookie가 새로 생성되었음.");
+				System.out.println("> questionCookie가 새로 생성되었음.");
 			}
 			
 			// 게시글 조회

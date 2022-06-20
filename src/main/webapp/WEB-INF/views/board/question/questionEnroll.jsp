@@ -36,7 +36,7 @@ window.onload = () => { // form보다 상단에 위치하므로 onload 속성에
 	<h5 class="mt-4" >교내묻고답하기 등록</h5>
 	<div class="card mb-4">
 		<div class="card-body">
-			<form name="noticeEnrollFrm" 
+			<form name="boardEnrollFrm" 
 				  action="<%= request.getContextPath() %>/board/questionEnroll" 
 				  method="post"
 				  enctype="multipart/form-data">
