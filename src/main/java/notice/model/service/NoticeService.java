@@ -157,4 +157,11 @@ public class NoticeService {
 		return list;
 	}
 
+	public List<NoticeExt> findAll() {
+		Connection conn = getConnection();
+		List<NoticeExt> list = noticeDao.findAll(conn);
+		close(conn);
+		return list;
+	}
+
 }

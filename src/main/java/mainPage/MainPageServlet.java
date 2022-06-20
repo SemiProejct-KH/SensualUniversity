@@ -23,7 +23,7 @@ public class MainPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			List<NoticeExt> list = noticeService.findMainList();
-			System.out.println(list);
+			System.out.println("mainList" + list);
 			
 			request.setAttribute("list", list);
 			// 주석추가

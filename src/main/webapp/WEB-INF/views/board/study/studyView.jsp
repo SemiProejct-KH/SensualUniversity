@@ -76,7 +76,7 @@
 	<div class="comment_container">
         <div class="comment_editor">
             <form
-				action="<%=request.getContextPath()%>/board/questionComment" 
+				action="<%=request.getContextPath()%>/board/studyComment" 
 				method="post" 
 				class= "boardCommentFrm" 
 				name="boardCommentFrm"
@@ -120,7 +120,7 @@
 			</tbody>
 		</table>
 </section>
-<form action="<%= request.getContextPath() %>/board/questionCommentDelete"
+<form action="<%= request.getContextPath() %>/board/studyCommentDelete"
 	 name="boardCommentDelFrm"
 	 method="post">
 	 <input type="hidden" name="commentNo" />

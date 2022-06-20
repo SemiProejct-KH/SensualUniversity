@@ -4,70 +4,73 @@ div.info {
 	background-color: #dcdcdc;
     width: 60%;
     height: 300px;
-    margin-left: -159px;
+    margin-left: -231px;
     margin-top: 40px;
 }
 div.calendar {
     background-color: #dcdcdc;
     width: 60%;
     height: 400px;
-    margin-left: -158px;
-	margin-top: 12px;
-	font-family: 'Gowun Batang';
+    margin-left: -231px;
+    margin-top: 12px;
+    font-family: 'Gowun Batang';
 }
 div.main_notice_list {
-background-color: #dcdcdc;
+	background-color: #dcdcdc;
     width: 80%;
-    height: 715px;
+    height: 713px;
     float: right;
-    margin-right: -162px;
-    margin-top: -714px;
+    margin-right: -241px;
+    margin-top: -712px;
 }
 div#div_image {
-	background-color: #B4E5FF;
-    width: 100%;
-    height: 68%;
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+	background-color: #AADBFF;
+    font-family: 'Gowun Batang';
+    font-weight: 400;
+    font-size: 15px;
+    white-space: nowrap;
+    margin: -5px 0px;
+    line-height: 18px;
+    font-weight: 600;
+    width: 689.5px;
+    height: 200px;
 }
 div.info img {
-	width: 230px;
+	width: 350px;
     height: 190px;
     border-radius: 50%;
-    margin: 48px 50px;
+    margin: 4px 164px;
 }
 div#info_list {
 	font-family: 'Gowun Batang';
-	font-weight: 400;
-	font-size: 15px;
-	white-space: nowrap;
-    margin: 22px 108px;
-    line-height: 18px;
+    font-weight: 400;
+    font-size: 15px;
+    white-space: nowrap;
+    margin: 18px 210px;
+    line-height: 27px;
     font-weight: 600;
 }
 /*datepicer 버튼 롤오버 시 손가락 모양 표시*/
 .ui-datepicker-trigger{cursor: pointer;}
 /*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{ 
-    cursor: pointer;
+ 	cursor: pointer;
     margin: -45px 33px;
-    width: 329px;
+    width: 410px;
     display: inline-block;
-    margin: 36px 56px;
+    margin: 36px 139px;
     text-align: center;
     font-size: 17px;
 }
 
 .ui-datepicker-trigger {
     cursor: pointer;
-    margin: 0px -50px;
+    margin: 0px -135px;
 }
 div#ui-datepicker-div {
-	width: 330px;
+	width: 411px;
     height: 296px;
-    left: 167.667px;
+    left: 292.667px;
 }
 div.ui-datepicker table {
     margin: 21px 0 0.4em;

@@ -14,8 +14,8 @@ import board.model.service.QuestionService;
 /**
  * Servlet implementation class BoardCommentServlet
  */
-@WebServlet("/board/boardComment")
-public class BoardCommentServlet extends HttpServlet {
+@WebServlet("/board/questionComment")
+public class QuestionCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private QuestionService questionService = new QuestionService();
        

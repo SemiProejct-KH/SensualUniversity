@@ -316,7 +316,34 @@ public class NoticeDao {
 		ResultSet rset = null;
 		List<NoticeExt> list = new ArrayList<>();
 		NoticeExt notice = new NoticeExt();
-		String sql = "select notice_title, member_id, notice_date from su_notice"; 
+		String sql = prop.getProperty("findMainList"); 
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				notice = handleNoticeResultSet(rset);
+				
+				list.add(notice);	
+				System.out.println("noticeDao = " + notice);
+			}
+		} catch (Exception e) {
+			throw new NoticeException("메인페이지 공지사항 조회 오류,", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+	public List<NoticeExt> findAll(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<NoticeExt> list = new ArrayList<>();
+		NoticeExt notice = new NoticeExt();
+		String sql = prop.getProperty("findAll"); 
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -324,15 +351,16 @@ public class NoticeDao {
 			
 			while(rset.next()) {
 				notice = new NoticeExt();
-				notice.setNoticeTitle(rset.getString("notice_title"));
+				notice.setNoticeNo(rset.getInt("notice_no"));
 				notice.setMemberId(rset.getString("member_id"));
+				notice.setNoticeTitle(rset.getString("notice_title"));
 				notice.setNoticeDate(rset.getDate("notice_date"));
+				notice.setNoticeReadCount(rset.getInt("notice_read_count"));
 				
 				list.add(notice);	
-				System.out.println("notice = " + notice);
 			}
 		} catch (Exception e) {
-			throw new NoticeException("메인페이지 공지사항 조회 오류,", e);
+			throw new NoticeException("공지사항 전체목록 조회 오류,", e);
 		} finally {
 			close(rset);
 			close(pstmt);

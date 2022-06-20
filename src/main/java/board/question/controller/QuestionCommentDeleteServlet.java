@@ -13,8 +13,8 @@ import board.model.service.QuestionService;
 /**
  * Servlet implementation class BoardCommentDeleteServlet
  */
-@WebServlet("/board/boardCommentDelete")
-public class BoardCommentDeleteServlet extends HttpServlet {
+@WebServlet("/board/questionCommentDelete")
+public class QuestionCommentDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private QuestionService questionService = new QuestionService();
 
