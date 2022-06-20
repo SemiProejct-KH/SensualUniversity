@@ -2,6 +2,7 @@ package notice.model.dao;
 
 import static common.JdbcTemplate.close;
 
+import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -310,4 +311,33 @@ public class NoticeDao {
 		return totalContents;
 	}
 
+	public List<NoticeExt> findMainList(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<NoticeExt> list = new ArrayList<>();
+		NoticeExt notice = new NoticeExt();
+		String sql = "select notice_title, member_id, notice_date from su_notice"; 
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				notice = new NoticeExt();
+				notice.setNoticeTitle(rset.getString("notice_title"));
+				notice.setMemberId(rset.getString("member_id"));
+				notice.setNoticeDate(rset.getDate("notice_date"));
+				
+				list.add(notice);	
+				System.out.println("notice = " + notice);
+			}
+		} catch (Exception e) {
+			throw new NoticeException("메인페이지 공지사항 조회 오류,", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 }
