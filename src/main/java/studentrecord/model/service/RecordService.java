@@ -15,4 +15,11 @@ public class RecordService {
 		close(conn);
 		return list;
 	}
+
+	public List<Record> presentlyrecordAll(int no) {
+		Connection conn = getConnection();
+		List<Record> list = recordDao.presentlyrecordAll(conn, no);
+		close(conn);
+		return list;
+	}
 }

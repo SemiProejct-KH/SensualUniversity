@@ -64,4 +64,43 @@ public class RecordDao {
 		}
 		return list;
 	}
+
+	public List<Record> presentlyrecordAll(Connection conn, int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<Record> list = new ArrayList<>();
+		Record record = null;
+		String sql = prop.getProperty("presentlyrecordall");
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next())
+			{
+				record = new Record();
+				record.setSubjectLebel(rset.getString("subject_lebel"));
+				record.setDepartmentName(rset.getString("department_name"));
+				record.setSubjectNo(rset.getString("subject_no"));
+				record.setMemberName(rset.getString("member_name"));
+				record.setGradeAttend(rset.getInt("grade_attend"));
+				record.setGradeMiddle(rset.getInt("grade_middle"));
+				record.setGradeFinal(rset.getInt("grade_final"));
+				record.setGradAssignment(rset.getInt("grade_assignment"));
+				list.add(record);
+				
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 }
