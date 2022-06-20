@@ -2,134 +2,59 @@ package professorlecture.model.dto;
 
 public class ProfessorLecture {
 	
-	private String subjectNo; // 강의이름
 	private String subjectTerm; // 강의년도,학기
-	private String subjectLebel; // 강의학년
-	private String subjectTime; // 강의시간
-	private String subjectClassroom; // 강의실
-	private String memberName; // 학생 이름
-	private String memberNo; // 학생 아이디
 	private String memberLevel; // 학생 학년
-	private String departmentNo; // 학생 학과
-	private String memberEmail; // 학생 이메일
-	private String memberPhone; // 학생 전화번호
-	
+	private String memberName; // 학생 이름
+	private String memberId;
+	private String departmentName;
 	public ProfessorLecture() {
 		super();
 	}
-
-	public ProfessorLecture(String subjectNo, String subjectTerm, String subjectLebel, String subjectTime,
-			String subjectClassroom, String memberName, String memberNo, String memberLevel, String departmentNo,
-			String memberEmail, String memberPhone) {
+	public ProfessorLecture(String subjectTerm, String memberLevel, String memberName, String memberId,
+			String departmentName) {
 		super();
-		this.subjectNo = subjectNo;
 		this.subjectTerm = subjectTerm;
-		this.subjectLebel = subjectLebel;
-		this.subjectTime = subjectTime;
-		this.subjectClassroom = subjectClassroom;
-		this.memberName = memberName;
-		this.memberNo = memberNo;
 		this.memberLevel = memberLevel;
-		this.departmentNo = departmentNo;
-		this.memberEmail = memberEmail;
-		this.memberPhone = memberPhone;
+		this.memberName = memberName;
+		this.memberId = memberId;
+		this.departmentName = departmentName;
 	}
-
-	public String getSubjectNo() {
-		return subjectNo;
-	}
-
-	public void setSubjectNo(String subjectNo) {
-		this.subjectNo = subjectNo;
-	}
-
 	public String getSubjectTerm() {
 		return subjectTerm;
 	}
-
 	public void setSubjectTerm(String subjectTerm) {
 		this.subjectTerm = subjectTerm;
 	}
-
-	public String getSubjectLebel() {
-		return subjectLebel;
-	}
-
-	public void setSubjectLebel(String subjectLebel) {
-		this.subjectLebel = subjectLebel;
-	}
-
-	public String getSubjectTime() {
-		return subjectTime;
-	}
-
-	public void setSubjectTime(String subjectTime) {
-		this.subjectTime = subjectTime;
-	}
-
-	public String getSubjectClassroom() {
-		return subjectClassroom;
-	}
-
-	public void setSubjectClassroom(String subjectClassroom) {
-		this.subjectClassroom = subjectClassroom;
-	}
-
-	public String getMemberName() {
-		return memberName;
-	}
-
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
-	}
-
-	public String getMemberNo() {
-		return memberNo;
-	}
-
-	public void setMemberNo(String memberNo) {
-		this.memberNo = memberNo;
-	}
-
 	public String getMemberLevel() {
 		return memberLevel;
 	}
-
 	public void setMemberLevel(String memberLevel) {
 		this.memberLevel = memberLevel;
 	}
-
-	public String getDepartmentNo() {
-		return departmentNo;
+	public String getMemberName() {
+		return memberName;
 	}
-
-	public void setDepartmentNo(String departmentNo) {
-		this.departmentNo = departmentNo;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-
-	public String getMemberEmail() {
-		return memberEmail;
+	public String getMemberId() {
+		return memberId;
 	}
-
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-
-	public String getMemberPhone() {
-		return memberPhone;
+	public String getDepartmentName() {
+		return departmentName;
 	}
-
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
-
 	@Override
 	public String toString() {
-		return "ProfessorLecture [subjectNo=" + subjectNo + ", subjectTerm=" + subjectTerm + ", subjectLebel="
-				+ subjectLebel + ", subjectTime=" + subjectTime + ", subjectClassroom=" + subjectClassroom
-				+ ", memberName=" + memberName + ", memberNo=" + memberNo + ", memberLevel=" + memberLevel
-				+ ", departmentNo=" + departmentNo + ", memberEmail=" + memberEmail + ", memberPhone=" + memberPhone
-				+ "]";
+		return "ProfessorLecture [subjectTerm=" + subjectTerm + ", memberLevel=" + memberLevel + ", memberName="
+				+ memberName + ", memberId=" + memberId + ", departmentName=" + departmentName + "]";
 	}
+	
+	
 
 }
