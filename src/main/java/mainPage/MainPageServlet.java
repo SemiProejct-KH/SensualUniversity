@@ -22,10 +22,10 @@ public class MainPageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			List<NoticeExt> list = noticeService.findMainList();
-			System.out.println("mainList" + list);
+			List<NoticeExt> noticeList = noticeService.findMainList();
+			System.out.println("mainList" + noticeList);
 			
-			request.setAttribute("list", list);
+			request.setAttribute("list", noticeList);
 			// 주석추가
 			request.getRequestDispatcher("/WEB-INF/views/main/mainPage.jsp").forward(request, response);
 		} catch (Exception e) {

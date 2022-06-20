@@ -314,7 +314,7 @@ public class NoticeDao {
 	public List<NoticeExt> findMainList(Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		List<NoticeExt> list = new ArrayList<>();
+		List<NoticeExt> noticeList = new ArrayList<>();
 		NoticeExt notice = new NoticeExt();
 		String sql = prop.getProperty("findMainList"); 
 		
@@ -323,9 +323,11 @@ public class NoticeDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				notice = handleNoticeResultSet(rset);
+				//notice = handleNoticeResultSet(rset);
+				notice = new NoticeExt();
+				notice.setNoticeNo(rset.getInt("notice_no"));
 				
-				list.add(notice);	
+				noticeList.add(notice);	
 				System.out.println("noticeDao = " + notice);
 			}
 		} catch (Exception e) {
@@ -335,7 +337,7 @@ public class NoticeDao {
 			close(pstmt);
 		}
 		
-		return list;
+		return noticeList;
 	}
 
 	public List<NoticeExt> findAll(Connection conn) {

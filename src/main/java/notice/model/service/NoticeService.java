@@ -152,9 +152,9 @@ public class NoticeService {
 
 	public List<NoticeExt> findMainList() {
 		Connection conn = getConnection();
-		List<NoticeExt> list = noticeDao.findMainList(conn);
+		List<NoticeExt> noticeList = noticeDao.findMainList(conn);
 		close(conn);
-		return list;
+		return noticeList;
 	}
 
 	public List<NoticeExt> findAll() {

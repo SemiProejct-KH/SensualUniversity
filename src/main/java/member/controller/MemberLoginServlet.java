@@ -1,8 +1,8 @@
 package member.controller;
 
 import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -21,7 +21,6 @@ public class MemberLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private MemberService memberService = new MemberService();
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 인코딩처리 필터로 처리함
@@ -52,8 +51,9 @@ public class MemberLoginServlet extends HttpServlet {
 			}
 			response.addCookie(cookie); // 응답객체 쿠키추가. Set-Cookie 헤더에 작성	
 			// 4. 성공시 응답처리 
-			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/sample/sample.jsp");
-			reqDispatcher.forward(request, response);
+//			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/common/header.jsp");
+//			reqDispatcher.forward(request, response);
+			response.sendRedirect(request.getContextPath() + "/main/mainPage");
 		}
 		else {
 			session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
