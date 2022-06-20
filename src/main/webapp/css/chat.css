@@ -31,19 +31,48 @@
 #chatroom_chat {
 	margin: 0 auto;
 	border: 1px solid black;
-	height: 700px;
+	height: 500px;
 }
 
 #dm-msg {
 	width: 85%;
 	float:left;
-	height: 30px;
+	height: 35px;
 }
 
 #dm-send {
 	width:15%;
 	float:right;
-	height: 30px;
-	font-size:12px;
+	height: 35px;
+	font-size:15px;
 	text-align: center;
+	
 }
+.title {
+    background-color: #052a78;
+    border: 1px solid #333;
+    height: 40px;
+    text-align: center;
+    line-height: 150px;
+    margin-top: 50px;
+    color: white;
+    padding: 8px;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 20px;
+}
+ul {
+	padding-left:10px;
+	padding-top:10px;
+}
+li {
+	margin-bottom:10px;
+}
+.btn-secondary {
+	border: 1px solid #333;
+    background-color: #052a78;
+    color: white;
+}
+
