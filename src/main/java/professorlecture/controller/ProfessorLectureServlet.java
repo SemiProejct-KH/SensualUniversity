@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import member.model.dto.Member;
 import professorlecture.model.dto.PresentLecture;
-import professorlecture.model.dto.ProfessorLecture;
 import professorlecture.model.service.ProfessorLectureService;
 
 /**
@@ -47,13 +46,3 @@ public class ProfessorLectureServlet extends HttpServlet {
 	}
 
 }
-
-
-
-// 교수 강의 목록 띄워주기
-//			List<ProfessorLecture> list = professorlectureservice.Lecture(No);
-//			System.out.println(No);
-//			System.out.println("list = " + list);
-//
-//			request.setAttribute("list", list);
-//			request.getRequestDispatcher("/WEB-INF/views/professor/professorlecture.jsp").forward(request, response);

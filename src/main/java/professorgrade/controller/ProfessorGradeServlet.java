@@ -8,34 +8,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import member.model.dto.Member;
+import com.google.gson.Gson;
+
 import professorgrade.model.dto.ProfessorGrade;
 import professorgrade.model.service.ProfessorGradeService;
 
 /**
  * Servlet implementation class ProfessorGradeServlet
  */
-@WebServlet("/professor/professorgrade")
+@WebServlet("/professor/grade/select")
 public class ProfessorGradeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorGradeService professorgradeservice = new ProfessorGradeService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		Member loginMember = (Member) session.getAttribute("loginMember");
 		try {
-			int No = loginMember.getMemberNo();
-			List<ProfessorGrade> list = professorgradeservice.classAll(No);
-			System.out.println(No);
+			// 1. 사용자입력값
+			String subjectNo = request.getParameter("subjectNo");
+			System.out.println("subjectNo = " + subjectNo);
+			
+			List<ProfessorGrade> list = professorgradeservice.classAll(subjectNo);
 			System.out.println("list = " + list);
 
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/WEB-INF/views/professor/professorgrade.jsp")
-				.forward(request, response);
+			response.setContentType("application/json; charset=utf-8");
+			new Gson().toJson(list, response.getWriter());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

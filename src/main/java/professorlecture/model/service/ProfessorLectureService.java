@@ -12,13 +12,6 @@ import professorlecture.model.dto.ProfessorLecture;
 public class ProfessorLectureService {
 
 	private ProfessorLectureDao professorlecturedao = new ProfessorLectureDao();
-
-//	public List<ProfessorLecture> Lecture(int No) {
-//		Connection conn = getConnection();
-//		List<ProfessorLecture> list = professorlecturedao.Lecture(conn, No);
-//		close(conn);
-//		return list;
-//	}	
 	
 	public List<PresentLecture> Present(int No) {
 		Connection conn = getConnection();
