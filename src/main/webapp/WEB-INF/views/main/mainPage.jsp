@@ -22,9 +22,6 @@
 			</div>
 		<div class="main_notice_list">
 			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
-			<p><%=  %></p>
-			<p><%=  %></p>
-			<p><%=  %></p>
 		</div>
 </section>
     <script>
