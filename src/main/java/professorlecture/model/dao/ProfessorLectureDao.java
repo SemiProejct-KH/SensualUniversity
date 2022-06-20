@@ -120,7 +120,6 @@ public class ProfessorLectureDao {
 				
 				list.add(professorlecture);
 				System.out.println("Dao = " + list);
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

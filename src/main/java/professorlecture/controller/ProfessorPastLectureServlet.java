@@ -18,7 +18,7 @@ import professorlecture.model.service.ProfessorLectureService;
  * Servlet implementation class ProfessoPastLecture
  */
 @WebServlet("/professor/professorlecture/past")
-public class ProfessoPastLectureServlet extends HttpServlet {
+public class ProfessorPastLectureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorLectureService professorlectureservice = new ProfessorLectureService();
 

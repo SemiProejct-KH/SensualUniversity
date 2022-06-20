@@ -157,4 +157,18 @@ public class QuestionService {
 		}
 		return 0;
 	}
+	public int deleteBoardComment(int commentNo) {
+		int result = 0;
+		Connection conn = getConnection();
+		try {
+			result = questionDao.deleteBoardComment(conn, commentNo);
+			commit(conn);
+		} catch (Exception e) {
+			rollback(conn);
+			throw e;
+		} finally {
+			close(conn);
+		}
+		return result;
+	}
 }

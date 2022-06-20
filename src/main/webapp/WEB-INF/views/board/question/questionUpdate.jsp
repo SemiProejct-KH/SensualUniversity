@@ -13,7 +13,7 @@
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h3 class="mt-4" >공지사항 수정</h3>
+	<h3 class="mt-4" >교내묻고답하기 수정</h3>
 	<div class="card mb-4">
 		<div class="card-body">
 			<form 
@@ -56,17 +56,11 @@
 					<input type="file" name="upFile1">
 					<br>
 					<input type="file" name="upFile2">
-				</div>
-				<%
-					if(loginMember != null && loginMember.getMemberId() == board.getMemberId()) {
-				%>		
+				</div>		
 				<div id="update_btn">
 					<button class="btn btn-outline-primary">수정하기</button>
 					<button class="btn btn-outline-primary" value="취소" onclick="history.go(-1)">취소</button>
 				</div>
-				<%
-					}
-				%>
 			</form>
 		</div>
 	</div>

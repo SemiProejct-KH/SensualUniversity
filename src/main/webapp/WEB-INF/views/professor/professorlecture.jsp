@@ -2,114 +2,140 @@
 <%@ page import="professorlecture.model.dto.PresentLecture"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/records.css" />
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/records.css" />
 <%
-	List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");	
-	List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
+List<PresentLecture> list2 = (List<PresentLecture>) request.getAttribute("list2");
+List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("list");
 %>
 
 <section class="section">
-		
-		<table>
-			<tr>
-				<th>
-				<select class="form" id="selectlecture" name="selectlecture">
-<%
-				if(list2 == null || list2.isEmpty()) {
-%>
-				<option selected>조회된 강의가 없습니다.</option>
-<%
-				} else {
-%>	
-				<option selected>강의 선택</option>
-<%
-				for(PresentLecture presentlecture : list2) {
-%>
-				<option value="<%= presentlecture.getSubjectNo() %>"><%=presentlecture.getPresentLecture()%></option>
-<%
+
+	<table>
+		<tr>
+			<th><select class="form" id="selectlecture" name="selectlecture">
+					<%
+					if (list2 == null || list2.isEmpty()) {
+					%>
+					<option selected>조회된 강의가 없습니다.</option>
+					<%
+					} else {
+					%>
+					<option selected>강의 선택</option>
+					<%
+					for (PresentLecture presentlecture : list2) {
+					%>
+					<option value="<%=presentlecture.getSubjectNo()%>"><%=presentlecture.getPresentLecture()%></option>
+					<%
 					}
-				}
-%>
-				</select> 
-				
-				</th>
-				
-			</tr>
+					}
+					%>
+			</select></th>
+
+		</tr>
+		<tr>
+			<th><button type="button"
+					onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture';">현재학기
+					강의 및 학생조회</button></th>
+			<th><button type="button"
+					onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture/past';">지난학기
+					강의 및 학생조회</button></th>
+		</tr>
+	</table>
+
+	<table id="record">
+		<thead>
 			<tr>
-				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기 강의 및 학생조회</button></th>
-				<th><button type="button" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/past';">지난학기 강의 및 학생조회</button></th>
+				<th class="line1">강의년도, 학기</th>
+				<th class="line1">학생학년</th>
+				<th class="line1">학생이름</th>
+				<th class="line1">학생아이디</th>
+				<th class="line1">학생학과</th>
 			</tr>
-		</table>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
 </section>
 
-		<table id="record">
-			<thead>
-				<tr>
-	                <th class="line1">강의년도, 학기</th>
-	                <th class="line1">학생학년</th>
-	                <th class="line1">학생이름</th>
-	                <th class="line1">학생아이디</th>
-	                <th class="line1">학생학과</th>
-	            </tr>
-			</thead>
-			<tbody>
-<%
-			if(list != null && !list.isEmpty()) {
-				for(ProfessorLecture professorlecture : list)
-				{
-%>
-					<tr>
-						<td class="line2"><%= professorlecture.getSubjectTerm() %></td>
-						<td class="line2"><%= professorlecture.getMemberLevel() %></td>
-						<td class="line2"><%= professorlecture.getMemberName() %></td>
-						<td class="line2"><%= professorlecture.getMemberId() %></td>
-						<td class="line2"><%= professorlecture.getDepartmentName() %></td>
-					</tr>
-<%
-				}
-			}
-			else
-			{
-%>			
-				<tr>
-					<td colspan="11" style="text-align:center">강의수강중인 학생이 없습니다.</td>
-				</tr>
-<%				
-			}
-%>
-			</tbody>
-		</table>
-		
+
 <script>
 
 $("#selectlecture").change(function(e){
-	
-	var selected = $("#selectlecture").val();
-	console.log(selected); // 
-	
+    
+    var selected = $("#selectlecture").val();
+    console.log(selected); // 
+ 
+    $.ajax({
+        url:"<%=request.getContextPath()%>/professor/lectureselect",
+        type:'get',
+        dataType:'json',
+        data:{
+            subjectNo : selected
+        },
+        success: function(result){
+            if (result) {
+                alert("완료");
+                console.log(result);
+                receivelist(selected);
+            } else {
+            	alert("전송된 값 없음");           
+            }       
+        },       
+        error: function() {           
+        	alert("에러 발생");
+        }
+    });
+});
+
+const receivelist = (selected) => {
 	$.ajax({
-		url:"<%= request.getContextPath() %>/professor/lectureselect",
-		type:'get',
-		dataType:'json',
-		data:{
-			subjectNo : selected
-		},
-		success: function(result){ 
-			console.log(result);          
-			if (result) {
-				alert("완료");
-			} else {
-				alert("전송된 값 없음");           
-			}       
-		},       
-		error: function() {           
-			alert("에러 발생");
-		  }
-	})
-})
+	url:"<%=request.getContextPath()%>/professor/professorlist",
+	type:'get',
+	dataType:'json',
+	data:{subjectNo : selected},
+	success: function(result){
+		if (result){
+			alert("완료");
+			 console.log("두번째 ajax" + result);
+	            console.log("test");    
+	            
+	            const tbody = document.querySelector('#record');
+	            tbody.innerHTML = "";
+	            
+	            result.forEach((celeb, index) => {
+	                console.log(index, celeb);
+	                const {subjectTerm, memberLevel, memberName, memberId, departmentName} = celeb;
+	                const tr = document.createElement("tr");
+	                
+	                const tdSubjectTerm = document.createElement("td");
+	                tdSubjectTerm.append(subjectTerm);
+	                const tdMemberLevel = document.createElement("td");
+	                tdMemberLevel.append(memberLevel);
+	                const tdMemberName = document.createElement("td");
+	                tdMemberName.append(memberName);
+	                const tdMemberId = document.createElement("td");
+	                tdMemberId.append(memberId);
+	                const tdDepartmentName = document.createElement("td");
+	                tdDepartmentName.append(departmentName);
+	                
+	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName);
+	                tbody.append(tr);
+	            });
+			
+		} else {
+			alert("전송된 값 없음"); 
+		}
+	}, error: function() {           
+    	alert("에러 발생");
+    }
+});
+};
+
 </script>
 
-	
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
