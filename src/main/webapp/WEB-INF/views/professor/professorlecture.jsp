@@ -67,10 +67,10 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 $("#selectlecture").change(function(e){
     
     var selected = $("#selectlecture").val();
-    console.log(selected); // 
+    console.log(selected);
  
     $.ajax({
-        url:"<%=request.getContextPath()%>/professor/lectureselect",
+        url:"<%=request.getContextPath()%>/professor/lecture/select",
         type:'get',
         dataType:'json',
         data:{
@@ -78,7 +78,6 @@ $("#selectlecture").change(function(e){
         },
         success: function(result){
             if (result) {
-                alert("완료");
                 console.log(result);
                 receivelist(selected);
             } else {
@@ -93,13 +92,12 @@ $("#selectlecture").change(function(e){
 
 const receivelist = (selected) => {
 	$.ajax({
-	url:"<%=request.getContextPath()%>/professor/professorlist",
+	url:"<%=request.getContextPath()%>/professor/lecture/professorlist",
 	type:'get',
 	dataType:'json',
 	data:{subjectNo : selected},
 	success: function(result){
 		if (result){
-			alert("완료");
 			 console.log("두번째 ajax" + result);
 	            console.log("test");    
 	            

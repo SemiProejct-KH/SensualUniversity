@@ -56,16 +56,15 @@ public class ProfessorGradeDao {
 		return GradeDropbox;
 	}
 
-	public List<ProfessorGrade> classAll(Connection conn, int No) {
+	public List<ProfessorGrade> classAll(Connection conn, String subjectNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<ProfessorGrade> list = new ArrayList<>();
 		ProfessorGrade professorgrade = null;
 		String sql = prop.getProperty("getGrade");
-
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, No);
+			pstmt.setString(1, subjectNo);
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {
@@ -77,6 +76,7 @@ public class ProfessorGradeDao {
 				professorgrade.setDepartmentName(rset.getString("department_name"));
 
 				list.add(professorgrade);
+				System.out.println("Dao = " + list);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
