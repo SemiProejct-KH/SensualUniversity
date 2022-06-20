@@ -6,27 +6,33 @@
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css?after" />
 
-<section class="section">
-	<div>
-		<div id="chatroom_btn_container">
-			<select class="custom-select form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="dm-client">
-				<option value="" id="option_member" disabled selected>접속자 목록</option>
-			</select>
-		</div>
-		<div id="chatroom_chat_container">
-			<label for="">현재 채팅 가능 인원 : </label>
-			<span id="clientCnt"></span>
-			<div id="chatroom_chat">
-				<div id="msg-container" style="border: 1px solid red;">
-					<ul></ul>
-				</div>
-			</div>
-			<div id="chatroom_chat_input">
-				<input type="text" id="dm-msg" onkeyup="enterkey()"/>
-				<button type="submit" class="btn btn-secondary" id="dm-send">전송</button>		
-			</div>
-		</div>
-	</div>
+ <section class="section">
+     <div class="content">
+        <div class="title">
+            <h3>메 세 지</h3>
+        </div>
+<!--------------------------------채팅시작----------------------------->
+        <div id="chatroom_btn_container">
+            <select class="custom-select form-select form-select-sm" aria-label=".form-select-sm example" id="dm-client">
+                <option value="" id="option_member" disabled selected>접속자 목록</option>
+            </select>
+        </div>
+        <div id="chatroom_chat_container">
+            <label for="" style="font-size: 15px;">접속 인원수 : </label>
+            <span id="clientCnt"></span>
+            <div id="chatroom_chat">
+                <div id="msg-container" class="msg_container">
+                    <ul>
+                    	
+                    </ul>
+                </div>
+            </div>
+            <div id="chatroom_chat_input">
+                <input type="text" id="dm-msg" onkeyup="enterkey()"/>
+                <button type="submit" class="btn btn-secondary" id="dm-send">전 송</button>		
+            </div>
+        </div>
+      </div>
 </section>
 <script>
 //$('#modal_block').on('click', function() {
@@ -48,7 +54,7 @@ ws.onmessage = (e) => {
 	const payload = JSON.parse(e.data);
 	const {type, sender, receiver, msg, time} = payload;
 	console.log(type, sender, receiver, msg, time);
-	
+	console.log(sender.value == undefined);
 	let html;
 	switch(type){
 	case "welcome":
@@ -61,10 +67,11 @@ ws.onmessage = (e) => {
 const messageHandler = (payload) => {
 	const {type, sender, msg, time, clientCnt} = payload;
 	const html = `
-	<li class="\${type !== 'chat' ? 'center' : ''}" style="list-style:none;">
-		<span class="badge" style="color:black; background-color:yellow">\${sender}</span>
-		\${msg}
-	</li>`;
+				<li class="\${type !== 'chat' ? 'center' : ''}" style="list-style:none;max-width: 70%;">
+					<span class="badge" style="color:black; background-color:#759bda; font-size:15px;">\${sender}</span>
+					<span>\${msg}</span>
+				</li>
+				`;
 	document.querySelector("#msg-container ul").insertAdjacentHTML('beforeend', html);
 	
 	
