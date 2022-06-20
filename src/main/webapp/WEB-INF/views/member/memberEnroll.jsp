@@ -122,7 +122,7 @@
 <script>
 const checkIdDuplicate = () => {
 	const title = "checkIdDuplicatePopup";
-	const spec = "width=300px, height=200px";
+	const spec = "width=400px, height=300px left=(window.screen.width / 2) - (200 / 2), top=(window.screen.height / 2) - (300 / 2)";
 	const popup = open("", title, spec);
 	
 	const frm = document.checkIdDuplicateFrm;
@@ -130,7 +130,6 @@ const checkIdDuplicate = () => {
 	frm.memberId.value = _memberId.value;
 	frm.submit();
 };
-
 passwordCheck.onblur = () => {
 	if(_password.value !== passwordCheck.value){
 		alert("비밀번호가 일치하지 않습니다.");
@@ -176,5 +175,4 @@ document.memberEnrollFrm.onsubmit = () => {
 	}
 	return true;
 }
-
 </script>
