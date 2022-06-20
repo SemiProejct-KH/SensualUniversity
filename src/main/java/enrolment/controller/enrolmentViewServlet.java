@@ -28,10 +28,6 @@ public class enrolmentViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
-		Member loginMember = (Member) session.getAttribute("loginMember");
-
 		List<Enrol> list = enrolService.EnrolAll();
 		System.out.println("EnrolList = " + list);	
 		
