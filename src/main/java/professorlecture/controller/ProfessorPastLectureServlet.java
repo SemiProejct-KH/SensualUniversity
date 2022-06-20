@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import member.model.dto.Member;
-import professorlecture.model.dto.PresentLecture;
+import professorlecture.model.dto.PastLecture;
 import professorlecture.model.service.ProfessorLectureService;
 
 /**
@@ -29,11 +29,11 @@ public class ProfessorPastLectureServlet extends HttpServlet {
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		try {
 			int No = loginMember.getMemberNo();
-			List<PresentLecture> list2 = professorlectureservice.Present(No);
+			List<PastLecture> past = professorlectureservice.Past(No);
 			System.out.println(No);
-			System.out.println("list2 = " + list2);
+			System.out.println("Past = " + past);
 
-			request.setAttribute("list2", list2);
+			request.setAttribute("Past", past);
 			request.getRequestDispatcher("/WEB-INF/views/professor/professorpastlecture.jsp").forward(request, response);
 		} 
 		catch (Exception e) 

@@ -35,18 +35,10 @@
 			</select></th>
 
 		</tr>
-		<tr>
-			<th><button type="button"
-					onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';">현재학기
-					강의 및 학생조회</button></th>
-			<th><button type="button"
-					onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/past';">지난학기
-					강의 및 학생조회</button></th>
-		</tr>
 	</table>
 
 	<table id="record">
-		<thead>
+		<thead id="recordthead">
 			<tr>
 				<th class="line1">강의년도, 학기</th>
 				<th class="line1">학생학년</th>
@@ -56,8 +48,29 @@
 
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="recordtbody">
 		</tbody>
+	</table>
+	
+	<table id="grade">
+	<thead>
+	<tr>
+	<th>중간고사</th>
+	<th>기말고사</th>
+	<th>과제점수</th>
+	<th>출석점수</th>
+	<th>제출</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td><input type="text" id="middle" name="middle" style="text-align:center"/></td>
+	<td><input type="text" id="final" name="final" style="text-align:center"/></td>
+	<td><input type="text" id="assignment" name="assignment" style="text-align:center"/></td>
+	<td><input type="text" id="attend" name="attend" style="text-align:center"/></td>
+	<td><input type="button" id="gradesummit" class="button" value="성적제출"/></td>
+	</tr>
+	</tbody>
 	</table>
 
 </section>
@@ -101,7 +114,7 @@ const receivelist = (selected) => {
 			 console.log("두번째 ajax" + result);
 	            console.log("test");    
 	            
-	            const tbody = document.querySelector('#record');
+	            const tbody = document.querySelector("#recordtbody");
 	            tbody.innerHTML = "";
 	            
 	            result.forEach((celeb, index) => {
@@ -123,6 +136,7 @@ const receivelist = (selected) => {
 	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName);
 	                tbody.append(tr);
 	            });
+	            
 			
 		} else {
 			alert("전송된 값 없음"); 
@@ -132,6 +146,9 @@ const receivelist = (selected) => {
     }
 });
 };
+
+
+
 </script>
 
 
