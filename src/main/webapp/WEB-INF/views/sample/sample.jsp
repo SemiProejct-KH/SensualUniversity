@@ -31,18 +31,18 @@
 			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
 			<%
 				if(list != null && !list.isEmpty()) {
-			  for(NoticeExt notice : list) {
+			  		for(NoticeExt notice : list) {
 			%>
-				<p><%= notice.getNoticeTitle() %><%= notice.getMemberId() %><%= notice.getNoticeDate() %></p>
+				<p><%= notice.getNoticeNo() %></p>
 			<%
 			  }
 			} else {
 		
 			%>
 				<p> 조회된 정보가 없습니다.</p>
-		<%
-			}
-		%>
+			<%
+				}
+			%>
 		</div>
 </section>
 		</form>

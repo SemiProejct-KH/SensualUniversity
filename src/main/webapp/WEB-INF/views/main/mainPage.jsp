@@ -28,11 +28,12 @@
 			</div>
 		<div class="main_notice_list">
 			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
+			메인페이지
 			<%
 				if(list != null && !list.isEmpty()) {
 			  for(NoticeExt notice : list) {
 			%>
-				<p><%= notice.getNoticeTitle() %><%= notice.getMemberId() %><%= notice.getNoticeDate() %></p>
+				<p><%= notice.getNoticeNo() %></p>
 			<%
 			  }
 			} else {
