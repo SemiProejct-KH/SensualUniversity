@@ -39,6 +39,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 				<th class="line1">학생이름</th>
 				<th class="line1">학생아이디</th>
 				<th class="line1">학생학과</th>
+				<th class="line1"></th>
 
 			</tr>
 		</thead>
@@ -131,8 +132,10 @@ const receivelist = (selected) => {
 	                tdMemberId.append(memberId);
 	                const tdDepartmentName = document.createElement("td");
 	                tdDepartmentName.append(departmentName);
+	                const tdChoice = document.createElement("td");
+	                tdChoice.append();
 	                
-	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName);
+	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName, tdChoice);
 	                tbody.append(tr);
 	            });
 	           
