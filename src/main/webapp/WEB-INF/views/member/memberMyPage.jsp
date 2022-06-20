@@ -90,8 +90,8 @@
 <!--------------------------------버튼----------------------------->
 	              <div class="btn_bar">
 	                  <button type="submit" class="btn_bar1" onclick="updateMember();">정보수정</button>
-	                  <button type="submit" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/passwordUpdate';">비밀번호수정</button>
-	                  <button type="submit" class="btn_bar3" onclick="deleteMember();">회원탈퇴</button>
+	                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/passwordUpdate';">비밀번호수정</button>
+	                  <button type="button" class="btn_bar3" onclick="deleteMember();">회원탈퇴</button>
 	              </div>
 	          </div>
 	      </form>

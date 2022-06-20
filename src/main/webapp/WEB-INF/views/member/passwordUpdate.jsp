@@ -1,32 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<!-- css -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/myPagePassword.css?after" />
 <section class="section">
-	<h2 align="center" style="margin-top:100px;">비밀번호수정</h2>	
-	<form 
-		name="passwordUpdateFrm" 
-		action="<%=request.getContextPath()%>/member/passwordUpdate" 
-		method="post" >
-			
-		<div class="form-floating mb-3">
-		  <input type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="비밀번호" required>
-		  <label for="password">현재 비밀번호</label>
-		</div>
-		
-		<div class="form-floating mb-3">
-		  <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="비밀번호" required>
-		  <label for="password">변경할 비밀번호</label>
-		</div>
-		
-		<div class="form-floating mb-3">
-		  <input type="password" class="form-control" id="newPasswordCheck" placeholder="비밀번호" required>
-		  <label for="password">비밀번호 확인</label>
-		</div>
-		
-		<button type="submit" class="btn btn-primary">변경</button>
-			
-		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	</form>
+    <div class="content">
+        <div class="title">
+            <h3>비밀번호 변경</h3>
+        </div>	
+        <form 
+            name="passwordUpdateFrm" 
+            action="<%=request.getContextPath()%>/member/passwordUpdate" 
+            method="post" >
+
+            <div class="form-floating mb-2">
+              <input type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="비밀번호" required>
+              <label for="password">기존 비밀번호</label>
+            </div>
+
+            <div class="form-floating mb-2">
+              <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="비밀번호" required>
+              <label for="password">새로운 비밀번호</label>
+            </div>
+
+            <div class="form-floating mb-2">
+              <input type="password" class="form-control" id="newPasswordCheck" placeholder="비밀번호" required>
+              <label for="password">비밀번호 확인</label>
+            </div>
+
+            <div class="btn_bar">
+              <button type="submit" class="btn_bar1">변경</button>
+              <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/memberMyPage';">취소하기</button>
+            </div>
+        </form>
+   </div>
 </section>
 <script>
 newPasswordCheck.onblur = () => {
