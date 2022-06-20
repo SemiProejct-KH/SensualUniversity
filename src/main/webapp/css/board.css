@@ -86,5 +86,4 @@ table.tbl_comment tr td:last-of-type {text-align:right; width: 100px;}
 table.tbl_comment button.reply_go_chat{width: 48px; height:25px; border: 1px solid gray; border-radius: 4px; font-size:12px}
 table.tbl_comment tr:hover {background:lightgray;}
 table.tbl_comment tr:hover button.btn-reply{display:inline;}
-button.btn_delete {width: 48px; height:25px; border: 1px solid gray; border-radius: 4px; font-size:12px}
 sub.comment_writer {margin-right:10px; font-size:12px; font-weight:600;}

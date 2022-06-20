@@ -33,7 +33,7 @@
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300&display=swap" rel="stylesheet">
 <!-- favicon -->
 <link rel="shortcut icon" href="images/favicon.ico">
 <!-- css -->
@@ -73,23 +73,28 @@ alert("<%= msg %>");
 	<div id="login_main">
 		<!-- slide -->
 		<section id="section_slide">
-			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			  <div class="carousel-inner" >
-			    <div class="carousel-item active" >
-			      <img src="<%= request.getContextPath() %>/images/University.jpg" class="d-block w-100" alt="" style="min-height: 100vh;">
+			<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+			  <div class="carousel-indicators">
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			  </div>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active" data-bs-interval="10000">
+			      <img src="<%= request.getContextPath() %>/images/main1.png" class="d-block w-100" alt="" style="min-height: 100vh;">
+			    </div>
+			    <div class="carousel-item" data-bs-interval="2000">
+			      <img src="<%= request.getContextPath() %>/images/main2.png" class="d-block w-100" alt="" style="min-height: 100vh;">
 			    </div>
 			    <div class="carousel-item">
-			      <img src="..." class="d-block w-100" alt="">
-			    </div>
-			    <div class="carousel-item">
-			      <img src="..." class="d-block w-100" alt="">
+			      <img src="<%= request.getContextPath() %>/images/main3.png" class="d-block w-100" alt="" style="min-height: 100vh;">
 			    </div>
 			  </div>
-			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
 			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			    <span class="visually-hidden">Previous</span>
 			  </button>
-			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
 			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 			    <span class="visually-hidden">Next</span>
 			  </button>
@@ -98,7 +103,7 @@ alert("<%= msg %>");
 		<!-- 로그인 -->
 		<section id="section_login">
 			<div class="login_wrp">
-                <h3>Sensual University</h3>
+                <h3 style="margin-bottom: 40px; font-size: 2.0rem;" >Sensual University</h3>
                 <form id="loginFrm" name="loginFrm" method="POST" action="<%= request.getContextPath() %>/member/login">
                     <div class="login_content">
                         <h2 class="login_title">
