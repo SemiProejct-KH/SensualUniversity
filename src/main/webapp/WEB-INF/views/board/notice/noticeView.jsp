@@ -6,6 +6,7 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <%
+//
 NoticeExt notice = (NoticeExt)request.getAttribute("notice");	
 	boolean canEdit = loginMember != null 
 	&& (loginMember.getMemberId().equals(notice.getMemberId())
