@@ -13,28 +13,25 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 
 <section class="section">
 
-	<table>
-		<tr>
-			<th><select class="form" id="selectlecture" name="selectlecture">
-					<%
+	<select class="form" id="selectlecture" name="selectlecture">
+		<%
 					if (list2 == null || list2.isEmpty()) {
 					%>
-					<option selected>조회된 강의가 없습니다.</option>
-					<%
+		<option selected>조회된 강의가 없습니다.</option>
+		<%
 					} else {
 					%>
-					<option selected>강의 선택</option>
-					<%
+		<option selected>강의 선택</option>
+		<%
 					for (PresentLecture presentlecture : list2) {
 					%>
-					<option value="<%=presentlecture.getSubjectNo()%>"><%=presentlecture.getPresentLecture()%></option>
-					<%
+		<option value="<%=presentlecture.getSubjectNo()%>"><%=presentlecture.getPresentLecture()%></option>
+		<%
 					}
 					}
 					%>
-			</select></th>
-
-		</tr>
+	</select>
+	<table>
 		<tr>
 			<th><button type="button"
 					onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture';">현재학기
