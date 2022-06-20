@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/record.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/records.css" />
 <%
 	List<PresentlyStudentClass> list = (List<PresentlyStudentClass>) request.getAttribute("list");
 %>
@@ -63,9 +63,6 @@
 %>
 			</tbody>
 		</table>
-		<br />
-		<br />
-			<a href="<%= request.getContextPath() %>/chat/chatroom"><button>실시간 이의제기</button></a>
 	<script>
 	$(".checkBtn").click(function(){ 
 		let tdArr = new Array();	
