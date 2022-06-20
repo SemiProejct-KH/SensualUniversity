@@ -7,30 +7,30 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/records.css" />
 <%
-	List<ProfessorGradeDropbox> GradeDropbox = (List<ProfessorGradeDropbox>) request.getAttribute("GradeDropbox");	
-	List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
+List<ProfessorGradeDropbox> GradeDropbox = (List<ProfessorGradeDropbox>) request.getAttribute("GradeDropbox");
+List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 %>
 
 <section class="section">
-			<select class="form" id="selectlecture" name="selectlecture">
-					<%
-				if(GradeDropbox == null || GradeDropbox.isEmpty()) {
-%>
-					<option selected>조회된 강의가 없습니다.</option>
-					<%
-				} else {
-%>
-					<option selected>강의 선택</option>
-					<%
-				for(ProfessorGradeDropbox professorgradedropbox : GradeDropbox) {
-%>
-					<option value="<%=professorgradedropbox.getSubjectNo()%>"><%=professorgradedropbox.getPresentLecture()%></option>
-					<%
-					}
-				}
-%>
-			</select>
-			
+	<select class="form" id="selectlecture" name="selectlecture">
+		<%
+		if (GradeDropbox == null || GradeDropbox.isEmpty()) {
+		%>
+		<option selected>조회된 강의가 없습니다.</option>
+		<%
+		} else {
+		%>
+		<option selected>강의 선택</option>
+		<%
+		for (ProfessorGradeDropbox professorgradedropbox : GradeDropbox) {
+		%>
+		<option value="<%=professorgradedropbox.getSubjectNo()%>"><%=professorgradedropbox.getPresentLecture()%></option>
+		<%
+		}
+		}
+		%>
+	</select>
+
 	<table id="record">
 		<thead id="recordthead">
 			<tr>
@@ -45,26 +45,31 @@
 		<tbody id="recordtbody">
 		</tbody>
 	</table>
-	
+
 	<table id="grade">
-	<thead>
-	<tr>
-	<th>중간고사</th>
-	<th>기말고사</th>
-	<th>과제점수</th>
-	<th>출석점수</th>
-	<th>제출</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td><input type="text" id="middle" name="middle" style="text-align:center"/></td>
-	<td><input type="text" id="final" name="final" style="text-align:center"/></td>
-	<td><input type="text" id="assignment" name="assignment" style="text-align:center"/></td>
-	<td><input type="text" id="attend" name="attend" style="text-align:center"/></td>
-	<td><input type="button" id="gradesummit" class="button" value="성적제출"/></td>
-	</tr>
-	</tbody>
+		<thead>
+			<tr>
+				<th>중간고사</th>
+				<th>기말고사</th>
+				<th>과제점수</th>
+				<th>출석점수</th>
+				<th>제출</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" id="middle" name="middle"
+					style="text-align: center" /></td>
+				<td><input type="text" id="final" name="final"
+					style="text-align: center" /></td>
+				<td><input type="text" id="assignment" name="assignment"
+					style="text-align: center" /></td>
+				<td><input type="text" id="attend" name="attend"
+					style="text-align: center" /></td>
+				<td><input type="button" id="gradesummit" class="button"
+					value="성적제출" /></td>
+			</tr>
+		</tbody>
 	</table>
 
 </section>
@@ -77,7 +82,7 @@ $("#selectlecture").change(function(e){
 	    console.log(selected);
 	
 	$.ajax({
-		url:"<%= request.getContextPath() %>/professor/grade/select",
+		url:"<%=request.getContextPath()%>/professor/grade/select",
 		type:'get',
 		dataType:'json',
 		data:{
@@ -85,8 +90,8 @@ $("#selectlecture").change(function(e){
 		},
 		success: function(result){           
 			if (result) {
-				alert("완료");
 				console.log(result);
+				receivelist(selected);
 			} else {
 				alert("전송된 값 없음");           
 			}       
@@ -111,9 +116,9 @@ const receivelist = (selected) => {
 	            const tbody = document.querySelector("#recordtbody");
 	            tbody.innerHTML = "";
 	            
-	            result.forEach((celeb, index) => {
-	                console.log(index, celeb);
-	                const {subjectTerm, memberLevel, memberName, memberId, departmentName} = celeb;
+	            result.forEach((studentlist, index) => {
+	                console.log(index, studentlist);
+	                const {subjectTerm, memberLevel, memberName, memberId, departmentName} = studentlist;
 	                const tr = document.createElement("tr");
 	                
 	                const tdSubjectTerm = document.createElement("td");
@@ -130,7 +135,7 @@ const receivelist = (selected) => {
 	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName);
 	                tbody.append(tr);
 	            });
-	            
+	           
 			
 		} else {
 			alert("전송된 값 없음"); 
