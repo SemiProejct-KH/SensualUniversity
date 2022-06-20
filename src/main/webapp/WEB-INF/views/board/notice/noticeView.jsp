@@ -1,4 +1,3 @@
-
 <%@page import="notice.model.dto.NoticeExt"%>
 <%@page import="notice.model.dto.NoticeAttachment"%>
 <%@page import="java.util.List"%>
@@ -7,7 +6,7 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <%
-//
+//  주석추가
 NoticeExt notice = (NoticeExt)request.getAttribute("notice");	
 	boolean canEdit = loginMember != null 
 	&& (loginMember.getMemberId().equals(notice.getMemberId())
