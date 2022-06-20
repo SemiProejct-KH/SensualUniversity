@@ -13,6 +13,8 @@ import java.util.Properties;
 
 import professorgrade.model.dto.ProfessorGrade;
 import professorgrade.model.dto.ProfessorGradeDropbox;
+import professorgrade.model.dto.ProfessorGradeInput;
+import professorgrade.model.dto.ProfessorGradeResister;
 
 public class ProfessorGradeDao {
 
@@ -25,6 +27,64 @@ public class ProfessorGradeDao {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public List<ProfessorGradeInput> GradeInput(Connection conn, int No){
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<ProfessorGradeInput> Input = new ArrayList<>();
+		ProfessorGradeInput professorgradeinput = null;
+		String sql = prop.getProperty("gradeInput");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, No);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				professorgradeinput = new ProfessorGradeInput();
+				
+				professorgradeinput.setResisterNo(rset.getString("register_no"));
+				professorgradeinput.setGradeMiddle(rset.getInt("grade_middle"));
+				professorgradeinput.setGradeFinal(rset.getInt("grade_final"));
+				professorgradeinput.setGradeAssignment(rset.getInt("grade_assignment"));
+				professorgradeinput.setGradeAttend(rset.getInt("grade_attend"));
+				
+				Input.add(professorgradeinput);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return Input;
+	}
+	
+	public List<ProfessorGradeResister> GradeResister(Connection conn, String resisterNo){
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<ProfessorGradeResister> Resister = new ArrayList<>();
+		ProfessorGradeResister professorgraderesister = null;
+		String sql = prop.getProperty("resisterNo");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, resisterNo);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				professorgraderesister = new ProfessorGradeResister();
+				
+				professorgraderesister.setResisterNo(rset.getString("register_no"));
+				
+				Resister.add(professorgraderesister);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return Resister;
 	}
 	
 	public List<ProfessorGradeDropbox> GradeDropboxlist(Connection conn, int No){

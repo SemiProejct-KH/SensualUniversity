@@ -39,7 +39,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 				<th class="line1">학생이름</th>
 				<th class="line1">학생아이디</th>
 				<th class="line1">학생학과</th>
-				<th class="line1"></th>
+				<th class="line1">선택</th>
 
 			</tr>
 		</thead>
@@ -50,6 +50,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 	<table id="grade">
 		<thead>
 			<tr>
+				<th>수강번호</th>
 				<th>중간고사</th>
 				<th>기말고사</th>
 				<th>과제점수</th>
@@ -59,6 +60,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		</thead>
 		<tbody>
 			<tr>
+				<td id="regsister"></td>
 				<td><input type="text" id="middle" name="middle"
 					style="text-align: center" /></td>
 				<td><input type="text" id="final" name="final"
@@ -112,7 +114,6 @@ const receivelist = (selected) => {
 	success: function(result){
 		if (result){
 			 console.log("두번째 ajax" + result);
-	            console.log("test");    
 	            
 	            const tbody = document.querySelector("#recordtbody");
 	            tbody.innerHTML = "";
@@ -133,7 +134,7 @@ const receivelist = (selected) => {
 	                const tdDepartmentName = document.createElement("td");
 	                tdDepartmentName.append(departmentName);
 	                const tdChoice = document.createElement("td");
-	                tdChoice.append();
+	                tdChoice.button;
 	                
 	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName, tdChoice);
 	                tbody.append(tr);
@@ -149,7 +150,84 @@ const receivelist = (selected) => {
 });
 };
 
+const registerNo = (seleted) => {
+$(".Btn").click(function(){
+	let tdArr = new Array();
+	let Btn = $(this);
+	
+	let tr = button.parent().parent();
+	let td = tr.children();
+	
+	console.log("데이터 : " +tr.text());
+	
+	tdArr.push(td.eq(0).text());
+	tdArr.push(td.eq(1).text());
+	tdArr.push(td.eq(2).text());
+	tdArr.push(td.eq(3).text());
+	tdArr.push(td.eq(4).text());
+	
+	console.log("배열 값 : " + tdArr);
+	
+	$.ajax({
+		url:"<%=request.getContextPath()%>/professor/grade/resisterNo",
+		type:'get',
+		dataType:'json',
+		data:{
+			subjectNo : selected,
+			memberId : eq(3)
+		},
+		success: function(result){
+			if(result){
+				console.log("세번째 ajax" + result);
+			} else {
+				alert("전송된 값 없음");
+			}
+		}, error: function(){
+			alert("에러 발생");
+		}
+	});
+})
+};
 
+
+
+$(".button").click(function(){
+	let tdArr = new Array();
+	let button = $(this);
+	
+	let tr = button.parent().parent();
+	let td = tr.children();
+	
+	console.log("데이터 : " +tr.text());
+	
+	tdArr.push(td.eq(0).text());
+	tdArr.push(td.eq(1).text());
+	tdArr.push(td.eq(2).text());
+	tdArr.push(td.eq(3).text());
+	tdArr.push(td.eq(4).text());
+	
+	console.log("배열 값 : " + tdArr);
+	
+	$.ajax({
+		url:"<%=request.getContextPath()%>/professor/grade/gradeinput",
+		type:"get",
+		data:{
+			registerno : tdArr[0],
+			grademiddle : tdArr[1],
+			gradefinal : tdArr[2],
+			gradeassignment : tdArr[3],
+			gradeattend : tdArr[4]
+		},
+		
+		async: false,
+		success: function(data){
+			alert("네번째 ajax 성공")
+		},
+		error: function(){
+			
+		}
+	});
+});
 
 </script>
 
