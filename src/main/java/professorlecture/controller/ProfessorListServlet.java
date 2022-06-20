@@ -8,28 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
-import member.model.dto.Member;
 import professorlecture.model.dto.ProfessorLecture;
 import professorlecture.model.service.ProfessorLectureService;
 
 /**
- * Servlet implementation class ProfessorLectureServlet
+ * Servlet implementation class ProfessorListServlet
  */
-
-
-@WebServlet("/professor/lectureselect")
-public class LectureSelectServlet extends HttpServlet {
-
+@WebServlet("/professor/professorlist")
+public class ProfessorListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorLectureService professorlectureservice = new ProfessorLectureService();
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// 1. 사용자입력값
 			String subjectNo = request.getParameter("subjectNo");
