@@ -135,7 +135,7 @@ alert("<%= msg %>");
                             </nav>
                         </div>
                         <hr>
-                        <h6>서울시 강남구 테헤란로 감각대 TEL 02-1235-1235 FAX 02-321-321</h6>
+                        <h6  align="center">서울시 강남구 테헤란로 감각대 TEL 02-1235-1235 FAX 02-321-321</h6>
                         <h6 align="center">sensual university</h6>
                     </div>
                 </form>
