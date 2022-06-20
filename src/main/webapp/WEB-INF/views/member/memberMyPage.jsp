@@ -8,7 +8,6 @@
 	String msg = (String) session.getAttribute("msg");
 	if(msg != null)
 	session.removeAttribute("msg");
-
 	String memberId = loginMember.getMemberId();
 	String memberName = loginMember.getMemberName();
 	Date memberBirth = loginMember.getMemberBirth();// null값이어도 input:datetime에서 무시함.
@@ -16,7 +15,6 @@
 	String memberPhone = loginMember.getMemberPhone();
 	String memberLevel = loginMember.getMemberLevel();
 	String departmentNo = loginMember.getDepartmentNo();
-
 %>
 
 <section class="section">
@@ -76,9 +74,9 @@
                         </select>
                       </div>
                       <% } %>
-                      <label for="departmentName" class="col-sm-1 col-form-label" style="text-align: center; margin-left:35px;">학과</label>
-                      <div class="col-sm-4">
-                        <select id="departmentName" name="departmentName" class="form-select">
+                      <label for="departmentName" class="col-sm-1 col-form-label" style="text-align: center; margin-left:40px; margin-right:15px;">학과</label>
+                      <div class="col-sm-4 departmentName">
+                        <select id="departmentName" name="departmentName" class="form-select" >
                           <option value="컴퓨터소프트웨어학과" selected>컴퓨터소프트웨어학과</option>
                           <option value="정보통신공학과">정보통신공학과</option>
                           <option value="전자공학과">전자공학과</option>
@@ -114,7 +112,6 @@ const deleteMember = () => {
 		document.memberDelFrm.submit();
 	}
 }
-
 /* 회원수정폼 유효성 검사 */
 document.memberUpdateFrm.onsubmit = () => {
 	// memberName

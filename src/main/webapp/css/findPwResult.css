@@ -3,7 +3,7 @@
     width: 35%;
 	margin: 0 auto;
 	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
-	border: 1px solid blue; /* 완성 후 삭제 예정 */
+/* 	border: 1px solid blue; 완성 후 삭제 예정 */
 }
 
 .wrapper {
@@ -66,4 +66,12 @@ h3 {
 }
 .form-floating>.form-control {
     height: calc(3rem + 1px);
+}
+@media screen and (min-width: 1500px){
+.section_pw_result {
+    width: 28%;
+	margin: 0 auto;
+	height: 100%; /* 코드 작업 완성 후 100%로 바꿀 예정 */
+	border: 1px solid blue; /* 완성 후 삭제 예정 */
+}
 }

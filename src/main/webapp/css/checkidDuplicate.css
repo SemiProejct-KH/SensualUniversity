@@ -21,47 +21,73 @@ body.dimmed::before{
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);    
 }
-.popup {
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    min-width: 300px;
-    max-width: 600px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 2px 55px -25px rgb(0 0 0 / 100%);
+.popup-wrap{
+  justify-content:center; 
+  align-items:center;     
+  position:fixed;         
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               
+  display:none; 
+  display:flex;
+  padding:15px; 
 }
-.popup > .title{
-    border-radius: 15px 15px 0 0;
-    min-height: 40px;
-    color: #fff;
-    background-color: #052a78;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    font-weight: bold;
+.popup-head{
+  width:100%;
+  height:50px; 
+  display:flex; 
+  align-items:center;
+  justify-content:center;
+  background-color: #052a78;
+  color: white;
 }
-.popup > .content {
-    padding: 20px;
-    box-sizing: border-box;
+.popup-body{                
+  width:100%;
+  background-color:#ffffff; 
 }
-.popup > .cmd {
-    bottom: 0;
-    min-height: 40px;
-    padding: 15px 15px;
-    box-sizing: border-box;
-    border-radius: 0 0 15px 15px;
-    min-height: 40px;
-    text-align: right;
+.body-content{              
+  width:100%;
+  padding:30px 30px 5px 30px; 
+  border:1px solid #d3def5;             
 }
-.popup > .cmd .button {
-    border-radius: 8px;
-    padding: 5px 10px;
-    border: 1px solid #aaa;
+.body-titlebox{             
+  text-align:center;        
+  width:100%;
+  height:40px;
+  margin-bottom:10px;       
 }
-.popup > .cmd .button:hover {
-    color: #fff;
-    background-color: #000;
-    border-color: #000;
+.body-contentbox{           
+  word-break:break-word;    
+  overflow-y:auto;          
+  min-height:100px;         
+  max-height:200px;         
+}
+.popup-foot{                      
+  width:100%;
+  height:50px;
+  background-color: #052a78;
+  color: white;
+}
+.pop-btn{ 
+  display:inline-flex;            
+  width:50%;                      
+  height:100%;                    
+  justify-content:center;         
+  align-items:center;             
+  float:left;                     
+  color:#ffffff;                  
+  cursor:pointer;                 
+}
+.pop-btn.confirm{                 
+  border-right:1px solid #3b5fbf; 
+}
+
+.btn_submit{
+	background-color:#052a78;
+	color:white;
+	border: 1px solid #333;
+	font-weight: 100;
+    font-size: 16px;
+	
 }

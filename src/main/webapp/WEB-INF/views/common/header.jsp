@@ -26,12 +26,18 @@
 	<section>
 		<div id="top_bar">
 			<div id="top_bar_btn">
-				<button type="button" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/member/memberMyPage';">마이페이지</button>
-				<button type="button" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/member/logout';">로그아웃</button>
+				<div class="btns2">
+                     <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" onclick="location.href='<%= request.getContextPath() %>/member/memberMyPage';" style="text-decoration: none; color:white;">마이페이지</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="location.href='<%= request.getContextPath() %>/member/logout';" style="text-decoration: none; color:white;">로그아웃</a></li>
+                      </ol>
+                    </nav>
+                </div>
 			</div>
 		</div>
 		<div id="uni_name">
-			<h1>Sensual University</h1>
+			<a href="#" class="title" onclick="location.href='<%= request.getContextPath() %>/main/mainPage';" style="text-decoration: none;">Sensual University</a>
 		</div>
 		<div id="navbar">
 			<ul class="nav justify-content-center">
