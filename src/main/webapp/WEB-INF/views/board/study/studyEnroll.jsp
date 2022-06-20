@@ -33,11 +33,11 @@ window.onload = () => { // form보다 상단에 위치하므로 onload 속성에
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h5 class="mt-4" >교내묻고답하기 등록</h5>
+	<h5 class="mt-4" >스터디 등록</h5>
 	<div class="card mb-4">
 		<div class="card-body">
-			<form name="noticeEnrollFrm" 
-				  action="<%= request.getContextPath() %>/board/questionEnroll" 
+			<form name="boardEnrollFrm" 
+				  action="<%= request.getContextPath() %>/board/studyEnroll" 
 				  method="post"
 				  enctype="multipart/form-data">
 				<div class="mb-3">

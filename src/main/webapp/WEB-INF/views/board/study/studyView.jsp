@@ -21,8 +21,8 @@
 	<% } %>
 	<div class="container">
 		<div class="row">
-			<span class="span_view" style="font-weight:bold">교내묻고답하기</span>	
-			<table id="tbl_view" class="tbl_view table table-bordered">
+			<span class="span_view" style="font-weight:bold">스터디</span>	
+			<table class="tbl_view table table-bordered">
 				<tbody>
 					<tr>
 						<th style="width: 20%;">제목</th>
