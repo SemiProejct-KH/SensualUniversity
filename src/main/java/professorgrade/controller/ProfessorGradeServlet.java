@@ -30,7 +30,7 @@ public class ProfessorGradeServlet extends HttpServlet {
 			System.out.println("subjectNo = " + subjectNo);
 			
 			List<ProfessorGrade> list = professorgradeservice.classAll(subjectNo);
-			System.out.println("list = " + list);
+			System.out.println("첫번째 list = " + list);
 
 			response.setContentType("application/json; charset=utf-8");
 			new Gson().toJson(list, response.getWriter());
