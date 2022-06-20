@@ -16,7 +16,7 @@ import member.model.dto.MemberExt;
 import member.model.service.MemberService;
 
 
-@WebServlet("/member/login")
+@WebServlet( urlPatterns = "/member/login", loadOnStartup = 1)
 public class MemberLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -52,7 +52,7 @@ public class MemberLoginServlet extends HttpServlet {
 			}
 			response.addCookie(cookie); // 응답객체 쿠키추가. Set-Cookie 헤더에 작성	
 			// 4. 성공시 응답처리 
-			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/main/mainPage.jsp");
+			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/sample/sample.jsp");
 			reqDispatcher.forward(request, response);
 		}
 		else {

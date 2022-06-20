@@ -4,21 +4,22 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- <link rel="stylesheet" href="/resources/demos/style.css">
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <%
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<%
 	List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/mainPage.css" />
+<form id="main_form" name="main_form" method="post">
 <section class="section" >
 	<div class="info">
 		<div id="div_image">
 			<img src="/semi/images/students.gif" alt="" />	
 		</div>
 		<div id="info_list">
-			<p>▫성명 : <%= loginMember.getMemberName() %>&nbsp&nbsp&nbsp&nbsp&nbsp▫학번 : <%= loginMember.getMemberNo() %></p>
+			<p>▫성명 : <%= loginMember.getMemberName() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspmargin: 24px 214px;▫학번 : <%= loginMember.getMemberNo() %></p>
 			<p>▫학년 : <%= loginMember.getMemberLevel() %>학년&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp▫아이디 : <%= loginMember.getMemberId() %></p>
 		</div>
 		</div>
@@ -31,7 +32,6 @@
 				if(list != null && !list.isEmpty()) {
 			  for(NoticeExt notice : list) {
 			%>
-				console.log("notice = " + notice);
 				<p><%= notice.getNoticeTitle() %><%= notice.getMemberId() %><%= notice.getNoticeDate() %></p>
 			<%
 			  }
@@ -44,6 +44,7 @@
 		%>
 		</div>
 </section>
+		</form>
     <script>
         $(function() {
             //input을 datepicker로 선언

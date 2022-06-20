@@ -19,7 +19,7 @@ import notice.model.service.NoticeService;
  * Servlet implementation class NoticeListServlet
  */
 // 확인 주석 //
-@WebServlet("/notice/noticeList")
+@WebServlet( urlPatterns = "/notice/noticeList", loadOnStartup = 2)
 public class NoticeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private NoticeService noticeService = new NoticeService(); 
