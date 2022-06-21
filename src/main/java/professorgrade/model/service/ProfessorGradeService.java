@@ -15,7 +15,7 @@ public class ProfessorGradeService {
 
 	private ProfessorGradeDao professorgradedao = new ProfessorGradeDao();
 	
-	public int GradeInput(int No, String registerno, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
+	public int GradeInput(String registerno, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
 		int result = 0;
 		Connection conn = getConnection();
 		try {
