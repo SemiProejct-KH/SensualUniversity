@@ -12,7 +12,7 @@ import professorgrade.model.service.ProfessorGradeService;
 /**
  * Servlet implementation class ProfessorGradeInputServlet
  */
-@WebServlet("/professor/grade/gradeinput")
+@WebServlet("/professor/grade/gradeInput")
 public class ProfessorGradeInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfessorGradeService professorgradeservice = new ProfessorGradeService();
