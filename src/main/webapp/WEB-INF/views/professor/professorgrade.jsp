@@ -58,20 +58,8 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 				<th>제출</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<td id="regsister"></td>
-				<td><input type="text" id="middle" name="middle"
-					style="text-align: center" /></td>
-				<td><input type="text" id="final" name="final"
-					style="text-align: center" /></td>
-				<td><input type="text" id="assignment" name="assignment"
-					style="text-align: center" /></td>
-				<td><input type="text" id="attend" name="attend"
-					style="text-align: center" /></td>
-				<td><input type="button" id="gradesummit" class="button"
-					value="성적제출" /></td>
-			</tr>
+		<tbody id="gradetbody">
+
 		</tbody>
 	</table>
 
@@ -172,43 +160,64 @@ const registerNo = (subjectNo, memberId) => {
 		success: function(result){
 			if(result){
 				console.log("세번째 ajax" + result);
+				
+				const tbody = document.querySelector("#gradetbody")
+				tbody.innterHTML = "";
+				
+				result.forEach((gradelist, index) => {
+					console.log(index, gradelist);
+					const {registerNo} = gradelist;
+					const tr = document.createElement("tr");
+					
+					const tdRegisterNo = document.createElement("td");
+					tdRegisterNo.append(registerNo);
+					const tdGradeMiddle = document.createElement("td");
+					const grademiddle = document.createElement("input");
+					tdGradeMiddle.append(grademiddle);
+					const tdGradeFinal = document.createElement("td");
+					const gradefinal = document.createElement("input");
+					tdGradeFinal.append(gradefinal);
+					const tdGradeAssignment = document.createElement("td");
+					const gradeassignment = document.createElement("input");
+					tdGradeAssignment.append(gradeassignment);
+					const tdGradeAttend = document.createElement("td");
+					const gradeattend = document.createElement("input");
+					tdGradeAttend.append(gradeattend);
+					const tdButton = document.createElement("td");
+					const button = document.createElement("button");
+					button.textContent = "성적입력";
+					button.onclick = (e) => {
+						e.stopPropagation();
+						gradeInput(registerNo, grademiddle, gradefinal, gradeassignment, gradeattend);
+					}
+					tdButton.append(button);
+					
+					tr.append(tdRegisterNo, tdGradeMiddle, tdGradeFinal, tdGradeAssignment, tdGradeAttend, tdButton);
+					tbody.append(tr);
+					
+				})
 			} else {
 				alert("전송된 값 없음");
-				
 			}
 		}, error: function(){
 			alert("에러 발생");
 		}
 	});
-	
 };
 
-//$(".button").click(function(){
-	let tdArr = new Array();
-	let button = $(this);
+const gradeInput = (registerNo, grademiddle, gradefinal, gradeassignment, gradeattend) => {
 	
-	let tr = button.parent().parent();
-	let td = tr.children();
-	
-	console.log("데이터 : " +tr.text());
-	
-	tdArr.push(td.eq(0).text());
-	tdArr.push(td.eq(1).text());
-	tdArr.push(td.eq(2).text());
-	tdArr.push(td.eq(3).text());
-	tdArr.push(td.eq(4).text());
-	
-	console.log("배열 값 : " + tdArr);
+	console.log(registerNo)
 	
 	$.ajax({
 		url:"<%=request.getContextPath()%>/professor/grade/gradeInput",
 		type:"get",
 		data:{
-			registerno : tdArr[0],
-			grademiddle : tdArr[1],
-			gradefinal : tdArr[2],
-			gradeassignment : tdArr[3],
-			gradeattend : tdArr[4]
+			registerNo, 
+			grademiddle, 
+			gradefinal, 
+			gradeassignment, 
+			gradeattend
 		},
 		
 		async: false,
@@ -216,10 +225,10 @@ const registerNo = (subjectNo, memberId) => {
 			alert("네번째 ajax 성공")
 		},
 		error: function(){
-			
 		}
 	});
-//});
+	
+}
 
 
 </script>

@@ -25,10 +25,13 @@ public class ProfessorGradeResisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			String resisterNo = request.getParameter("resisterNo");
-			System.out.println("resisterNo = " + resisterNo);
+			
+			String subjectNo = request.getParameter("subjectNo");
+			System.out.println("서블릿 subjectNo = " + subjectNo);
+			String memberId = request.getParameter("memberId");
+			System.out.println("서블릿 memberId = " + memberId);
 
-			List<ProfessorGradeResister> Resister = professorgradeservice.GradeResister(resisterNo);
+			List<ProfessorGradeResister> Resister = professorgradeservice.GradeResister(subjectNo, memberId);
 			System.out.println("세번째 list = " + Resister);
 
 			response.setContentType("application/json; charset=utf-8");
