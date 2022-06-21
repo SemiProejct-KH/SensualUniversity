@@ -331,7 +331,6 @@ public class NoticeDao {
 				notice.setNoticeReadCount(rset.getInt("notice_read_count"));
 				
 				noticeList.add(notice);	
-				System.out.println("noticeDao = " + notice);
 			}
 		} catch (Exception e) {
 			throw new NoticeException("메인페이지 공지사항 조회 오류,", e);
