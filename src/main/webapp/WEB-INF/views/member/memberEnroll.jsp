@@ -122,7 +122,7 @@
 <script>
 const checkIdDuplicate = () => {
 	// ^[A-Za-z]{1}[A-Za-z0-9]{3,19}$; // 4~20자리 영(대, 소),숫자 - 첫글자는 숫자 사용불가
-	if(!/^[a-z]+[a-z0-9]{4,11}$/.test(_memberId.value)){
+	if(!/^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/.test(_memberId.value)){
 		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
 	}
 	else{	
@@ -148,8 +148,8 @@ passwordCheck.onblur = () => {
 /*회원가입폼 유효성 검사*/
 document.memberEnrollFrm.onsubmit = () => {
 	// memberId
-	// ^[A-Za-z]{1}[A-Za-z0-9]{3,19}$; // 4~20자리 영(대, 소),숫자 - 첫글자는 숫자 사용불가
-	if(!/^[a-z]+[a-z0-9]{4,11}$/.test(_memberId.value)){
+	// ^[A-Za-z]{1}[A-Za-z0-9]{3,19}$ // 4~20자리 영(대, 소),숫자 - 첫글자는 숫자 사용불가
+	if(!/^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/.test(_memberId.value)){
 		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
 		return false;
 	}
