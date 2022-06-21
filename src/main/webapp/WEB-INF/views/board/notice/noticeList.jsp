@@ -15,23 +15,22 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
 	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
 </div>
-<div style="margin-top:100px;">
 <section id="notice_container" class="section">
+<div style="margin-top:100px;"></div>
 	<%
 		if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
 	%>
-		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/notice/noticeEnroll';"/>
+		<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/notice/noticeEnroll';"/>
 	<%
 		}
 	%>
-	<table id="" class="tbl_list table table-striped">
-		<thead class="thead-light">
-			<tr>
-				<th></th>			
-				<th>제목</th>
-				<th>작성자</th>
-				<th>&nbsp&nbsp&nbsp작성일</th>
-			 	<th>조회수</th>
+	<table id="" class="table table-striped table-hover table-bordered">
+		<thead class="table-primary">
+			<tr>	
+				<th class="line1">제목</th>
+				<th class="line1">작성자</th>
+				<th class="line1">&nbsp&nbsp&nbsp작성일</th>
+			 	<th class="line1">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,11 +39,10 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 			  for(NoticeExt noticeExt : list) {
 		%>
 			<tr>
-				<td>▪</td>
-				<td><a href="<%= request.getContextPath() %>/notice/noticeView?no=<%= noticeExt.getNoticeNo() %>"><%= noticeExt.getNoticeTitle() %></a></td>
-				<td><%= noticeExt.getMemberId() %></td>
-				<td><%= noticeExt.getNoticeDate() %></td>
-				<td>&nbsp&nbsp&nbsp<%= noticeExt.getNoticeReadCount() %></td>
+				<td class="td_content"><a href="<%= request.getContextPath() %>/notice/noticeView?no=<%= noticeExt.getNoticeNo() %>"><%= noticeExt.getNoticeTitle() %></a></td>
+				<td class="td_content"><%= noticeExt.getMemberId() %></td>
+				<td class="td_content"><%= noticeExt.getNoticeDate() %></td>
+				<td class="td_content">&nbsp&nbsp&nbsp<%= noticeExt.getNoticeReadCount() %></td>
 			</tr>
 		<%
 			  }
@@ -60,9 +58,6 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 		</tbody>
 	</table>
 	<div style="text-align:center" id='pageBar'><%= request.getAttribute("pagebar") %></div>
-<div style="margin-bottom:100px;">
+<div style="margin-bottom:100px;"></div>
 </section>
-</div>
-</div>
-</div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
