@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css?after" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" />
 
  <section class="section">
      <div class="content">
@@ -23,7 +23,6 @@
             <div id="chatroom_chat">
                 <div id="msg-container" class="msg_container">
                     <ul>
-                    	
                     </ul>
                 </div>
             </div>
