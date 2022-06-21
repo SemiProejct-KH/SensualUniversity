@@ -100,10 +100,10 @@
             
             async: false,
             success: function(data) {
-            	alert("수강 성공");
+            	swal('수강 신청', "수강신청이 성공적으로 완료되었습니다.", 'success');
             },
             error: function(msg, error) {
-                alert(error);
+            	swal('수강 실패', "수강 신청에 실패했습니다", 'error');
             }
 		});
 	});
