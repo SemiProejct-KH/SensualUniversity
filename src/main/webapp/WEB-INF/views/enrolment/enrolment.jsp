@@ -7,7 +7,7 @@
 <%
 	List<Enrol> list = (List<Enrol>) request.getAttribute("list");
 %>
-<section class="section">
+<section class="section" style="height:750px">
 	
 	<h3 style="text-align:center; margin-top: 60px;">수강신청목록</h3>
 		<div style="width:100%;height:550px;overflow-y:auto;overflow-x:hidden">
