@@ -115,6 +115,8 @@
 		window.location.reload();
 	});
 	</script>
+		<div style="margin-bottom:100px;">
+		</div>
 </section>
 	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

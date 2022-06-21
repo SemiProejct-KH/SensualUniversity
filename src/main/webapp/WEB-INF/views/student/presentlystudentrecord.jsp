@@ -69,7 +69,7 @@
 		<br />
 		<br />
 			<a href="<%= request.getContextPath() %>/chat/chatroom"><button id="refute" class="btn btn-primary" style="float:right">채팅으로 이의제기하기</button></a>
-		
+
 		<script>
 		    $(document).ready(function () {
 		        
@@ -112,6 +112,8 @@
 		        })
 		    })
 		</script>
+		<div style="margin-bottom:100px;">
+		</div>
 </section>
 	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
