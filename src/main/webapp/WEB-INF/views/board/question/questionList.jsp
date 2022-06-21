@@ -15,18 +15,18 @@
 	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
 	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
 </div>
-<section id="notice_container" class="section">
+<section id="" class="list_section section">
+<div style="margin-top:100px;"></div>
 	<% if(loginMember != null) { %>
-		<input type="button" value="글쓰기" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/board/questionEnroll';"/>
+		<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/board/questionEnroll';"/>
 	<% } %>
-	<table id="tbl_n_list" class="table table-striped">
-		<thead class="thead-light">
-			<tr>
-				<th></th> 				
-				<th>제목</th>
-				<th>작성자</th>
-				<th>&nbsp&nbsp&nbsp작성일</th>
-			 	<th>조회수</th>
+	<table id="tbl_n_list" class="table table-striped table-hover table-bordered">
+		<thead class="table-primary">
+			<tr>			
+				<th class="line1">제목</th>
+				<th class="line1">작성자</th>
+				<th class="line1">&nbsp&nbsp&nbsp작성일</th>
+			 	<th class="line1" style="width:58px">&nbsp&nbsp&nbsp조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,11 +36,10 @@
 			
 		%>
 			<tr>
-				<td>▪</td>
-				<td><a href="<%= request.getContextPath() %>/board/questionView?no=<%= boardExt.getBoardNo() %>"><%= boardExt.getBoardTitle() %></a></td>
-				<td><%= boardExt.getMemberId() %></td>
-				<td><%= boardExt.getBoardDate() %></td>
-				<td>&nbsp&nbsp&nbsp<%= boardExt.getBoardReadCount() %></td>
+				<td class="td_content"><a href="<%= request.getContextPath() %>/board/questionView?no=<%= boardExt.getBoardNo() %>"><%= boardExt.getBoardTitle() %></a></td>
+				<td class="td_content"><%= boardExt.getMemberId() %></td>
+				<td class="td_content"><%= boardExt.getBoardDate() %></td>
+				<td class="td_content">&nbsp&nbsp&nbsp<%= boardExt.getBoardReadCount() %></td>
 			</tr>
 		<%
 			  }
@@ -56,5 +55,6 @@
 		</tbody>
 	</table>
 	<div style="text-align:center" id='pageBar'><%= request.getAttribute("pagebar") %></div>
+<div style="margin-bottom:100px;"></div>
 </section>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

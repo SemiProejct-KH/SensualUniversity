@@ -10,10 +10,11 @@ NoticeExt notice = (NoticeExt) request.getAttribute("notice");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <section id="notice_container_enroll" class="section">
+<div style="margin-top:40px;"></div>
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h3 class="mt-4" >공지사항 수정</h3>
+	<h4 class="mt-4" >공지사항 수정</h4>
 	<div class="card mb-4">
 		<div class="card-body">
 			<form 
@@ -58,14 +59,15 @@ NoticeExt notice = (NoticeExt) request.getAttribute("notice");
 					<input type="file" name="upFile2">
 				</div>
 				<div id="update_btn">
-					<button class="btn btn-outline-primary">수정하기</button>
-					<button class="btn btn-outline-primary" value="취소" onclick="history.go(-1)">취소</button>
+					<button class="btn btn-primary">수정하기</button>
+					<button class="btn btn-primary" value="취소" onclick="history.go(-1)">취소</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
 </main>
+<div style="margin-bottom:100px;"></div>
 </section>
 <script>
 /**
