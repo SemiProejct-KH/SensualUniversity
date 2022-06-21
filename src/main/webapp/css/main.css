@@ -53,10 +53,7 @@ body {
     margin-top: 10px;
     color: white;
 }
-.title{
-	color: rgb(51, 51, 51);
-	font-weight: 600;
-}
+
 /* 큰 화면 */
 @media screen and (min-width: 1920px){
 	

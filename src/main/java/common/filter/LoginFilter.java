@@ -23,13 +23,22 @@ import member.model.dto.Member;
 	"/member/memberUpdate", 
 	"/member/memberDelete",
 	"/member/passwordUpdate",
+	"/board/questionList",
+	"/board/studyList",
+	"/board/lastPropertyList",
 	"/board/questionView",
 	"/board/questionEnroll",
 	"/board/questionDelete",
 	"/chat/chatroom",
+	"/notice/noticeList",
 	"/notice/noticeEnroll",
 	"/notce/noticeUpdate",
 	"/notice/noticeDelete",
+	"/class/presentlystudentclass",
+	"/class/studentclass",
+	"/student/presentlystudentrecord",
+	"/student/studentrecord",
+	"/enrol/enrolment"
 	
 })
 public class LoginFilter implements Filter {
