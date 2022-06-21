@@ -19,26 +19,60 @@ import member.model.dto.Member;
  * 로그인후 사용가능한 페이지 추가해주세요.
  */
 @WebFilter({ 
+//	member
 	"/member/memberMyPage", 
 	"/member/memberUpdate", 
 	"/member/memberDelete",
 	"/member/passwordUpdate",
+//	board
 	"/board/questionList",
 	"/board/studyList",
+	"/board/studyEnroll",
+	"/board/studyDelete",
+	"/board/studyUpdate",
+	"/board/studyEnroll",
 	"/board/lastPropertyList",
+	"/board/lastPropertyEnroll",
+	"/board/lastPropertyDelete",
+	"/board/lastPropertyUpdate",
 	"/board/questionView",
 	"/board/questionEnroll",
 	"/board/questionDelete",
-	"/chat/chatroom",
+	"/board/questionUpdate",
 	"/notice/noticeList",
 	"/notice/noticeEnroll",
 	"/notce/noticeUpdate",
 	"/notice/noticeDelete",
+//	chat
+	"/chat/chatroom",
+//	admin
+	"/admin/memberDelete",
+	"/admin/memberFinder",
+	"/admin/memberList",
+	"/admin/professorDelete",
+	"/admin/professorFinder",
+	"/admin/professorList",
+	"/admin/studentDelete",
+	"/admin/studentFinder",
+	"/admin/studentList",
+//	강의조회
 	"/class/presentlystudentclass",
 	"/class/studentclass",
+//	성적조회
 	"/student/presentlystudentrecord",
 	"/student/studentrecord",
-	"/enrol/enrolment"
+//	수강신청
+	"/enrol/enrolment",
+//	강의관리
+	"/professor/professorgrade",
+	"/professor/grade/gradeInput",
+	"/professor/grade/professorlist",
+	"/professor/grade/resisterNo",
+	"/professor/grade/select",
+	"/professor/professorlecture",
+	"/professor/professorlecture/past",
+	"/professor/lecture/select",
+	"/professor/lecture/professorlist"
 	
 })
 public class LoginFilter implements Filter {

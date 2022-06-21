@@ -20,7 +20,7 @@
 	<section class="section_signup">
 	<div class="content">
 		<div class="title">
-		    <h3>회원가입</h3>
+		    <h3>회 원 가 입</h3>
 		</div>
 <!------------------------- 학생 & 교수 가입분기처리 ------------------------>
 		<div class="btn_bar">
