@@ -15,16 +15,27 @@ public class ProfessorGradeService {
 
 	private ProfessorGradeDao professorgradedao = new ProfessorGradeDao();
 	
-	public List<ProfessorGradeInput> GradeInput(int No) {
+	public int GradeInput(int No, String registerno, int grademiddle, int gradefinal, int gradeassignment, int gradeattend) {
+		int result = 0;
 		Connection conn = getConnection();
-		List<ProfessorGradeInput> Input = professorgradedao.GradeInput(conn, No);
-		close(conn);
-		return Input;
+		try {
+			result = professorgradedao.GradeInput(conn, registerno, grademiddle, gradefinal, gradeassignment, gradeattend);
+			commit(conn);			
+		} catch(Exception e)
+		{
+			rollback(conn);
+			throw e;
+		}
+		finally
+		{
+			close(conn);
+		}
+		return result;
 	}
 	
-	public List<ProfessorGradeResister> GradeResister(String resisterNo){
+	public List<ProfessorGradeResister> GradeResister(String subjectNo, String memberId){
 		Connection conn = getConnection();
-		List<ProfessorGradeResister> Resister = professorgradedao.GradeResister(conn, resisterNo);
+		List<ProfessorGradeResister> Resister = professorgradedao.GradeResister(conn, subjectNo, memberId);
 		close(conn);
 		return Resister;
 	}

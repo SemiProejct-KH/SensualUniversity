@@ -29,46 +29,38 @@ public class ProfessorGradeDao {
 		}
 	}
 	
-	public List<ProfessorGradeInput> GradeInput(Connection conn, int No){
+	public int GradeInput(Connection conn, 
+			String registerno, int grademiddle, int gradefinal, int gradeassignment, int gradeattend){
 		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		List<ProfessorGradeInput> Input = new ArrayList<>();
-		ProfessorGradeInput professorgradeinput = null;
+		int result = 0;
 		String sql = prop.getProperty("gradeInput");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, No);
-			rset = pstmt.executeQuery();
+			pstmt.setString(1, registerno);
+			pstmt.setInt(2, grademiddle);
+			pstmt.setInt(3, gradefinal);
+			pstmt.setInt(4, gradeassignment);
+			pstmt.setInt(5, gradeattend);
 			
-			while(rset.next()) {
-				professorgradeinput = new ProfessorGradeInput();
-				
-				professorgradeinput.setResisterNo(rset.getString("register_no"));
-				professorgradeinput.setGradeMiddle(rset.getInt("grade_middle"));
-				professorgradeinput.setGradeFinal(rset.getInt("grade_final"));
-				professorgradeinput.setGradeAssignment(rset.getInt("grade_assignment"));
-				professorgradeinput.setGradeAttend(rset.getInt("grade_attend"));
-				
-				Input.add(professorgradeinput);
-			}
-		} catch (SQLException e) {
+			result = pstmt.executeUpdate();
+			} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(rset);
 			close(pstmt);
 		}
-		return Input;
+		return result;
 	}
 	
-	public List<ProfessorGradeResister> GradeResister(Connection conn, String resisterNo){
+	public List<ProfessorGradeResister> GradeResister(Connection conn, String subjectNo, String memberId){
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<ProfessorGradeResister> Resister = new ArrayList<>();
 		ProfessorGradeResister professorgraderesister = null;
-		String sql = prop.getProperty("resisterNo");
+		String sql = prop.getProperty("registerNo");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, resisterNo);
+			pstmt.setString(1, subjectNo);
+			pstmt.setString(2, memberId);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
