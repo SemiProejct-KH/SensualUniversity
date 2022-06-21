@@ -79,12 +79,12 @@ div.main_notice_list h5 a {
     margin: 8px 10px;
 }
 img#student_image {
-	background-color: white;
+    background-color: white;
     border-radius: 50%;
     width: 265px;
-    height: 230px;
+    height: 240px;
     float: left;
-    margin: 36px 65px;
+    margin: 31px 65px;
 }
 p.a_p_welcome {
 	margin: 12px -17px;
