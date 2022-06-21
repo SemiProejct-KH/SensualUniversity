@@ -72,7 +72,7 @@ public class ProfessorEnroll extends HttpServlet {
 										
 			// 3. 업무로직 (db insert)
 			int result = memberService.insertProfessorMember(member);
-			String msg = "성공적으로 회원가입했습니다.";
+			String msg = "memberEnroll";
 			// 4. 리다이렉트
 			request
 				.getSession()

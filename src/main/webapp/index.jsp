@@ -46,8 +46,10 @@
 // 로그인폼 정규표현식
 window.onload = () => {
 <% if(msg != null){ %>
-<%-- alert("<%= msg %>"); --%>
-swal('로그인 실패!', "<%= msg %>", 'error');
+	//로그인 실패
+	<% if("memberLogin".equals(msg)) {%>
+		swal('로그인 실패', "아이디 또는 비밀번호가 일치하지 않습니다.", 'error');
+	<% } %>
 <% } %>
 <% if(loginMember == null) { %>
 	document.loginFrm.onsubmit = (e) => {
@@ -58,12 +60,12 @@ swal('로그인 실패!', "<%= msg %>", 'error');
 		//const pwRegExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}$/; // 4 ~ 16자 영문,숫자 조합
 		const pwRegExp = /^.{4,}$/; // 4글자이상
 		if(!idRegExp.test(memberIdVal)){
-			alert("유효한 아이디를 입력해주세요.");
+			swal('로그인 실패', "유효한 아이디를 입력해주세요.", 'warning');
 			memberId.select();
 			return false;
 		}
 		if(!pwRegExp.test(passwordVal)){
-			alert("유효한 비밀번호를 입력해주세요.");
+			swal('로그인 실패', "유효한 비밀번호를 입력해주세요.", 'warning');
 			password.select();
 			return false;
 		}

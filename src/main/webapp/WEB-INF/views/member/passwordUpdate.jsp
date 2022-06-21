@@ -39,7 +39,7 @@
 <script>
 newPasswordCheck.onblur = () => {
 	if(newPassword.value !== newPasswordCheck.value){
-		alert("두 비밀번호가 일치하지 않습니다.");
+		swal('비밀번호 불일치', "두 비밀번호가 일치하지 않습니다.", 'warning');
 		return false; // 폼 유효성 검사에서 사용
 	}	
 	return true;
@@ -48,11 +48,11 @@ newPasswordCheck.onblur = () => {
 document.passwordUpdateFrm.onsubmit = () => {
 	// password 영문자/숫자/특수문자!@#$%^&*()
 	if(!/^[A-Za-z0-9!@#$%^&*()]{4,}$/.test(oldPassword.value)){
-		alert("기존 비밀번호가 일치하지 않습니다.");
+		swal('비밀번호 변경', "기존 비밀번호가 일치하지 않습니다.", 'error');
 		return false;
 	}
 	if(!/^[A-Za-z0-9!@#$%^&*()]{4,}$/.test(newPassword.value)){
-		swal('비밀번호 변경', "새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.", 'warning');
+		swal('비밀번호 변경', "새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.", 'error');
 		return false;
 	}
 	if(!newPasswordCheck.onblur()){

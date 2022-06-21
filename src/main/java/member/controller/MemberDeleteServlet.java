@@ -46,7 +46,7 @@ public class MemberDeleteServlet extends HttpServlet {
 			}
 			
 			//3. 리다이렉트 처리
-			session.setAttribute("msg", "탈퇴가 성공적으로 처리되었습니다. 감사합니다.");
+			session.setAttribute("msg", "memberDelete");
 			response.sendRedirect(request.getContextPath() + "/");
 //			response.sendRedirect(request.getContextPath() + "/member/logout");
 			

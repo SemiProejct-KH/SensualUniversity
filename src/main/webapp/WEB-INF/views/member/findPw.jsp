@@ -23,6 +23,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/findPw.css?after" />
 <!-- favicon -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 	<section class="section_signup">
@@ -60,25 +62,32 @@
 <script>
 window.onload = () => {
 	<% if(msg != null){ %>
-	alert("<%= msg %>");
+		// 비밀번호 찾기
+		<% if("findPwSuccess".equals(msg)) {%>
+		swal('비밀번호 찾기 성공', "새로 사용할 비밀번호를 입력해주세요.", 'success');
+		<% } %>
+		// 비밀번호 찾기 실패
+		<% if("findPwFail".equals(msg)) {%>
+		swal('비밀번호 찾기 실패', "조회된 회원이 없습니다.", 'error');
+		<% } %>
 	<% } %>
 }
 document.findPasswordFrm.onsubmit = () => {
 	// memberId
 	// /^[a-z]+[a-z0-9]{5,11}$/g; // 영문자로 시작하는 영문자 또는 숫자 6 ~ 12자
 	if(!/^[a-z]+[a-z0-9]{5,11}$/g.test(memberId.value)){
-		alert("올바른 아이디를 입력해주세요.");
+		swal('아이디 입력 오류', "올바른 아이디를 입력해주세요.", 'warning');
 		return false;
 	}
 	// memberName
 	if(!/^[가-힣]{2,}$/.test(memberName.value)){
-		alert("이름을 입력해주세요.");
+		swal('이름 입력 오류', "올바른 이름을 입력해주세요.", 'warning');
 		return false;
 	}
 
 	// 생일
 	if(!/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(memberBirth.value)){
-		alert("올바른 생년월일을 입력해주세요.");
+		swal('생일 입력 오류', "올바른 생일을 입력해주세요.", 'warning');
 		return false;
 	}
 	return true;
