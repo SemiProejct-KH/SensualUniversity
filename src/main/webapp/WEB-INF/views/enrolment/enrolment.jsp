@@ -4,16 +4,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/records.css" />
 <%
 	List<Enrol> list = (List<Enrol>) request.getAttribute("list");
 %>
 <section class="section">
 	
-	<h3>수강신청목록</h3>
-		<div style="width:100%;height:700px;overflow-y:auto;overflow-x:hidden">
-			<table id="record">
-				<thead>
+	<h3 style="text-align:center; margin-top: 60px;">수강신청목록</h3>
+		<div style="width:100%;height:550px;overflow-y:auto;overflow-x:hidden">
+			<table id="record" class="table table-striped table-hover">
+				<thead class="table-primary">
 					<tr>
 		                <th class="line1">년도, 학기</th>
 		                <th class="line1">학년</th>

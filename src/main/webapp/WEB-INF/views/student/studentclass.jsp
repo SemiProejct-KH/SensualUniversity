@@ -3,21 +3,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/records.css" />
 <%
 	List<StudentClass> list = (List<StudentClass>) request.getAttribute("list");
 %>
 
 <section class="section">
 			<form name="memberUpdateFrm" action="<%= request.getContextPath() %>/class/studentclass">
-		<table>
-		<tr>
-			<th><a href="<%= request.getContextPath() %>/class/presentlystudentclass">현학기 강의조회</a></th>
-			<th><a href="<%= request.getContextPath() %>/class/studentclass">지난학기 강의조회</a></th>
-		</tr>
-		</table>
-		<table id="record">
-			<thead>
+   <div class="btns2" style="margin-top: 100px">
+         <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/class/presentlystudentclass';" style="text-decoration: none; color: black;">현학기 강의조회</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/class/studentclass';" style="text-decoration: none; color: black;">지난학기 강의조회</a>
+            </li>
+          </ol>
+        </nav>
+    </div>
+		<table id="record" class="table table-striped table-hover">
+			<thead class="table-primary">
 				<tr>
 	                <th class="line1">년도, 학기</th>
 	                <th class="line1">학년</th>
@@ -54,7 +59,7 @@
 			{
 %>			
 				<tr>
-					<td colspan="9">이전 강의가 없습니다.</td>
+					<td colspan="9" style="text-align: center">이전 강의가 없습니다.</td>
 				</tr>
 <%				
 			}
