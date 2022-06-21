@@ -136,7 +136,12 @@ const receivelist = (selected) => {
 	                const tdChoice = document.createElement("td");
 	                const btn = document.createElement("button");
 	                btn.textContent = "출력";
+	                btn.onclick = (e) => {
+	                	e.stopPropagation(); // 이벤트 전파 중지
+	                	registerNo(selected, memberId);
+	                }
 	                tdChoice.append(btn);
+	                
 	                
 	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName, tdChoice);
 	                tbody.append(tr);
@@ -151,49 +156,34 @@ const receivelist = (selected) => {
     }
 });
 };
-
-const registerNo = (seleted) => {
-$(".Btn").click(function(){
-	let tdArr = new Array();
-	let Btn = $(this);
 	
-	let tr = button.parent().parent();
-	let td = tr.children();
+const registerNo = (subjectNo, memberId) => {
 	
-	console.log("데이터 : " +tr.text());
-	
-	tdArr.push(td.eq(0).text());
-	tdArr.push(td.eq(1).text());
-	tdArr.push(td.eq(2).text());
-	tdArr.push(td.eq(3).text());
-	tdArr.push(td.eq(4).text());
-	
-	console.log("배열 값 : " + tdArr);
+	console.log(subjectNo, memberId);
 	
 	$.ajax({
 		url:"<%=request.getContextPath()%>/professor/grade/resisterNo",
 		type:'get',
 		dataType:'json',
 		data:{
-			subjectNo : selected,
-			memberId : eq(3)
+			subjectNo,
+			memberId
 		},
 		success: function(result){
 			if(result){
 				console.log("세번째 ajax" + result);
 			} else {
 				alert("전송된 값 없음");
+				
 			}
 		}, error: function(){
 			alert("에러 발생");
 		}
 	});
-})
+	
 };
 
-
-
-$(".button").click(function(){
+//$(".button").click(function(){
 	let tdArr = new Array();
 	let button = $(this);
 	
@@ -211,7 +201,7 @@ $(".button").click(function(){
 	console.log("배열 값 : " + tdArr);
 	
 	$.ajax({
-		url:"<%=request.getContextPath()%>/professor/grade/gradeinput",
+		url:"<%=request.getContextPath()%>/professor/grade/gradeInput",
 		type:"get",
 		data:{
 			registerno : tdArr[0],
@@ -229,7 +219,8 @@ $(".button").click(function(){
 			
 		}
 	});
-});
+//});
+
 
 </script>
 
