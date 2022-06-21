@@ -163,14 +163,22 @@ const registerNo = (subjectNo, memberId) => {
 				
 				const tbody = document.querySelector("#gradetbody")
 				tbody.innterHTML = "";
-				
 				result.forEach((gradelist, index) => {
 					console.log(index, gradelist);
 					const {registerNo} = gradelist;
 					const tr = document.createElement("tr");
 					
+					// 이부분은 지우셔도 됨
+					for(let i in gradelist) {
+						console.log("registerNo 1 = ", gradelist[i])
+					}
+					console.log("registerNo 2 = ", gradelist)
+					//
+					
 					const tdRegisterNo = document.createElement("td");
-					tdRegisterNo.append(registerNo);
+					for(let i in gradelist) {
+						tdRegisterNo.append(gradelist[i]);
+					}
 					const tdGradeMiddle = document.createElement("td");
 					const grademiddle = document.createElement("input");
 					tdGradeMiddle.append(grademiddle);
