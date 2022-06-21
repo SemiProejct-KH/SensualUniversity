@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" />
 
- <section class="section">
+ <section class="section" style="height:750px">
      <div class="content" style="margin-top:100px;">
         <div class="title">
             <h3>메 세 지</h3>
