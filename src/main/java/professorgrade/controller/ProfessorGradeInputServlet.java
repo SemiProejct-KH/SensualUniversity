@@ -19,8 +19,8 @@ public class ProfessorGradeInputServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		String registerno = request.getParameter("registerNo");
-		System.out.println("마지막 registerNo = " + registerno);
+		String registerno = request.getParameter("resisterTempNo");
+		System.out.println("마지막 resisterNo = " + registerno);
 		int grademiddle = Integer.parseInt(request.getParameter("gradeMiddle"));
 		System.out.println("마지막 gradeMiddle = " + grademiddle);
 		int gradefinal = Integer.parseInt(request.getParameter("gradeFinal"));
@@ -30,7 +30,7 @@ public class ProfessorGradeInputServlet extends HttpServlet {
 		int gradeattend = Integer.parseInt(request.getParameter("gradeAttend"));
 		System.out.println("마지막 gradeAttend = " + gradeattend);
 		
-		int result = professorgradeservice.GradeInput(gradeattend, registerno, grademiddle, gradefinal, gradeassignment, gradeattend);
+		int result = professorgradeservice.GradeInput(registerno, grademiddle, gradefinal, gradeassignment, gradeattend);
 		
 		request.getRequestDispatcher("/WEB-INF/views/professor/professorgrade.jsp");
 		
