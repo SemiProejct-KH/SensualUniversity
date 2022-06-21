@@ -302,6 +302,7 @@ public class NoticeDao {
 			while(rset.next()) {
 				totalContents = rset.getInt(1);
 			}
+			System.out.println("getTotal");
 		} catch (Exception e) {
 			throw new NoticeException("총게시물수 조회 오류", e);
 		} finally {
