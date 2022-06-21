@@ -22,13 +22,13 @@
 			  </div>
 			  <div class="carousel-inner">
 			    <div class="carousel-item active" data-bs-interval="10000">
-			      <img src="<%= request.getContextPath() %>/ class="d-block w-100" alt="">
+			      <img src="<%= request.getContextPath() %>/images/university.jfif" class="d-block w-100" alt="">
 			    </div>
 			    <div class="carousel-item" data-bs-interval="2000">
-			      <img src="<%= request.getContextPath() %>/images/flash.PNG" class="d-block w-100" min-height: 100vh; alt="">
+			      <img src="<%= request.getContextPath() %>/images/flash.PNG" class="d-block w-100" alt="">
 			    </div>
 			    <div class="carousel-item">
-			      <img src="<%= request.getContextPath() %>/images/facility.png" class="d-block w-100" alt="">
+			      <img src="<%= request.getContextPath() %>/images/university2.png" class="d-block w-100" alt="">
 			    </div>
 			  </div>
 			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -41,26 +41,23 @@
 			  </button>
 			</div>
 </section>
-<section class="section" >
+<section id="section" class="section" >
 	<div class="info">
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) { %>
-		<img id="student_image" src="/semi/images/student.gif" alt="">
 		<div id="s_info">
-			<p id="p_welcome"><%= loginMember.getMemberName() %>님, 안녕하세요!</p>
-			<p>▫ 아이디 : <%= loginMember.getMemberId() %></p>
-			<p>▫ 학번 : <%= loginMember.getMemberNo() %></p><p>▫ <%= loginMember.getMemberLevel() %>학년 재학중</p>
+			<p id="p_welcome"><span class="span_name"><%= loginMember.getMemberName() %></span>님, 안녕하세요!</p>
+			<p>▫&nbsp아이디 : <%= loginMember.getMemberId() %></p>
+			<p>▫&nbsp학번 : <%= loginMember.getMemberNo() %></p><p>▫&nbsp<%= loginMember.getMemberLevel() %>학년 재학중</p>
 		</div>
 	<% } %>
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
-		<img class="a_p_image" src="/semi/images/admin.png" alt="">
 		<div class="a_p_welcome">
-			<p>관리자님, 안녕하세요!</p>
+			<p><span class="span_name">관리자</span>님, 안녕하세요!</p>
 		</div>
 	<% } %>
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.P) { %>
-		<img class="a_p_image" src="/semi/images/professor.png" alt="">
 		<div class="a_p_welcome">
-			<p><%= loginMember.getMemberName() %>교수님, 안녕하세요!</p>
+			<p><span class="span_name"><%= loginMember.getMemberName() %></span>교수님, 안녕하세요!</p>
 		</div>
 	<% } %>
 	</div>
@@ -68,17 +65,9 @@
 		 <input type="text" id="datepicker">
 	</div>
 		<div class="main_notice_list">
-			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">공지사항 >></a></h5>
+			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">MORE >></a></h5>
 			
 			<table id="" class="tbl_list table table-striped">
-			<thead class="thead-light">
-				<tr>
-					<th></th>			
-					<th>제목</th>
-					<th>&nbsp&nbsp&nbsp작성일</th>
-				 	<th>조회수</th>
-				</tr>
-			</thead>
 			<tbody>
 			<%
 			if(list != null && !list.isEmpty()) {
@@ -88,7 +77,6 @@
 				<td>▪</td>
 				<td><%= notice.getNoticeTitle() %></td>
 				<td><%= notice.getNoticeDate() %></td>
-				<td>&nbsp&nbsp&nbsp<%= notice.getNoticeReadCount() %></td>
 			</tr>
 			<%
 				}

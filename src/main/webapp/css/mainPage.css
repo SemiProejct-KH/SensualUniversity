@@ -1,36 +1,41 @@
 @charset "UTF-8";
 
 div.info {
-	background-color: #dcdcdc;
-    width: 60%;
-    height: 300px;
-    margin-left: -231px;
-    margin-top: 40px;
+	background-color: rgba(0, 0, 102, 0.9);
+    width: 24%;
+    height: 220px;
+    margin-right: -358px;
+    margin-top: -398px;
     text-align: center;
+    position: relative;
+    z-index: 1001;
+    float: right;
+    opacity: 38;
+    color: rgba(255, 204, 102);
 }
 div#s_info {
 	position: relative;
-    top: 73px;
-    left: -48px;
+    top: 33px;
+    left: -4px;
 }
 div#s_info p:not(:first-child) {
-	font-size: 17px;
+	font-size: 19px;
 }
 div.calendar {
-    background-color: #dcdcdc;
+	background-color: #f5f6f8;
     width: 60%;
     height: 400px;
-    margin-left: -231px;
-    margin-top: 12px;
-    font-family: 'Gowun Batang';
+    margin-left: -383px;
+    border: 1px solid #dee3eb;
 }
 div.main_notice_list {
-	background-color: #dcdcdc;
-    width: 80%;
-    height: 713px;
+	width: 107%;
+    height: 119px;
     float: right;
-    margin-right: -241px;
-    margin-top: -712px;
+    margin-right: -390px;
+    background-color: #fff;
+    border: 1px solid #dee3eb;
+    margin-top: -398px;
 }
 div#info_list {
 	background-color: #46AAFF;
@@ -79,7 +84,6 @@ div.main_notice_list h5 a {
     margin: 8px 10px;
 }
 img#student_image {
-    background-color: white;
     border-radius: 50%;
     width: 265px;
     height: 240px;
@@ -104,6 +108,15 @@ div.a_p_welcome p {
 }
 p#p_welcome {
 	font-size: 20px;
-	font-weight: bold;
+    font-weight: bold;
+    color: white;
 }
-    
+img.w-100 {
+    height: 410px;
+}
+span.span_name {
+	color: #FFAF00;
+}
+section#section {
+	background-color: #fff;
+}

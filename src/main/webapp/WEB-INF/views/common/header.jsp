@@ -5,6 +5,10 @@
     pageEncoding="UTF-8"%>
 <%
 	MemberExt loginMember = (MemberExt) session.getAttribute("loginMember");
+
+	String msg = (String) session.getAttribute("msg");
+	if(msg != null)
+		session.removeAttribute("msg");
 %>
 <!DOCTYPE html>
 <html>
@@ -57,3 +61,12 @@
 			</ul>
 		</div>
 	</section>
+<script>
+		// 로그인폼 정규표현식
+		window.onload = () => {
+		<% if(msg != null){ %>
+		alert("<%= msg %>");
+		<% }
+		%>
+		}
+</script>

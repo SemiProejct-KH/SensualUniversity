@@ -50,7 +50,6 @@ public class LastPropertyDeleteServlet extends HttpServlet {
 		// 3. redirect : /mvc/board/boardList로 이동
 		request.getSession().setAttribute("msg", "게시글을 삭제했습니다.");
 		response.sendRedirect(request.getContextPath() + "/board/lastPropertyList");
-
 	} catch (Exception e) {
 		e.printStackTrace();
 		throw e;
