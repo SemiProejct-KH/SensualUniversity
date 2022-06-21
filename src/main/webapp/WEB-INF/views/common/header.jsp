@@ -26,6 +26,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <!-- favicon -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <body>
 	<section>
 		<div id="top_bar">
@@ -62,11 +64,21 @@
 		</div>
 	</section>
 <script>
-		// 로그인폼 정규표현식
-		window.onload = () => {
-		<% if(msg != null){ %>
-		alert("<%= msg %>");
-		<% }
-		%>
-		}
+// 로그인폼 정규표현식
+window.onload = () => {
+<% if(msg != null){ 
+	// 회원정보수정
+	if("memberUpdate".equals(msg) ) {%>
+	swal('<%= msg %>', "회원정보 수정을 완료하였습니다.", 'success');
+	<% } %>
+	// 비밀번호 수정 성공
+	<% if("passwordUpdateFail".equals(msg) ) {%>
+	swal('<%= msg %>', "비밀번호를 성공적으로 변경했습니다.", 'success');
+	<% } %>
+	// 비밀번호 수정 실패
+	<% if("passwordUpdateSuccess".equals(msg) ) {%>
+	swal('<%= msg %>', "비밀번호를 성공적으로 변경했습니다.", 'success');
+	<% } %>
+<% } %>
+}
 </script>

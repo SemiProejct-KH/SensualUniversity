@@ -68,10 +68,10 @@ public class MemberUpdateServlet extends HttpServlet {
 									
 			// 3. 업무로직
 			int result = memberService.updateMember(member);
-			String msg = "회원정보를 성공적으로 수정했습니다.";
+//			String msg = "회원정보 수정!";
 			
 			// 4. redirect
-			request.getSession().setAttribute("msg", msg);
+			request.getSession().setAttribute("msg", "memberUpdate");
 			response.sendRedirect(request.getContextPath() + "/member/memberMyPage");
 		} catch(Exception e) {
 			e.printStackTrace();

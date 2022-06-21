@@ -5,8 +5,6 @@
 <!-- css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/myPage.css?after" />
 <%
-	if(msg != null)
-	session.removeAttribute("msg");
 	String memberId = loginMember.getMemberId();
 	String memberName = loginMember.getMemberName();
 	Date memberBirth = loginMember.getMemberBirth();// null값이어도 input:datetime에서 무시함.
@@ -101,11 +99,6 @@
 	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
 </form>
 <script>
-window.onload = () => {
-	<% if(msg != null){ %>
-	alert("<%= msg %>");
-	<% } %>
-}
 const deleteMember = () => {
 	if(confirm("정말로 탈퇴하시겠습니까?")){
 		document.memberDelFrm.submit();
