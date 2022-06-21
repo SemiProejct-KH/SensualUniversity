@@ -5,7 +5,6 @@
 <!-- css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/myPage.css?after" />
 <%
-	String msg = (String) session.getAttribute("msg");
 	if(msg != null)
 	session.removeAttribute("msg");
 	String memberId = loginMember.getMemberId();
