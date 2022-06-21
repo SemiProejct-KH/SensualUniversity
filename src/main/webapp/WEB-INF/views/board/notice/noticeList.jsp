@@ -15,7 +15,7 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
 	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
 </div>
-<section id="notice_container" class="section">
+<section id="" class="list_section section">
 <div style="margin-top:100px;"></div>
 	<%
 		if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
@@ -29,8 +29,8 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 			<tr>	
 				<th class="line1">제목</th>
 				<th class="line1">작성자</th>
-				<th class="line1">&nbsp&nbsp&nbsp작성일</th>
-			 	<th class="line1">조회수</th>
+				<th class="line1">작성일</th>
+			 	<th class="line1" style="width:58px">&nbsp&nbsp&nbsp조회수</th>
 			</tr>
 		</thead>
 		<tbody>

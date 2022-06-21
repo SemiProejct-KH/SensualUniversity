@@ -12,11 +12,12 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 	|| loginMember.getMemberRole() == MemberRole.A);
 %>
 <section id="" class="notice_container_view section">
+<div style="margin-top:100px;"></div>
 	<%
 
 			if(loginMember != null && loginMember.getMemberRole() != MemberRole.A) {
 	%>
-		<input type="button" value="1:1채팅" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/chat/chatroom';"/>
+		<input type="button" value="1:1채팅" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/chat/chatroom';"/>
 	<%
 
 			}
@@ -40,7 +41,7 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 					</tr>
 					<tr>
 						<th>조회수</th>
-						<td colspan="2"><%=notice.getNoticeReadCount()%></td>
+						<td><%=notice.getNoticeReadCount()%></td>
 					</tr>
 
 					<tr id="th_file" style="text-align:right" >
@@ -61,19 +62,19 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 							}
 						}
 					%>
-					
+					</div>
 					</tbody>
 					<% if(canEdit){ %>
 					<tr>
-						<th colspan="2">
+						<th colspan="2" style="text-align: end">
 							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteNotice()">
 							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateNotice()">
 						</th>
 					</tr>
 					<% } %>
 			</table>
-		</div>
 	</div>
+<div style="margin-bottom:100px;"></div>
 </section>
 <% if(canEdit){ %>
 <form action="<%= request.getContextPath() %>/notice/noticeDelete" name="noticeDeleteFrm" method="POST">
