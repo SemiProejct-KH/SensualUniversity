@@ -15,6 +15,7 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
 	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
 </div>
+<div style="margin-top:100px;">
 <section id="notice_container" class="section">
 	<%
 		if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
@@ -59,5 +60,9 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 		</tbody>
 	</table>
 	<div style="text-align:center" id='pageBar'><%= request.getAttribute("pagebar") %></div>
+<div style="margin-bottom:100px;">
 </section>
+</div>
+</div>
+</div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

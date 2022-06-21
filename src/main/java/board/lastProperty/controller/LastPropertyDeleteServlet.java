@@ -32,6 +32,7 @@ public class LastPropertyDeleteServlet extends HttpServlet {
 
 		// 업무로직
 		// 첨부파일 존재시 삭제
+		String msg = "noticeDeleteFail";
 		List<BoardAttachment> attachments = lastPropertyService.findByNo(no).getBoardAttachments();
 		if(attachments != null && !attachments.isEmpty())
 			for(BoardAttachment attach : attachments) {
@@ -48,7 +49,7 @@ public class LastPropertyDeleteServlet extends HttpServlet {
 		int result = lastPropertyService.deleteBoard(no);
 		
 		// 3. redirect : /mvc/board/boardList로 이동
-		request.getSession().setAttribute("msg", "게시글을 삭제했습니다.");
+		request.getSession().setAttribute("msg", msg);
 		response.sendRedirect(request.getContextPath() + "/board/lastPropertyList");
 	} catch (Exception e) {
 		e.printStackTrace();
