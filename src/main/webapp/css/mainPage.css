@@ -29,28 +29,29 @@ div.calendar {
     border: 1px solid #dee3eb;
 }
 div.calendar p {
-    margin: -3px auto;
+	margin: -3px auto;
     font-weight: bold;
     background-color: rgba(0, 0, 102, 0.9);
     color: white;
-    height: 48px;
+    height: 41px;
     text-align: -webkit-center;
     font-size: 21px;
-    padding: 9px;
+    padding: 6px;
 }
 div.main_notice_list p {
-    margin: -15px 0px;
+    margin: -5px -1px;
     font-weight: bold;
     background-color: #A4814F;
     color: white;
-    height: 58px;
+    height: 40px;
     text-align: center;
     font-size: 22px;
-    padding: 18px;
-    width: 1225px;
+    padding: 6px;
+    width: 1216px;
+
 }
 div.main_notice_list {
-	width: 107%;
+	width: 109%;
     float: right;
     margin-right: -390px;
     background-color: #fff;
