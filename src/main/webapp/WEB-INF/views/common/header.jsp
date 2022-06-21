@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div id="uni_name">
-			<a href="#" class="title" onclick="location.href='<%= request.getContextPath() %>/main/mainPage';" style="text-decoration: none;">Sensual University</a>
+			<a href="#" class="title_name" onclick="location.href='<%= request.getContextPath() %>/main/mainPage';" style="text-decoration: none; color: rgb(51, 51, 51); font-weight: 600;">Sensual University</a>
 		</div>
 		<div id="navbar">
 			<ul class="nav justify-content-center">
