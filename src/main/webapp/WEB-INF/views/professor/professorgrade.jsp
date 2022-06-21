@@ -134,7 +134,9 @@ const receivelist = (selected) => {
 	                const tdDepartmentName = document.createElement("td");
 	                tdDepartmentName.append(departmentName);
 	                const tdChoice = document.createElement("td");
-	                tdChoice.button;
+	                const btn = document.createElement("button");
+	                btn.textContent = "출력";
+	                tdChoice.append(btn);
 	                
 	                tr.append(tdSubjectTerm, tdMemberLevel, tdMemberName, tdMemberId, tdDepartmentName, tdChoice);
 	                tbody.append(tr);
