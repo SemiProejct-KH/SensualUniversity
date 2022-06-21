@@ -23,7 +23,7 @@ h6{
 #section_login {
   background-color: rgb(5, 42, 120);
   color: white;
-  border: 1px solid blue;
+/*   border: 1px solid blue; */
   float: right;
   width: 30%;
   height: 100%;
@@ -116,7 +116,7 @@ a:hover{
 }
 .btns2 {
     display: inline-block;
-    margin-left: 85px;
+    margin-left: 104px;
     color: white;
 }
 h6{
