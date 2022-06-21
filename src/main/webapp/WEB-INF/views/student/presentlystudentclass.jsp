@@ -8,7 +8,7 @@
 	List<PresentlyStudentClass> list = (List<PresentlyStudentClass>) request.getAttribute("list");
 %>
 
-<section class="section">
+<section class="section" style="height:750px">
    <div class="btns2" style="margin-top: 100px">
          <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
           <ol class="breadcrumb">

@@ -7,7 +7,7 @@
 	List<StudentClass> list = (List<StudentClass>) request.getAttribute("list");
 %>
 
-<section class="section">
+<section class="section" style="height:750px">
 			<form name="memberUpdateFrm" action="<%= request.getContextPath() %>/class/studentclass">
    <div class="btns2" style="margin-top: 100px">
          <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
