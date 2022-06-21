@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" />
 
  <section class="section">
-     <div class="content">
+     <div class="content" style="margin-top:100px;">
         <div class="title">
             <h3>메 세 지</h3>
         </div>
@@ -32,6 +32,7 @@
             </div>
         </div>
       </div>
+      <div class="container-fluid" style="margin-bottom:100px;"></div>
 </section>
 <script>
 //$('#modal_block').on('click', function() {

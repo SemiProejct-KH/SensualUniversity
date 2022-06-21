@@ -11,8 +11,7 @@
 %>
 <section class="section" style="width: 83%; height:100%;">
 	<div class="content-body">
-	    <div class="container-fluid">
-	        <h2 align="center" style="margin-top:100px;">회원관리</h2>	
+	    <div class="container-fluid" style="margin-top:100px;">	
 	        
 	        <div class="row">
 	            <div class="col-12">
@@ -113,6 +112,7 @@
 		<%= pagebar %>
 	<% } %>
 	</div>
+	<div class="container-fluid" style="margin-bottom:100px;"></div>
 </section>
 
 <script>
