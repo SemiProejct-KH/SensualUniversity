@@ -3,19 +3,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/records.css" />
 <%
 	List<Record> list = (List<Record>) request.getAttribute("list");
 %>
 <section class="section">
-		<table>
-		<tr>
-			<th><a href="<%= request.getContextPath() %>/student/presentlystudentrecord">현학기 성적조회</a></th>
-			<th><a href="<%= request.getContextPath() %>/student/studentrecord">지난학기 성적조회</a></th>
-		</tr>
-		</table>
-		<table id="record">
-			<thead>
+   <div class="btns2" style="margin-top: 100px">
+         <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/student/presentlystudentrecord';" style="text-decoration: none; color: black;">현학기 성적조회</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/student/studentrecord';" style="text-decoration: none; color: black;">지난학기 성적조회</a>
+            </li>
+          </ol>
+        </nav>
+    </div>
+		<table id="record" class="table table-striped table-hover">
+			<thead class="table-primary">
 				<tr>
 	                <th class="line1">학년</th>
 	                <th class="line1">개설학과</th>
@@ -54,7 +59,7 @@
 				{
 %>			
 					<tr>
-						<td colspan="10">성적이 등록된 수업이 없습니다.</td>
+						<td colspan="10" style="text-align: center">성적이 등록된 수업이 없습니다.</td>
 					</tr>
 <%				
 				}
@@ -63,7 +68,7 @@
 		</table>
 		<br />
 		<br />
-			<a href="<%= request.getContextPath() %>/chat/chatroom"><button>채팅으로 이의제기하기</button></a>
+			<a href="<%= request.getContextPath() %>/chat/chatroom"><button id="refute" class="btn btn-primary" style="float:right">채팅으로 이의제기하기</button></a>
 		
 		<script>
 		    $(document).ready(function () {
