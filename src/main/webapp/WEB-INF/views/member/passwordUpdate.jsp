@@ -32,6 +32,7 @@
               <button type="submit" class="btn_bar1">변경</button>
               <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/memberMyPage';">취소하기</button>
             </div>
+            <input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
         </form>
    </div>
 </section>
@@ -51,7 +52,7 @@ document.passwordUpdateFrm.onsubmit = () => {
 		return false;
 	}
 	if(!/^[A-Za-z0-9!@#$%^&*()]{4,}$/.test(newPassword.value)){
-		alert("새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.");
+		swal('비밀번호 변경', "새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.", 'warning');
 		return false;
 	}
 	if(!newPasswordCheck.onblur()){

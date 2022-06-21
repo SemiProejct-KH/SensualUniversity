@@ -39,13 +39,15 @@
 <link rel="shortcut icon" href="images/favicon.ico">
 <!-- css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/login.css?after" />
-
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- script -->
 <script>
 // 로그인폼 정규표현식
 window.onload = () => {
 <% if(msg != null){ %>
-alert("<%= msg %>");
+<%-- alert("<%= msg %>"); --%>
+swal('로그인 실패!', "<%= msg %>", 'error');
 <% } %>
 <% if(loginMember == null) { %>
 	document.loginFrm.onsubmit = (e) => {

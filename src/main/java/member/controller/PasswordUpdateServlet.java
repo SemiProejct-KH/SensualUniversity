@@ -44,11 +44,11 @@ public class PasswordUpdateServlet extends HttpServlet {
 				updateMember.setMemberId(memberId);
 				updateMember.setMemberPw(newPassword);
 				int result = memberService.updatePassword(updateMember);
-				msg = "비밀번호를 성공적으로 변경했습니다.";
+				msg = "passwordUpdateFail";
 				location += "/member/memberMyPage";
 			}
 			else {
-				msg = "기존 비밀번호가 일치하지 않습니다.";
+				msg = "passwordUpdateSuccess";
 				location += "/member/passwordUpdate";
 			}
 			
