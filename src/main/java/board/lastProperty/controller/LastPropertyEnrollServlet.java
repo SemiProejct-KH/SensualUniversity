@@ -19,7 +19,7 @@ import common.PageBar;
  * Servlet implementation class LastPropertyListServlet
  */
 @WebServlet("/board/lastPropertyList")
-public class LastPropertyListServlet extends HttpServlet {
+public class LastPropertyEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LastPropertyService lastPropertyService = new LastPropertyService();
 

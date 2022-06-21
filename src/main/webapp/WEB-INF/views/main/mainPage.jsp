@@ -52,30 +52,32 @@
 	<% } %>
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) { %>
 		<div class="a_p_welcome">
-			<p><span class="span_name">관리자</span>님, 안녕하세요!</p>
+			<p><span class="span_name">관리자</span>님, <br />안녕하세요!</p>
 		</div>
 	<% } %>
 	<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.P) { %>
 		<div class="a_p_welcome">
-			<p><span class="span_name"><%= loginMember.getMemberName() %></span>교수님, 안녕하세요!</p>
+			<p><span class="span_name"><%= loginMember.getMemberName() %></span>교수님, <br />안녕하세요!</p>
 		</div>
 	<% } %>
 	</div>
 	<div class="calendar">
-		 <input type="text" id="datepicker">
+		<p>Calendar View</p>
+		<input type="text" id="datepicker">
 	</div>
-		<div class="main_notice_list">
-			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">MORE >></a></h5>
+	<div class="main_notice_list">
+		<p>Notice View</p>
+			<h5><a href="<%= request.getContextPath()%>/notice/noticeList">MORE ></a></h5>
 			
-			<table id="" class="tbl_list table table-striped">
+			<table id="" class="tbl_list table">
 			<tbody>
 			<%
 			if(list != null && !list.isEmpty()) {
 				for(NoticeExt notice : list) {
 			%>
 			<tr onclick="location.href='<%= request.getContextPath() %>/notice/noticeView?no=<%= notice.getNoticeNo() %>';">
-				<td>▪</td>
-				<td><%= notice.getNoticeTitle() %></td>
+				<td>▫</td>
+				<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= notice.getNoticeTitle() %></td>
 				<td><%= notice.getNoticeDate() %></td>
 			</tr>
 			<%
@@ -88,11 +90,12 @@
 			%>
 			</tbody>
 		</table>
-		</div>
+			<div style="text-align:center" id='pageBar'><%= request.getAttribute("pagebar") %></div>
+	</div>
 </section>
-
-
 <script>
+$("#datepicker").datepicker();                    
+$("#datepicker2").datepicker();
 		$(function() {
 		//input을 datepicker로 선언
 		    $("#datepicker").datepicker({
@@ -111,7 +114,8 @@
 		                ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
 		                ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
 		                ,minDate: "-100Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-		                ,maxDate: "+100Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)                
+		                ,maxDate: "+100Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) 
+		    
 		            });                    
 		            
 		            //초기값을 오늘 날짜로 설정

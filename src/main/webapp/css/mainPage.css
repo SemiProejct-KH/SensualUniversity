@@ -28,14 +28,46 @@ div.calendar {
     margin-left: -383px;
     border: 1px solid #dee3eb;
 }
+div.calendar p {
+	margin: -3px auto;
+    font-weight: bold;
+    background-color: rgba(0, 0, 102, 0.9);
+    color: white;
+    height: 41px;
+    text-align: -webkit-center;
+    font-size: 21px;
+    padding: 6px;
+}
+div.main_notice_list p {
+    margin: -5px -1px;
+    font-weight: bold;
+    background-color: #A4814F;
+    color: white;
+    height: 40px;
+    text-align: center;
+    font-size: 22px;
+    padding: 6px;
+    width: 1216px;
+
+}
 div.main_notice_list {
-	width: 107%;
-    height: 119px;
+	width: 109%;
     float: right;
     margin-right: -390px;
     background-color: #fff;
     border: 1px solid #dee3eb;
-    margin-top: -398px;
+    margin-top: -397px;
+    font-size: 16px;
+}
+div.main_notice_list h5 a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Gowun Batang';
+    font-size: 17px;
+    font-weight: bold;
+    float: right;
+    margin: 12px 35px;
+    padding-top: 10px;
 }
 div#info_list {
 	background-color: #46AAFF;
@@ -50,22 +82,24 @@ div#info_list {
 .ui-datepicker-trigger{cursor: pointer;}
 /*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{ 
- 	cursor: pointer;
-    margin: -45px 33px;
-    width: 410px;
+	cursor: pointer;
+    width: 560px;
     display: inline-block;
-    margin: 36px 139px;
+    margin: 15px 65px;
     text-align: center;
-    font-size: 17px;
+    font-size: 25px;
+    border: 1px solid white;
+    background-color: lightgray;
+    border-radius: 15px;
+    letter-spacing: 4px;
 }
-
 .ui-datepicker-trigger {
     cursor: pointer;
     margin: 0px -135px;
 }
 div#ui-datepicker-div {
-	width: 411px;
-    height: 296px;
+	width: 561px;
+    height: 249px;
     left: 292.667px;
 }
 div.ui-datepicker table {
@@ -103,8 +137,10 @@ img.a_p_image {
 
 }
 div.a_p_welcome p {
-	margin-top: -12px;
-	font-weight: bold;
+    margin-top: 64px;
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
 }
 p#p_welcome {
 	font-size: 20px;
@@ -113,6 +149,9 @@ p#p_welcome {
 }
 img.w-100 {
     height: 410px;
+}
+div#pageBar {
+	margin-top: -18px;
 }
 span.span_name {
 	color: #FFAF00;
