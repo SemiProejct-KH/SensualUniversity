@@ -105,10 +105,10 @@
             
             async: false,
             success: function(data) {
-            	alert("취소 성공");
+            	swal('수강 취소', "성공적으로 취소되었습니다.", 'success');
             },
             error: function(msg, error) {
-                alert(error);
+            	swal('수강 취소', "취소에 실패하였습니다.", 'error');
             }
 		});
 		
