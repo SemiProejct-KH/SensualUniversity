@@ -168,7 +168,7 @@ const loginAlert = () => {
 </script>
 
 <% if(canEdit){ %>
-<form action="<%= request.getContextPath() %>/board/questionDelete" name="boardDeleteFrm" method="POST">
+<form action="<%= request.getContextPath() %>/board/lastPropertyDelete" name="boardDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= board.getBoardNo() %>" />
 </form>
 <script>

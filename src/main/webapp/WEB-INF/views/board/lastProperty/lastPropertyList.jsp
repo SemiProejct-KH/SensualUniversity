@@ -6,6 +6,8 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
 	List<BoardExt> list = (List<BoardExt>) request.getAttribute("list");
+
+
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <div class="board_menu">
