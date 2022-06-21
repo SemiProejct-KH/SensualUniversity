@@ -10,8 +10,8 @@
 List<ProfessorGradeDropbox> GradeDropbox = (List<ProfessorGradeDropbox>) request.getAttribute("GradeDropbox");
 List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 %>
-
-<section class="section">
+<section class="section" >
+<div style="margin-top:100px;"></div>
 	<select class="form" id="selectlecture" name="selectlecture">
 		<%
 		if (GradeDropbox == null || GradeDropbox.isEmpty()) {
@@ -31,8 +31,8 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		%>
 	</select>
 
-	<table id="record">
-		<thead id="recordthead">
+	<table id="record" class ="table table-striped table-hover">
+		<thead id="recordthead" class="table-primary">
 			<tr>
 				<th class="line1">강의년도, 학기</th>
 				<th class="line1">학생학년</th>
@@ -47,8 +47,8 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		</tbody>
 	</table>
 
-	<table id="grade">
-		<thead>
+	<table id="grade" class ="table table-striped table-hover">
+		<thead class="table-primary">
 			<tr>
 				<th>중간고사</th>
 				<th>기말고사</th>
@@ -67,7 +67,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 			</tr>
 		</tbody>
 	</table>
-
+<div style="margin-bottom:100px;"></div>
 </section>
 
 
