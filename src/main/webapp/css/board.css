@@ -2,8 +2,8 @@
 @charset "UTF-8";
 
 /* List */
-div.board_menu {
-	margin: 11% 20%;
+section#notice_container {
+	width: 75%;
 }
 div.board_menu li {
 	list-style: none;
@@ -15,6 +15,16 @@ div.board_menu li a {
 }
 div.board_menu li a:hover {
 	font-weight: bold;
+}
+th.line1 {
+	width: 100px;
+    height: 30px;
+}
+thead.table-primary th, td{
+	white-space: nowrap;
+    border: 1px solid #000;
+    vertical-align: top;
+    text-align: center;
 }
 /* 조회된 정보가 없습니다. */
 table#tbl_notice tr td {
