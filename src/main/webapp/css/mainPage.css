@@ -159,3 +159,7 @@ span.span_name {
 section#section {
 	background-color: #fff;
 }
+div#pageBar a {
+	color: black;
+	text-decoration: none;
+}
