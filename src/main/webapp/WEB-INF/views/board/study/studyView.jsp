@@ -16,8 +16,9 @@
 	|| loginMember.getMemberRole() == MemberRole.A);
 %>
 <section class="notice_container_view section">
+<div style="margin-top:100px;"></div>
 	<% if(loginMember != null) { %>
-		<input type="button" value="1:1채팅" class="btn btn-outline-primary" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom';"/>
+		<input type="button" value="1:1채팅" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom';"/>
 	<% } %>
 	<div class="container">
 		<div class="row">
@@ -63,7 +64,7 @@
 					<% if(canEdit){ %>
 					<tr>
 						<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
-						<th colspan="2">
+						<th style="text-align: end" colspan="2">
 							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteBoard()">
 							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateBoard()">
 						</th>
@@ -119,6 +120,7 @@
 			%>
 			</tbody>
 		</table>
+<div style="margin-bottom:100px;"></div>
 </section>
 <form action="<%= request.getContextPath() %>/board/studyCommentDelete"
 	 name="boardCommentDelFrm"
@@ -178,7 +180,7 @@ const deleteBoard = () => {
 };	
 
 const updateBoard = () => {
-	location.href = "<%= request.getContextPath() %>/board/questionUpdate?no=<%= board.getBoardNo() %>";
+	location.href = "<%= request.getContextPath() %>/board/studyUpdate?no=<%= board.getBoardNo() %>";
 }
 </script>
 <% } %>

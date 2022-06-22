@@ -15,25 +15,16 @@ window.onload = () => { // form보다 상단에 위치하므로 onload 속성에
 			frm.title.select();
 			return false;
 		}
-		
-		// 내용을 작성하지 않은 경우 폼제출할 수 없음.
-		const contentVal = frm.content.value.trim();
-		if(!/^(.|\n).+$/.test(contentVal)) {
-			alert("내용을 작성해주세요.");
-			frm.title.select();
-			return false;
-		}
-		
-		return true;
 	}
 	
 }
 </script>
 <section id="" class="board_container_enroll section">
+<div style="margin-top:60px;"></div>
 <%-- 입력 폼 --%>
 <main class="mt-5 pt-5">
 <div class="container-fluid px-4">
-	<h5 class="mt-4" >분실물 게시판 등록</h5>
+	<h4 class="mt-4" >분실물 게시판 등록</h4>
 	<div class="card mb-4">
 		<div class="card-body">
 			<form name="noticeEnrollFrm" 
@@ -59,11 +50,12 @@ window.onload = () => { // form보다 상단에 위치하므로 onload 속성에
 					<br>
 					<input type="file" name="upFile2">
 				</div>
-				<button id="btn_enroll" class="btn btn-outline-primary">등록하기</button>
+				<button id="btn_enroll" class="btn btn-primary">등록하기</button>
 			</form>
 		</div>
 	</div>
 </div>
 </main>
+<div style="margin-top:100px;"></div>
 </section>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
