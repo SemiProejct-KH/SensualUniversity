@@ -35,8 +35,13 @@ a {
   padding: 10px;
 }
 #navbar a {
-	color: black;
+	color: rgb(51, 51, 51);
+	font-weight: 500;
 }
+#navbar a:hover{
+	color:  rgb(51, 51, 51);
+	font-weight: 600;
+} 
 .section {
 	width: 60%;
 	margin-right: auto;

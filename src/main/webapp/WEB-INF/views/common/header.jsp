@@ -47,7 +47,7 @@
 			<a href="#" class="title_name" onclick="location.href='<%= request.getContextPath() %>/main/mainPage';" style="text-decoration: none; color: rgb(51, 51, 51); font-weight: 600;">Sensual University</a>
 		</div>
 		<div id="navbar">
-			<ul class="nav justify-content-center">
+			<ul class="nav nav-justified" style="margin-left:280px;margin-right:280px;">
 		<% if(loginMember != null && loginMember.getMemberRole() == MemberRole.S) {%>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="<%= request.getContextPath() %>/class/presentlystudentclass">강의조회</a></li>
