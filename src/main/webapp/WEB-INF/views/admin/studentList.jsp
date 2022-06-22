@@ -9,9 +9,12 @@
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
 %>
+<style>
 #pagebar > a {
     color: black;
+    text-decoration: none;
 }
+</style>
 <section class="section" style="width: 83%; height:100%;">
 	<div class="content-body">
 	    <div class="container-fluid" style="margin-top:100px;">	
@@ -88,8 +91,8 @@
 												action="<%= request.getContextPath() %>/admin/studentDelete" 
 												method="POST">
 												<input type="hidden" name="memberId" value="<%= member.getMemberId() %>" />
+												<button type="submit" class="btn btn-primary" id="confirmStart">회원탈퇴</button>
 											</form>
-	                                        <button type="submit" class="btn btn-primary" onclick="deleteMember();">회원탈퇴</button>
 			                            	
 	                                        </td>
 	                                    </tr>
@@ -117,11 +120,18 @@
 </section>
 
 <script>
-const deleteMember = () => {
-	if(confirm("정말로 탈퇴하시겠습니까?")){
-		$("#memberDelFrm").submit();
-	}
-}
+$().ready(function () {
+    $("#confirmStart").click(function () {
+        Swal.fire({
+            title: '탈퇴 처리 중 입니다.',
+            icon: 'warning',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.memberDelFrm.submit();
+            }
+        })
+    });
+});
 </script>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
