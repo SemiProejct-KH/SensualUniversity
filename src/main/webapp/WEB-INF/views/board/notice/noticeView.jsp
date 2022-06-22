@@ -71,11 +71,26 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 <form action="<%= request.getContextPath() %>/notice/noticeDelete" name="noticeDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= notice.getNoticeNo() %>" />
 </form>
+
 <script>
-const deleteNotice = () => {
-	if(confirm("정말 이 게시글을 삭제하시겠습니까?"))
-		document.noticeDeleteFrm.submit();
-};	
+$().ready(function () {
+    $("#delete_btn").click(function () {
+        Swal.fire({
+            title: '정말로 삭제하시겠습니까?',
+            text: "다시 되돌릴 수 없습니다. 신중하세요.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '확인',
+            cancelButtonText: '취소'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            	document.noticeDeleteFrm.submit();
+            }
+        })
+    });
+});
 const updateNotice = () => {
 	location.href = "<%= request.getContextPath() %>/notice/noticeUpdate?no=<%= notice.getNoticeNo() %>";
 }
