@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/css/findPwResult.css?after" />
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
-  <!-- SweetAlert -->
+<!-- SweetAlert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
@@ -60,21 +60,9 @@
 </body>
 </html>
 <script>
-window.onload = () => {
-	<% if(msg != null){ %>
-		// 비밀번호 찾기 성공
-		<% if("findPwRusultSuccess".equals(msg)) {%>
-		swal('비밀번호 찾기 성공', "변경할 비밀번호를 입력해주세요.", 'success');
-		<% } %>
-		// 비밀번호 찾기 후 기존비밀번호 불일치
-		<% if("findPwRusultFail".equals(msg)) {%>
-		swal('비밀번호 수정 실패', "기존 비밀번호가 일치하지 않습니다.", 'error');
-		<% } %>
-	<% } %>
-}
 newPasswordCheck.onblur = () => {
 	if(newPassword.value !== newPasswordCheck.value){
-		swal('비밀번호 불일치', "두 비밀번호가 일치하지 않습니다.", 'warining');
+		swal('비밀번호 불일치', "두 비밀번호가 일치하지 않습니다.", 'warning');
 		return false; // 폼 유효성 검사에서 사용
 	}	
 	return true;

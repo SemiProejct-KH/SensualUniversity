@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/css/signup.css?after" />
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
+  <!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 	<section class="section_signup">
