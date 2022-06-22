@@ -50,6 +50,10 @@ window.onload = () => {
 	<% if("memberLogin".equals(msg)) {%>
 		swal('로그인 실패', "아이디 또는 비밀번호가 일치하지 않습니다.", 'error');
 	<% } %>
+	// 비밀번호 찾기 성공
+	<% if("findPwRusultSuccess".equals(msg)) {%>
+	swal('비밀번호 변경 성공', "변경된 비밀번호로 로그인해주세요.", 'success');
+	<% } %>
 <% } %>
 <% if(loginMember == null) { %>
 	document.loginFrm.onsubmit = (e) => {

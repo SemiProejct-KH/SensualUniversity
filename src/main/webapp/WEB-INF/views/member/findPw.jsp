@@ -34,7 +34,7 @@
                 <h3>비밀번호 찾기</h3>
             </div>
 <!------------------------- 비밀번호 찾기 폼 시작 ------------------------>
-            <form name="findPassword" method="POST">
+            <form name="findPasswordFrm" method="POST">
                 <div class="form-floating mb-2">
                   <input type="text" class="form-control" name="memberId" id="memberId" placeholder="아이디">
                   <label for="memberId">아이디</label>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-floating mb-2">
                   <input type="text" class="form-control" name="memberBirth" id="memberBirth" placeholder="생년월일">
-                  <label for="memberBirth">생년월일 (예:201015, 970101)</label>
+                  <label for="memberBirth">생년월일 (예:2000-10-15, 1997-01-01)</label>
                 </div>
                 <p>*아이디, 이름, 생년월일은 필수 입력 항목입니다.</p>
 <!------------------------- 찾기 버튼------------------------>
@@ -76,18 +76,18 @@ document.findPasswordFrm.onsubmit = () => {
 	// memberId
 	// /^[a-z]+[a-z0-9]{5,11}$/g; // 영문자로 시작하는 영문자 또는 숫자 6 ~ 12자
 	if(!/^[a-z]+[a-z0-9]{5,11}$/g.test(memberId.value)){
-		swal('아이디 입력 오류', "올바른 아이디를 입력해주세요.", 'warning');
+		swal('아이디 입력 오류', "올바른 아이디를 입력해주세요.",'warning');
 		return false;
 	}
 	// memberName
 	if(!/^[가-힣]{2,}$/.test(memberName.value)){
-		swal('이름 입력 오류', "올바른 이름을 입력해주세요.", 'warning');
+		swal('이름 입력 오류', "올바른 이름을 입력해주세요.",'warning');
 		return false;
 	}
 
 	// 생일
 	if(!/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(memberBirth.value)){
-		swal('생일 입력 오류', "올바른 생일을 입력해주세요.", 'warning');
+		swal('생일 입력 오류', "올바른 생일을 입력해주세요.",'warning');
 		return false;
 	}
 	return true;

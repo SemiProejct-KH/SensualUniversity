@@ -107,7 +107,7 @@
 <script>
 const checkIdDuplicate = () => {
 	const title = "checkIdDuplicatePopup";
-	const spec = "width=300px, height=200px";
+	const spec = "width=400px, height=300px";
 	const popup = open("", title, spec);
 	
 	const frm = document.checkIdDuplicateFrm;

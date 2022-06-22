@@ -49,13 +49,16 @@ public class FindPassword extends HttpServlet {
 		if(member != null) {
 			session.setAttribute("member", member);
 			msg = "findPwSuccess";
+			request.getSession().setAttribute("msg", msg);
 			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/member/findPwResult.jsp");
 			reqDispatcher.forward(request, response);
+//			response.sendRedirect(request.getContextPath() + "/member/findPwResult");
 			
 		} else {
 			msg = "findPwFail";
 		}
 		request.getSession().setAttribute("msg", msg);
+		response.sendRedirect(location + "/member/findPw");
 	}
 
 }
