@@ -117,7 +117,9 @@ window.onload = () => {
 		<!-- 로그인 -->
 		<section id="section_login">
 			<div class="login_wrp">
-                <h3 style="margin-bottom: 40px; font-size: 2.0rem;" >Sensual University</h3>
+                <h3 class="logo_title">
+  					<span></span><!-- logo img -->
+				</h3>
                 <form id="loginFrm" name="loginFrm" method="POST" action="<%= request.getContextPath() %>/member/login">
                     <div class="login_content">
                         <h2 class="login_title">

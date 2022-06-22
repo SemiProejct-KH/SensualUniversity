@@ -99,6 +99,12 @@ a:hover{
     background: url("../images/login.png") no-repeat;
     vertical-align: bottom;
 }
+.logo_title{
+ 	width:403px;
+	height:138px;
+	margin:0px; 
+	background:url("../images/logo.png") no-repeat;
+}
 /* 큰 화면 */
 @media screen and (min-width: 1900px){
 .login_content {
@@ -132,7 +138,12 @@ h6{
     color: #759bda;
 }
 
-
+.logo_title{
+	width:278px;
+	height:49px;
+	margin:0px;
+	background:url("../images/logo.png") no-repeat;
+}
 }
 
 /*중간 화면*/
