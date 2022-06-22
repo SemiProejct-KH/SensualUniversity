@@ -25,7 +25,6 @@ public class ProfessorGradeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// 1. 사용자입력값
 			String subjectNo = request.getParameter("subjectNo");
 			System.out.println("subjectNo = " + subjectNo);
 			

@@ -5,8 +5,8 @@ public class ProfessorGrade {
 	private String subjectTerm; // 강의년도,학기
 	private String memberLevel; // 학생 학년
 	private String memberName; // 학생 이름
-	private String memberId;
-	private String departmentName;
+	private String memberId; // 학생 아이디
+	private String departmentName; // 학생학과명
 	public ProfessorGrade() {
 		super();
 	}
