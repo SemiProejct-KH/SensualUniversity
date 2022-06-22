@@ -9,7 +9,7 @@
 %>
 <section class="section" style="height:750px">
 	
-	<h3 style="text-align:center; margin-top: 60px;">수강신청목록</h3>
+	<h3 style="text-align:center; margin-top: 60px; margin-bottom: 30px; font-size:20px; font-weight:600; color: rgb(51, 51, 51);">수강 신청 목록</h3>
 		<div style="width:100%;height:550px;overflow-y:auto;overflow-x:hidden">
 			<table id="record" class="table table-striped table-hover">
 				<thead class="table-primary">

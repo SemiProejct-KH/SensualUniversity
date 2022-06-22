@@ -2,15 +2,17 @@
 @charset "UTF-8";
 
 /* List */
-div.board_menu {
-	font-size: 23px;
-    margin: 95px 240px;
+.board_menu{
+ 
+    list-style: none;
+}
+.board_menu li {
+	float: left;
+	font-size: 18px;
+    margin-bottom: 20px ;
 }
 section.list_section {
 	width: 75%;
-}
-div.board_menu li {
-	list-style: none;
 }
 div.board_menu li a {
 	text-decoration: none;	
