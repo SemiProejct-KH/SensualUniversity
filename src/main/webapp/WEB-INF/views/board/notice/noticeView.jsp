@@ -28,7 +28,7 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td nowrap height="200" colspan="2"><%=notice.getNoticeContent()%></td>
+						<td nowrap height="200" colspan="2"><textarea cols="116" rows="20" style="border: none; resize: none;" readonly><%=notice.getNoticeContent()%></textarea></td>
 					</tr>
 					<tr>
 						<th>조회수</th>
