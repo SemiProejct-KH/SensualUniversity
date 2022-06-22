@@ -22,10 +22,8 @@ public class AdminMemberDeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			//1. 사용자 입력값 처리
 			String memberId = request.getParameter("memberId");
 			
-			//2. 서비스로직호출
 			int result = memberService.deleteMember(memberId);
 			System.out.println(result);
 			
