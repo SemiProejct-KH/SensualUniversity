@@ -83,57 +83,59 @@
                       </div>
                   </div>
 <!--------------------------------버튼----------------------------->
-	              <div class="btn_bar">
-	                  <button type="submit" class="btn_bar1" onclick="updateMember();">정보수정</button>
-	                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/passwordUpdate';">비밀번호수정</button>
-	                  <button type="button" class="btn_bar3" id="confirmStart">회원탈퇴</button>
-	              	  <button id="delete">연습</button>
-	              </div>
-	          </div>
-	      </form>
-	  </div>
+                  <div class="btn_bar">
+                      <button type="submit" class="btn_bar1" onclick="updateMember();">정보수정</button>
+                      <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/passwordUpdate';">비밀번호수정</button>
+                      <button type="button" class="btn_bar3" id="confirmStart">회원탈퇴</button>
+                  </div>
+              </div>
+          </form>
+      </div>
 </section>
 <form 
-	name="memberDelFrm" 
-	action="<%= request.getContextPath() %>/member/memberDelete" 
-	method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+    name="memberDelFrm" 
+    action="<%= request.getContextPath() %>/member/memberDelete" 
+    method="POST">
+    <input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
 </form>
 <script>
-
-const deleteMember = () => {
-	/* if(confirm("정말로 탈퇴하시겠습니까?")){
-		document.memberDelFrm.submit();
-	} */
-	swal("정말로 탈퇴하시겠습니까?", {
-		  buttons: ["취소", true],
-		});
-}
-
-
 $().ready(function () {
     $("#confirmStart").click(function () {
         Swal.fire({
-            title: '정말로 그렇게 하시겠습니까?',
+            title: '정말로 탈퇴하시겠습니까?',
             text: "다시 되돌릴 수 없습니다. 신중하세요.",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '승인',
+            confirmButtonText: '확인',
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    '승인이 완료되었습니다.',
-                    '화끈하시네요~!',
-                    'success'
-                )
                 document.memberDelFrm.submit();
             }
         })
     });
 });
+
+
+
+swal({
+	  title: "Are you sure?",
+	  text: "Once deleted, you will not be able to recover this imaginary file!",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {
+	    swal("Poof! Your imaginary file has been deleted!", {
+	      icon: "success",
+	    });
+	  } else {
+	    swal("Your imaginary file is safe!");
+	  }
+	});
 /* 회원수정폼 유효성 검사 */
 document.memberUpdateFrm.onsubmit = () => {
 	// memberName
