@@ -12,7 +12,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 %>
 <section class="section" >
 <div style="margin-top:100px;"></div>
-	<select class="form" id="selectlecture" name="selectlecture">
+	<select class="custom-select form-select form-select-sm" aria-label=".form-select-sm example" id="selectlecture" name="selectlecture">
 		<%
 		if (GradeDropbox == null || GradeDropbox.isEmpty()) {
 		%>
@@ -31,7 +31,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		%>
 	</select>
 
-	<table id="record" class ="table table-striped table-hover">
+	<table id="record" class ="table table-striped table-hover" style="margin:auto">
 		<thead id="recordthead" class="table-primary">
 			<tr>
 				<th class="line1">강의년도, 학기</th>
@@ -47,7 +47,7 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		</tbody>
 	</table>
 
-	<table id="grade" class ="table table-striped table-hover">
+	<table id="grade" class ="table table-striped table-hover" style="margin:auto">
 		<thead class="table-primary">
 			<tr>
 				<th>중간고사</th>
@@ -59,10 +59,10 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		</thead>
 		<tbody id="gradetbody">
 			<tr id="gradetr" name="gradetr" style="display: none">
-				<td><input type="text" id="middle" name="middle" /></td>
-				<td><input type="text" id="final" name="final" /></td>
-				<td><input type="text" id="assignment" name="assignment" /></td>
-				<td><input type="text" id="attend" name="attend" /></td>
+				<td><input type="text" id="middle" name="middle" placeholder="최대 점수 30점" style="text-align:center"/></td>
+				<td><input type="text" id="final" name="final" placeholder="최대 점수 40점" style="text-align:center"/></td>
+				<td><input type="text" id="assignment" name="assignment" placeholder="최대 점수 20점" style="text-align:center"/></td>
+				<td><input type="text" id="attend" name="attend" placeholder="최대 점수 10점" style="text-align:center"/></td>
 				<td><input type="button" id="button" class="button" value="성적입력" /></td>
 			</tr>
 		</tbody>
@@ -167,7 +167,7 @@ const resisterNo = (subjectNo, memberId) => {
 				/* alert(result['resisterNo']);
 				alert("resisterNo : "+result[0]['resisterNo']); */
 				resisterTempNo = result[0]['resisterNo'];
-				alert("resisterTempNo : " + resisterTempNo);
+				//alert("resisterTempNo : " + resisterTempNo);
 				console.log("세번째 ajax" + result);
 				
 				const row = document.getElementById('gradetr');
@@ -212,15 +212,9 @@ $(".button").click(function(){
 			},
 			
 			async: false,
-			success: function(data)
+			success: function()
 			{
-				alert("네번째 ajax 성공")
-
-				function hideRow()
-				{
-					const row = document.getElementById('gradetr');
-					row.style.display = 'none';
-					}
+					location.reload();
 			}
 		});
 	//};
