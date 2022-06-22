@@ -65,7 +65,7 @@ public class QuestionViewServlet extends HttpServlet {
 			board.setBoardContent(board.getBoardContent().replaceAll("<", "&lt;").replaceAll(">", "&gt;"));
 			
 			// board#content 개행처리
-			board.setBoardContent(board.getBoardContent().replaceAll("\n", "<br/>"));
+			board.setBoardContent(board.getBoardContent().replaceAll("\n", ""));
 			
 			System.out.println("board = " + board);
 			

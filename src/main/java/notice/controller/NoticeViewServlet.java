@@ -65,7 +65,7 @@ public class NoticeViewServlet extends HttpServlet {
 			notice.setNoticeContent(notice.getNoticeContent().replaceAll("<", "&lt;").replaceAll(">", "&gt;"));
 			
 			// board#content 개행처리
-			notice.setNoticeContent(notice.getNoticeContent().replaceAll("\n", "<br/>"));
+			notice.setNoticeContent(notice.getNoticeContent().replaceAll("\n", ""));
 			
 			System.out.println("notice= = " + notice);
 			
