@@ -59,10 +59,10 @@ List<ProfessorGrade> list = (List<ProfessorGrade>) request.getAttribute("list");
 		</thead>
 		<tbody id="gradetbody">
 			<tr id="gradetr" name="gradetr" style="display: none">
-				<td><input type="text" id="middle" name="middle" placeholder="최대 점수 30점" style="text-align:center"/></td>
-				<td><input type="text" id="final" name="final" placeholder="최대 점수 40점" style="text-align:center"/></td>
-				<td><input type="text" id="assignment" name="assignment" placeholder="최대 점수 20점" style="text-align:center"/></td>
-				<td><input type="text" id="attend" name="attend" placeholder="최대 점수 10점" style="text-align:center"/></td>
+				<td><input type="number" id="middle" name="middle" placeholder="30" style="text-align:center" min="0" max="30" /></td>
+				<td><input type="number" id="final" name="final" placeholder="40" style="text-align:center" min="0" max="40" /></td>
+				<td><input type="number" id="assignment" name="assignment" placeholder="20" style="text-align:center" min="0" max="20" /></td>
+				<td><input type="number" id="attend" name="attend" placeholder="10" style="text-align:center" min="0" max="10" /></td>
 				<td><input type="button" id="button" class="button" value="성적입력" /></td>
 			</tr>
 		</tbody>
@@ -185,17 +185,17 @@ var resisterTempNo = 0;
 $(".button").click(function(){
 	
 
-
-		
-		
+	
 		const gradeMiddle = document.getElementById('middle').value;
 		const gradeFinal = document.getElementById('final').value;
 		const gradeAssignment = document.getElementById('assignment').value;
 		const gradeAttend = document.getElementById('attend').value;
 		
-		console.log(gradeMiddle);
-		//const gradeInput = (resisterNo) => 
-		//{
+		
+		
+		
+		
+		
 			
 		$.ajax
 		({
@@ -203,7 +203,6 @@ $(".button").click(function(){
 			type:"get",
 			data:
 			{
-				//resisterNo,
 				resisterTempNo,
 				gradeMiddle,
 				gradeFinal,
