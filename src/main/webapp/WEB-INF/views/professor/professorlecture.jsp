@@ -12,7 +12,7 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 %>
 
 <section class="section">
-
+<div style="margin-top:100px;"></div>
 	<select class="form" id="selectlecture" name="selectlecture">
 		<%
 					if (list2 == null || list2.isEmpty()) {
@@ -42,8 +42,8 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 		</tr>
 	</table>
 
-	<table id="record">
-		<thead>
+	<table id="record" class ="table table-striped table-hover">
+		<thead class="table-primary">
 			<tr>
 				<th class="line1">강의년도, 학기</th>
 				<th class="line1">학생학년</th>
@@ -55,7 +55,7 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 		<tbody id="record_tbody">
 		</tbody>
 	</table>
-
+<div style="margin-bottom:100px;"></div>
 </section>
 
 
