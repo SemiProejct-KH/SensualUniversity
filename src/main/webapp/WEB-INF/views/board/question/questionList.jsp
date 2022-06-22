@@ -9,13 +9,15 @@
 
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
-<div class="board_menu">
-	<li><a href="<%=request.getContextPath()%>/notice/noticeList">공지사항&nbsp|&nbsp</a></li>
-	<li><a href="#" style="font-weight: bold" >교내묻고답하기&nbsp|&nbsp</a></li>
-	<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
-	<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
-</div>
 <section id="" class="list_section section">
+<div style="margin-left: -30px;">
+	<ul class="board_menu">
+		<li><a href="<%=request.getContextPath()%>/notice/noticeList">공지사항&nbsp|&nbsp</a></li>
+		<li><a href="#" style="font-weight: bold" >교내묻고답하기&nbsp|&nbsp</a></li>
+		<li><a href="<%=request.getContextPath()%>/board/studyList">스터디&nbsp|&nbsp</a></li>
+		<li><a href="<%=request.getContextPath()%>/board/lastPropertyList">분실물</a></li>
+	</ul>
+</div>
 <div style="margin-top:100px;"></div>
 	<% if(loginMember != null) { %>
 		<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/board/questionEnroll';"/>
