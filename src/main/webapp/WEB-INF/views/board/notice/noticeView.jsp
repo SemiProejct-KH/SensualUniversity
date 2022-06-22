@@ -71,7 +71,7 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 <form action="<%= request.getContextPath() %>/notice/noticeDelete" name="noticeDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= notice.getNoticeNo() %>" />
 </form>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
 $().ready(function () {
     $("#delete_btn").click(function () {
