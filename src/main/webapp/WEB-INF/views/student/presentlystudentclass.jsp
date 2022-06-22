@@ -21,6 +21,7 @@
           </ol>
         </nav>
     </div>
+    <div style="width:100%;height:550px;overflow-y:auto;overflow-x:hidden">
 		<table id="record" class="table table-striped table-hover">
 			<thead class="table-primary">
 				<tr>
@@ -68,6 +69,7 @@
 %>
 			</tbody>
 		</table>
+		</div>
 	<script>
 	$(".checkBtn").click(function(){ 
 		let tdArr = new Array();	
