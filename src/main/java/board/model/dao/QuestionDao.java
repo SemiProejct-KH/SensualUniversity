@@ -226,7 +226,7 @@ public class QuestionDao {
 	public int updateBoard(Connection conn, BoardExt board) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update su_notice set notice_title = ?, notice_content = ? where notice_no = ?";
+		String sql = "update su_board set board_title = ?, board_content = ? where board_no = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getBoardTitle());
@@ -234,7 +234,7 @@ public class QuestionDao {
 			pstmt.setInt(3, board.getBoardNo());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
-			throw new BoardException("공지사항글 수정 오류", e);
+			throw new BoardException("게시글 수정 오류", e);
 		} finally {
 			close(pstmt);
 		}

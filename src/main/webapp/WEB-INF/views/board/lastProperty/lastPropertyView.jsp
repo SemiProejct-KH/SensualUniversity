@@ -61,7 +61,7 @@
 					<% if(canEdit){ %>
 					<tr>
 						<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
-						<th colspan="2" style="text-align: end">
+						<th colspan="2" style="text-align: end; border:none;">
 							<input type="button" id="delete_btn" class="view_btn btn btn-primary" value="삭제하기" onclick="deleteBoard()">
 							<input type="button" class="view_btn btn btn-primary" value="수정하기" onclick="updateBoard()">
 						</th>
