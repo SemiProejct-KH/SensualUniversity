@@ -28,7 +28,6 @@
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
 <!-- SweetAlert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <body>
 	<section>
 		<div id="top_bar">
