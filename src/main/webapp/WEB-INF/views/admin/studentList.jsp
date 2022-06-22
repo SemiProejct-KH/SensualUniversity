@@ -8,8 +8,10 @@
 	String pagebar = (String) request.getAttribute("pagebar");
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
-	
 %>
+#pagebar > a {
+    color: black;
+}
 <section class="section" style="width: 83%; height:100%;">
 	<div class="content-body">
 	    <div class="container-fluid" style="margin-top:100px;">	
@@ -18,9 +20,9 @@
 	            <div class="col-12">
 	                <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
 	                    <ol class="breadcrumb">
-	                        <li class="breadcrumb-item"><a href="<%= request.getContextPath() %>/admin/memberList" style="text-decoration-line: none;">홈</a></li>
-	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/studentList" style="text-decoration-line: none;">학생 관리</a></li>
-	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/professorList" style="text-decoration-line: none;">교수 관리</a></li>
+	                        <li class="breadcrumb-item"><a href="<%= request.getContextPath() %>/admin/memberList" style="text-decoration-line: none; color:black;">홈</a></li>
+	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/studentList" style="text-decoration-line: none; color:black;">학생 관리</a></li>
+	                        <li class="breadcrumb-item active" aria-current="page"><a href="<%= request.getContextPath() %>/admin/professorList" style="text-decoration-line: none; color:black;">교수 관리</a></li>
 	                    </ol>
 	                </nav>
 	                
@@ -104,9 +106,7 @@
 	                </div>
 	            </div>
 	        </div>
-	   
 	    </div>
-	</div>
 	
 	<div class="page_bar"id="pagebar">
 	<% if(pagebar != null) { %>

@@ -18,8 +18,8 @@
             </select>
         </div>
         <div id="chatroom_chat_container">
-            <label for="" style="font-size: 15px;">접속 인원수 : </label>
-            <span id="clientCnt"></span>
+            <!-- <label for="" style="font-size: 15px;">접속 인원수 : </label>
+            <span id="clientCnt"></span>  -->
             <div id="chatroom_chat">
                 <div id="msg-container" class="msg_container">
                     <ul>
@@ -81,7 +81,7 @@ const messageHandler = (payload) => {
 	container.scrollTop = container.scrollHeight;
 	
 	// 채팅인원수 관리
-	clientCnt && (document.querySelector("#clientCnt").innerHTML = clientCnt);
+	// clientCnt && (document.querySelector("#clientCnt").innerHTML = clientCnt);
 };
 
 
