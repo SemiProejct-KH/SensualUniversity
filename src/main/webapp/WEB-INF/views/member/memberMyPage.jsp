@@ -87,6 +87,7 @@
 	                  <button type="submit" class="btn_bar1" onclick="updateMember();">정보수정</button>
 	                  <button type="button" class="btn_bar2" onclick="location.href='<%= request.getContextPath() %>/member/passwordUpdate';">비밀번호수정</button>
 	                  <button type="button" class="btn_bar3" onclick="deleteMember();">회원탈퇴</button>
+	              	  <button id="delete">연습</button>
 	              </div>
 	          </div>
 	      </form>
@@ -99,11 +100,33 @@
 	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
 </form>
 <script>
+
 const deleteMember = () => {
-	if(confirm("정말로 탈퇴하시겠습니까?")){
+	/* if(confirm("정말로 탈퇴하시겠습니까?")){
 		document.memberDelFrm.submit();
-	}
+	} */
+	swal("정말로 탈퇴하시겠습니까?", {
+		  buttons: ["취소", true],
+		});
 }
+
+
+swal({
+	  title: "Are you sure?",
+	  text: "Once deleted, you will not be able to recover this imaginary file!",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {
+	    swal("Poof! Your imaginary file has been deleted!", {
+	      icon: "success",
+	    });
+	  } else {
+	    swal("Your imaginary file is safe!");
+	  }
+	});
 /* 회원수정폼 유효성 검사 */
 document.memberUpdateFrm.onsubmit = () => {
 	// memberName
