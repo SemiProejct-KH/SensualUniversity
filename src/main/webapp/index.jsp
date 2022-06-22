@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	// 주석 추가 
 	Member loginMember = (Member) request.getAttribute("loginMember");
 
 	String msg = (String) session.getAttribute("msg");
