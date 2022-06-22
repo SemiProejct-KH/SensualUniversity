@@ -66,10 +66,6 @@
 %>
 			</tbody>
 		</table>
-		<br />
-		<br />
-			<a href="<%= request.getContextPath() %>/chat/chatroom"><button id="refute" class="btn btn-primary" style="float:right">채팅으로 이의제기하기</button></a>
-
 		<script>
 		    $(document).ready(function () {
 		        
