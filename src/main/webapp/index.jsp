@@ -54,6 +54,10 @@ window.onload = () => {
 	<% if("findPwRusultSuccess".equals(msg)) {%>
 	swal('비밀번호 변경 성공', "변경된 비밀번호로 로그인해주세요.", 'success');
 	<% } %>
+	// 회원탈퇴
+	<% if("memberDelete".equals(msg)) {%>
+	swal('회원탈퇴 성공', "성공적으로 회원탈퇴되었습니다.", 'success');
+	<% } %>
 <% } %>
 <% if(loginMember == null) { %>
 	document.loginFrm.onsubmit = (e) => {
