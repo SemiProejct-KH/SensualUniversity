@@ -20,6 +20,9 @@ div.board_menu li a {
 div.board_menu li a:hover {
 	font-weight: bold;
 }
+div#pageBar {
+	color: black;
+}
 th.line1 {
 	width: 100px;
     height: 30px;
@@ -76,9 +79,12 @@ section.notice_container_view > input {
 	float: right;
 	margin: -19px 0px;
 }
-
+a {
+	color: black;
+    text-decoration: none;
+}
 /* Update */
-table#tbl_view {
+table.tbl_view {
 	text-align: center;
 	border: 1px solid #dddddd;
 }

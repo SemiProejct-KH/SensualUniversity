@@ -17,9 +17,6 @@
 %>
 <section class="notice_container_view section">
 <div style="margin-top:100px;"></div>
-	<% if(loginMember != null) { %>
-		<input type="button" value="1:1채팅" class="btn btn-primary" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom';"/>
-	<% } %>
 	<div class="container">
 		<div class="row">
 			<span class="span_view" style="font-weight:bold">분실물</span>	
