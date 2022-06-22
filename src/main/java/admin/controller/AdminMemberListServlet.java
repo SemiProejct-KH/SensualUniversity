@@ -26,35 +26,28 @@ public class AdminMemberListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			
-			// 페이지바
 			int numPerPage = MemberService.NUM_PER_PAGE;
 			int cPage = 1;
-			try {
-				cPage = Integer.parseInt(request.getParameter("cPage"));
-			} catch (NumberFormatException e) {
+				try {
+					cPage = Integer.parseInt(request.getParameter("cPage"));
+				} catch (NumberFormatException e) {
 				
 			}
-			
-			// 페이지바
 			Map<String, Object> param = new HashMap<>();
 			int start = (cPage - 1) * numPerPage + 1;
 			int end = cPage * numPerPage;
 			param.put("start", start);
 			param.put("end", end);
 			
-			int totalContents = memberService.getTotalContents(); // select count(*) from member
+			int totalContents = memberService.getTotalContents();
 			String url = request.getRequestURI();
 			String pagebar = PageBar.getPagebar(cPage, numPerPage, totalContents, url);
 			System.out.println("pagebar = " + pagebar);
 			
-			// 학생조회
 			List<MemberExt> list = memberService.studentFindAll(param);
 			System.out.println("list = " + list);
 			
-			// 학생조회 view단처리
 			request.setAttribute("list", list);
-			// 페이지바 view단 처리
 			request.setAttribute("pagebar", pagebar);
 			request
 				.getRequestDispatcher("/WEB-INF/views/admin/memberList.jsp")
