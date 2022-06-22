@@ -108,18 +108,18 @@ const deleteMember = () => {
 document.memberUpdateFrm.onsubmit = () => {
 	// memberName
 	if(!/^[가-힣]{2,}$/.test(memberName.value)){
-		alert("이름은 한글 2글자이상 입력해주세요.");
+		swal('유효성 검사[이름]', "이름은 한글 2글자이상 입력해주세요.", 'warning');
 		return false;
 	}
 	
 	// phone
 	if(!/^010\d{8}$/.test(memberPhone.value)){
-		alert("유효한 전화번호를 입력하세요.");
+		swal('유효성 검사[전화번호]', "유효한 전화번호를 입력하세요.", 'warning');
 		return false;
 	}
 	// email
 	if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/.test(memberEmail.value)){
-		alert("유효한 이메일을 입력하세요.");
+		swal('유효성 검사[이메일]', "유효한 이메일을 입력하세요.", 'warning');
 		return false;
 	}
 };

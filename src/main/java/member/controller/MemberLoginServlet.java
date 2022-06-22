@@ -56,7 +56,7 @@ public class MemberLoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/main/mainPage");
 		}
 		else {
-			session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			session.setAttribute("msg", "memberLogin");
 			// 4. 실패시 응답처리 
 			String Referer = request.getHeader("Referer"); 
 			response.sendRedirect(Referer);

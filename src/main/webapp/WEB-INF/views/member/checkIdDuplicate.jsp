@@ -87,7 +87,7 @@ const closePopup = () => {
 };
 document.checkIdDuplicateFrm.onsubmit = () => {
 	if(!/^[a-z]+[a-z0-9]{5,11}$/g.test(memberId.value)){
-		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
+		swal('유효성 검사[아이디]', "아이디는 영문자/숫자로 4글자 이상이어야 합니다.", 'warning');
 		return false;
 	}
 };

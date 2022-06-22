@@ -48,12 +48,12 @@ public class FindPassword extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(member != null) {
 			session.setAttribute("member", member);
-			msg = "새로 사용할 비밀번호를 입력해주세요.";
+			msg = "findPwSuccess";
 			RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/member/findPwResult.jsp");
 			reqDispatcher.forward(request, response);
 			
 		} else {
-			msg = "조회된 회원이 없습니다.";
+			msg = "findPwFail";
 		}
 		request.getSession().setAttribute("msg", msg);
 	}

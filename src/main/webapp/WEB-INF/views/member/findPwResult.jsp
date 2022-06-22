@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/css/findPwResult.css?after" />
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
+  <!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 <section class="section_pw_result">
@@ -60,12 +62,19 @@
 <script>
 window.onload = () => {
 	<% if(msg != null){ %>
-	alert("<%= msg %>");
+		// 비밀번호 찾기 성공
+		<% if("findPwRusultSuccess".equals(msg)) {%>
+		swal('비밀번호 찾기 성공', "변경할 비밀번호를 입력해주세요.", 'success');
+		<% } %>
+		// 비밀번호 찾기 후 기존비밀번호 불일치
+		<% if("findPwRusultFail".equals(msg)) {%>
+		swal('비밀번호 수정 실패', "기존 비밀번호가 일치하지 않습니다.", 'error');
+		<% } %>
 	<% } %>
 }
 newPasswordCheck.onblur = () => {
 	if(newPassword.value !== newPasswordCheck.value){
-		alert("두 비밀번호가 일치하지 않습니다.");
+		swal('비밀번호 불일치', "두 비밀번호가 일치하지 않습니다.", 'warining');
 		return false; // 폼 유효성 검사에서 사용
 	}	
 	return true;
@@ -74,7 +83,7 @@ newPasswordCheck.onblur = () => {
 document.findPwResult.onsubmit = () => {
 	
 	if(!/^[A-Za-z0-9!@#$%^&*()]{4,}$/.test(newPassword.value)){
-		alert("새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.");
+		swal('유효성 검사[비밀번호]', "새 비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.", 'warining');
 		return false;
 	}
 	if(!newPasswordCheck.onblur()){

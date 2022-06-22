@@ -123,7 +123,7 @@
 const checkIdDuplicate = () => {
 	// ^[A-Za-z]{1}[A-Za-z0-9]{3,19}$; // 4~20자리 영(대, 소),숫자 - 첫글자는 숫자 사용불가
 	if(!/^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/.test(_memberId.value)){
-		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
+		swal('유효성 검사[아이디]', "아이디는 영문자/숫자로 4글자 이상이어야 합니다.", 'warning');
 	}
 	else{	
 		const title = "checkIdDuplicatePopup";
@@ -138,7 +138,7 @@ const checkIdDuplicate = () => {
 };
 passwordCheck.onblur = () => {
 	if(_password.value !== passwordCheck.value){
-		alert("비밀번호가 일치하지 않습니다.");
+		swal('비밀번호 불일치', "두 비밀번호가 일치하지 않습니다.", 'warning');
 		return false;
 	}	
 	return true;
@@ -150,16 +150,16 @@ document.memberEnrollFrm.onsubmit = () => {
 	// memberId
 	// ^[A-Za-z]{1}[A-Za-z0-9]{3,19}$ // 4~20자리 영(대, 소),숫자 - 첫글자는 숫자 사용불가
 	if(!/^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/.test(_memberId.value)){
-		alert("아이디는 영문자/숫자로 4글자 이상이어야 합니다.");
+		swal('유효성 검사[아이디]', "아이디는 영문자/숫자로 4글자 이상이어야 합니다.", 'warning');
 		return false;
 	}
 	if(idValid.value !== "1") {
-		alert("아이디 중복검사 해주세요.");
+		swal('유효성 검사[아이디]', "아이디 중복검사 해주세요.", 'warning');
 		return false;
 	}
 	// password
 	if(!/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}$/.test(_password.value)){
-		alert("비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.");
+		swal('유효성 검사[비밀번호]', "비밀번호는 영문,숫자 조합 4 ~ 16글자 이상어야 합니다.", 'warning');
 		return false;
 	}
 	if(!passwordCheck.onblur()){
@@ -167,17 +167,17 @@ document.memberEnrollFrm.onsubmit = () => {
 	}
 	// memberName
 	if(!/^[가-힣]{2,}$/.test(memberName.value)){
-		alert("이름은 한글 2글자이상 입력해주세요.");
+		swal('유효성 검사[이름]', "이름은 한글 2글자이상 입력해주세요.", 'warning');
 		return false;
 	}
 	// phone
 	if(!/^010\d{8}$/.test(memberPhone.value)){
-		alert("유효한 전화번호를 입력하세요.");
+		swal('유효성 검사[전화번호]', "유효한 전화번호를 입력하세요.", 'warning');
 		return false;
 	}
 	// email
 	if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/.test(memberEmail.value)){
-		alert("유효한 이메일을 입력하세요.");
+		swal('유효성 검사[이메일]', "유효한 이메일을 입력하세요.", 'warning');
 		return false;
 	}
 	return true;

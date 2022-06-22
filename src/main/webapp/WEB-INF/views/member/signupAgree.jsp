@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/css/signupAgree.css?after" />
   <!-- favicon -->
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico">
+  <!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
   <body>
 	<section class="section_agree">
@@ -216,13 +218,13 @@ $(document).ready(function(e) {
 		} else {
 			if(!$("#checkbox1").is(":checked"))
 			{
-				alert("약관을 동의하셔야 합니다.");
+				swal('이용약관 동의', "약관을 동의하셔야 합니다.", 'warning');
 				$('#checkbox1').focus();  // 해당 체크박스로 포커스 이동.
 				return;
 			}
 			if(!$("#checkbox2").is(":checked"))
 			{
-				alert("개인정보처리방침에 동의하셔야 합니다.");
+				swal('이용약관 동의', "개인정보처리방침에 동의하셔야 합니다.", 'warning');
 				$('#checkbox2').focus();
 				return;
 			}

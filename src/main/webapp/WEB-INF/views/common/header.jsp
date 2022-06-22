@@ -66,19 +66,54 @@
 <script>
 // 로그인폼 정규표현식
 window.onload = () => {
-<% if(msg != null){ 
-	// 회원정보수정
-	if("memberUpdate".equals(msg) ) {%>
-	swal('<%= msg %>', "회원정보 수정을 완료하였습니다.", 'success');
+	<% if(msg != null){ 
+		// 회원정보수정
+		if("memberUpdate".equals(msg)) {%>
+		swal('회원정보 수정 성공', "회원정보 수정을 완료하였습니다.", 'success');
+		<% } %>
+		// 비밀번호 수정 성공
+		<% if("passwordUpdateFail".equals(msg)) {%>
+		swal('비밀번호 수정 실패', "기존 비밀번호가 일치하지 않습니다.", 'error');
+		<% } %>
+		// 비밀번호 수정 실패
+		<% if("passwordUpdateSuccess".equals(msg)) {%>
+		swal('비밀번호 수정 성공', "비밀번호를 성공적으로 변경했습니다.", 'success');
+		<% } %>
+		// 회원탈퇴
+		<% if("memberDelete".equals(msg)) {%>
+		swal('회원탈퇴', "성공적으로 탈퇴되었습니다.", 'success');
+		<% } %>
+		// 회원가입
+		<% if("memberEnroll".equals(msg)) {%>
+		swal('회원가입', "성공적으로 회원가입했습니다.", 'success');
+		<% } %>
+		// 게시글 삭제 실패
+		<% if("noticeDeleteFail".equals(msg)) {%>
+		swal('게시글 삭제 실패', "게시글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("questionDeleteFail".equals(msg)) {%>
+		swal('게시글 삭제 실패', "게시글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("studyDeleteFail".equals(msg)) {%>
+		swal('게시글 삭제 실패', "게시글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("lastPropertyDeleteFail".equals(msg)) {%>
+		swal('게시글 삭제 실패', "게시글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		// 댓글 삭제 실패
+		<% if("noticeCommentDeleteFail".equals(msg)) {%>
+		swal('댓글 삭제 실패', "댓글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("questionCommentDeleteFail".equals(msg)) {%>
+		swal('댓글 삭제 실패', "댓글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("studyCommentDeleteFail".equals(msg)) {%>
+		swal('댓글 삭제 실패', "댓글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		<% if("lastPropertyCommentDeleteFail".equals(msg)) {%>
+		swal('댓글 삭제 실패', "댓글 삭제가 실패되었습니다.", 'error');
+		<% } %>
+		
 	<% } %>
-	// 비밀번호 수정 성공
-	<% if("passwordUpdateFail".equals(msg) ) {%>
-	swal('<%= msg %>', "비밀번호를 성공적으로 변경했습니다.", 'success');
-	<% } %>
-	// 비밀번호 수정 실패
-	<% if("passwordUpdateSuccess".equals(msg) ) {%>
-	swal('<%= msg %>', "비밀번호를 성공적으로 변경했습니다.", 'success');
-	<% } %>
-<% } %>
 }
 </script>
