@@ -163,7 +163,7 @@ const loginAlert = () => {
 	alert("로그인후 이용할 수 있습니다.");
 	document.querySelector("#memberId").focus();
 };
-
+// 주석추가
 </script>
 
 <% if(canEdit){ %>
