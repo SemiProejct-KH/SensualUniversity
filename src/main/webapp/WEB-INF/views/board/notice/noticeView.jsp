@@ -13,19 +13,10 @@ NoticeExt notice = (NoticeExt)request.getAttribute("notice");
 %>
 <section id="" class="notice_container_view section">
 <div style="margin-top:100px;"></div>
-	<%
-
-			if(loginMember != null && loginMember.getMemberRole() != MemberRole.A) {
-	%>
-		<input type="button" value="1:1채팅" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/chat/chatroom';"/>
-	<%
-
-			}
-	%>
 	<div class="container">
 		<div class="row">
 			<span style="font-weight:bold">공지사항</span>	
-			<table id="" class="tbl_view table table-bordered">
+			<table class="tbl_view table table-bordered">
 				<tbody>
 					<tr>
 						<th style="width: 20%;">제목</th>
