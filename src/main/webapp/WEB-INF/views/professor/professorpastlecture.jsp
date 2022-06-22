@@ -13,7 +13,11 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 
 <section class="section">
 <div style="margin-top:100px;"></div>
-	<select class="form" id="selectlecture" name="selectlecture">
+	
+	<button type="button" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture';">현재학기 강의 및 학생조회</button>
+	<button type="button" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture/past';">지난학기 강의 및 학생조회</button>
+	
+	<select class="custom-select form-select form-select-sm" aria-label=".form-select-sm example" id="selectlecture"  name="selectlecture">
 		<%
 					if (past == null || past.isEmpty()) {
 					%>
@@ -31,18 +35,8 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 					}
 					%>
 	</select>
-	<table>
-		<tr>
-			<th><button type="button"
-					onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture';">현재학기
-					강의 및 학생조회</button></th>
-			<th><button type="button"
-					onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture/past';">지난학기
-					강의 및 학생조회</button></th>
-		</tr>
-	</table>
 
-	<table id="record" class ="table table-striped table-hover">
+	<table id="record" class ="table table-striped table-hover" style="margin:auto">
 		<thead class="table-primary">
 			<tr>
 				<th class="line1">강의년도, 학기</th>
