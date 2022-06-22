@@ -118,7 +118,7 @@
 	</div>
 	<div class="container-fluid" style="margin-bottom:100px;"></div>
 </section>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
 $().ready(function () {
     $("#confirmStart").click(function () {
