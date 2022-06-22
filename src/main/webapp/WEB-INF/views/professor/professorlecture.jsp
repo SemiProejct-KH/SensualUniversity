@@ -14,8 +14,18 @@ List<ProfessorLecture> list = (List<ProfessorLecture>) request.getAttribute("lis
 <section class="section">
 <div style="margin-top:100px;"></div>
 	
-		<button type="button" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture';">현재학기 강의 및 학생조회</button>
-	<button type="button" class="btn btn-outline-primary" onclick="location.href='<%=request.getContextPath()%>/professor/professorlecture/past';">지난학기 강의 및 학생조회</button>
+	   <div class="btns2" >
+         <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture';" style="text-decoration: none; color: black;">현재학기 강의 및 학생조회</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#" onclick="location.href='<%= request.getContextPath() %>/professor/professorlecture/past';" style="text-decoration: none; color: black;">지난학기 강의 및 학생조회</a>
+            </li>
+          </ol>
+        </nav>
+    </div>
 	
 	<select class="custom-select form-select form-select-sm" aria-label=".form-select-sm example" id="selectlecture" name="selectlecture">
 		<%
