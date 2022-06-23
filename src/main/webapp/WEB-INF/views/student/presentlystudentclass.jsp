@@ -107,14 +107,21 @@
             
             async: false,
             success: function(data) {
-            	swal('수강 취소', "성공적으로 취소되었습니다.", 'success');
+            	
+            	swal({
+            		title : "성공적으로 취소되었습니다.",
+            	    	icon  : "success",
+            	    	closeOnClickOutside : false
+            	}).then(function(){
+            		window.location.reload();
+            	});
             },
             error: function(msg, error) {
             	swal('수강 취소', "취소에 실패하였습니다.", 'error');
             }
+     
 		});
 		
-		window.location.reload();
 	});
 	</script>
 		<div style="margin-bottom:100px;">
