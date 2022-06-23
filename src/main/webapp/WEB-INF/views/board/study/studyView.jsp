@@ -93,7 +93,7 @@
 		<% if (comments != null && !comments.isEmpty()) { %>
 		<table class="tbl_comment">
 			<tbody>
-			<%
+			<% //
 				for(BoardComment bc : comments) {
 			%>
 				<tr>
