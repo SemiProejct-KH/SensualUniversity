@@ -93,7 +93,7 @@
 		<% if (comments != null && !comments.isEmpty()) { %>
 		<table class="tbl_comment">
 			<tbody>
-			<%
+			<% //
 				for(BoardComment bc : comments) {
 			%>
 				<tr>
@@ -104,10 +104,12 @@
 						<sub class="comment_content"><%= bc.getContent() %></sub>
 					</td>
 					<td>
-						<% if(!canEdit) { %>
+						<% if(!loginMember.getMemberId().equals(bc.getMemberId())) { %>
 						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">채팅</button>
 						<% } %>
-						<% if(canEdit) { %>
+						<% if(loginMember != null 
+								&& (loginMember.getMemberId().equals(bc.getMemberId()) 
+										|| loginMember.getMemberRole() == MemberRole.A)) { %>
 							<button class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
 						<% } %>
 					</td>
@@ -172,6 +174,24 @@ const loginAlert = () => {
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
+$().ready(function () {
+    $(".delete_btn").click(function () {
+        Swal.fire({
+            title: '정말로 삭제하시겠습니까?',
+            text: "다시 되돌릴 수 없습니다. 신중하세요.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '확인',
+            cancelButtonText: '취소'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            	document.boardDeleteFrm.submit();
+            }
+        })
+    });
+});
 $().ready(function () {
     $("#delete_btn").click(function () {
         Swal.fire({

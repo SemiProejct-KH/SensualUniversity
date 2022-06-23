@@ -32,7 +32,7 @@ List<NoticeExt> list = (List<NoticeExt>) request.getAttribute("list");
 				<th class="line1">제목</th>
 				<th class="line1">작성자</th>
 				<th class="line1">작성일</th>
-			 	<th class="line1" style="width:58px">&nbsp&nbsp&nbsp조회수</th>
+			 	<th class="line1">&nbsp&nbsp&nbsp조회수</th>
 			</tr>
 		</thead>
 		<tbody>
