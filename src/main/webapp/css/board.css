@@ -13,6 +13,7 @@
 }
 section.list_section {
 	width: 75%;
+	height: 750px;
 }
 div.board_menu li a {
 	text-decoration: none;	
@@ -85,6 +86,10 @@ a {
 	color: black;
     text-decoration: none;
 }
+
+table.tbl_view td {
+	border: none;
+}
 /* Update */
 table.tbl_view {
 	text-align: center;
@@ -127,7 +132,7 @@ button.btn_delete {
 table.tbl_comment tr td{border-bottom:0.5px solid; border-top:0.5px solid; padding:5px; text-align:left; line-height:120%;}
 table.tbl_comment tr td:first-of-type{padding: 0px -1px 5px 50px;}
 table.tbl_comment tr td:last-of-type {text-align:right; width: 100px;}
-table.tbl_comment button.reply_go_chat{width: 48px; height:25px; border: 1px solid gray; border-radius: 4px; font-size:12px}
+table.tbl_comment button.reply_go_chat{margin:6px 0px; width: 48px; height:25px; border: 1px solid gray; border-radius: 4px; font-size:12px}
 table.tbl_comment tr:hover {background:lightgray;}
 table.tbl_comment tr:hover button.btn-reply{display:inline;}
 sub.comment_writer {margin-right:10px; font-size:12px; font-weight:600;}
