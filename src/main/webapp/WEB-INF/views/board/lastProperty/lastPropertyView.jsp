@@ -125,7 +125,7 @@
 <form action="<%= request.getContextPath() %>/board/lastPropertyCommentDelete"
 	 name="boardCommentDelFrm"
 	 method="post">
-	 <input type="hidden" name="commentNo"/>
+	 <input type="hidden" name="commentNo"/> 
 	 <input type="hidden" name="boardNo" value="<%= board.getBoardNo() %>"/>
 </form>
 <script>

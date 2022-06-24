@@ -16,6 +16,7 @@ import board.model.service.LastPropertyService;
 @WebServlet("/board/lastPropertyCommentDelete")
 public class LastPropertyCommentDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//
 	private LastPropertyService lastPropertyService = new LastPropertyService();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
