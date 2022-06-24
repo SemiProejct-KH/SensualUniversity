@@ -322,7 +322,7 @@ public class LastPropertyDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<BoardComment> comments = new ArrayList<>();
-		String sql = "select * from board_comment where board_no = ?";
+		String sql = "select * from board_comment where board_no = ? order by reg_date";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
