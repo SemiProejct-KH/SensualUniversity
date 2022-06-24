@@ -113,6 +113,9 @@ window.onload = () => {
 		<% if("lastPropertyCommentDeleteFail".equals(msg)) {%>
 		swal('댓글 삭제 실패', "댓글 삭제가 실패되었습니다.", 'error');
 		<% } %>
+		<% if("commentDelete".equals(msg)) {%>
+		swal('댓글 삭제 성공', "댓글이 삭제되었습니다.", 'success');
+		<% } %>
 		
 	<% } %>
 }

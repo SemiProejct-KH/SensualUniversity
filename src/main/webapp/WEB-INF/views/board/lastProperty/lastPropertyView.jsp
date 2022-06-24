@@ -98,6 +98,7 @@
 			%>
 				<tr>
 					<td>
+						 <input type="hidden" name="commentNo"/>
 						<sub class="comment_writer"><%= bc.getMemberId() != null ? bc.getMemberId() : "(탈퇴회원)" %></sub>
 						<sub class="comment_date"><%= bc.getRegDate() %></sub>
 						<br />
@@ -110,7 +111,7 @@
 						<% if(loginMember != null 
 								&& (loginMember.getMemberId().equals(bc.getMemberId()) 
 										|| loginMember.getMemberRole() == MemberRole.A)) { %>
-							<button id="delete_btn" class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
+							<button id="comment_del_btn" class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
 						<% } %>
 					</td>
 				</tr>
@@ -124,19 +125,24 @@
 <form action="<%= request.getContextPath() %>/board/lastPropertyCommentDelete"
 	 name="boardCommentDelFrm"
 	 method="post">
-	 <input type="hidden" name="commentNo" />
+	 <input type="hidden" name="commentNo"/>
 	 <input type="hidden" name="boardNo" value="<%= board.getBoardNo() %>"/>
 </form>
 <script>
 /**
  * .btn-reply click eventhandler binding 
  */
-
+ document.querySelectorAll("#comment_del_btn").forEach((button) => {
+		button.onclick = (e) => {
+			if(!confirm("정말 삭제하시겠습니까?")) return;
+			document.boardCommentDelFrm.no.value = e.target.value;
+			document.boardCommentDelFrm.submit();
+		}
+	});
 document.querySelector("textarea[name=content]").onfocus = (e) => {
 	if(<%= loginMember == null %>)
 		loginAlert();
 };
-
 const commentSubmitHandler = (e) => {
 	if(<%= loginMember == null %>){
 		loginAlert();
@@ -151,9 +157,7 @@ const commentSubmitHandler = (e) => {
 	}
 	
 };
-
 document.boardCommentFrm.onsubmit = commentSubmitHandler;
-
 const loginAlert = () => {
 	alert("로그인후 이용할 수 있습니다.");
 	document.querySelector("#memberId").focus();
@@ -167,26 +171,6 @@ const loginAlert = () => {
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-
-$().ready(function () {
-    $(".btn_delete").click(function () {
-        Swal.fire({
-            title: '정말로 삭제하시겠습니까?',
-            text: "다시 되돌릴 수 없습니다. 신중하세요.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: '확인',
-            cancelButtonText: '취소'
-        }).then((result) => {
-            if (result.isConfirmed) {
-            	document.boardCommentDelFrm.submit();
-            	document.boardDeleteFrm.submit();
-            }
-        })
-    });
-});
 $().ready(function () {
     $("#delete_btn").click(function () {
         Swal.fire({
@@ -205,6 +189,7 @@ $().ready(function () {
         })
     });
 });
+
 const updateBoard = () => {
 	location.href = "<%= request.getContextPath() %>/board/lastPropertyUpdate?no=<%= board.getBoardNo() %>";
 }
