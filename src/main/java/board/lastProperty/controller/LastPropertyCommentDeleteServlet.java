@@ -27,7 +27,6 @@ public class LastPropertyCommentDeleteServlet extends HttpServlet {
 			System.out.println("commentNo = " + commentNo);
 			int result = lastPropertyService.deleteBoardComment(commentNo);		
 			//3. 리다이렉트
-			request.getSession().setAttribute("msg", "commentDelete");
 			response.sendRedirect(request.getContextPath() + "/board/lastPropertyView?no=" + boardNo);
 			
 ;		} catch(Exception e) {

@@ -98,7 +98,6 @@
 			%>
 				<tr>
 					<td>
-						 <input type="hidden" name="commentNo"/>
 						<sub class="comment_writer"><%= bc.getMemberId() != null ? bc.getMemberId() : "(탈퇴회원)" %></sub>
 						<sub class="comment_date"><%= bc.getRegDate() %></sub>
 						<br />
@@ -171,6 +170,24 @@ const loginAlert = () => {
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
+$().ready(function () {
+    $("#comment_del_btn").click(function () {
+        Swal.fire({
+            title: '정말로 삭제하시겠습니까?',
+            text: "다시 되돌릴 수 없습니다. 신중하세요.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '확인',
+            cancelButtonText: '취소'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            	document.boardDeleteFrm.submit();
+            }
+        })
+    });
+});
 $().ready(function () {
     $("#delete_btn").click(function () {
         Swal.fire({
