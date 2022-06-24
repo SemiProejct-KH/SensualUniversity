@@ -49,7 +49,6 @@ public class LastPropertyDeleteServlet extends HttpServlet {
 		int result = lastPropertyService.deleteBoard(no);
 		
 		// 3. redirect : /mvc/board/boardList로 이동
-		request.getSession().setAttribute("msg", msg);
 		response.sendRedirect(request.getContextPath() + "/board/lastPropertyList");
 	} catch (Exception e) {
 		e.printStackTrace();

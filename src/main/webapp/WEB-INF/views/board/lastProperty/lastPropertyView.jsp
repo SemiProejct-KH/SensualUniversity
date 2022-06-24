@@ -19,8 +19,8 @@
 <div style="margin-top:100px;"></div>
 	<div class="container">
 		<div class="row">
-			<span class="span_view" style="font-weight:bold">분실물</span>	
-			<table class="tbl_view table table-bordered">
+			<span class="span_view" style="font-weight:bold">분실물 게시판</span>	
+			<table id="tbl_view" class="tbl_view table table-bordered">
 				<tbody>
 					<tr>
 						<th style="width: 20%;">제목</th>
@@ -95,6 +95,9 @@
 			<tbody>
 			<%
 				for(BoardComment bc : comments) {
+					boolean canDelete = loginMember != null 
+							&& (loginMember.getMemberId().equals(bc.getMemberId()) 
+									|| loginMember.getMemberRole() == MemberRole.A);
 			%>
 				<tr>
 					<td>
@@ -104,14 +107,13 @@
 						<sub class="comment_content"><%= bc.getContent() %></sub>
 					</td>
 					<td>
+						<% if(canDelete) { %>
+							<button class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
+						<% } %>
 						<% if(!loginMember.getMemberId().equals(bc.getMemberId())) { %>
 						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">채팅</button>
 						<% } %>
-						<% if(loginMember != null 
-								&& (loginMember.getMemberId().equals(bc.getMemberId()) 
-										|| loginMember.getMemberRole() == MemberRole.A)) { %>
-							<button id="comment_del_btn" class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
-						<% } %>
+
 					</td>
 				</tr>
 			<% } 
@@ -124,24 +126,15 @@
 <form action="<%= request.getContextPath() %>/board/lastPropertyCommentDelete"
 	 name="boardCommentDelFrm"
 	 method="post">
-	 <input type="hidden" name="commentNo"/> 
+	 <input type="hidden" name="commentNo" />
 	 <input type="hidden" name="boardNo" value="<%= board.getBoardNo() %>"/>
 </form>
 <script>
-/**
- * .btn-reply click eventhandler binding 
- */
- document.querySelectorAll("#comment_del_btn").forEach((button) => {
-		button.onclick = (e) => {
-			if(!confirm("정말 삭제하시겠습니까?")) return;
-			document.boardCommentDelFrm.no.value = e.target.value;
-			document.boardCommentDelFrm.submit();
-		}
-	});
 document.querySelector("textarea[name=content]").onfocus = (e) => {
 	if(<%= loginMember == null %>)
 		loginAlert();
 };
+
 const commentSubmitHandler = (e) => {
 	if(<%= loginMember == null %>){
 		loginAlert();
@@ -150,28 +143,29 @@ const commentSubmitHandler = (e) => {
 	
 	const contentVal = e.target.content.value.trim();
 	if(!/^(.|\n)+$/.test(contentVal)){
-		alert("댓글 내용을 작성해주세요.");
-		e.target.content.focus();
-		return false;
-	}
-	
-};
-document.boardCommentFrm.onsubmit = commentSubmitHandler;
-const loginAlert = () => {
-	alert("로그인후 이용할 수 있습니다.");
-	document.querySelector("#memberId").focus();
-};
-// 주석추가
+	   swal.fire('댓글 작성 실패', "댓글 내용을 작성해주세요.", 'warning');
+	   e.target.content.focus();
+	   return false;
+	};
+
+	document.boardCommentFrm.onsubmit = commentSubmitHandler;
+
+	const loginAlert = () => {
+	   swal.fire('로그인을 하세요.', "로그인후 이용하실 수 있습니다\.", 'warning');
+	   document.querySelector("#memberId").focus();
+	};
+
 </script>
 
-<% if(canEdit){ %>
+
 <form action="<%= request.getContextPath() %>/board/lastPropertyDelete" name="boardDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= board.getBoardNo() %>" />
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-$().ready(function () {
-    $("#comment_del_btn").click(function () {
+document.querySelectorAll(".btn_delete").forEach((button) => {
+    button.onclick = (e) => {
+        document.querySelector("input[name=commentNo]").value = e.target.value;
         Swal.fire({
             title: '정말로 삭제하시겠습니까?',
             text: "다시 되돌릴 수 없습니다. 신중하세요.",
@@ -183,11 +177,11 @@ $().ready(function () {
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.isConfirmed) {
-            	document.boardDeleteFrm.submit();
+                document.boardCommentDelFrm.submit();
             }
         })
-    });
-});
+    }
+})
 $().ready(function () {
     $("#delete_btn").click(function () {
         Swal.fire({
@@ -206,10 +200,8 @@ $().ready(function () {
         })
     });
 });
-
 const updateBoard = () => {
 	location.href = "<%= request.getContextPath() %>/board/lastPropertyUpdate?no=<%= board.getBoardNo() %>";
 }
 </script>
-<% } %>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

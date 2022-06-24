@@ -95,6 +95,12 @@
 			<tbody>
 			<%
 				for(BoardComment bc : comments) {
+					boolean canDelete = loginMember != null 
+							&& (loginMember.getMemberId().equals(bc.getMemberId()) 
+									|| loginMember.getMemberRole() == MemberRole.A);
+					System.out.println("bc = " + bc);
+					System.out.println("loginMember = " + loginMember.getMemberId());
+					System.out.println("canDelete = " + canDelete);
 			%>
 				<tr>
 					<td>
@@ -104,14 +110,13 @@
 						<sub class="comment_content"><%= bc.getContent() %></sub>
 					</td>
 					<td>
+						<% if(canDelete) { %>
+							<button class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
+						<% } %>
 						<% if(!loginMember.getMemberId().equals(bc.getMemberId())) { %>
 						<button class="reply_go_chat" onclick="location.href='<%= request.getContextPath() %>/chat/chatroom'">채팅</button>
 						<% } %>
-						<% if(loginMember != null 
-								&& (loginMember.getMemberId().equals(bc.getMemberId()) 
-										|| loginMember.getMemberRole() == MemberRole.A)) { %>
-							<button class="btn_delete" value="<%= bc.getCommentNo() %>">삭제</button>
-						<% } %>
+
 					</td>
 				</tr>
 			<% } 
@@ -141,30 +146,29 @@ const commentSubmitHandler = (e) => {
 	
 	const contentVal = e.target.content.value.trim();
 	if(!/^(.|\n)+$/.test(contentVal)){
-		alert("댓글 내용을 작성해주세요.");
-		e.target.content.focus();
-		return false;
-	}
-	
-};
+	   swal.fire('댓글 작성 실패', "댓글 내용을 작성해주세요.", 'warning');
+	   e.target.content.focus();
+	   return false;
+	};
 
-document.boardCommentFrm.onsubmit = commentSubmitHandler;
+	document.boardCommentFrm.onsubmit = commentSubmitHandler;
 
-const loginAlert = () => {
-	alert("로그인후 이용할 수 있습니다.");
-	document.querySelector("#memberId").focus();
-};
+	const loginAlert = () => {
+	   swal.fire('로그인을 하세요.', "로그인후 이용하실 수 있습니다\.", 'warning');
+	   document.querySelector("#memberId").focus();
+	};
 
 </script>
 
-<% if(canEdit){ %>
+
 <form action="<%= request.getContextPath() %>/board/questionDelete" name="boardDeleteFrm" method="POST">
 	<input type="hidden" name="no" value="<%= board.getBoardNo() %>" />
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-$().ready(function () {
-    $(".delete_btn").click(function () {
+document.querySelectorAll(".btn_delete").forEach((button) => {
+    button.onclick = (e) => {
+        document.querySelector("input[name=commentNo]").value = e.target.value;
         Swal.fire({
             title: '정말로 삭제하시겠습니까?',
             text: "다시 되돌릴 수 없습니다. 신중하세요.",
@@ -176,12 +180,11 @@ $().ready(function () {
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.isConfirmed) {
-        		document.boardCommentDelFrm.commentNo.value = e.target.value;
-        		document.boardCommentDelFrm.submit();
+                document.boardCommentDelFrm.submit();
             }
         })
-    });
-});
+    }
+})
 $().ready(function () {
     $("#delete_btn").click(function () {
         Swal.fire({
@@ -204,5 +207,4 @@ const updateBoard = () => {
 	location.href = "<%= request.getContextPath() %>/board/questionUpdate?no=<%= board.getBoardNo() %>";
 }
 </script>
-<% } %>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
