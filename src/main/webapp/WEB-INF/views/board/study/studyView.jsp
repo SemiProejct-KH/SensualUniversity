@@ -187,7 +187,7 @@ $().ready(function () {
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.isConfirmed) {
-            	document.boardDeleteFrm.submit();
+            	document.boardCommentDeleteFrm.submit();
             }
         })
     });
