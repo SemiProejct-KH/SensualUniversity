@@ -1,7 +1,9 @@
+![SU](https://user-images.githubusercontent.com/81818730/188549644-e7d2e853-6db8-4aed-b4ad-0cc25ec0f677.png)
+
 # Members🙋
 |이경석|김용민|최윤서|전인찬|김하늘|
 |:---:|:---:|:---:|:---:|:---:|
-|![경석](https://user-images.githubusercontent.com/81818730/187851761-10235d31-d060-4d7a-bf09-4c1b09048213.png)|![용민](https://user-images.githubusercontent.com/81818730/187851694-69d08be2-13f1-4adb-adc2-ee27a365cc53.png)|![윤서](https://user-images.githubusercontent.com/81818730/187851996-dfa3050f-af56-49cd-ad48-ddb94e07c5d1.png)|![인찬](https://user-images.githubusercontent.com/81818730/187851778-2e4550b6-3e7d-413c-abd2-87b3a056afbf.png)||
+|![경석](https://user-images.githubusercontent.com/81818730/187851761-10235d31-d060-4d7a-bf09-4c1b09048213.png)|![용민](https://user-images.githubusercontent.com/81818730/187851694-69d08be2-13f1-4adb-adc2-ee27a365cc53.png)|![윤서](https://user-images.githubusercontent.com/81818730/187851996-dfa3050f-af56-49cd-ad48-ddb94e07c5d1.png)|![인찬](https://user-images.githubusercontent.com/81818730/187851778-2e4550b6-3e7d-413c-abd2-87b3a056afbf.png)|![하늘](https://user-images.githubusercontent.com/81818730/188549779-2b05caf2-41fc-4b9b-bb1b-b50c1ab991d6.png)|
 |[lks999](https://github.com/lks999)|[ymiru0324](https://github.com/ymiru0324)|[yoonseo94](https://github.com/yoonseo94)|[Class4072](https://github.com/Class4072)|[hanneeul](https://github.com/hanneeul)|
 
 ### 단위업무
