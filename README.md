@@ -1,8 +1,8 @@
 # Members🙋
-|김용민|이경석|최윤서|전인찬|김하늘|
+|이경석|김용민|최윤서|전인찬|김하늘|
 |:---:|:---:|:---:|:---:|:---:|
-|![용민](https://user-images.githubusercontent.com/81818730/187851694-69d08be2-13f1-4adb-adc2-ee27a365cc53.png)|![경석](https://user-images.githubusercontent.com/81818730/187851761-10235d31-d060-4d7a-bf09-4c1b09048213.png)|![윤서](https://user-images.githubusercontent.com/81818730/187851996-dfa3050f-af56-49cd-ad48-ddb94e07c5d1.png)|![인찬](https://user-images.githubusercontent.com/81818730/187851778-2e4550b6-3e7d-413c-abd2-87b3a056afbf.png)||
-|[ymiru0324](https://github.com/ymiru0324)|[lks999](https://github.com/lks999)|[yoonseo94](https://github.com/yoonseo94)|[Class4072](https://github.com/Class4072)|[hanneeul](https://github.com/hanneeul)|
+|![경석](https://user-images.githubusercontent.com/81818730/187851761-10235d31-d060-4d7a-bf09-4c1b09048213.png)|![용민](https://user-images.githubusercontent.com/81818730/187851694-69d08be2-13f1-4adb-adc2-ee27a365cc53.png)|![윤서](https://user-images.githubusercontent.com/81818730/187851996-dfa3050f-af56-49cd-ad48-ddb94e07c5d1.png)|![인찬](https://user-images.githubusercontent.com/81818730/187851778-2e4550b6-3e7d-413c-abd2-87b3a056afbf.png)||
+|[lks999](https://github.com/lks999)|[ymiru0324](https://github.com/ymiru0324)|[yoonseo94](https://github.com/yoonseo94)|[Class4072](https://github.com/Class4072)|[hanneeul](https://github.com/hanneeul)|
 
 ### 단위업무
 <details>
@@ -46,7 +46,8 @@
 
 # Sensual University🏫
 - 학사 관리 사이트
-- - 학생 / 교수 / 관리자 Actor로 나누어 구현
+- 학생 / 교수 / 관리자 Actor로 나누어 구현
+
 ### 공통
 - 회원가입
 - 로그인
@@ -56,7 +57,7 @@
 - 최신 공지사항
 - 캘린더
 - 마이페이지
-- 게시팔 작성 / 수정 / 삭제 / 파일 첨부
+- 게시판 작성 / 수정 / 삭제 / 파일 첨부
 - 댓글 작성 / 수정 / 삭제
 - 채팅
 
@@ -64,6 +65,7 @@
 - 수강 신청
 - 강의 조회
 - 성적 조회
+- 지난 학기 성적 조회
 
 ### 교수
 - 강의 관리
