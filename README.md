@@ -45,6 +45,8 @@
 </details>
 
 # Sensual University🏫
+- 학사 관리 사이트
+- - 학생 / 교수 / 관리자 Actor로 나누어 구현
 ### 공통
 - 회원가입
 - 로그인
